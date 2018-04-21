@@ -1,3 +1,5 @@
+[[https://waffle.io/StevenTammen/unicode-language-layers][https://badge.waffle.io/StevenTammen/unicode-language-layers.svg?columns=all]]
+
 * About this project
 
 This project will seek to create efficient, stable, and easy-to-modify keyboard layouts for Polytonic Greek and vowel-pointed Hebrew. This endeavor is being sponsored by the University of Georgia's Center for Undergraduate Research Opportunities (CURO) through a summer fellowship. (Thanks CURO!).
