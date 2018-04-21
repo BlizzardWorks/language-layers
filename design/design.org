@@ -1,0 +1,23 @@
+#+TITLE: Teaching the Ancients to Type: Better Unicode Text Entry for Ancient Greek and Hebrew
+#+SUBTITLE:
+#+AUTHOR: Steven Tammen
+#+DATE: April 21, 2018
+#+OPTIONS: toc:2
+
+* Current solutions
+** System layouts
+** Transcription text entry
+** Homophonic layouts
+** Language-specific text editors
+
+* Problems with current solutions
+
+- Not easy to modify or customize if you want to do something differently
+- Not homophonic; lack phonetic correspondence with English letters
+- Not easy to toggle on and off
+
+* The general idea
+
+- Create homphonic keyboard layouts for ancient Greek and Hebrew
+
+* TODO Outline paper more completely
