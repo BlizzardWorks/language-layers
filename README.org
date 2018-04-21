@@ -1,0 +1,16 @@
+* About this project
+
+This project will seek to create efficient, stable, and easy-to-modify keyboard layouts for Polytonic Greek and vowel-pointed Hebrew. This endeavor is being sponsored by the University of Georgia's Center for Undergraduate Research Opportunities (CURO) through a summer fellowship. (Thanks CURO!).
+
+A research paper detailing the design process will be a priority of this project in addition to software that creates the layouts themselves.
+
+* Scope and project goals
+
+Depending on time considerations, this project may have shifting goals and priorities. The top priority will be getting functional homophonic layouts with full diacritical support. Other things, such as frequency-driven practice corpuses for typing programs, a GUI configurator, OS X and *nix support, and packaged installers are possibilities after the primary layouts are stable.
+
+* TODO Contribution Guidelines
+
+- For people comfortable with Git (e.g., pushing and pulling from a repository), Org-mode text markup, and a lack of previews.
+- For people who would rather not deal with the nitty-gritty details.
+
+* TODO Waffle.io integration
