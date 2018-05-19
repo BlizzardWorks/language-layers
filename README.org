@@ -10,9 +10,24 @@ A research paper detailing the design process will be a priority of this project
 
 Depending on time considerations, this project may have shifting goals and priorities. The top priority will be getting functional homophonic layouts with full diacritical support. Other things, such as frequency-driven practice corpuses for typing programs, a GUI configurator, OS X and *nix support, and packaged installers are possibilities after the primary layouts are stable.
 
-* TODO Contribution Guidelines
+* Contribution guidelines
 
-- For people comfortable with Git (e.g., pushing and pulling from a repository), Org-mode text markup, and a lack of previews.
-- For people who would rather not deal with the nitty-gritty details.
+I would very much like for this project to be a group effort from the collection of people that regularly need to type in languages with specialized alphabets. Due to my academic interests, I will initially be focusing on ancient Greek and Hebrew, but I am attempting to design a generalized framework abstracted out of any one particular language, and discuss design variables in such a way that layers for additional Unicode languages (such as Russian, Arabic, etc.) may be added even if they do not share exactly the same features (such as breathing marks or vowel points).
 
-* TODO Waffle.io integration
+People of all levels of technical knowledge are welcome and encouraged to contribute as possible. Below I have attempted to explain how different groups of people might go about helping this project succeed.
+
+** For people comfortable with Git (e.g., pushing and pulling from a repository), Org-mode text markup, and a lack of WHYSIWHYG and/or concurrent previews
+
+Here is a rough guide for the brave. I'm developing on Windows at the moment, so the instructions are centered on a Windows workflow.
+
+1. Enable and setup the Windows subsystem for Linux (Ubuntu). This will come with Git.
+2. Install native versions (i.e., Windows executable versions) of Emacs (with Org mode -- I recommend using Spacemacs), and TexLive. Make sure the programs are on your PATH.
+3. Clone the repository using your Ubuntu bash command line: ~git clone https://github.com/StevenTammen/unicode-language-layers.git~.
+
+
+
+** For people who would rather not deal with the nitty-gritty details.
+
+* TODO: Waffle.io integration
+
+

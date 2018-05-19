@@ -1,0 +1,9 @@
+#!/bin/bash
+
+file=$1
+filename="${file%%.*}"
+
+emacs.exe --batch -q --eval "(progn (find-file \"$file\") (org-latex-export-to-pdf))"
+rm $filename.tex
+
+cp $filename.org $filename.github

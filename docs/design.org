@@ -20,4 +20,5 @@
 
 - Create homphonic keyboard layouts for ancient Greek and Hebrew
 
+* TODO Bibliography
 * TODO Outline paper more completely
