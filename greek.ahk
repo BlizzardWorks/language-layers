@@ -41,44 +41,44 @@ addDiacritic() {
        {
           if (subscript = "iota")
           {
-            SendInput ᾳ
+            SendInput {Backspace}ᾳ
           }
           else if (subscript = "")
           {
-            SendInput α
+            SendInput {Backspace}α
           }
        }
        else if (accent = "acute")
        {
           if (subscript = "iota")
           {
-            SendInput ᾴ
+            SendInput {Backspace}ᾴ
           }
           else if (subscript = "")
           {
-            SendInput ά
+            SendInput {Backspace}ά
           }
        }
        else if (accent = "grave")
        {
           if (subscript = "iota")
           {
-            SendInput ᾲ
+            SendInput {Backspace}ᾲ
           }
           else if (subscript = "")
           {
-            SendInput ὰ
+            SendInput {Backspace}ὰ
           }
        }
        else if (accent = "circumflex")
        {
           if (subscript = "iota")
           {
-            SendInput ᾷ
+            SendInput {Backspace}ᾷ
           }
           else if (subscript = "")
           {
-            SendInput ᾶ
+            SendInput {Backspace}ᾶ
           }
        }
     }
@@ -88,44 +88,44 @@ addDiacritic() {
        {
           if (subscript = "iota")
           {
-            SendInput ᾀ
+            SendInput {Backspace}ᾀ
           }
           else if (subscript = "")
           {
-            SendInput ἀ
+            SendInput {Backspace}ἀ
           }
        }
        else if (accent = "acute")
        {
           if (subscript = "iota")
           {
-            SendInput ᾄ
+            SendInput {Backspace}ᾄ
           }
           else if (subscript = "")
           {
-            SendInput ἄ
+            SendInput {Backspace}ἄ
           }
        }
        else if (accent = "grave")
        {
           if (subscript = "iota")
           {
-            SendInput ᾂ
+            SendInput {Backspace}ᾂ
           }
           else if (subscript = "")
           {
-            SendInput ἂ
+            SendInput {Backspace}ἂ
           }
        }
        else if (accent = "circumflex")
        {
           if (subscript = "iota")
           {
-            SendInput ᾆ
+            SendInput {Backspace}ᾆ
           }
           else if (subscript = "")
           {
-            SendInput ἆ
+            SendInput {Backspace}ἆ
           }
        }
     }
@@ -135,44 +135,44 @@ addDiacritic() {
        {
           if (subscript = "iota")
           {
-            SendInput ᾁ
+            SendInput {Backspace}ᾁ
           }
           else if (subscript = "")
           {
-            SendInput ἁ
+            SendInput {Backspace}ἁ
           }
        }
        else if (accent = "acute")
        {
           if (subscript = "iota")
           {
-            SendInput ᾅ
+            SendInput {Backspace}ᾅ
           }
           else if (subscript = "")
           {
-            SendInput ἅ
+            SendInput {Backspace}ἅ
           }
        }
        else if (accent = "grave")
        {
           if (subscript = "iota")
           {
-            SendInput ᾃ
+            SendInput {Backspace}ᾃ
           }
           else if (subscript = "")
           {
-            SendInput ἃ
+            SendInput {Backspace}ἃ
           }
        }
        else if (accent = "circumflex")
        {
           if (subscript = "iota")
           {
-            SendInput ᾇ
+            SendInput {Backspace}ᾇ
           }
           else if (subscript = "")
           {
-            SendInput ἇ
+            SendInput {Backspace}ἇ
           }
        }
     }
@@ -333,10 +333,6 @@ q::
   {
     return
   }
-  else
-  {
-    SendInput {Backspace}
-  }
   if (accent = "acute")
   {
     accent := ""
@@ -352,10 +348,6 @@ q::
   if (vowel = "")
   {
     return
-  }
-  else
-  {
-    SendInput {Backspace}
   }
   if (GetKeyState("RShift") or GetKeyState("LShift"))
   {
@@ -387,10 +379,6 @@ q::
   {
     return
   }
-  else
-  {
-    SendInput {Backspace}
-  }
   if (subscript = "iota")
   {
     subscript := ""
@@ -407,10 +395,6 @@ q::
   {
     return
   }
-  else
-  {
-    SendInput {Backspace}
-  }
   if (breathing = "rough")
   {
     breathing := ""
@@ -426,10 +410,6 @@ q::
   if (vowel = "")
   {
     return
-  }
-  else
-  {
-    SendInput {Backspace}
   }
   if (breathing = "smooth")
   {
