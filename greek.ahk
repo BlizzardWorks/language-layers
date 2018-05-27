@@ -177,32 +177,517 @@ addDiacritic() {
        }
     }
   }
-
-  else if (vowel = "e")
+  
+  if (vowel = "e")
   {
-    SendInput έ
+    if (breathing = "")
+    {
+       if (accent = "")
+       {
+		  SendInput {Backspace}ε
+       }
+       else if (accent = "acute")
+       {
+		  SendInput {Backspace}έ
+       }
+       else if (accent = "grave")
+       {
+		  SendInput {Backspace}ὲ
+       }
+    }
+    else if (breathing = "smooth")
+    {
+       if (accent = "")
+       {
+		  SendInput {Backspace}ἐ
+       }
+       else if (accent = "acute")
+       {
+		  SendInput {Backspace}ἔ
+       }
+       else if (accent = "grave")
+       {
+		  SendInput {Backspace}ἒ
+       }
+    }
+    else if (breathing = "rough")
+    {
+       if (accent = "")
+       {
+		  SendInput {Backspace}ἑ
+       }
+       else if (accent = "acute")
+       {
+		  SendInput {Backspace}ἕ
+       }
+       else if (accent = "grave")
+       {
+		  SendInput {Backspace}ἓ
+       }
+    }
   }
-  else if (vowel = "h")
+  
+  if (vowel = "h")
   {
-    SendInput ή
+    if (breathing = "")
+    {
+       if (accent = "")
+       {
+          if (subscript = "iota")
+          {
+            SendInput {Backspace}ῃ
+          }
+          else if (subscript = "")
+          {
+            SendInput {Backspace}η
+          }
+       }
+       else if (accent = "acute")
+       {
+          if (subscript = "iota")
+          {
+            SendInput {Backspace}ῄ
+          }
+          else if (subscript = "")
+          {
+            SendInput {Backspace}ή
+          }
+       }
+       else if (accent = "grave")
+       {
+          if (subscript = "iota")
+          {
+            SendInput {Backspace}ῂ
+          }
+          else if (subscript = "")
+          {
+            SendInput {Backspace}ὴ
+          }
+       }
+       else if (accent = "circumflex")
+       {
+          if (subscript = "iota")
+          {
+            SendInput {Backspace}ῇ
+          }
+          else if (subscript = "")
+          {
+            SendInput {Backspace}ῆ
+          }
+       }
+    }
+    else if (breathing = "smooth")
+    {
+       if (accent = "")
+       {
+          if (subscript = "iota")
+          {
+            SendInput {Backspace}ᾐ
+          }
+          else if (subscript = "")
+          {
+            SendInput {Backspace}ἠ
+          }
+       }
+       else if (accent = "acute")
+       {
+          if (subscript = "iota")
+          {
+            SendInput {Backspace}ᾔ
+          }
+          else if (subscript = "")
+          {
+            SendInput {Backspace}ἤ
+          }
+       }
+       else if (accent = "grave")
+       {
+          if (subscript = "iota")
+          {
+            SendInput {Backspace}ᾒ
+          }
+          else if (subscript = "")
+          {
+            SendInput {Backspace}ἢ
+          }
+       }
+       else if (accent = "circumflex")
+       {
+          if (subscript = "iota")
+          {
+            SendInput {Backspace}ᾖ
+          }
+          else if (subscript = "")
+          {
+            SendInput {Backspace}ἦ
+          }
+       }
+    }
+    else if (breathing = "rough")
+    {
+       if (accent = "")
+       {
+          if (subscript = "iota")
+          {
+            SendInput {Backspace}ᾑ
+          }
+          else if (subscript = "")
+          {
+            SendInput {Backspace}ἡ
+          }
+       }
+       else if (accent = "acute")
+       {
+          if (subscript = "iota")
+          {
+            SendInput {Backspace}ᾕ
+          }
+          else if (subscript = "")
+          {
+            SendInput {Backspace}ἥ
+          }
+       }
+       else if (accent = "grave")
+       {
+          if (subscript = "iota")
+          {
+            SendInput {Backspace}ᾓ
+          }
+          else if (subscript = "")
+          {
+            SendInput {Backspace}ἣ
+          }
+       }
+       else if (accent = "circumflex")
+       {
+          if (subscript = "iota")
+          {
+            SendInput {Backspace}ᾗ
+          }
+          else if (subscript = "")
+          {
+            SendInput {Backspace}ἧ
+          }
+       }
+    }
   }
-  else if (vowel = "i")
+  
+  if (vowel = "i")
   {
-    SendInput ί
+    if (breathing = "")
+    {
+       if (accent = "")
+       {
+		  SendInput {Backspace}ι
+       }
+       else if (accent = "acute")
+       {
+		  SendInput {Backspace}ί
+       }
+       else if (accent = "grave")
+       {
+		  SendInput {Backspace}ὶ
+       }
+       else if (accent = "circumflex")
+       {
+		  SendInput {Backspace}ῖ
+       }
+    }
+    else if (breathing = "smooth")
+    {
+       if (accent = "")
+       {
+		  SendInput {Backspace}ἰ
+       }
+       else if (accent = "acute")
+       {
+		  SendInput {Backspace}ἴ
+       }
+       else if (accent = "grave")
+       {
+		  SendInput {Backspace}ἲ
+       }
+       else if (accent = "circumflex")
+        {
+		  SendInput {Backspace}ἶ
+       }
+    }
+    else if (breathing = "rough")
+    {
+       if (accent = "")
+       {
+		  SendInput {Backspace}ἱ
+       }
+       else if (accent = "acute")
+       {
+		  SendInput {Backspace}ἵ
+       }
+       else if (accent = "grave")
+       {
+		  SendInput {Backspace}ἳ
+       }
+       else if (accent = "circumflex")
+       {
+		  SendInput {Backspace}ἷ
+       }
+    }
   }
-  else if (vowel = "o")
+  
+  if (vowel = "o")
   {
-    SendInput ό
+    if (breathing = "")
+    {
+       if (accent = "")
+       {
+		  SendInput {Backspace}ο
+       }
+       else if (accent = "acute")
+       {
+		  SendInput {Backspace}ό
+       }
+       else if (accent = "grave")
+       {
+		  SendInput {Backspace}ὸ
+       }
+    }
+    else if (breathing = "smooth")
+    {
+       if (accent = "")
+       {
+		  SendInput {Backspace}ὀ
+       }
+       else if (accent = "acute")
+       {
+		  SendInput {Backspace}ὄ
+       }
+       else if (accent = "grave")
+       {
+		  SendInput {Backspace}ὂ
+       }
+    }
+    else if (breathing = "rough")
+    {
+       if (accent = "")
+       {
+		  SendInput {Backspace}ὁ
+       }
+       else if (accent = "acute")
+       {
+		  SendInput {Backspace}ὅ
+       }
+       else if (accent = "grave")
+       {
+		  SendInput {Backspace}ὃ
+       }
+    }
   }
-  else if (vowel = "u")
+  
+  if (vowel = "u")
   {
-    SendInput ύ
+    if (breathing = "")
+    {
+       if (accent = "")
+       {
+		  SendInput {Backspace}υ
+       }
+       else if (accent = "acute")
+       {
+		  SendInput {Backspace}ύ
+       }
+       else if (accent = "grave")
+       {
+		  SendInput {Backspace}ὺ
+       }
+       else if (accent = "circumflex")
+       {
+		  SendInput {Backspace}ῦ
+       }
+    }
+    else if (breathing = "smooth")
+    {
+       if (accent = "")
+       {
+		  SendInput {Backspace}ὐ
+       }
+       else if (accent = "acute")
+       {
+		  SendInput {Backspace}ὔ
+       }
+       else if (accent = "grave")
+       {
+		  SendInput {Backspace}ὒ
+       }
+       else if (accent = "circumflex")
+        {
+		  SendInput {Backspace}ὖ
+       }
+    }
+    else if (breathing = "rough")
+    {
+       if (accent = "")
+       {
+		  SendInput {Backspace}ὑ
+       }
+       else if (accent = "acute")
+       {
+		  SendInput {Backspace}ὕ
+       }
+       else if (accent = "grave")
+       {
+		  SendInput {Backspace}ὓ
+       }
+       else if (accent = "circumflex")
+       {
+		  SendInput {Backspace}ὗ
+       }
+    }
   }
-  else if (vowel = "w")
+  
+  if (vowel = "w")
   {
-    SendInput ώ
+    if (breathing = "")
+    {
+       if (accent = "")
+       {
+          if (subscript = "iota")
+          {
+            SendInput {Backspace}ῳ
+          }
+          else if (subscript = "")
+          {
+            SendInput {Backspace}ω
+          }
+       }
+       else if (accent = "acute")
+       {
+          if (subscript = "iota")
+          {
+            SendInput {Backspace}ῴ
+          }
+          else if (subscript = "")
+          {
+            SendInput {Backspace}ώ
+          }
+       }
+       else if (accent = "grave")
+       {
+          if (subscript = "iota")
+          {
+            SendInput {Backspace}ῲ
+          }
+          else if (subscript = "")
+          {
+            SendInput {Backspace}ὼ
+          }
+       }
+       else if (accent = "circumflex")
+       {
+          if (subscript = "iota")
+          {
+            SendInput {Backspace}ῷ
+          }
+          else if (subscript = "")
+          {
+            SendInput {Backspace}ῶ
+          }
+       }
+    }
+    else if (breathing = "smooth")
+    {
+       if (accent = "")
+       {
+          if (subscript = "iota")
+          {
+            SendInput {Backspace}ᾠ
+          }
+          else if (subscript = "")
+          {
+            SendInput {Backspace}ὠ
+          }
+       }
+       else if (accent = "acute")
+       {
+          if (subscript = "iota")
+          {
+            SendInput {Backspace}ᾤ
+          }
+          else if (subscript = "")
+          {
+            SendInput {Backspace}ὤ
+          }
+       }
+       else if (accent = "grave")
+       {
+          if (subscript = "iota")
+          {
+            SendInput {Backspace}ᾢ
+          }
+          else if (subscript = "")
+          {
+            SendInput {Backspace}ὢ
+          }
+       }
+       else if (accent = "circumflex")
+       {
+          if (subscript = "iota")
+          {
+            SendInput {Backspace}ᾦ
+          }
+          else if (subscript = "")
+          {
+            SendInput {Backspace}ὦ
+          }
+       }
+    }
+    else if (breathing = "rough")
+    {
+       if (accent = "")
+       {
+          if (subscript = "iota")
+          {
+            SendInput {Backspace}ᾡ
+          }
+          else if (subscript = "")
+          {
+            SendInput {Backspace}ὡ
+          }
+       }
+       else if (accent = "acute")
+       {
+          if (subscript = "iota")
+          {
+            SendInput {Backspace}ᾥ
+          }
+          else if (subscript = "")
+          {
+            SendInput {Backspace}ὥ
+          }
+       }
+       else if (accent = "grave")
+       {
+          if (subscript = "iota")
+          {
+            SendInput {Backspace}ᾣ
+          }
+          else if (subscript = "")
+          {
+            SendInput {Backspace}ὣ
+          }
+       }
+       else if (accent = "circumflex")
+       {
+          if (subscript = "iota")
+          {
+            SendInput {Backspace}ᾧ
+          }
+          else if (subscript = "")
+          {
+            SendInput {Backspace}ὧ
+          }
+       }
+    }
   }
-
+  
   return
 }
 
@@ -424,7 +909,7 @@ q::
 
 Backspace::
   resetDiacritics()
-  SendInput Backspace
+  SendInput {Backspace}
   return
 
 #If
