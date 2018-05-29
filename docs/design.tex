@@ -1,16 +1,52 @@
-#+TITLE: Teaching the Ancients to Type: Better Unicode Text Entry for Ancient Greek and Hebrew
-#+SUBTITLE:
-#+AUTHOR: Steven Tammen
-#+DATE: April 21, 2018
-#+OPTIONS: toc:2
+% Created 2018-05-28 Mon 22:49
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{fontspec}
+\setmainfont[BoldFont={Cardo Bold}, ItalicFont={Cardo Italic}]{Cardo}
+\usepackage{polyglossia}
+\setmainlanguage{english}
+\setotherlanguage{hebrew}
+\newfontfamily\hebrewfont{SBL Hebrew}
+\author{Steven Tammen}
+\date{April 21, 2018}
+\title{Teaching the Ancients to Type: Better Unicode Text Entry for Ancient Greek and Hebrew}
+\hypersetup{
+ pdfauthor={Steven Tammen},
+ pdftitle={Teaching the Ancients to Type: Better Unicode Text Entry for Ancient Greek and Hebrew},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 25.3.1 (Org mode 9.1.13)}, 
+ pdflang={English}}
+\begin{document}
 
-* Creating key mappings for ancient languages
+\maketitle
+\setcounter{tocdepth}{2}
+\tableofcontents
 
-** The relationship between memorability and speed
+
+
+\section{Creating key mappings for ancient languages}
+\label{sec:org1dde628}
+
+\subsection{The relationship between memorability and speed}
+\label{sec:orgcf47835}
 
 Touch typing is a skill acquired over time through practice. Given that most individuals typing ancient languages in scholarly pursuits (e.g., Classicists, Ancient Near East scholars) will not need to enter large amounts of text in ancient languages, and will not need to do it with great frequency, it is worth considering the time-cost associated with learning keyboard layouts for ancient languages.
 
-Keyboard layout design is a complicated process with many optimization variables. Today, layouts may be judged using algorithms like {todo}, which track many metrics that are likely associated with performance. I say likely, because there has not been formal scholarship on the subject done in such a way that we may be sure about such things. Part of the problem involves the difficulty in doing research: you cannot blind research about keyboard layouts (people must know the layout they are typing on), you cannot have a realistic control group (everyone who has used computers already has varying levels of experience typing on keyboards -- even people who hunt and peck), and many things that one might want to measure -- most notably comfort and repetitive stress -- are difficult to get good, objective measurements for.
+Keyboard layout design is a complicated process with many optimization variables. Today, layouts may be judged using algorithms like \{todo\}, which track many metrics that are likely associated with performance. I say likely, because there has not been formal scholarship on the subject done in such a way that we may be sure about such things. Part of the problem involves the difficulty in doing research: you cannot blind research about keyboard layouts (people must know the layout they are typing on), you cannot have a realistic control group (everyone who has used computers already has varying levels of experience typing on keyboards -- even people who hunt and peck), and many things that one might want to measure -- most notably comfort and repetitive stress -- are difficult to get good, objective measurements for.
 
 With all this said, there are some things that are not controversial. Having more commonly typed characters on the home row leads to less hand movement and theoretically faster speeds. Avoiding having the same finger type multiple keys in a row (cf. QWERTY's "minimum") enables the typist to "line up" fingers when typing, so that multiple keys may be in the process of being pressed at once. (fn: While I don't know of a formal source for numbers, many expensive keyboards market themselves as being better for fast typists due to allowing for so-called "n-key rollover" (NKRO), which lets many keys be pressed simultaneously, as opposed to the 6-key rollover of most USB keyboards.) Having work split between the hands is more balanced than having it all concentrated on one hand (cf. QWERTY's "stewardesses").
 
@@ -18,15 +54,17 @@ As a general rule of thumb, so-called "fully optimized" layouts will have relati
 
 The issue in all this is that due to a lack of research, I cannot say definitely how much easier semantically-grouped keyboard layouts are to learn, or how much faster people may train them to, say, 35 WPM. The data for this simply does not exist. However, this paper is operating on the safe assumption that these considerations are non-negligible for most people in most circumstances. The hypothesis coming from this is this: since people typing ancient languages will not be typing them with great magnitude and frequency, it is more rational to focus on memorability over raw optimization considerations, since layouts that are easier to remember will be faster to learn, and the benefits of "brute forcing" an optimized layout (as one might do for one's native language) will never be realized in typical use cases.
 
-** Native-language layouts in muscle memory
+\subsection{Native-language layouts in muscle memory}
+\label{sec:org1a9f3d3}
 
 The above discussion focused on the interplay of memorability, layout optimality (as measured by finger travel distance, same finger, etc.), and ease of acquisition in the abstract. However, assuming users of this project can already type on a keyboard layout in their own language (in whatever regard: touch typing, hunting and pecking, etc.), we do not need to start from ground-zero.
 
-The general idea is that for the circumstances under which most scholars type ancient languages it is /always/ better to associate a keyboard layout for an ancient language with a keyboard layout for a native language already in muscle memory. Associating a new layout with the old layout lets typists reuse neural pathways that are already in place rather than forming new ones from scratch.
+The general idea is that for the circumstances under which most scholars type ancient languages it is \emph{always} better to associate a keyboard layout for an ancient language with a keyboard layout for a native language already in muscle memory. Associating a new layout with the old layout lets typists reuse neural pathways that are already in place rather than forming new ones from scratch.
 
 What do I mean by this? Let's take the Greek letter Alpha. Most people, Classicists or no, know that Alpha corresponds in phonetic value to the English letter A. Alpha also happens to look like the letter A in both its lowercase and uppercase forms. So, rather than putting Alpha on some random key, why not simply place it on the same key as the letter A in English?
 
-** Issues in constructing associations
+\subsection{Issues in constructing associations}
+\label{sec:org27049c8}
 
 If we accept the premise that it is best to form correspondences between ancient languages and keyboard layouts already in use (for English or otherwise), then it follows that we need some formalized system for doing so.
 
@@ -36,84 +74,117 @@ There are also some cases when a language has two letters for the same phoneme. 
 
 The associations (henceforth keymaps, short for "key mappings") below attempt to solve such issues in a systematic way. Following the hypothesis presented above (namely, that memorability is a more important concern in these circumstances than raw optimality), priority is given to phonetic correspondences, then visual correspondences, then transcription correspondences, then, finally, to raw optimality.
 
-** A Greek-English keymap
+\subsection{A Greek-English keymap}
+\label{sec:org48a038f}
 
-*** Foreword
+\subsubsection{Foreword}
+\label{sec:org56836b2}
 
 I have attempted to make the above discussion general enough that people with native languages significantly different than English (Russian, say) may easily transfer these ideas into layouts that fit their languages. However, from this point forward, discussion will center around English and languages that have a close association with it (the same general alphabet and phonology)
 
-*** Phonetic correspondences
+\subsubsection{Phonetic correspondences}
+\label{sec:org0584ddc}
 
 I have opted to supply the fricative versions of Theta and Phi, according to later developments in the language. People interested in classical 5th century Attic pronunciations can substitute the aspirated plosives if they wish. (I have made this substitution because I have observed that most people learning ancient Greek have a much easier time distinguishing the phonemes this way, and thus avoid mixing up Theta/Tau and Phi/Pi in their writing).
 
 If a letter has any English equivalent (even if it has additional sounds in some contexts not found in English), I have opted to match them. I have also opted to match "near misses" -- sounds that aren't quite identical, but are close enough that they are obviously connected (such as the Greek Rho and English R, and many of the vowels).
 
-| Greek letter | IPA                      | English match |
-|--------------+--------------------------+---------------|
-| Α α          | [a], [aː]                | A             |
-| Β β          | [b]                      | B             |
-| Γ γ          | [g], [ŋ] (before velars) | G             |
-| Δ δ          | [d]                      | D             |
-| Ε ε          | [e]                      | E             |
-| Ζ ζ          | [zd]                     | Z             |
-| Η η          | [ɛː]                     |               |
-| Θ θ          | [θ]                      |               |
-| Ι ι          | [i], [iː]                | I             |
-| Κ κ          | [k]                      | K             |
-| Λ λ          | [l]                      | L             |
-| Μ μ          | [m]                      | M             |
-| Ν ν          | [n]                      | N             |
-| Ξ ξ          | [ks]                     | X             |
-| Ο ο          | [o]                      | O             |
-| Π π          | [p]                      | P             |
-| Ρ ρ          | [r]                      | R             |
-| Σ σ          | [s]                      | S             |
-| Τ τ          | [t]                      | T             |
-| Υ υ          | [y], [yː]                | U             |
-| Φ φ          | [f]                      | F             |
-| Χ χ          | [kʰ]                     |               |
-| Ψ ψ          | [ps]                     |               |
-| Ω ω          | [ɔː]                     |               |
+\begin{center}
+\begin{tabular}{lll}
+Greek letter & IPA & English match\\
+\hline
+Α α & [a], [aː] & A\\
+Β β & [b] & B\\
+Γ γ & [g], [ŋ] (before velars) & G\\
+Δ δ & [d] & D\\
+Ε ε & [e] & E\\
+Ζ ζ & [zd] & Z\\
+Η η & [ɛː] & \\
+Θ θ & [θ] & \\
+Ι ι & [i], [iː] & I\\
+Κ κ & [k] & K\\
+Λ λ & [l] & L\\
+Μ μ & [m] & M\\
+Ν ν & [n] & N\\
+Ξ ξ & [ks] & X\\
+Ο ο & [o] & O\\
+Π π & [p] & P\\
+Ρ ρ & [r] & R\\
+Σ σ & [s] & S\\
+Τ τ & [t] & T\\
+Υ υ & [y], [yː] & U\\
+Φ φ & [f] & F\\
+Χ χ & [kʰ] & \\
+Ψ ψ & [ps] & \\
+Ω ω & [ɔː] & \\
+\end{tabular}
+\end{center}
 
 This "first pass" at matching gets us pretty far - only 5 letters remain unmatched.
 
-*** Visual correspondences
+\subsubsection{Visual correspondences}
+\label{sec:org12958c8}
 
 Look-alike letters, even if they have no phonetic correspondence, can be an easy way to remember letters. Anything that helps create mental associations can help speed up the learning process. Both uppercase and lowercase forms are considered.
 
-| Greek letter | English match |
-|--------------+---------------|
-| Η η          | H             |
-| Θ θ          |               |
-| Χ χ          |               |
-| Ψ ψ          | Y             |
-| Ω ω          | w             |
+\begin{center}
+\begin{tabular}{ll}
+Greek letter & English match\\
+\hline
+Η η & H\\
+Θ θ & \\
+Χ χ & \\
+Ψ ψ & Y\\
+Ω ω & w\\
+\end{tabular}
+\end{center}
 
 Uppercase Eta looks identical to the uppercase form of the English letter H, and lowercase Omega looks very similar to the lowercase form of the English letter W. Uppercase Psi looks similar enough to the uppercase form of the English letter Y that it is worth using as a mnemonic, in my opinion.
 
 Note that while Chi looks very similar to the English letter X, we are already using X to represent Xi.
 
-*** Transcription correspondences
+\subsubsection{Transcription correspondences}
+\label{sec:org76d6f0d}
 
 One of the problems with transcription is that it is not terribly standardized. For example, scholars preferring a transcription scheme closer to Greek will typically transliterate Kappa as "k" and Chi as "kh" as opposed to the more Romanized "c" and "ch." However, "typical" transcriptions may provide some help in providing mnemonics for our remaining letters.
 
 I have opted to only look at strictly alphabetical transcriptions, rather than any that use diacritics. 
 
-| Greek letter | "Typical" transcription | English match |
-|--------------+-------------------------+---------------|
-| Θ θ          | th                      |               |
-| Χ χ          | ch                      | C             |
+\begin{center}
+\begin{tabular}{lll}
+Greek letter & "Typical" transcription & English match\\
+\hline
+Θ θ & th & \\
+Χ χ & ch & C\\
+\end{tabular}
+\end{center}
 
 Chi is transliterated as "ch" in most transcription schemes, even if Kappa is transliterated as "k." So it seems logical to use the letter C to represent Chi.
 
-*** Leftovers
+\subsubsection{Leftovers}
+\label{sec:org4a910c4}
 
 Theta is a tricky letter to place, since none of our correspondence efforts appear to help with it. English letters that are left include Q, V, and J.
 
 None of these letters is particularly satisfying as a choice, but J is probably the best for people that type on QWERTY or its variants (like AZERTY, e.g.), since it is on the home row and does not have any same finger with vowels. For this reason, I have made it the default mapping for Theta. People that do not type on QWERTY (Dvorak, Colemak, Workman, etc.) may want to alter this location, depending. I type on a custom layout and kept it on J because it was still the best location.
 
-As to Q and V, I have these default to Koppa and Digamma, respectively. Both of these come from earlier forms of Greek that are closer to the Phoenician, but may be useful to type on occasion. For people that read on for the Hebrew keymap, Koppa~Quf and Digamma~Vav, so Q and V are actually logical choices given the Semitic consonants underlying these letters.
+As to Q and V, I have these default to Koppa and Digamma, respectively. Both of these come from earlier forms of Greek that are closer to the Phoenician, but may be useful to type on occasion. For people that read on for the Hebrew keymap, Koppa\textasciitilde{}Quf and Digamma\textasciitilde{}Vav, so Q and V are actually logical choices given the Semitic consonants underlying these letters.
 
 Digamma dropping explains the -ευς declension and the development of certain stems and words. For example, βασιληϝ- to Βασιλεύς, νηϝ- to ναῦς, βοϝ- to βοῦς, and so on.
 
-Koppa can be also be useful in explaining language development, as can the third and last early Greek letter: San (allophonic with Sigma). {todo} explain how to generate San.
+Koppa can be also be useful in explaining language development, as can the third and last early Greek letter: San (allophonic with Sigma). \{todo\} explain how to generate San.
+
+\subsection{Font testing: Cardo + SBL Hebrew}
+\label{sec:orgabdc866}
+
+Here is some inline Hebrew (Genesis 1:1) \texthebrew{בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ} with English around it. And now a longer chunk: \\
+
+\begin{hebrew}
+‏ בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ׃ ‎2‏ וְהָאָ֗רֶץ הָיְתָ֥ה תֹ֨הוּ֙ וָבֹ֔הוּ וְחֹ֖שֶׁךְ עַל־פְּנֵ֣י תְה֑וֹם וְר֣וּחַ אֱלֹהִ֔ים מְרַחֶ֖פֶת עַל־פְּנֵ֥י הַמָּֽיִם׃ ‎3‏ וַיֹּ֥אמֶר אֱלֹהִ֖ים יְהִ֣י א֑וֹר וַֽיְהִי־אֽוֹר׃ ‎4‏ וַיַּ֧רְא אֱלֹהִ֛ים אֶת־הָא֖וֹר כִּי־ט֑וֹב וַיַּבְדֵּ֣ל אֱלֹהִ֔ים בֵּ֥ין הָא֖וֹר וּבֵ֥ין הַחֹֽשֶׁךְ׃ ‎5‏ וַיִּקְרָ֨א אֱלֹהִ֤ים ׀ לָאוֹר֙ י֔וֹם וְלַחֹ֖שֶׁךְ קָ֣רָא לָ֑יְלָה וַֽיְהִי־עֶ֥רֶב וַֽיְהִי־בֹ֖קֶר י֥וֹם אֶחָֽד׃ פ ‎6‏ וַיֹּ֣אמֶר אֱלֹהִ֔ים יְהִ֥י רָקִ֖יעַ בְּת֣וֹךְ הַמָּ֑יִם וִיהִ֣י מַבְדִּ֔יל בֵּ֥ין מַ֖יִם לָמָֽיִם׃
+\end{hebrew}\newline
+
+
+And here is some inline Greek from the \emph{Iliad} μῆνιν ἄειδε θεὰ Πηληϊάδεω Ἀχιλῆος with English around it. And now a longer chunk: \\
+
+μῆνιν ἄειδε θεὰ Πηληϊάδεω Ἀχιλῆος οὐλομένην, ἣ μυρί᾽ Ἀχαιοῖς ἄλγε᾽ ἔθηκε, πολλὰς δ᾽ ἰφθίμους ψυχὰς Ἄϊδι προΐαψεν ἡρώων, αὐτοὺς δὲ ἑλώρια τεῦχε κύνεσσιν οἰωνοῖσί τε πᾶσι, Διὸς δ᾽ ἐτελείετο βουλή, ἐξ οὗ δὴ τὰ πρῶτα διαστήτην ἐρίσαντε Ἀτρεΐδης τε ἄναξ ἀνδρῶν καὶ δῖος Ἀχιλλεύς. τίς τ᾽ ἄρ σφωε θεῶν ἔριδι ξυνέηκε μάχεσθαι;
+\end{document}
