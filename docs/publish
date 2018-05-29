@@ -1,0 +1,11 @@
+#!/bin/bash
+
+find . -name "*.org"|while read file; do
+  dir=$(dirname $file)/
+  filename=$(basename $file .org)
+  cp $file $dir$filename.github
+  done
+  
+git add .
+git commit
+git push
