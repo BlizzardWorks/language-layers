@@ -1866,6 +1866,15 @@ sentKeys := 1
 
 resetDiacritics() 
 {
+	breathing := ""
+	accent := ""
+	quantity := ""
+	return
+}
+
+
+resetVowel() 
+{
 	capital := false
 	vowel := ""
 	breathing := ""
@@ -1873,6 +1882,7 @@ resetDiacritics()
 	quantity := ""
 	return
 }
+
 
 deleteLastFullCharacter()
 {

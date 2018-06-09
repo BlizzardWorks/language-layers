@@ -64,99 +64,105 @@ global keysToBackspace := 1
 *a::
   capital := getShiftState()
   vowel := "a"
+  resetDiacritics()
   dual.comboKey({VK88: "α", Shift: "Α"})
   return
 *b::
-  resetDiacritics()
+  resetVowel()
   dual.comboKey({VK88: "β", Shift: "Β"})
   return
 *g::
-  resetDiacritics()
+  resetVowel()
   dual.comboKey({VK88: "γ", Shift: "Γ"})
   return
 *d::
-  resetDiacritics()
+  resetVowel()
   dual.comboKey({VK88: "δ", Shift: "Δ"})
   return
 *e::
   capital := getShiftState()
   vowel := "e"
+  resetDiacritics()
   dual.comboKey({VK88: "ε", Shift: "Ε"})
   return
 *z::
-  resetDiacritics()
+  resetVowel()
   dual.comboKey({VK88: "ζ", Shift: "Ζ"})
   return
 *h::
   capital := getShiftState()
   vowel := "h"
+  resetDiacritics()
   dual.comboKey({VK88: "η", Shift: "Η"})
   return
 *j::
-  resetDiacritics()
+  resetVowel()
   dual.comboKey({VK88: "θ", Shift: "Θ"})
   return
 *i::
   capital := getShiftState()
   vowel := "i"
+  resetDiacritics()
   dual.comboKey({VK88: "ι", Shift: "Ι"})
   return
 *k::
-  resetDiacritics()
+  resetVowel()
   dual.comboKey({VK88: "κ", Shift: "Κ"})
   return
 *l::
-  resetDiacritics()
+  resetVowel()
   dual.comboKey({VK88: "λ", Shift: "Λ"})
   return
 *m::
-  resetDiacritics()
+  resetVowel()
   dual.comboKey({VK88: "μ", Shift: "Μ"})
   return
 *n::
-  resetDiacritics()
+  resetVowel()
   dual.comboKey({VK88: "ν", Shift: "Ν"})
   return
 *x::
-  resetDiacritics()
+  resetVowel()
   dual.comboKey({VK88: "ξ", Shift: "Ξ"})
   return
 *o::
   capital := getShiftState()
   vowel := "o"
+  resetDiacritics()
   dual.comboKey({VK88: "ο", Shift: "Ο"})
   return
 *p::
-  resetDiacritics()
+  resetVowel()
   dual.comboKey({VK88: "π", Shift: "Π"})
   return
 *r::
-  resetDiacritics()
+  resetVowel()
   dual.comboKey({VK88: "ρ", Shift: "Ρ"})
   return
 *s::
-  resetDiacritics()
+  resetVowel()
   dual.comboKey({VK88: "σ", Shift: "Σ"})
   return
 *t::
-  resetDiacritics()
+  resetVowel()
   dual.comboKey({VK88: "τ", Shift: "Τ"})
   return
 *u::
   capital := getShiftState()
   vowel := "u"
+  resetDiacritics()
   dual.comboKey({VK88: "υ", Shift: "Υ"})
   return
 *f::
-  resetDiacritics()
+  resetVowel()
   dual.comboKey({VK88: "φ", Shift: "Φ"})
   return
 *c::
-  resetDiacritics()
+  resetVowel()
   dual.comboKey({VK88: "χ", Shift: "Χ"})
   return
 *y::
-  resetDiacritics()
+  resetVowel()
   dual.comboKey({VK88: "ψ", Shift: "Ψ"})
   return
 *w::
@@ -165,11 +171,11 @@ global keysToBackspace := 1
   dual.comboKey({VK88: "ω", Shift: "Ω"})
   return
 *v::
-  resetDiacritics()
+  resetVowel()
   dual.comboKey({VK88: "ϝ", Shift: "Ϝ"})
   return
 *q::
-  resetDiacritics()
+  resetVowel()
   dual.comboKey({VK88: "ϙ", Shift: "Ϙ"})
   return
   
@@ -321,7 +327,7 @@ global keysToBackspace := 1
   
 
 *Backspace::
-  resetDiacritics()
+  resetVowel()
   deleteLastFullCharacter()
   return
 
