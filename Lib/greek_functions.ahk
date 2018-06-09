@@ -6,6 +6,11 @@
 
 Greek_precomposed() {
 
+deleteLastFullCharacter()
+
+lastDiacriticKey := A_TickCount
+sentKeys := 1
+
   if (capital) {
 	if (vowel = "a")
 	  {
@@ -13,68 +18,108 @@ Greek_precomposed() {
 		{
 		   if (accent = "")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾼ
+				SendInput Α
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}Α
+				SendInput ᾼ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput Α{%macron%}
+				sentKeys := 2
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput Α{%breve%}
+				sentKeys := 2
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
-		     SendInput {Backspace}Ά
+		     SendInput Ά
 		   }
 		   else if (accent = "grave")
 		   {
-			 SendInput {Backspace}Ὰ
+			 SendInput Ὰ
 		   }
 		}
 		else if (breathing = "smooth")
 		{
 		   if (accent = "")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾈ
+				SendInput Ἀ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}Ἀ
+				SendInput ᾈ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput Α{%macron%}{%smooth%}
+				sentKeys := 3
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput Α{%breve%}{%smooth%}
+				sentKeys := 3
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾌ
+				SendInput Ἄ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}Ἄ
+				SendInput ᾌ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput Α{%macron%}{%smooth%}{%acute%}
+				sentKeys := 4
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput Α{%breve%}{%smooth%}{%acute%}
+				sentKeys := 4
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾊ
+				SendInput Ἂ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}Ἂ
+				SendInput ᾊ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput Α{%macron%}{%smooth%}{%grave%}
+				sentKeys := 4
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput Α{%breve%}{%smooth%}{%grave%}
+				sentKeys := 4
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾎ
+				SendInput Ἆ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}Ἆ
+				SendInput ᾎ
 			  }
 		   }
 		}
@@ -82,46 +127,76 @@ Greek_precomposed() {
 		{
 		   if (accent = "")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾉ
+				SendInput Ἁ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}Ἁ
+				SendInput ᾉ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput Α{%macron%}{%rough%}
+				sentKeys := 3
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput Α{%breve%}{%rough%}
+				sentKeys := 3
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾍ
+				SendInput Ἅ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}Ἅ
+				SendInput ᾍ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput Α{%macron%}{%rough%}{%acute%}
+				sentKeys := 4
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput Α{%breve%}{%rough%}{%acute%}
+				sentKeys := 4
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾋ
+				SendInput Ἃ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}Ἃ
+				SendInput ᾋ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput Α{%macron%}{%rough%}{%grave%}
+				sentKeys := 4
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput Α{%breve%}{%rough%}{%grave%}
+				sentKeys := 4
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾏ
+				SendInput Ἇ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}Ἇ
+				SendInput ᾏ
 			  }
 		   }
 		}
@@ -133,45 +208,45 @@ Greek_precomposed() {
 		{
 		   if (accent = "")
 		   {
-			  SendInput {Backspace}Ε
+			  SendInput Ε
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput {Backspace}Έ
+			  SendInput Έ
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput {Backspace}Ὲ
+			  SendInput Ὲ
 		   }
 		}
 		else if (breathing = "smooth")
 		{
 		   if (accent = "")
 		   {
-			  SendInput {Backspace}Ἐ
+			  SendInput Ἐ
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput {Backspace}Ἔ
+			  SendInput Ἔ
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput {Backspace}Ἒ
+			  SendInput Ἒ
 		   }
 		}
 		else if (breathing = "rough")
 		{
 		   if (accent = "")
 		   {
-			  SendInput {Backspace}Ἑ
+			  SendInput Ἑ
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput {Backspace}Ἕ
+			  SendInput Ἕ
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput {Backspace}Ἓ
+			  SendInput Ἓ
 		   }
 		}
 	  }
@@ -182,68 +257,68 @@ Greek_precomposed() {
 		{
 		   if (accent = "")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ῌ
+				SendInput Η
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}Η
+				SendInput ῌ
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			 SendInput {Backspace}Ή
+			 SendInput Ή
 		   }
 		   else if (accent = "grave")
 		   {
-			 SendInput {Backspace}Ὴ
+			 SendInput Ὴ
 		   }
 		}
 		else if (breathing = "smooth")
 		{
 		   if (accent = "")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾘ
+				SendInput Ἠ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}Ἠ
+				SendInput ᾘ
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾜ
+				SendInput Ἤ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}Ἤ
+				SendInput ᾜ
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾚ
+				SendInput Ἢ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}Ἢ
+				SendInput ᾚ
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾞ
+				SendInput Ἦ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}Ἦ
+				SendInput ᾞ
 			  }
 		   }
 		}
@@ -251,46 +326,46 @@ Greek_precomposed() {
 		{
 		   if (accent = "")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾙ
+				SendInput Ἡ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}Ἡ
+				SendInput ᾙ
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾝ
+				SendInput Ἥ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}Ἥ
+				SendInput ᾝ
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾛ
+				SendInput Ἣ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}Ἣ
+				SendInput ᾛ
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾟ
+				SendInput Ἧ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}Ἧ
+				SendInput ᾟ
 			  }
 		   }
 		}
@@ -302,58 +377,175 @@ Greek_precomposed() {
 		{
 		   if (accent = "")
 		   {
-			  SendInput {Backspace}Ι
+			  if (quantity = "")
+			  {
+				SendInput Ι
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput Ι{%macron%}
+				sentKeys := 2
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput Ι{%breve%}
+				sentKeys := 2
+			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput {Backspace}Ί
+			  if (quantity = "")
+			  {
+				SendInput Ί
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput Ι{%macron%}{%acute%}
+				sentKeys := 3
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput Ι{%breve%}{%acute%}
+				sentKeys := 3
+			  }
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput {Backspace}Ὶ
+			  if (quantity = "")
+			  {
+				SendInput Ὶ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput Ι{%macron%}{%grave%}
+				sentKeys := 3
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput Ι{%breve%}{%grave%}
+				sentKeys := 3
+			  }
 		   }
 		}
 		else if (breathing = "smooth")
 		{
 		   if (accent = "")
 		   {
-			  SendInput {Backspace}Ἰ
+			  if (quantity = "")
+			  {
+				SendInput Ἰ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput Ι{%macron%}{%smooth%}
+				sentKeys := 3
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput Ι{%breve%}{%smooth%}
+				sentKeys := 3
+			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput {Backspace}Ἴ
+			  if (quantity = "")
+			  {
+				SendInput Ἴ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput Ι{%macron%}{%smooth%}{%acute%}
+				sentKeys := 4
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput Ι{%breve%}{%smooth%}{%acute%}
+				sentKeys := 4
+			  }
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput {Backspace}Ἲ
+			  if (quantity = "")
+			  {
+				SendInput Ἲ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput Ι{%macron%}{%smooth%}{%grave%}
+				sentKeys := 4
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput Ι{%breve%}{%smooth%}{%grave%}
+				sentKeys := 4
+			  }
 		   }
 		   else if (accent = "circumflex")
 			{
-			  SendInput {Backspace}Ἶ
+			  SendInput Ἶ
 		   }
 		}
 		else if (breathing = "rough")
 		{
 		   if (accent = "")
 		   {
-			  SendInput {Backspace}Ἱ
+			  if (quantity = "")
+			  {
+				SendInput Ἱ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput Ι{%macron%}{%rough%}
+				sentKeys := 3
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput Ι{%breve%}{%rough%}
+				sentKeys := 3
+			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput {Backspace}Ἵ
+			  if (quantity = "")
+			  {
+				SendInput Ἵ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput Ι{%macron%}{%rough%}{%acute%}
+				sentKeys := 4
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput Ι{%breve%}{%rough%}{%acute%}
+				sentKeys := 4
+			  }
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput {Backspace}Ἳ
+			  if (quantity = "")
+			  {
+				SendInput Ἳ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput Ι{%macron%}{%rough%}{%grave%}
+				sentKeys := 4
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput Ι{%breve%}{%rough%}{%grave%}
+				sentKeys := 4
+			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  SendInput {Backspace}Ἷ
+			  SendInput Ἷ
 		   }
 		}
 		else if (breathing = "diaeresis")
 		{
-			SendInput {Backspace}Ϊ
+			SendInput Ϊ
 		}
 	  }
 	  
@@ -363,45 +555,45 @@ Greek_precomposed() {
 		{
 		   if (accent = "")
 		   {
-			  SendInput {Backspace}Ο
+			  SendInput Ο
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput {Backspace}Ό
+			  SendInput Ό
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput {Backspace}Ὸ
+			  SendInput Ὸ
 		   }
 		}
 		else if (breathing = "smooth")
 		{
 		   if (accent = "")
 		   {
-			  SendInput {Backspace}Ὀ
+			  SendInput Ὀ
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput {Backspace}Ὄ
+			  SendInput Ὄ
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput {Backspace}Ὂ
+			  SendInput Ὂ
 		   }
 		}
 		else if (breathing = "rough")
 		{
 		   if (accent = "")
 		   {
-			  SendInput {Backspace}Ὁ
+			  SendInput Ὁ
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput {Backspace}Ὅ
+			  SendInput Ὅ
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput {Backspace}Ὃ
+			  SendInput Ὃ
 		   }
 		}
 	  }
@@ -412,39 +604,117 @@ Greek_precomposed() {
 		{
 		   if (accent = "")
 		   {
-			  SendInput {Backspace}Υ
+			  if (quantity = "")
+			  {
+				SendInput Υ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput Υ{%macron%}
+				sentKeys := 2
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput Υ{%breve%}
+				sentKeys := 2
+			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput {Backspace}Ύ
+			  if (quantity = "")
+			  {
+				SendInput Ύ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput Υ{%macron%}{%acute%}
+				sentKeys := 3
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput Υ{%breve%}{%acute%}
+				sentKeys := 3
+			  }
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput {Backspace}Ὺ
+			  if (quantity = "")
+			  {
+				SendInput Ὺ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput Υ{%macron%}{%grave%}
+				sentKeys := 3
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput Υ{%breve%}{%grave%}
+				sentKeys := 3
+			  }
 		   }
 		}
 		else if (breathing = "rough")
 		{
 		   if (accent = "")
 		   {
-			  SendInput {Backspace}Ὑ
+			  if (quantity = "")
+			  {
+				SendInput Ὑ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput Υ{%macron%}{%rough%}
+				sentKeys := 3
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput Υ{%breve%}{%rough%}
+				sentKeys := 3
+			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput {Backspace}Ὕ
+			  if (quantity = "")
+			  {
+				SendInput Ὕ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput Υ{%macron%}{%rough%}{%acute%}
+				sentKeys := 4
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput Υ{%breve%}{%rough%}{%acute%}
+				sentKeys := 4
+			  }
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput {Backspace}Ὓ
+			  if (quantity = "")
+			  {
+				SendInput Ὓ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput Υ{%macron%}{%rough%}{%grave%}
+				sentKeys := 4
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput Υ{%breve%}{%rough%}{%grave%}
+				sentKeys := 4
+			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  SendInput {Backspace}Ὗ
+			  SendInput Ὗ
 		   }
 		}
 		else if (breathing = "diaeresis")
 		{
-			SendInput {Backspace}Ϋ
+			SendInput Ϋ
 		}
 	  }
 	  
@@ -454,68 +724,68 @@ Greek_precomposed() {
 		{
 		   if (accent = "")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ῼ
+				SendInput Ω
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}Ω
+				SendInput ῼ
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			 SendInput {Backspace}Ώ
+			 SendInput Ώ
 		   }
 		   else if (accent = "grave")
 		   {
-			 SendInput {Backspace}Ὼ
+			 SendInput Ὼ
 		   }
 		}
 		else if (breathing = "smooth")
 		{
 		   if (accent = "")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾨ
+				SendInput Ὠ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}Ὠ
+				SendInput ᾨ
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾬ
+				SendInput Ὤ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}Ὤ
+				SendInput ᾬ
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾪ
+				SendInput Ὢ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}Ὢ
+				SendInput ᾪ
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾮ
+				SendInput Ὦ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}Ὦ
+				SendInput ᾮ
 			  }
 		   }
 		}
@@ -523,46 +793,46 @@ Greek_precomposed() {
 		{
 		   if (accent = "")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾩ
+				SendInput Ὡ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}Ὡ
+				SendInput ᾩ
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾭ
+				SendInput Ὥ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}Ὥ
+				SendInput ᾭ
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾫ
+				SendInput Ὣ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}Ὣ
+				SendInput ᾫ
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾯ
+				SendInput Ὧ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}Ὧ
+				SendInput ᾯ
 			  }
 		   }
 		}
@@ -576,46 +846,76 @@ Greek_precomposed() {
 		{
 		   if (accent = "")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾳ
+				SendInput α
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}α
+				SendInput ᾳ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput α{%macron%}
+				sentKeys := 2
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput α{%breve%}
+				sentKeys := 2
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾴ
+				SendInput ά
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ά
+				SendInput ᾴ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput α{%macron%}{%acute%}
+				sentKeys := 3
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput α{%breve%}{%acute%}
+				sentKeys := 3
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾲ
+				SendInput ὰ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ὰ
+				SendInput ᾲ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput α{%macron%}{%grave%}
+				sentKeys := 3
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput α{%breve%}{%grave%}
+				sentKeys := 3
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾷ
+				SendInput ᾶ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ᾶ
+				SendInput ᾷ
 			  }
 		   }
 		}
@@ -623,46 +923,76 @@ Greek_precomposed() {
 		{
 		   if (accent = "")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾀ
+				SendInput ἀ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ἀ
+				SendInput ᾀ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput α{%macron%}{%smooth%}
+				sentKeys := 3
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput α{%breve%}{%smooth%}
+				sentKeys := 3
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾄ
+				SendInput ἄ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ἄ
+				SendInput ᾄ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput α{%macron%}{%smooth%}{%acute%}
+				sentKeys := 4
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput α{%breve%}{%smooth%}{%acute%}
+				sentKeys := 4
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾂ
+				SendInput ἂ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ἂ
+				SendInput ᾂ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput α{%macron%}{%smooth%}{%grave%}
+				sentKeys := 4
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput α{%breve%}{%smooth%}{%grave%}
+				sentKeys := 4
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾆ
+				SendInput ἆ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ἆ
+				SendInput ᾆ
 			  }
 		   }
 		}
@@ -670,46 +1000,76 @@ Greek_precomposed() {
 		{
 		   if (accent = "")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾁ
+				SendInput ἁ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ἁ
+				SendInput ᾁ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput α{%macron%}{%rough%}
+				sentKeys := 3
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput α{%breve%}{%rough%}
+				sentKeys := 3
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾅ
+				SendInput ἅ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ἅ
+				SendInput ᾅ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput α{%macron%}{%rough%}{%acute%}
+				sentKeys := 4
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput α{%breve%}{%rough%}{%acute%}
+				sentKeys := 4
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾃ
+				SendInput ἃ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ἃ
+				SendInput ᾃ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput α{%macron%}{%rough%}{%grave%}
+				sentKeys := 4
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput α{%breve%}{%rough%}{%grave%}
+				sentKeys := 4
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾇ
+				SendInput ἇ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ἇ
+				SendInput ᾇ
 			  }
 		   }
 		}
@@ -721,45 +1081,45 @@ Greek_precomposed() {
 		{
 		   if (accent = "")
 		   {
-			  SendInput {Backspace}ε
+			  SendInput ε
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput {Backspace}έ
+			  SendInput έ
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput {Backspace}ὲ
+			  SendInput ὲ
 		   }
 		}
 		else if (breathing = "smooth")
 		{
 		   if (accent = "")
 		   {
-			  SendInput {Backspace}ἐ
+			  SendInput ἐ
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput {Backspace}ἔ
+			  SendInput ἔ
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput {Backspace}ἒ
+			  SendInput ἒ
 		   }
 		}
 		else if (breathing = "rough")
 		{
 		   if (accent = "")
 		   {
-			  SendInput {Backspace}ἑ
+			  SendInput ἑ
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput {Backspace}ἕ
+			  SendInput ἕ
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput {Backspace}ἓ
+			  SendInput ἓ
 		   }
 		}
 	  }
@@ -770,46 +1130,46 @@ Greek_precomposed() {
 		{
 		   if (accent = "")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ῃ
+				SendInput η
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}η
+				SendInput ῃ
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ῄ
+				SendInput ή
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ή
+				SendInput ῄ
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ῂ
+				SendInput ὴ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ὴ
+				SendInput ῂ
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ῇ
+				SendInput ῆ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ῆ
+				SendInput ῇ
 			  }
 		   }
 		}
@@ -817,46 +1177,46 @@ Greek_precomposed() {
 		{
 		   if (accent = "")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾐ
+				SendInput ἠ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ἠ
+				SendInput ᾐ
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾔ
+				SendInput ἤ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ἤ
+				SendInput ᾔ
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾒ
+				SendInput ἢ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ἢ
+				SendInput ᾒ
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾖ
+				SendInput ἦ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ἦ
+				SendInput ᾖ
 			  }
 		   }
 		}
@@ -864,46 +1224,46 @@ Greek_precomposed() {
 		{
 		   if (accent = "")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾑ
+				SendInput ἡ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ἡ
+				SendInput ᾑ
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾕ
+				SendInput ἥ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ἥ
+				SendInput ᾕ
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾓ
+				SendInput ἣ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ἣ
+				SendInput ᾓ
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾗ
+				SendInput ἧ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ἧ
+				SendInput ᾗ
 			  }
 		   }
 		}
@@ -915,76 +1275,193 @@ Greek_precomposed() {
 		{
 		   if (accent = "")
 		   {
-			  SendInput {Backspace}ι
+			  if (quantity = "")
+			  {
+				SendInput ι
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput ι{%macron%}
+				sentKeys := 2
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput ι{%breve%}
+				sentKeys := 2
+			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput {Backspace}ί
+			  if (quantity = "")
+			  {
+				SendInput ί
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput ι{%macron%}{%acute%}
+				sentKeys := 3
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput ι{%breve%}{%acute%}
+				sentKeys := 3
+			  }
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput {Backspace}ὶ
+			  if (quantity = "")
+			  {
+				SendInput ὶ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput ι{%macron%}{%grave%}
+				sentKeys := 3
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput ι{%breve%}{%grave%}
+				sentKeys := 3
+			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  SendInput {Backspace}ῖ
+			  SendInput ῖ
 		   }
 		}
 		else if (breathing = "smooth")
 		{
 		   if (accent = "")
 		   {
-			  SendInput {Backspace}ἰ
+			  if (quantity = "")
+			  {
+				SendInput ἰ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput ι{%macron%}{%smooth%}
+				sentKeys := 3
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput ι{%breve%}{%smooth%}
+				sentKeys := 3
+			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput {Backspace}ἴ
+			  if (quantity = "")
+			  {
+				SendInput ἴ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput ι{%macron%}{%smooth%}{%acute%}
+				sentKeys := 4
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput ι{%breve%}{%smooth%}{%acute%}
+				sentKeys := 4
+			  }
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput {Backspace}ἲ
+			  if (quantity = "")
+			  {
+				SendInput ἲ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput ι{%macron%}{%smooth%}{%grave%}
+				sentKeys := 4
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput ι{%breve%}{%smooth%}{%grave%}
+				sentKeys := 4
+			  }
 		   }
 		   else if (accent = "circumflex")
 			{
-			  SendInput {Backspace}ἶ
+			  SendInput ἶ
 		   }
 		}
 		else if (breathing = "rough")
 		{
 		   if (accent = "")
 		   {
-			  SendInput {Backspace}ἱ
+			  if (quantity = "")
+			  {
+				SendInput ἱ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput ι{%macron%}{%rough%}
+				sentKeys := 3
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput ι{%breve%}{%rough%}
+				sentKeys := 3
+			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput {Backspace}ἵ
+			  if (quantity = "")
+			  {
+				SendInput ἵ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput ι{%macron%}{%rough%}{%acute%}
+				sentKeys := 4
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput ι{%breve%}{%rough%}{%acute%}
+				sentKeys := 4
+			  }
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput {Backspace}ἳ
+			  if (quantity = "")
+			  {
+				SendInput ἳ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput ι{%macron%}{%rough%}{%grave%}
+				sentKeys := 4
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput ι{%breve%}{%rough%}{%grave%}
+				sentKeys := 4
+			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  SendInput {Backspace}ἷ
+			  SendInput ἷ
 		   }
 		}
 		else if (breathing = "diaeresis")
 		{
 		   if (accent = "")
 		   {
-			  SendInput {Backspace}ϊ
+			  SendInput ϊ
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput {Backspace}ΐ
+			  SendInput ΐ
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput {Backspace}ῒ
+			  SendInput ῒ
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  SendInput {Backspace}ῗ
+			  SendInput ῗ
 		   }
 		}
 	  }
@@ -995,45 +1472,45 @@ Greek_precomposed() {
 		{
 		   if (accent = "")
 		   {
-			  SendInput {Backspace}ο
+			  SendInput ο
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput {Backspace}ό
+			  SendInput ό
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput {Backspace}ὸ
+			  SendInput ὸ
 		   }
 		}
 		else if (breathing = "smooth")
 		{
 		   if (accent = "")
 		   {
-			  SendInput {Backspace}ὀ
+			  SendInput ὀ
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput {Backspace}ὄ
+			  SendInput ὄ
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput {Backspace}ὂ
+			  SendInput ὂ
 		   }
 		}
 		else if (breathing = "rough")
 		{
 		   if (accent = "")
 		   {
-			  SendInput {Backspace}ὁ
+			  SendInput ὁ
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput {Backspace}ὅ
+			  SendInput ὅ
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput {Backspace}ὃ
+			  SendInput ὃ
 		   }
 		}
 	  }
@@ -1044,76 +1521,193 @@ Greek_precomposed() {
 		{
 		   if (accent = "")
 		   {
-			  SendInput {Backspace}υ
+			  if (quantity = "")
+			  {
+				SendInput υ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput υ{%macron%}
+				sentKeys := 2
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput υ{%breve%}
+				sentKeys := 2
+			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput {Backspace}ύ
+			  if (quantity = "")
+			  {
+				SendInput ύ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput υ{%macron%}{%acute%}
+				sentKeys := 3
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput υ{%breve%}{%acute%}
+				sentKeys := 3
+			  }
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput {Backspace}ὺ
+			  if (quantity = "")
+			  {
+				SendInput ὺ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput υ{%macron%}{%grave%}
+				sentKeys := 3
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput υ{%breve%}{%grave%}
+				sentKeys := 3
+			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  SendInput {Backspace}ῦ
+			  SendInput ῦ
 		   }
 		}
 		else if (breathing = "smooth")
 		{
 		   if (accent = "")
 		   {
-			  SendInput {Backspace}ὐ
+			  if (quantity = "")
+			  {
+				SendInput ὐ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput υ{%macron%}{%smooth%}
+				sentKeys := 3
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput υ{%breve%}{%smooth%}
+				sentKeys := 3
+			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput {Backspace}ὔ
+			  if (quantity = "")
+			  {
+				SendInput ὔ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput υ{%macron%}{%smooth%}{%acute%}
+				sentKeys := 4
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput υ{%breve%}{%smooth%}{%acute%}
+				sentKeys := 4
+			  }
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput {Backspace}ὒ
+			  if (quantity = "")
+			  {
+				SendInput ὒ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput υ{%macron%}{%smooth%}{%grave%}
+				sentKeys := 4
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput υ{%breve%}{%smooth%}{%grave%}
+				sentKeys := 4
+			  }
 		   }
 		   else if (accent = "circumflex")
 			{
-			  SendInput {Backspace}ὖ
+			  SendInput ὖ
 		   }
 		}
 		else if (breathing = "rough")
 		{
 		   if (accent = "")
 		   {
-			  SendInput {Backspace}ὑ
+			  if (quantity = "")
+			  {
+				SendInput ὑ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput υ{%macron%}{%rough%}
+				sentKeys := 3
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput υ{%breve%}{%rough%}
+				sentKeys := 3
+			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput {Backspace}ὕ
+			  if (quantity = "")
+			  {
+				SendInput ὕ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput υ{%macron%}{%rough%}{%acute%}
+				sentKeys := 4
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput υ{%breve%}{%rough%}{%acute%}
+				sentKeys := 4
+			  }
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput {Backspace}ὓ
+			  if (quantity = "")
+			  {
+				SendInput ὓ
+			  }
+			  else if (quantity = "macron")
+			  {
+				SendInput υ{%macron%}{%rough%}{%grave%}
+				sentKeys := 4
+			  }
+			  else if (quantity = "breve")
+			  {
+				SendInput υ{%breve%}{%rough%}{%grave%}
+				sentKeys := 4
+			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  SendInput {Backspace}ὗ
+			  SendInput ὗ
 		   }
 		}
 		else if (breathing = "diaeresis")
 		{
 		   if (accent = "")
 		   {
-			  SendInput {Backspace}ϋ
+			  SendInput ϋ
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput {Backspace}ΰ
+			  SendInput ΰ
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput {Backspace}ῢ
+			  SendInput ῢ
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  SendInput {Backspace}ῧ
+			  SendInput ῧ
 		   }
 		}
 	  }
@@ -1124,46 +1718,46 @@ Greek_precomposed() {
 		{
 		   if (accent = "")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ῳ
+				SendInput ω
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ω
+				SendInput ῳ
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ῴ
+				SendInput ώ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ώ
+				SendInput ῴ
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ῲ
+				SendInput ὼ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ὼ
+				SendInput ῲ
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ῷ
+				SendInput ῶ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ῶ
+				SendInput ῷ
 			  }
 		   }
 		}
@@ -1171,46 +1765,46 @@ Greek_precomposed() {
 		{
 		   if (accent = "")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾠ
+				SendInput ὠ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ὠ
+				SendInput ᾠ
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾤ
+				SendInput ὤ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ὤ
+				SendInput ᾤ
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾢ
+				SendInput ὢ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ὢ
+				SendInput ᾢ
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾦ
+				SendInput ὦ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ὦ
+				SendInput ᾦ
 			  }
 		   }
 		}
@@ -1218,61 +1812,78 @@ Greek_precomposed() {
 		{
 		   if (accent = "")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾡ
+				SendInput ὡ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ὡ
+				SendInput ᾡ
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾥ
+				SendInput ὥ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ὥ
+				SendInput ᾥ
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾣ
+				SendInput ὣ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ὣ
+				SendInput ᾣ
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  if (subscript = "iota")
+			  if (quantity = "")
 			  {
-				SendInput {Backspace}ᾧ
+				SendInput ὧ
 			  }
-			  else if (subscript = "")
+			  else if (quantity = "iota")
 			  {
-				SendInput {Backspace}ὧ
+				SendInput ᾧ
 			  }
 		   }
 		}
     }
   }
   
+  keysToBackspace := sentKeys
+  
   return
 }
 
 
-resetDiacritics() {
-  capital := false
-  vowel := ""
-  breathing := ""
-  accent := ""
-  subscript := ""
-  return
+resetDiacritics() 
+{
+	capital := false
+	vowel := ""
+	breathing := ""
+	accent := ""
+	quantity := ""
+	return
+}
+
+deleteLastFullCharacter()
+{
+	timeOfLastHotkey := A_TickCount - A_TimeSincePriorHotkey
+	if((timeOfLastHotKey - lastDiacriticKey) < 50)
+	{
+		SendInput {Backspace %keysToBackspace%}
+	}
+		else
+	{
+		SendInput {Backspace}
+	}
+	return
 }

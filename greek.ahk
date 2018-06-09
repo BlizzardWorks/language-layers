@@ -42,7 +42,13 @@ global capital := false   ; false true
 global vowel := ""        ; "" a e h i o u w
 global breathing := ""    ; "" smooth rough
 global accent := ""       ; "" acute grave circumflex
-global subscript := ""    ; "" iota
+global quantity := ""     ; "" iota macron breve
+
+
+; Keep track of character compositions to always make backspace delete the last full character
+; rather than a single diacritic
+global lastDiacriticKey := A_TickCount
+global keysToBackspace := 1
 
 ; Import Functions
 ;-------------------------------------------------
@@ -166,11 +172,9 @@ global subscript := ""    ; "" iota
   resetDiacritics()
   dual.comboKey({VK88: "ϙ", Shift: "Ϙ"})
   return
+  
 
-
-
-
-*'::
+*/::
   if (vowel = "")
   {
     return
@@ -186,48 +190,44 @@ global subscript := ""    ; "" iota
   addDiacritic()
   return
 
-*`::
+*\::
   if (vowel = "")
   {
     return
   }
-  if (GetKeyState("RShift") or GetKeyState("LShift"))
+  if (getShiftState())
   {
-    if (accent = "circumflex")
+    if (quantity = "iota")
     {
-      accent := ""
+      quantity := ""
     }
     else
     {
-      accent := "circumflex"
+      quantity := "iota"
     }
   }
   else
   {
-    if (accent = "grave")
-    {
-      accent := ""
-    }
-    else
-    {
-      accent := "grave"
-    }
+	if (accent = "grave")
+	{
+	  accent := ""
+	}
+	else
+	{
+	  accent := "grave"
+	}
   }
   addDiacritic()
   return
-
-*/::
-  if (vowel = "")
+  
+*=::
+  if (accent = "circumflex")
   {
-    return
-  }
-  if (subscript = "iota")
-  {
-    subscript := ""
+    accent := ""
   }
   else
   {
-    subscript := "iota"
+    accent := "circumflex"
   }
   addDiacritic()
   return
@@ -269,7 +269,7 @@ global subscript := ""    ; "" iota
   {
     return
   }
-  if (GetKeyState("RShift") or GetKeyState("LShift"))
+  if (getShiftState())
   {
     if (breathing = "diaeresis")
     {
@@ -286,10 +286,43 @@ global subscript := ""    ; "" iota
   {
 	return
   }
+  
+*1::
+  if (vowel = "")
+  {
+    return
+  }
+  if (quantity = "macron")
+  {
+    quantity := ""
+  }
+  else
+  {
+    quantity := "macron"
+  }
+  addDiacritic()
+  return
+  
+*2::
+  if (vowel = "")
+  {
+    return
+  }
+  if (quantity = "breve")
+  {
+    quantity := ""
+  }
+  else
+  {
+    quantity := "breve"
+  }
+  addDiacritic()
+  return
+  
 
 *Backspace::
   resetDiacritics()
-  SendInput {Backspace}
+  deleteLastFullCharacter()
   return
 
 
