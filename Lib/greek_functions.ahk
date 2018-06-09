@@ -6,10 +6,9 @@
 
 Greek_precomposed() {
 
-deleteLastFullCharacter()
-
-lastDiacriticKey := A_TickCount
-sentKeys := 1
+thisDiacriticKey := A_TickCount
+keysToSend := ""
+numKeysToSend := 1
 
   if (capital) {
 	if (vowel = "a")
@@ -20,30 +19,30 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Α
+				keysToSend := "Α"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾼ
+				keysToSend := "ᾼ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput Α{%macron%}
-				sentKeys := 2
+				keysToSend := "Α" macron
+				numKeysToSend := 2
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput Α{%breve%}
-				sentKeys := 2
+				keysToSend := "Α" breve
+				numKeysToSend := 2
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
-		     SendInput Ά
+		     keysToSend := "Ά"
 		   }
 		   else if (accent = "grave")
 		   {
-			 SendInput Ὰ
+			 keysToSend := "Ὰ"
 		   }
 		}
 		else if (breathing = "smooth")
@@ -52,74 +51,74 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ἀ
+				keysToSend := "Ἀ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾈ
+				keysToSend := "ᾈ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput Α{%macron%}{%smooth%}
-				sentKeys := 3
+				keysToSend := "Α" macron smooth
+				numKeysToSend := 3
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput Α{%breve%}{%smooth%}
-				sentKeys := 3
+				keysToSend := "Α" breve smooth
+				numKeysToSend := 3
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ἄ
+				keysToSend := "Ἄ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾌ
+				keysToSend := "ᾌ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput Α{%macron%}{%smooth%}{%acute%}
-				sentKeys := 4
+				keysToSend := "Α" macron smooth acute
+				numKeysToSend := 4
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput Α{%breve%}{%smooth%}{%acute%}
-				sentKeys := 4
+				keysToSend := "Α" breve smooth acute
+				numKeysToSend := 4
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ἂ
+				keysToSend := "Ἂ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾊ
+				keysToSend := "ᾊ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput Α{%macron%}{%smooth%}{%grave%}
-				sentKeys := 4
+				keysToSend := "Α" macron smooth grave
+				numKeysToSend := 4
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput Α{%breve%}{%smooth%}{%grave%}
-				sentKeys := 4
+				keysToSend := "Α" breve smooth grave
+				numKeysToSend := 4
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ἆ
+				keysToSend := "Ἆ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾎ
+				keysToSend := "ᾎ"
 			  }
 		   }
 		}
@@ -129,74 +128,74 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ἁ
+				keysToSend := "Ἁ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾉ
+				keysToSend := "ᾉ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput Α{%macron%}{%rough%}
-				sentKeys := 3
+				keysToSend := "Α" macron rough
+				numKeysToSend := 3
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput Α{%breve%}{%rough%}
-				sentKeys := 3
+				keysToSend := "Α" breve rough
+				numKeysToSend := 3
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ἅ
+				keysToSend := "Ἅ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾍ
+				keysToSend := "ᾍ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput Α{%macron%}{%rough%}{%acute%}
-				sentKeys := 4
+				keysToSend := "Α" macron rough acute
+				numKeysToSend := 4
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput Α{%breve%}{%rough%}{%acute%}
-				sentKeys := 4
+				keysToSend := "Α" breve rough acute
+				numKeysToSend := 4
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ἃ
+				keysToSend := "Ἃ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾋ
+				keysToSend := "ᾋ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput Α{%macron%}{%rough%}{%grave%}
-				sentKeys := 4
+				keysToSend := "Α" macron rough grave
+				numKeysToSend := 4
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput Α{%breve%}{%rough%}{%grave%}
-				sentKeys := 4
+				keysToSend := "Α" breve rough grave
+				numKeysToSend := 4
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ἇ
+				keysToSend := "Ἇ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾏ
+				keysToSend := "ᾏ"
 			  }
 		   }
 		}
@@ -208,45 +207,45 @@ sentKeys := 1
 		{
 		   if (accent = "")
 		   {
-			  SendInput Ε
+			  keysToSend := "Ε"
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput Έ
+			  keysToSend := "Έ"
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput Ὲ
+			  keysToSend := "Ὲ"
 		   }
 		}
 		else if (breathing = "smooth")
 		{
 		   if (accent = "")
 		   {
-			  SendInput Ἐ
+			  keysToSend := "Ἐ"
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput Ἔ
+			  keysToSend := "Ἔ"
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput Ἒ
+			  keysToSend := "Ἒ"
 		   }
 		}
 		else if (breathing = "rough")
 		{
 		   if (accent = "")
 		   {
-			  SendInput Ἑ
+			  keysToSend := "Ἑ"
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput Ἕ
+			  keysToSend := "Ἕ"
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput Ἓ
+			  keysToSend := "Ἓ"
 		   }
 		}
 	  }
@@ -259,20 +258,20 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Η
+				keysToSend := "Η"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ῌ
+				keysToSend := "ῌ"
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			 SendInput Ή
+			 keysToSend := "Ή"
 		   }
 		   else if (accent = "grave")
 		   {
-			 SendInput Ὴ
+			 keysToSend := "Ὴ"
 		   }
 		}
 		else if (breathing = "smooth")
@@ -281,44 +280,44 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ἠ
+				keysToSend := "Ἠ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾘ
+				keysToSend := "ᾘ"
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ἤ
+				keysToSend := "Ἤ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾜ
+				keysToSend := "ᾜ"
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ἢ
+				keysToSend := "Ἢ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾚ
+				keysToSend := "ᾚ"
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ἦ
+				keysToSend := "Ἦ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾞ
+				keysToSend := "ᾞ"
 			  }
 		   }
 		}
@@ -328,44 +327,44 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ἡ
+				keysToSend := "Ἡ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾙ
+				keysToSend := "ᾙ"
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ἥ
+				keysToSend := "Ἥ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾝ
+				keysToSend := "ᾝ"
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ἣ
+				keysToSend := "Ἣ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾛ
+				keysToSend := "ᾛ"
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ἧ
+				keysToSend := "Ἧ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾟ
+				keysToSend := "ᾟ"
 			  }
 		   }
 		}
@@ -379,51 +378,51 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ι
+				keysToSend := "Ι"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput Ι{%macron%}
-				sentKeys := 2
+				keysToSend := "Ι" macron
+				numKeysToSend := 2
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput Ι{%breve%}
-				sentKeys := 2
+				keysToSend := "Ι" breve
+				numKeysToSend := 2
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ί
+				keysToSend := "Ί"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput Ι{%macron%}{%acute%}
-				sentKeys := 3
+				keysToSend := "Ι" macron acute
+				numKeysToSend := 3
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput Ι{%breve%}{%acute%}
-				sentKeys := 3
+				keysToSend := "Ι" breve acute
+				numKeysToSend := 3
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ὶ
+				keysToSend := "Ὶ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput Ι{%macron%}{%grave%}
-				sentKeys := 3
+				keysToSend := "Ι" macron grave
+				numKeysToSend := 3
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput Ι{%breve%}{%grave%}
-				sentKeys := 3
+				keysToSend := "Ι" breve grave
+				numKeysToSend := 3
 			  }
 		   }
 		}
@@ -433,56 +432,56 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ἰ
+				keysToSend := "Ἰ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput Ι{%macron%}{%smooth%}
-				sentKeys := 3
+				keysToSend := "Ι" macron smooth
+				numKeysToSend := 3
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput Ι{%breve%}{%smooth%}
-				sentKeys := 3
+				keysToSend := "Ι" breve smooth
+				numKeysToSend := 3
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ἴ
+				keysToSend := "Ἴ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput Ι{%macron%}{%smooth%}{%acute%}
-				sentKeys := 4
+				keysToSend := "Ι" macron smooth acute
+				numKeysToSend := 4
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput Ι{%breve%}{%smooth%}{%acute%}
-				sentKeys := 4
+				keysToSend := "Ι" breve smooth acute
+				numKeysToSend := 4
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ἲ
+				keysToSend := "Ἲ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput Ι{%macron%}{%smooth%}{%grave%}
-				sentKeys := 4
+				keysToSend := "Ι" macron smooth grave
+				numKeysToSend := 4
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput Ι{%breve%}{%smooth%}{%grave%}
-				sentKeys := 4
+				keysToSend := "Ι" breve smooth grave
+				numKeysToSend := 4
 			  }
 		   }
 		   else if (accent = "circumflex")
 			{
-			  SendInput Ἶ
+			  keysToSend := "Ἶ"
 		   }
 		}
 		else if (breathing = "rough")
@@ -491,61 +490,61 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ἱ
+				keysToSend := "Ἱ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput Ι{%macron%}{%rough%}
-				sentKeys := 3
+				keysToSend := "Ι" macron rough
+				numKeysToSend := 3
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput Ι{%breve%}{%rough%}
-				sentKeys := 3
+				keysToSend := "Ι" breve rough
+				numKeysToSend := 3
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ἵ
+				keysToSend := "Ἵ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput Ι{%macron%}{%rough%}{%acute%}
-				sentKeys := 4
+				keysToSend := "Ι" macron rough acute
+				numKeysToSend := 4
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput Ι{%breve%}{%rough%}{%acute%}
-				sentKeys := 4
+				keysToSend := "Ι" breve rough acute
+				numKeysToSend := 4
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ἳ
+				keysToSend := "Ἳ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput Ι{%macron%}{%rough%}{%grave%}
-				sentKeys := 4
+				keysToSend := "Ι" macron rough grave
+				numKeysToSend := 4
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput Ι{%breve%}{%rough%}{%grave%}
-				sentKeys := 4
+				keysToSend := "Ι" breve rough grave
+				numKeysToSend := 4
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  SendInput Ἷ
+			  keysToSend := "Ἷ"
 		   }
 		}
 		else if (breathing = "diaeresis")
 		{
-			SendInput Ϊ
+			keysToSend := "Ϊ"
 		}
 	  }
 	  
@@ -555,45 +554,45 @@ sentKeys := 1
 		{
 		   if (accent = "")
 		   {
-			  SendInput Ο
+			  keysToSend := "Ο"
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput Ό
+			  keysToSend := "Ό"
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput Ὸ
+			  keysToSend := "Ὸ"
 		   }
 		}
 		else if (breathing = "smooth")
 		{
 		   if (accent = "")
 		   {
-			  SendInput Ὀ
+			  keysToSend := "Ὀ"
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput Ὄ
+			  keysToSend := "Ὄ"
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput Ὂ
+			  keysToSend := "Ὂ"
 		   }
 		}
 		else if (breathing = "rough")
 		{
 		   if (accent = "")
 		   {
-			  SendInput Ὁ
+			  keysToSend := "Ὁ"
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput Ὅ
+			  keysToSend := "Ὅ"
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput Ὃ
+			  keysToSend := "Ὃ"
 		   }
 		}
 	  }
@@ -606,51 +605,51 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Υ
+				keysToSend := "Υ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput Υ{%macron%}
-				sentKeys := 2
+				keysToSend := "Υ" macron
+				numKeysToSend := 2
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput Υ{%breve%}
-				sentKeys := 2
+				keysToSend := "Υ" breve
+				numKeysToSend := 2
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ύ
+				keysToSend := "Ύ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput Υ{%macron%}{%acute%}
-				sentKeys := 3
+				keysToSend := "Υ" macron acute
+				numKeysToSend := 3
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput Υ{%breve%}{%acute%}
-				sentKeys := 3
+				keysToSend := "Υ" breve acute
+				numKeysToSend := 3
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ὺ
+				keysToSend := "Ὺ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput Υ{%macron%}{%grave%}
-				sentKeys := 3
+				keysToSend := "Υ" macron grave
+				numKeysToSend := 3
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput Υ{%breve%}{%grave%}
-				sentKeys := 3
+				keysToSend := "Υ" breve grave
+				numKeysToSend := 3
 			  }
 		   }
 		}
@@ -660,61 +659,61 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ὑ
+				keysToSend := "Ὑ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput Υ{%macron%}{%rough%}
-				sentKeys := 3
+				keysToSend := "Υ" macron rough
+				numKeysToSend := 3
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput Υ{%breve%}{%rough%}
-				sentKeys := 3
+				keysToSend := "Υ" breve rough
+				numKeysToSend := 3
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ὕ
+				keysToSend := "Ὕ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput Υ{%macron%}{%rough%}{%acute%}
-				sentKeys := 4
+				keysToSend := "Υ" macron rough acute
+				numKeysToSend := 4
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput Υ{%breve%}{%rough%}{%acute%}
-				sentKeys := 4
+				keysToSend := "Υ" breve rough acute
+				numKeysToSend := 4
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ὓ
+				keysToSend := "Ὓ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput Υ{%macron%}{%rough%}{%grave%}
-				sentKeys := 4
+				keysToSend := "Υ" macron rough grave
+				numKeysToSend := 4
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput Υ{%breve%}{%rough%}{%grave%}
-				sentKeys := 4
+				keysToSend := "Υ" breve rough grave
+				numKeysToSend := 4
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  SendInput Ὗ
+			  keysToSend := "Ὗ"
 		   }
 		}
 		else if (breathing = "diaeresis")
 		{
-			SendInput Ϋ
+			keysToSend := "Ϋ"
 		}
 	  }
 	  
@@ -726,20 +725,20 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ω
+				keysToSend := "Ω"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ῼ
+				keysToSend := "ῼ"
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
-			 SendInput Ώ
+			 keysToSend := "Ώ"
 		   }
 		   else if (accent = "grave")
 		   {
-			 SendInput Ὼ
+			 keysToSend := "Ὼ"
 		   }
 		}
 		else if (breathing = "smooth")
@@ -748,44 +747,44 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ὠ
+				keysToSend := "Ὠ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾨ
+				keysToSend := "ᾨ"
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ὤ
+				keysToSend := "Ὤ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾬ
+				keysToSend := "ᾬ"
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ὢ
+				keysToSend := "Ὢ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾪ
+				keysToSend := "ᾪ"
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ὦ
+				keysToSend := "Ὦ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾮ
+				keysToSend := "ᾮ"
 			  }
 		   }
 		}
@@ -795,44 +794,44 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ὡ
+				keysToSend := "Ὡ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾩ
+				keysToSend := "ᾩ"
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ὥ
+				keysToSend := "Ὥ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾭ
+				keysToSend := "ᾭ"
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ὣ
+				keysToSend := "Ὣ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾫ
+				keysToSend := "ᾫ"
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput Ὧ
+				keysToSend := "Ὧ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾯ
+				keysToSend := "ᾯ"
 			  }
 		   }
 		}
@@ -848,74 +847,74 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput α
+				keysToSend := "α"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾳ
+				keysToSend := "ᾳ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput α{%macron%}
-				sentKeys := 2
+				keysToSend := "α" macron
+				numKeysToSend := 2
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput α{%breve%}
-				sentKeys := 2
+				keysToSend := "α" breve
+				numKeysToSend := 2
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ά
+				keysToSend := "ά"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾴ
+				keysToSend := "ᾴ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput α{%macron%}{%acute%}
-				sentKeys := 3
+				keysToSend := "α" macron acute
+				numKeysToSend := 3
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput α{%breve%}{%acute%}
-				sentKeys := 3
+				keysToSend := "α" breve acute
+				numKeysToSend := 3
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ὰ
+				keysToSend := "ὰ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾲ
+				keysToSend := "ᾲ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput α{%macron%}{%grave%}
-				sentKeys := 3
+				keysToSend := "α" macron grave
+				numKeysToSend := 3
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput α{%breve%}{%grave%}
-				sentKeys := 3
+				keysToSend := "α" breve grave
+				numKeysToSend := 3
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ᾶ
+				keysToSend := "ᾶ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾷ
+				keysToSend := "ᾷ"
 			  }
 		   }
 		}
@@ -925,74 +924,74 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ἀ
+				keysToSend := "ἀ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾀ
+				keysToSend := "ᾀ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput α{%macron%}{%smooth%}
-				sentKeys := 3
+				keysToSend := "α" macron smooth
+				numKeysToSend := 3
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput α{%breve%}{%smooth%}
-				sentKeys := 3
+				keysToSend := "α" breve smooth
+				numKeysToSend := 3
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ἄ
+				keysToSend := "ἄ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾄ
+				keysToSend := "ᾄ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput α{%macron%}{%smooth%}{%acute%}
-				sentKeys := 4
+				keysToSend := "α" macron smooth acute
+				numKeysToSend := 4
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput α{%breve%}{%smooth%}{%acute%}
-				sentKeys := 4
+				keysToSend := "α" breve smooth acute
+				numKeysToSend := 4
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ἂ
+				keysToSend := "ἂ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾂ
+				keysToSend := "ᾂ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput α{%macron%}{%smooth%}{%grave%}
-				sentKeys := 4
+				keysToSend := "α" macron smooth grave
+				numKeysToSend := 4
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput α{%breve%}{%smooth%}{%grave%}
-				sentKeys := 4
+				keysToSend := "α" breve smooth grave
+				numKeysToSend := 4
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ἆ
+				keysToSend := "ἆ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾆ
+				keysToSend := "ᾆ"
 			  }
 		   }
 		}
@@ -1002,74 +1001,74 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ἁ
+				keysToSend := "ἁ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾁ
+				keysToSend := "ᾁ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput α{%macron%}{%rough%}
-				sentKeys := 3
+				keysToSend := "α" macron rough
+				numKeysToSend := 3
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput α{%breve%}{%rough%}
-				sentKeys := 3
+				keysToSend := "α" breve rough
+				numKeysToSend := 3
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ἅ
+				keysToSend := "ἅ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾅ
+				keysToSend := "ᾅ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput α{%macron%}{%rough%}{%acute%}
-				sentKeys := 4
+				keysToSend := "α" macron rough acute
+				numKeysToSend := 4
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput α{%breve%}{%rough%}{%acute%}
-				sentKeys := 4
+				keysToSend := "α" breve rough acute
+				numKeysToSend := 4
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ἃ
+				keysToSend := "ἃ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾃ
+				keysToSend := "ᾃ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput α{%macron%}{%rough%}{%grave%}
-				sentKeys := 4
+				keysToSend := "α" macron rough grave
+				numKeysToSend := 4
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput α{%breve%}{%rough%}{%grave%}
-				sentKeys := 4
+				keysToSend := "α" breve rough grave
+				numKeysToSend := 4
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ἇ
+				keysToSend := "ἇ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾇ
+				keysToSend := "ᾇ"
 			  }
 		   }
 		}
@@ -1081,45 +1080,45 @@ sentKeys := 1
 		{
 		   if (accent = "")
 		   {
-			  SendInput ε
+			  keysToSend := "ε"
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput έ
+			  keysToSend := "έ"
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput ὲ
+			  keysToSend := "ὲ"
 		   }
 		}
 		else if (breathing = "smooth")
 		{
 		   if (accent = "")
 		   {
-			  SendInput ἐ
+			  keysToSend := "ἐ"
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput ἔ
+			  keysToSend := "ἔ"
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput ἒ
+			  keysToSend := "ἒ"
 		   }
 		}
 		else if (breathing = "rough")
 		{
 		   if (accent = "")
 		   {
-			  SendInput ἑ
+			  keysToSend := "ἑ"
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput ἕ
+			  keysToSend := "ἕ"
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput ἓ
+			  keysToSend := "ἓ"
 		   }
 		}
 	  }
@@ -1132,44 +1131,44 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput η
+				keysToSend := "η"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ῃ
+				keysToSend := "ῃ"
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ή
+				keysToSend := "ή"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ῄ
+				keysToSend := "ῄ"
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ὴ
+				keysToSend := "ὴ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ῂ
+				keysToSend := "ῂ"
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ῆ
+				keysToSend := "ῆ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ῇ
+				keysToSend := "ῇ"
 			  }
 		   }
 		}
@@ -1179,44 +1178,44 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ἠ
+				keysToSend := "ἠ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾐ
+				keysToSend := "ᾐ"
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ἤ
+				keysToSend := "ἤ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾔ
+				keysToSend := "ᾔ"
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ἢ
+				keysToSend := "ἢ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾒ
+				keysToSend := "ᾒ"
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ἦ
+				keysToSend := "ἦ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾖ
+				keysToSend := "ᾖ"
 			  }
 		   }
 		}
@@ -1226,44 +1225,44 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ἡ
+				keysToSend := "ἡ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾑ
+				keysToSend := "ᾑ"
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ἥ
+				keysToSend := "ἥ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾕ
+				keysToSend := "ᾕ"
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ἣ
+				keysToSend := "ἣ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾓ
+				keysToSend := "ᾓ"
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ἧ
+				keysToSend := "ἧ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾗ
+				keysToSend := "ᾗ"
 			  }
 		   }
 		}
@@ -1277,56 +1276,56 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ι
+				keysToSend := "ι"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput ι{%macron%}
-				sentKeys := 2
+				keysToSend := "ι" macron
+				numKeysToSend := 2
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput ι{%breve%}
-				sentKeys := 2
+				keysToSend := "ι" breve
+				numKeysToSend := 2
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ί
+				keysToSend := "ί"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput ι{%macron%}{%acute%}
-				sentKeys := 3
+				keysToSend := "ι" macron acute
+				numKeysToSend := 3
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput ι{%breve%}{%acute%}
-				sentKeys := 3
+				keysToSend := "ι" breve acute
+				numKeysToSend := 3
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ὶ
+				keysToSend := "ὶ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput ι{%macron%}{%grave%}
-				sentKeys := 3
+				keysToSend := "ι" macron grave
+				numKeysToSend := 3
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput ι{%breve%}{%grave%}
-				sentKeys := 3
+				keysToSend := "ι" breve grave
+				numKeysToSend := 3
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  SendInput ῖ
+			  keysToSend := "ῖ"
 		   }
 		}
 		else if (breathing = "smooth")
@@ -1335,56 +1334,56 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ἰ
+				keysToSend := "ἰ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput ι{%macron%}{%smooth%}
-				sentKeys := 3
+				keysToSend := "ι" macron smooth
+				numKeysToSend := 3
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput ι{%breve%}{%smooth%}
-				sentKeys := 3
+				keysToSend := "ι" breve smooth
+				numKeysToSend := 3
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ἴ
+				keysToSend := "ἴ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput ι{%macron%}{%smooth%}{%acute%}
-				sentKeys := 4
+				keysToSend := "ι" macron smooth acute
+				numKeysToSend := 4
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput ι{%breve%}{%smooth%}{%acute%}
-				sentKeys := 4
+				keysToSend := "ι" breve smooth acute
+				numKeysToSend := 4
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ἲ
+				keysToSend := "ἲ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput ι{%macron%}{%smooth%}{%grave%}
-				sentKeys := 4
+				keysToSend := "ι" macron smooth grave
+				numKeysToSend := 4
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput ι{%breve%}{%smooth%}{%grave%}
-				sentKeys := 4
+				keysToSend := "ι" breve smooth grave
+				numKeysToSend := 4
 			  }
 		   }
 		   else if (accent = "circumflex")
 			{
-			  SendInput ἶ
+			  keysToSend := "ἶ"
 		   }
 		}
 		else if (breathing = "rough")
@@ -1393,75 +1392,75 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ἱ
+				keysToSend := "ἱ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput ι{%macron%}{%rough%}
-				sentKeys := 3
+				keysToSend := "ι" macron rough
+				numKeysToSend := 3
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput ι{%breve%}{%rough%}
-				sentKeys := 3
+				keysToSend := "ι" breve rough
+				numKeysToSend := 3
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ἵ
+				keysToSend := "ἵ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput ι{%macron%}{%rough%}{%acute%}
-				sentKeys := 4
+				keysToSend := "ι" macron rough acute
+				numKeysToSend := 4
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput ι{%breve%}{%rough%}{%acute%}
-				sentKeys := 4
+				keysToSend := "ι" breve rough acute
+				numKeysToSend := 4
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ἳ
+				keysToSend := "ἳ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput ι{%macron%}{%rough%}{%grave%}
-				sentKeys := 4
+				keysToSend := "ι" macron rough grave
+				numKeysToSend := 4
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput ι{%breve%}{%rough%}{%grave%}
-				sentKeys := 4
+				keysToSend := "ι" breve rough grave
+				numKeysToSend := 4
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  SendInput ἷ
+			  keysToSend := "ἷ"
 		   }
 		}
 		else if (breathing = "diaeresis")
 		{
 		   if (accent = "")
 		   {
-			  SendInput ϊ
+			  keysToSend := "ϊ"
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput ΐ
+			  keysToSend := "ΐ"
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput ῒ
+			  keysToSend := "ῒ"
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  SendInput ῗ
+			  keysToSend := "ῗ"
 		   }
 		}
 	  }
@@ -1472,45 +1471,45 @@ sentKeys := 1
 		{
 		   if (accent = "")
 		   {
-			  SendInput ο
+			  keysToSend := "ο"
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput ό
+			  keysToSend := "ό"
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput ὸ
+			  keysToSend := "ὸ"
 		   }
 		}
 		else if (breathing = "smooth")
 		{
 		   if (accent = "")
 		   {
-			  SendInput ὀ
+			  keysToSend := "ὀ"
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput ὄ
+			  keysToSend := "ὄ"
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput ὂ
+			  keysToSend := "ὂ"
 		   }
 		}
 		else if (breathing = "rough")
 		{
 		   if (accent = "")
 		   {
-			  SendInput ὁ
+			  keysToSend := "ὁ"
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput ὅ
+			  keysToSend := "ὅ"
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput ὃ
+			  keysToSend := "ὃ"
 		   }
 		}
 	  }
@@ -1523,56 +1522,56 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput υ
+				keysToSend := "υ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput υ{%macron%}
-				sentKeys := 2
+				keysToSend := "υ" macron
+				numKeysToSend := 2
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput υ{%breve%}
-				sentKeys := 2
+				keysToSend := "υ" breve
+				numKeysToSend := 2
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ύ
+				keysToSend := "ύ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput υ{%macron%}{%acute%}
-				sentKeys := 3
+				keysToSend := "υ" macron acute
+				numKeysToSend := 3
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput υ{%breve%}{%acute%}
-				sentKeys := 3
+				keysToSend := "υ" breve acute
+				numKeysToSend := 3
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ὺ
+				keysToSend := "ὺ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput υ{%macron%}{%grave%}
-				sentKeys := 3
+				keysToSend := "υ" macron grave
+				numKeysToSend := 3
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput υ{%breve%}{%grave%}
-				sentKeys := 3
+				keysToSend := "υ" breve grave
+				numKeysToSend := 3
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  SendInput ῦ
+			  keysToSend := "ῦ"
 		   }
 		}
 		else if (breathing = "smooth")
@@ -1581,56 +1580,56 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ὐ
+				keysToSend := "ὐ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput υ{%macron%}{%smooth%}
-				sentKeys := 3
+				keysToSend := "υ" macron smooth
+				numKeysToSend := 3
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput υ{%breve%}{%smooth%}
-				sentKeys := 3
+				keysToSend := "υ" breve smooth
+				numKeysToSend := 3
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ὔ
+				keysToSend := "ὔ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput υ{%macron%}{%smooth%}{%acute%}
-				sentKeys := 4
+				keysToSend := "υ" macron smooth acute
+				numKeysToSend := 4
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput υ{%breve%}{%smooth%}{%acute%}
-				sentKeys := 4
+				keysToSend := "υ" breve smooth acute
+				numKeysToSend := 4
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ὒ
+				keysToSend := "ὒ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput υ{%macron%}{%smooth%}{%grave%}
-				sentKeys := 4
+				keysToSend := "υ" macron smooth grave
+				numKeysToSend := 4
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput υ{%breve%}{%smooth%}{%grave%}
-				sentKeys := 4
+				keysToSend := "υ" breve smooth grave
+				numKeysToSend := 4
 			  }
 		   }
 		   else if (accent = "circumflex")
 			{
-			  SendInput ὖ
+			  keysToSend := "ὖ"
 		   }
 		}
 		else if (breathing = "rough")
@@ -1639,75 +1638,75 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ὑ
+				keysToSend := "ὑ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput υ{%macron%}{%rough%}
-				sentKeys := 3
+				keysToSend := "υ" macron rough
+				numKeysToSend := 3
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput υ{%breve%}{%rough%}
-				sentKeys := 3
+				keysToSend := "υ" breve rough
+				numKeysToSend := 3
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ὕ
+				keysToSend := "ὕ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput υ{%macron%}{%rough%}{%acute%}
-				sentKeys := 4
+				keysToSend := "υ" macron rough acute
+				numKeysToSend := 4
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput υ{%breve%}{%rough%}{%acute%}
-				sentKeys := 4
+				keysToSend := "υ" breve rough acute
+				numKeysToSend := 4
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ὓ
+				keysToSend := "ὓ"
 			  }
 			  else if (quantity = "macron")
 			  {
-				SendInput υ{%macron%}{%rough%}{%grave%}
-				sentKeys := 4
+				keysToSend := "υ" macron rough grave
+				numKeysToSend := 4
 			  }
 			  else if (quantity = "breve")
 			  {
-				SendInput υ{%breve%}{%rough%}{%grave%}
-				sentKeys := 4
+				keysToSend := "υ" breve rough grave
+				numKeysToSend := 4
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  SendInput ὗ
+			  keysToSend := "ὗ"
 		   }
 		}
 		else if (breathing = "diaeresis")
 		{
 		   if (accent = "")
 		   {
-			  SendInput ϋ
+			  keysToSend := "ϋ"
 		   }
 		   else if (accent = "acute")
 		   {
-			  SendInput ΰ
+			  keysToSend := "ΰ"
 		   }
 		   else if (accent = "grave")
 		   {
-			  SendInput ῢ
+			  keysToSend := "ῢ"
 		   }
 		   else if (accent = "circumflex")
 		   {
-			  SendInput ῧ
+			  keysToSend := "ῧ"
 		   }
 		}
 	  }
@@ -1720,44 +1719,44 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ω
+				keysToSend := "ω"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ῳ
+				keysToSend := "ῳ"
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ώ
+				keysToSend := "ώ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ῴ
+				keysToSend := "ῴ"
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ὼ
+				keysToSend := "ὼ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ῲ
+				keysToSend := "ῲ"
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ῶ
+				keysToSend := "ῶ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ῷ
+				keysToSend := "ῷ"
 			  }
 		   }
 		}
@@ -1767,44 +1766,44 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ὠ
+				keysToSend := "ὠ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾠ
+				keysToSend := "ᾠ"
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ὤ
+				keysToSend := "ὤ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾤ
+				keysToSend := "ᾤ"
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ὢ
+				keysToSend := "ὢ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾢ
+				keysToSend := "ᾢ"
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ὦ
+				keysToSend := "ὦ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾦ
+				keysToSend := "ᾦ"
 			  }
 		   }
 		}
@@ -1814,51 +1813,63 @@ sentKeys := 1
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ὡ
+				keysToSend := "ὡ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾡ
+				keysToSend := "ᾡ"
 			  }
 		   }
 		   else if (accent = "acute")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ὥ
+				keysToSend := "ὥ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾥ
+				keysToSend := "ᾥ"
 			  }
 		   }
 		   else if (accent = "grave")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ὣ
+				keysToSend := "ὣ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾣ
+				keysToSend := "ᾣ"
 			  }
 		   }
 		   else if (accent = "circumflex")
 		   {
 			  if (quantity = "")
 			  {
-				SendInput ὧ
+				keysToSend := "ὧ"
 			  }
 			  else if (quantity = "iota")
 			  {
-				SendInput ᾧ
+				keysToSend := "ᾧ"
 			  }
 		   }
 		}
     }
   }
   
-  keysToBackspace := sentKeys
+  if(keysToSend != "")
+  {
+	deleteLastFullCharacter()
+	SendInput % keysToSend
+	lastDiacriticKey := thisDiacriticKey
+	numKeysToBackspace := numKeysToSend
+  }
+  else
+  {
+	breathing := priorState[1]
+	accent := priorState[2]
+	quantity := priorState[3]
+  }
   
   return
 }
@@ -1889,7 +1900,7 @@ deleteLastFullCharacter()
 	timeOfLastHotkey := A_TickCount - A_TimeSincePriorHotkey
 	if((timeOfLastHotKey - lastDiacriticKey) < 50)
 	{
-		SendInput {Backspace %keysToBackspace%}
+		SendInput {Backspace %numKeysToBackspace%}
 	}
 		else
 	{

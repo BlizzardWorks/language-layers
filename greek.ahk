@@ -22,16 +22,16 @@ dual := new Dual
 
 ; Diacritic declarations        ; Unicode descriptions
 ;-------------------------------;---------------------------
-global grave := "U+0300" 		; combining grave accent varia
-global acute := "U+0301" 		; combining acute accent tonos, oxia
-global macron := "U+0304" 		; combining macron
-global breve := "U+0306" 		; combining breve
-global diaeresis := "U+0308" 	; combining diaeresis dialytika
-global smooth := "U+0313" 		; combining comma above psili, smooth breathing mark
-global rough := "U+0314" 		; combining reversed comma above dasia, rough breathing mark
-global circumflex := "U+0342" 	; combining greek perispomeni circumflex, tilde, inverted breve
-global koronis := "U+0343" 		; combining greek koronis comma above
-global iota_sub := "U+0345" 	; combining greek ypogegrammeni iota subscript
+global grave := "{U+0300}" 		; combining grave accent varia
+global acute := "{U+0301}" 		; combining acute accent tonos, oxia
+global macron := "{U+0304}" 	; combining macron
+global breve := "{U+0306}" 		; combining breve
+global diaeresis := "{U+0308}" 	; combining diaeresis dialytika
+global smooth := "{U+0313}" 	; combining comma above psili, smooth breathing mark
+global rough := "{U+0314}" 		; combining reversed comma above dasia, rough breathing mark
+global circumflex := "{U+0342}" ; combining greek perispomeni circumflex, tilde, inverted breve
+global koronis := "{U+0343}" 	; combining greek koronis comma above
+global iota_sub := "{U+0345}" 	; combining greek ypogegrammeni iota subscript
 
 ; Setup Variables
 ;-------------------------------------------------
@@ -48,7 +48,12 @@ global quantity := ""     ; "" iota macron breve
 ; Keep track of character compositions to always make backspace delete the last full character
 ; rather than a single diacritic
 global lastDiacriticKey := A_TickCount
-global keysToBackspace := 1
+global numKeysToBackspace := 1
+
+; Keep track of previous diacritic state so that if an invalid diacritic sequence
+; is entered, the state can be rolled back
+global priorState := [breathing, accent, quantity]
+
 
 ; Import Functions
 ;-------------------------------------------------
@@ -185,6 +190,7 @@ global keysToBackspace := 1
   {
     return
   }
+  priorState := [breathing, accent, quantity]
   if (accent = "acute")
   {
     accent := ""
@@ -201,6 +207,7 @@ global keysToBackspace := 1
   {
     return
   }
+  priorState := [breathing, accent, quantity]
   if (getShiftState())
   {
     if (quantity = "iota")
@@ -227,6 +234,11 @@ global keysToBackspace := 1
   return
   
 *=::
+  if (vowel = "")
+  {
+    return
+  }
+  priorState := [breathing, accent, quantity]
   if (accent = "circumflex")
   {
     accent := ""
@@ -243,6 +255,7 @@ global keysToBackspace := 1
   {
     return
   }
+  priorState := [breathing, accent, quantity]
   if (breathing = "rough")
   {
     breathing := ""
@@ -259,6 +272,7 @@ global keysToBackspace := 1
   {
     return
   }
+  priorState := [breathing, accent, quantity]
   if (breathing = "smooth")
   {
     breathing := ""
@@ -271,12 +285,13 @@ global keysToBackspace := 1
   return
   
 *5::
-  if (vowel = "")
-  {
-    return
-  }
   if (getShiftState())
   {
+    if (vowel = "")
+    {
+      return
+    }
+	priorState := [breathing, accent, quantity]
     if (breathing = "diaeresis")
     {
       breathing := ""
@@ -290,7 +305,7 @@ global keysToBackspace := 1
   }
   else
   {
-	return
+	SendInput 5
   }
   
 *1::
@@ -298,6 +313,7 @@ global keysToBackspace := 1
   {
     return
   }
+  priorState := [breathing, accent, quantity]
   if (quantity = "macron")
   {
     quantity := ""
@@ -314,6 +330,7 @@ global keysToBackspace := 1
   {
     return
   }
+  priorState := [breathing, accent, quantity]
   if (quantity = "breve")
   {
     quantity := ""
