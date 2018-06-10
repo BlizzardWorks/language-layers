@@ -1908,3 +1908,11 @@ deleteLastFullCharacter()
 	}
 	return
 }
+
+HandleFinalSigma() {
+	if(A_PriorHotkey = "*s")
+	{
+		SendInput {Backspace}ς
+	}
+	return
+}
