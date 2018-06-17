@@ -27,13 +27,11 @@ Greek_precomposed() {
 					}
 					else if (quantity = "macron")
 					{
-						keysToSend := "Α" macron
-						numKeysToSend := 2
+						keysToSend := "Ᾱ"
 					}
 					else if (quantity = "breve")
 					{
-						keysToSend := "Α" breve
-						numKeysToSend := 2
+						keysToSend := "Ᾰ"
 					}
 				}
 				else if (accent = "acute")
@@ -382,13 +380,11 @@ Greek_precomposed() {
 					}
 					else if (quantity = "macron")
 					{
-						keysToSend := "Ι" macron
-						numKeysToSend := 2
+						keysToSend := "Ῑ"
 					}
 					else if (quantity = "breve")
 					{
-						keysToSend := "Ι" breve
-						numKeysToSend := 2
+						keysToSend := "Ῐ"
 					}
 				}
 				else if (accent = "acute")
@@ -609,13 +605,11 @@ Greek_precomposed() {
 					}
 					else if (quantity = "macron")
 					{
-						keysToSend := "Υ" macron
-						numKeysToSend := 2
+						keysToSend := "Ῡ"
 					}
 					else if (quantity = "breve")
 					{
-						keysToSend := "Υ" breve
-						numKeysToSend := 2
+						keysToSend := "Ῠ"
 					}
 				}
 				else if (accent = "acute")
@@ -867,13 +861,11 @@ Greek_precomposed() {
 					}
 					else if (quantity = "macron")
 					{
-						keysToSend := "α" macron
-						numKeysToSend := 2
+						keysToSend := "ᾱ"
 					}
 					else if (quantity = "breve")
 					{
-						keysToSend := "α" breve
-						numKeysToSend := 2
+						keysToSend := "ᾰ"
 					}
 				}
 				else if (accent = "acute")
@@ -1292,13 +1284,11 @@ Greek_precomposed() {
 					}
 					else if (quantity = "macron")
 					{
-						keysToSend := "ι" macron
-						numKeysToSend := 2
+						keysToSend := "ῑ"
 					}
 					else if (quantity = "breve")
 					{
-						keysToSend := "ι" breve
-						numKeysToSend := 2
+						keysToSend := "ῐ"
 					}
 				}
 				else if (accent = "acute")
@@ -1538,13 +1528,11 @@ Greek_precomposed() {
 					}
 					else if (quantity = "macron")
 					{
-						keysToSend := "υ" macron
-						numKeysToSend := 2
+						keysToSend := "ῡ"
 					}
 					else if (quantity = "breve")
 					{
-						keysToSend := "υ" breve
-						numKeysToSend := 2
+						keysToSend := "ῠ"
 					}
 				}
 				else if (accent = "acute")
