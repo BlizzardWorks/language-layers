@@ -58,12 +58,21 @@ global numKeysToBackspace := 1
 global priorState := [breathing, accent, quantity]
 
 
+; Define User Variables
+;-------------------------------------------------
+
+; Choose whether Unicode gets sent precomposed or decomposed.
+; Give the variable the value of either "precomposed" or "decomposed"
+global unicodeSendType := "decomposed"
+
+
 ; Import Functions
 ;-------------------------------------------------
 
 #Include <greek_functions>
 #Include <shared_functions>
-	
+
+
 ; Create remapping layer
 ;-------------------------------------------------
 
