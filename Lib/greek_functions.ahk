@@ -201,7 +201,7 @@ Greek_precomposed() {
 			}
 		}
 		
-		if (vowel = "e")
+		else if (vowel = "e")
 		{
 			if (breathing = "")
 			{
@@ -250,7 +250,7 @@ Greek_precomposed() {
 			}
 		}
 		
-		if (vowel = "h")
+		else if (vowel = "h")
 		{
 			if (breathing = "")
 			{
@@ -370,7 +370,7 @@ Greek_precomposed() {
 			}
 		}
 		
-		if (vowel = "i")
+		else if (vowel = "i")
 		{
 			if (breathing = "")
 			{
@@ -548,7 +548,7 @@ Greek_precomposed() {
 			}
 		}
 		
-		if (vowel = "o")
+		else if (vowel = "o")
 		{
 			if (breathing = "")
 			{
@@ -597,7 +597,7 @@ Greek_precomposed() {
 			}
 		}
 		
-		if (vowel = "u")
+		else if (vowel = "u")
 		{
 			if (breathing = "")
 			{
@@ -717,7 +717,7 @@ Greek_precomposed() {
 			}
 		}
 		
-		if (vowel = "w")
+		else if (vowel = "w")
 		{
 			if (breathing = "")
 			{
@@ -834,6 +834,18 @@ Greek_precomposed() {
 						keysToSend := "ᾯ"
 					}
 				}
+			}
+		}
+		
+		else if (vowel = "r")
+		{
+			if (breathing = "")
+			{
+				keysToSend := "Ρ"
+			}
+			else if (breathing = "rough")
+			{
+				keysToSend := "Ῥ"
 			}
 		}
 	}
@@ -1074,7 +1086,7 @@ Greek_precomposed() {
 			}
 		}
 			
-		if (vowel = "e")
+		else if (vowel = "e")
 		{
 			if (breathing = "")
 			{
@@ -1123,7 +1135,7 @@ Greek_precomposed() {
 			}
 		}
 		
-		if (vowel = "h")
+		else if (vowel = "h")
 		{
 			if (breathing = "")
 			{
@@ -1268,7 +1280,7 @@ Greek_precomposed() {
 			}
 		}
 		
-		if (vowel = "i")
+		else if (vowel = "i")
 		{
 			if (breathing = "")
 			{
@@ -1465,7 +1477,7 @@ Greek_precomposed() {
 			}
 		}
 			
-		if (vowel = "o")
+		else if (vowel = "o")
 		{
 			if (breathing = "")
 			{
@@ -1514,7 +1526,7 @@ Greek_precomposed() {
 			}
 		}
 		
-		if (vowel = "u")
+		else if (vowel = "u")
 		{
 			if (breathing = "")
 			{
@@ -1711,7 +1723,7 @@ Greek_precomposed() {
 			}
 		}
 		
-		if (vowel = "w")
+		else if (vowel = "w")
 		{
 			if (breathing = "")
 			{
@@ -1853,6 +1865,22 @@ Greek_precomposed() {
 						keysToSend := "ᾧ"
 					}
 				}
+			}
+		}
+		
+		else if (vowel = "r")
+		{
+			if (breathing = "")
+			{
+				keysToSend := "ρ"
+			}
+			else if (breathing = "smooth")
+			{
+				keysToSend := "ῤ"
+			}
+			else if (breathing = "rough")
+			{
+				keysToSend := "ῥ"
 			}
 		}
 	}

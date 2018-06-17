@@ -146,7 +146,9 @@ global priorState := [breathing, accent, quantity]
 	dual.comboKey("π", {Shift: "Π"})
 	return
 *r::
-	resetVowel()
+	capital := getShiftState()
+	vowel := "r"
+	resetDiacritics()
 	dual.comboKey("ρ", {Shift: "Ρ"})
 	return
 *s::
