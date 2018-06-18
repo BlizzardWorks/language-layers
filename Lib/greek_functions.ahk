@@ -1,6 +1,6 @@
-﻿addDiacritic() {
+﻿Greek_addDiacritic() {
 
-	thisDiacriticKey := A_TickCount
+	thisKeySequence := A_TickCount
 
 	; Conditional based upon user preference for precomp or decomp Unicode
 	if(unicodeSendType = "precomposed")
@@ -19,14 +19,14 @@
 	{
 		deleteLastFullCharacter()
 		SendInput % keysToSend
-		lastDiacriticKey := thisDiacriticKey
+		lastKeySequence := thisKeySequence
 		numKeysToBackspace := numKeysToSend
 	}
 	else
 	{
-		breathing := priorState[1]
-		accent := priorState[2]
-		quantity := priorState[3]
+		Greek_breathing := Greek_priorState[1]
+		Greek_accent := Greek_priorState[2]
+		Greek_quantity := Greek_priorState[3]
 	}
 }
 
@@ -36,188 +36,188 @@ Greek_precomposed() {
 	keysToSend := ""
 	numKeysToSend := 1
 
-	if (capital) {
-		if (vowel = "a")
+	if (Greek_capital) {
+		if (Greek_vowel = "a")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Α"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾼ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
 						keysToSend := "Ᾱ"
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
 						keysToSend := "Ᾰ"
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
 						keysToSend := "Ά"
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
 					keysToSend := "Ὰ"
 				}
 			}
-			else if (breathing = "smooth")
+			else if (Greek_breathing = "smooth")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ἀ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾈ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Α" macron smooth
+						keysToSend := "Α" Greek_macron Greek_smooth
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Α" breve smooth
+						keysToSend := "Α" Greek_breve Greek_smooth
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ἄ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾌ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Α" macron smooth acute
+						keysToSend := "Α" Greek_macron Greek_smooth Greek_acute
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Α" breve smooth acute
+						keysToSend := "Α" Greek_breve Greek_smooth Greek_acute
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ἂ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾊ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Α" macron smooth grave
+						keysToSend := "Α" Greek_macron Greek_smooth Greek_grave
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Α" breve smooth grave
+						keysToSend := "Α" Greek_breve Greek_smooth Greek_grave
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ἆ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾎ"
 					}
 				}
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ἁ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾉ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Α" macron rough
+						keysToSend := "Α" Greek_macron Greek_rough
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Α" breve rough
+						keysToSend := "Α" Greek_breve Greek_rough
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ἅ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾍ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Α" macron rough acute
+						keysToSend := "Α" Greek_macron Greek_rough Greek_acute
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Α" breve rough acute
+						keysToSend := "Α" Greek_breve Greek_rough Greek_acute
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ἃ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾋ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Α" macron rough grave
+						keysToSend := "Α" Greek_macron Greek_rough Greek_grave
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Α" breve rough grave
+						keysToSend := "Α" Greek_breve Greek_rough Greek_grave
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ἇ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾏ"
 					}
@@ -225,168 +225,168 @@ Greek_precomposed() {
 			}
 		}
 		
-		else if (vowel = "e")
+		else if (Greek_vowel = "e")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
 					keysToSend := "Ε"
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
 					keysToSend := "Έ"
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
 					keysToSend := "Ὲ"
 				}
 			}
-			else if (breathing = "smooth")
+			else if (Greek_breathing = "smooth")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
 					keysToSend := "Ἐ"
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
 					keysToSend := "Ἔ"
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
 					keysToSend := "Ἒ"
 				}
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
 					keysToSend := "Ἑ"
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
 					keysToSend := "Ἕ"
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
 					keysToSend := "Ἓ"
 				}
 			}
 		}
 		
-		else if (vowel = "h")
+		else if (Greek_vowel = "h")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Η"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ῌ"
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
 					keysToSend := "Ή"
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
 					keysToSend := "Ὴ"
 				}
 			}
-			else if (breathing = "smooth")
+			else if (Greek_breathing = "smooth")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ἠ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾘ"
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ἤ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾜ"
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ἢ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾚ"
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ἦ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾞ"
 					}
 				}
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ἡ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾙ"
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ἥ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾝ"
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ἣ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾛ"
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ἧ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾟ"
 					}
@@ -394,462 +394,462 @@ Greek_precomposed() {
 			}
 		}
 		
-		else if (vowel = "i")
+		else if (Greek_vowel = "i")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ι"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
 						keysToSend := "Ῑ"
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
 						keysToSend := "Ῐ"
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ί"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Ι" macron acute
+						keysToSend := "Ι" Greek_macron Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Ι" breve acute
+						keysToSend := "Ι" Greek_breve Greek_acute
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ὶ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Ι" macron grave
+						keysToSend := "Ι" Greek_macron Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Ι" breve grave
+						keysToSend := "Ι" Greek_breve Greek_grave
 						numKeysToSend := 3
 					}
 				}
 			}
-			else if (breathing = "smooth")
+			else if (Greek_breathing = "smooth")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ἰ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Ι" macron smooth
+						keysToSend := "Ι" Greek_macron Greek_smooth
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Ι" breve smooth
+						keysToSend := "Ι" Greek_breve Greek_smooth
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ἴ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Ι" macron smooth acute
+						keysToSend := "Ι" Greek_macron Greek_smooth Greek_acute
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Ι" breve smooth acute
+						keysToSend := "Ι" Greek_breve Greek_smooth Greek_acute
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ἲ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Ι" macron smooth grave
+						keysToSend := "Ι" Greek_macron Greek_smooth Greek_grave
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Ι" breve smooth grave
+						keysToSend := "Ι" Greek_breve Greek_smooth Greek_grave
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
 					keysToSend := "Ἶ"
 				}
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ἱ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Ι" macron rough
+						keysToSend := "Ι" Greek_macron Greek_rough
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Ι" breve rough
+						keysToSend := "Ι" Greek_breve Greek_rough
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ἵ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Ι" macron rough acute
+						keysToSend := "Ι" Greek_macron Greek_rough Greek_acute
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Ι" breve rough acute
+						keysToSend := "Ι" Greek_breve Greek_rough Greek_acute
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ἳ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Ι" macron rough grave
+						keysToSend := "Ι" Greek_macron Greek_rough Greek_grave
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Ι" breve rough grave
+						keysToSend := "Ι" Greek_breve Greek_rough Greek_grave
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
 					keysToSend := "Ἷ"
 				}
 			}
-			else if (breathing = "diaeresis")
+			else if (Greek_breathing = "diaeresis")
 			{
 				keysToSend := "Ϊ"
 			}
 		}
 		
-		else if (vowel = "o")
+		else if (Greek_vowel = "o")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
 					keysToSend := "Ο"
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
 					keysToSend := "Ό"
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
 					keysToSend := "Ὸ"
 				}
 			}
-			else if (breathing = "smooth")
+			else if (Greek_breathing = "smooth")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
 					keysToSend := "Ὀ"
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
 					keysToSend := "Ὄ"
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
 					keysToSend := "Ὂ"
 				}
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
 					keysToSend := "Ὁ"
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
 					keysToSend := "Ὅ"
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
 					keysToSend := "Ὃ"
 				}
 			}
 		}
 		
-		else if (vowel = "u")
+		else if (Greek_vowel = "u")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Υ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
 						keysToSend := "Ῡ"
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
 						keysToSend := "Ῠ"
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ύ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Υ" macron acute
+						keysToSend := "Υ" Greek_macron Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Υ" breve acute
+						keysToSend := "Υ" Greek_breve Greek_acute
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ὺ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Υ" macron grave
+						keysToSend := "Υ" Greek_macron Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Υ" breve grave
+						keysToSend := "Υ" Greek_breve Greek_grave
 						numKeysToSend := 3
 					}
 				}
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ὑ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Υ" macron rough
+						keysToSend := "Υ" Greek_macron Greek_rough
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Υ" breve rough
+						keysToSend := "Υ" Greek_breve Greek_rough
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ὕ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Υ" macron rough acute
+						keysToSend := "Υ" Greek_macron Greek_rough Greek_acute
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Υ" breve rough acute
+						keysToSend := "Υ" Greek_breve Greek_rough Greek_acute
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ὓ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Υ" macron rough grave
+						keysToSend := "Υ" Greek_macron Greek_rough Greek_grave
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Υ" breve rough grave
+						keysToSend := "Υ" Greek_breve Greek_rough Greek_grave
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
 					keysToSend := "Ὗ"
 				}
 			}
-			else if (breathing = "diaeresis")
+			else if (Greek_breathing = "diaeresis")
 			{
 				keysToSend := "Ϋ"
 			}
 		}
 		
-		else if (vowel = "w")
+		else if (Greek_vowel = "w")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ω"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ῼ"
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
 					keysToSend := "Ώ"
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
 					keysToSend := "Ὼ"
 				}
 			}
-			else if (breathing = "smooth")
+			else if (Greek_breathing = "smooth")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ὠ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾨ"
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ὤ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾬ"
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ὢ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾪ"
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ὦ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾮ"
 					}
 				}
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ὡ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾩ"
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ὥ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾭ"
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ὣ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾫ"
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ὧ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾯ"
 					}
@@ -857,13 +857,13 @@ Greek_precomposed() {
 			}
 		}
 		
-		else if (vowel = "r")
+		else if (Greek_vowel = "r")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
 				keysToSend := "Ρ"
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
 				keysToSend := "Ῥ"
 			}
@@ -871,232 +871,232 @@ Greek_precomposed() {
 	}
 	
 	else {
-		if (vowel = "a")
+		if (Greek_vowel = "a")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "α"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾳ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
 						keysToSend := "ᾱ"
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
 						keysToSend := "ᾰ"
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ά"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾴ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "α" macron acute
+						keysToSend := "α" Greek_macron Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "α" breve acute
+						keysToSend := "α" Greek_breve Greek_acute
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ὰ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾲ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "α" macron grave
+						keysToSend := "α" Greek_macron Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "α" breve grave
+						keysToSend := "α" Greek_breve Greek_grave
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ᾶ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾷ"
 					}
 				}
 			}
-			else if (breathing = "smooth")
+			else if (Greek_breathing = "smooth")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ἀ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾀ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "α" macron smooth
+						keysToSend := "α" Greek_macron Greek_smooth
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "α" breve smooth
+						keysToSend := "α" Greek_breve Greek_smooth
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ἄ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾄ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "α" macron smooth acute
+						keysToSend := "α" Greek_macron Greek_smooth Greek_acute
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "α" breve smooth acute
+						keysToSend := "α" Greek_breve Greek_smooth Greek_acute
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ἂ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾂ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "α" macron smooth grave
+						keysToSend := "α" Greek_macron Greek_smooth Greek_grave
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "α" breve smooth grave
+						keysToSend := "α" Greek_breve Greek_smooth Greek_grave
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ἆ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾆ"
 					}
 				}
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ἁ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾁ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "α" macron rough
+						keysToSend := "α" Greek_macron Greek_rough
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "α" breve rough
+						keysToSend := "α" Greek_breve Greek_rough
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ἅ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾅ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "α" macron rough acute
+						keysToSend := "α" Greek_macron Greek_rough Greek_acute
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "α" breve rough acute
+						keysToSend := "α" Greek_breve Greek_rough Greek_acute
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ἃ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾃ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "α" macron rough grave
+						keysToSend := "α" Greek_macron Greek_rough Greek_grave
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "α" breve rough grave
+						keysToSend := "α" Greek_breve Greek_rough Greek_grave
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ἇ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾇ"
 					}
@@ -1104,193 +1104,193 @@ Greek_precomposed() {
 			}
 		}
 			
-		else if (vowel = "e")
+		else if (Greek_vowel = "e")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
 					keysToSend := "ε"
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
 					keysToSend := "έ"
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
 					keysToSend := "ὲ"
 				}
 			}
-			else if (breathing = "smooth")
+			else if (Greek_breathing = "smooth")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
 					keysToSend := "ἐ"
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
 					keysToSend := "ἔ"
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
 					keysToSend := "ἒ"
 				}
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
 					keysToSend := "ἑ"
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
 					keysToSend := "ἕ"
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
 					keysToSend := "ἓ"
 				}
 			}
 		}
 		
-		else if (vowel = "h")
+		else if (Greek_vowel = "h")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "η"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ῃ"
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ή"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ῄ"
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ὴ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ῂ"
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ῆ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ῇ"
 					}
 				}
 			}
-			else if (breathing = "smooth")
+			else if (Greek_breathing = "smooth")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ἠ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾐ"
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ἤ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾔ"
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ἢ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾒ"
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ἦ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾖ"
 					}
 				}
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ἡ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾑ"
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ἥ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾕ"
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ἣ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾓ"
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ἧ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾗ"
 					}
@@ -1298,583 +1298,583 @@ Greek_precomposed() {
 			}
 		}
 		
-		else if (vowel = "i")
+		else if (Greek_vowel = "i")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ι"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
 						keysToSend := "ῑ"
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
 						keysToSend := "ῐ"
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ί"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "ι" macron acute
+						keysToSend := "ι" Greek_macron Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "ι" breve acute
+						keysToSend := "ι" Greek_breve Greek_acute
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ὶ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "ι" macron grave
+						keysToSend := "ι" Greek_macron Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "ι" breve grave
+						keysToSend := "ι" Greek_breve Greek_grave
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
 					keysToSend := "ῖ"
 				}
 			}
-			else if (breathing = "smooth")
+			else if (Greek_breathing = "smooth")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ἰ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "ι" macron smooth
+						keysToSend := "ι" Greek_macron Greek_smooth
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "ι" breve smooth
+						keysToSend := "ι" Greek_breve Greek_smooth
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ἴ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "ι" macron smooth acute
+						keysToSend := "ι" Greek_macron Greek_smooth Greek_acute
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "ι" breve smooth acute
+						keysToSend := "ι" Greek_breve Greek_smooth Greek_acute
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ἲ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "ι" macron smooth grave
+						keysToSend := "ι" Greek_macron Greek_smooth Greek_grave
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "ι" breve smooth grave
+						keysToSend := "ι" Greek_breve Greek_smooth Greek_grave
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
 					keysToSend := "ἶ"
 				}
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ἱ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "ι" macron rough
+						keysToSend := "ι" Greek_macron Greek_rough
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "ι" breve rough
+						keysToSend := "ι" Greek_breve Greek_rough
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ἵ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "ι" macron rough acute
+						keysToSend := "ι" Greek_macron Greek_rough Greek_acute
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "ι" breve rough acute
+						keysToSend := "ι" Greek_breve Greek_rough Greek_acute
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ἳ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "ι" macron rough grave
+						keysToSend := "ι" Greek_macron Greek_rough Greek_grave
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "ι" breve rough grave
+						keysToSend := "ι" Greek_breve Greek_rough Greek_grave
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
 					keysToSend := "ἷ"
 				}
 			}
-			else if (breathing = "diaeresis")
+			else if (Greek_breathing = "diaeresis")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
 					keysToSend := "ϊ"
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
 					keysToSend := "ΐ"
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
 					keysToSend := "ῒ"
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
 					keysToSend := "ῗ"
 				}
 			}
 		}
 			
-		else if (vowel = "o")
+		else if (Greek_vowel = "o")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
 					keysToSend := "ο"
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
 					keysToSend := "ό"
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
 					keysToSend := "ὸ"
 				}
 			}
-			else if (breathing = "smooth")
+			else if (Greek_breathing = "smooth")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
 					keysToSend := "ὀ"
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
 					keysToSend := "ὄ"
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
 					keysToSend := "ὂ"
 				}
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
 					keysToSend := "ὁ"
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
 					keysToSend := "ὅ"
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
 					keysToSend := "ὃ"
 				}
 			}
 		}
 		
-		else if (vowel = "u")
+		else if (Greek_vowel = "u")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "υ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
 						keysToSend := "ῡ"
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
 						keysToSend := "ῠ"
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ύ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "υ" macron acute
+						keysToSend := "υ" Greek_macron Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "υ" breve acute
+						keysToSend := "υ" Greek_breve Greek_acute
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ὺ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "υ" macron grave
+						keysToSend := "υ" Greek_macron Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "υ" breve grave
+						keysToSend := "υ" Greek_breve Greek_grave
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
 					keysToSend := "ῦ"
 				}
 			}
-			else if (breathing = "smooth")
+			else if (Greek_breathing = "smooth")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ὐ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "υ" macron smooth
+						keysToSend := "υ" Greek_macron Greek_smooth
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "υ" breve smooth
+						keysToSend := "υ" Greek_breve Greek_smooth
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ὔ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "υ" macron smooth acute
+						keysToSend := "υ" Greek_macron Greek_smooth Greek_acute
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "υ" breve smooth acute
+						keysToSend := "υ" Greek_breve Greek_smooth Greek_acute
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ὒ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "υ" macron smooth grave
+						keysToSend := "υ" Greek_macron Greek_smooth Greek_grave
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "υ" breve smooth grave
+						keysToSend := "υ" Greek_breve Greek_smooth Greek_grave
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
 					keysToSend := "ὖ"
 				}
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ὑ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "υ" macron rough
+						keysToSend := "υ" Greek_macron Greek_rough
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "υ" breve rough
+						keysToSend := "υ" Greek_breve Greek_rough
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ὕ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "υ" macron rough acute
+						keysToSend := "υ" Greek_macron Greek_rough Greek_acute
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "υ" breve rough acute
+						keysToSend := "υ" Greek_breve Greek_rough Greek_acute
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ὓ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "υ" macron rough grave
+						keysToSend := "υ" Greek_macron Greek_rough Greek_grave
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "υ" breve rough grave
+						keysToSend := "υ" Greek_breve Greek_rough Greek_grave
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
 					keysToSend := "ὗ"
 				}
 			}
-			else if (breathing = "diaeresis")
+			else if (Greek_breathing = "diaeresis")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
 					keysToSend := "ϋ"
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
 					keysToSend := "ΰ"
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
 					keysToSend := "ῢ"
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
 					keysToSend := "ῧ"
 				}
 			}
 		}
 		
-		else if (vowel = "w")
+		else if (Greek_vowel = "w")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ω"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ῳ"
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ώ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ῴ"
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ὼ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ῲ"
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ῶ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ῷ"
 					}
 				}
 			}
-			else if (breathing = "smooth")
+			else if (Greek_breathing = "smooth")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ὠ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾠ"
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ὤ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾤ"
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ὢ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾢ"
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ὦ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾦ"
 					}
 				}
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ὡ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾡ"
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ὥ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾥ"
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ὣ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾣ"
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ὧ"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
 						keysToSend := "ᾧ"
 					}
@@ -1882,17 +1882,17 @@ Greek_precomposed() {
 			}
 		}
 		
-		else if (vowel = "r")
+		else if (Greek_vowel = "r")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
 				keysToSend := "ρ"
 			}
-			else if (breathing = "smooth")
+			else if (Greek_breathing = "smooth")
 			{
 				keysToSend := "ῤ"
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
 				keysToSend := "ῥ"
 			}
@@ -1908,2085 +1908,2085 @@ Greek_decomposed() {
 	keysToSend := ""
 	numKeysToSend := 1
 
-	if (capital) {
-		if (vowel = "a")
+	if (Greek_capital) {
+		if (Greek_vowel = "a")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Α"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "Α" iotaSub
+						keysToSend := "Α" Greek_iotaSub
 						numKeysToSend := 2
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Α" macron
+						keysToSend := "Α" Greek_macron
 						numKeysToSend := 2
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Α" breve
+						keysToSend := "Α" Greek_breve
 						numKeysToSend := 2
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					keysToSend := "Α" acute
+					keysToSend := "Α" Greek_acute
 					numKeysToSend := 2
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					keysToSend := "Α" grave
+					keysToSend := "Α" Greek_grave
 					numKeysToSend := 2
 				}
 			}
-			else if (breathing = "smooth")
+			else if (Greek_breathing = "smooth")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Α" smooth
+						keysToSend := "Α" Greek_smooth
 						numKeysToSend := 2
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "Α" smooth iotaSub
+						keysToSend := "Α" Greek_smooth Greek_iotaSub
 						numKeysToSend := 3
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Α" macron smooth
+						keysToSend := "Α" Greek_macron Greek_smooth
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Α" breve smooth
+						keysToSend := "Α" Greek_breve Greek_smooth
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Α" smooth acute
+						keysToSend := "Α" Greek_smooth Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "Α" smooth acute iotaSub
+						keysToSend := "Α" Greek_smooth Greek_acute Greek_iotaSub
 						numKeysToSend := 4
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Α" macron smooth acute
+						keysToSend := "Α" Greek_macron Greek_smooth Greek_acute
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Α" breve smooth acute
+						keysToSend := "Α" Greek_breve Greek_smooth Greek_acute
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Α" smooth grave
+						keysToSend := "Α" Greek_smooth Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "Α" smooth grave iotaSub
+						keysToSend := "Α" Greek_smooth Greek_grave Greek_iotaSub
 						numKeysToSend := 4
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Α" macron smooth grave
+						keysToSend := "Α" Greek_macron Greek_smooth Greek_grave
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Α" breve smooth grave
+						keysToSend := "Α" Greek_breve Greek_smooth Greek_grave
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Α" smooth circumflex
+						keysToSend := "Α" Greek_smooth Greek_circumflex
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "Α" smooth circumflex iotaSub
+						keysToSend := "Α" Greek_smooth Greek_circumflex Greek_iotaSub
 						numKeysToSend := 4
 					}
 				}
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Α" rough
+						keysToSend := "Α" Greek_rough
 						numKeysToSend := 2
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "Α" rough iotaSub
+						keysToSend := "Α" Greek_rough Greek_iotaSub
 						numKeysToSend := 3
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Α" macron rough
+						keysToSend := "Α" Greek_macron Greek_rough
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Α" breve rough
+						keysToSend := "Α" Greek_breve Greek_rough
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Α" rough acute
+						keysToSend := "Α" Greek_rough Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "Α" rough acute iotaSub
+						keysToSend := "Α" Greek_rough Greek_acute Greek_iotaSub
 						numKeysToSend := 4
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Α" macron rough acute
+						keysToSend := "Α" Greek_macron Greek_rough Greek_acute
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Α" breve rough acute
+						keysToSend := "Α" Greek_breve Greek_rough Greek_acute
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Α" rough grave
+						keysToSend := "Α" Greek_rough Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "Α" rough grave iotaSub
+						keysToSend := "Α" Greek_rough Greek_grave Greek_iotaSub
 						numKeysToSend := 4
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Α" macron rough grave
+						keysToSend := "Α" Greek_macron Greek_rough Greek_grave
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Α" breve rough grave
+						keysToSend := "Α" Greek_breve Greek_rough Greek_grave
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Α" rough circumflex
+						keysToSend := "Α" Greek_rough Greek_circumflex
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "Α" rough circumflex iotaSub
+						keysToSend := "Α" Greek_rough Greek_circumflex Greek_iotaSub
 						numKeysToSend := 4
 					}
 				}
 			}
 		}
 		
-		else if (vowel = "e")
+		else if (Greek_vowel = "e")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
 					keysToSend := "Ε"
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					keysToSend := "Ε" acute
+					keysToSend := "Ε" Greek_acute
 					numKeysToSend := 2
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					keysToSend := "Ε" grave
+					keysToSend := "Ε" Greek_grave
 					numKeysToSend := 2
 				}
 			}
-			else if (breathing = "smooth")
+			else if (Greek_breathing = "smooth")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					keysToSend := "Ε" smooth
+					keysToSend := "Ε" Greek_smooth
 					numKeysToSend := 2
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					keysToSend := "Ε" smooth acute
+					keysToSend := "Ε" Greek_smooth Greek_acute
 					numKeysToSend := 3
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					keysToSend := "Ε" smooth grave
+					keysToSend := "Ε" Greek_smooth Greek_grave
 					numKeysToSend := 3
 				}
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					keysToSend := "Ε" rough
+					keysToSend := "Ε" Greek_rough
 					numKeysToSend := 2
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					keysToSend := "Ε" rough acute
+					keysToSend := "Ε" Greek_rough Greek_acute
 					numKeysToSend := 3
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					keysToSend := "Ε" rough grave
+					keysToSend := "Ε" Greek_rough Greek_grave
 					numKeysToSend := 3
 				}
 			}
 		}
 		
-		else if (vowel = "h")
+		else if (Greek_vowel = "h")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Η"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "Η" iotaSub
+						keysToSend := "Η" Greek_iotaSub
 						numKeysToSend := 2
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					keysToSend := "Η" acute
+					keysToSend := "Η" Greek_acute
 					numKeysToSend := 2
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					keysToSend := "Η" grave
+					keysToSend := "Η" Greek_grave
 					numKeysToSend := 2
 				}
 			}
-			else if (breathing = "smooth")
+			else if (Greek_breathing = "smooth")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Η" smooth
+						keysToSend := "Η" Greek_smooth
 						numKeysToSend := 2
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "Η" smooth iotaSub
+						keysToSend := "Η" Greek_smooth Greek_iotaSub
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Η" smooth acute
+						keysToSend := "Η" Greek_smooth Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "Η" smooth acute iotaSub
+						keysToSend := "Η" Greek_smooth Greek_acute Greek_iotaSub
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Η" smooth grave
+						keysToSend := "Η" Greek_smooth Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "Η" smooth grave iotaSub
+						keysToSend := "Η" Greek_smooth Greek_grave Greek_iotaSub
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Η" smooth circumflex
+						keysToSend := "Η" Greek_smooth Greek_circumflex
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "Η" smooth circumflex iotaSub
+						keysToSend := "Η" Greek_smooth Greek_circumflex Greek_iotaSub
 						numKeysToSend := 3
 					}
 				}
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Η" rough
+						keysToSend := "Η" Greek_rough
 						numKeysToSend := 2
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "Η" rough iotaSub
+						keysToSend := "Η" Greek_rough Greek_iotaSub
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Η" rough acute
+						keysToSend := "Η" Greek_rough Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "Η" rough acute iotaSub
+						keysToSend := "Η" Greek_rough Greek_acute Greek_iotaSub
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Η" rough grave
+						keysToSend := "Η" Greek_rough Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "Η" rough grave iotaSub
+						keysToSend := "Η" Greek_rough Greek_grave Greek_iotaSub
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Η" rough circumflex
+						keysToSend := "Η" Greek_rough Greek_circumflex
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "Η" rough circumflex iotaSub
+						keysToSend := "Η" Greek_rough Greek_circumflex Greek_iotaSub
 						numKeysToSend := 4
 					}
 				}
 			}
 		}
 		
-		else if (vowel = "i")
+		else if (Greek_vowel = "i")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ι"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Ι" macron
+						keysToSend := "Ι" Greek_macron
 						numKeysToSend := 2
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Ι" breve
+						keysToSend := "Ι" Greek_breve
 						numKeysToSend := 2
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Ι" acute
+						keysToSend := "Ι" Greek_acute
 						numKeysToSend := 2
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Ι" macron acute
+						keysToSend := "Ι" Greek_macron Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Ι" breve acute
+						keysToSend := "Ι" Greek_breve Greek_acute
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Ι" grave
+						keysToSend := "Ι" Greek_grave
 						numKeysToSend := 2
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Ι" macron grave
+						keysToSend := "Ι" Greek_macron Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Ι" breve grave
+						keysToSend := "Ι" Greek_breve Greek_grave
 						numKeysToSend := 3
 					}
 				}
 			}
-			else if (breathing = "smooth")
+			else if (Greek_breathing = "smooth")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Ι" smooth
+						keysToSend := "Ι" Greek_smooth
 						numKeysToSend := 2
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Ι" macron smooth
+						keysToSend := "Ι" Greek_macron Greek_smooth
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Ι" breve smooth
+						keysToSend := "Ι" Greek_breve Greek_smooth
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Ι" smooth acute
+						keysToSend := "Ι" Greek_smooth Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Ι" macron smooth acute
+						keysToSend := "Ι" Greek_macron Greek_smooth Greek_acute
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Ι" breve smooth acute
+						keysToSend := "Ι" Greek_breve Greek_smooth Greek_acute
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Ι" smooth grave
+						keysToSend := "Ι" Greek_smooth Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Ι" macron smooth grave
+						keysToSend := "Ι" Greek_macron Greek_smooth Greek_grave
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Ι" breve smooth grave
+						keysToSend := "Ι" Greek_breve Greek_smooth Greek_grave
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					keysToSend := "Ι" smooth circumflex
+					keysToSend := "Ι" Greek_smooth Greek_circumflex
 					numKeysToSend := 3
 				}
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Ι" rough
+						keysToSend := "Ι" Greek_rough
 						numKeysToSend := 2
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Ι" macron rough
+						keysToSend := "Ι" Greek_macron Greek_rough
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Ι" breve rough
+						keysToSend := "Ι" Greek_breve Greek_rough
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Ι" rough acute
+						keysToSend := "Ι" Greek_rough Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Ι" macron rough acute
+						keysToSend := "Ι" Greek_macron Greek_rough Greek_acute
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Ι" breve rough acute
+						keysToSend := "Ι" Greek_breve Greek_rough Greek_acute
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Ι" rough grave
+						keysToSend := "Ι" Greek_rough Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Ι" macron rough grave
+						keysToSend := "Ι" Greek_macron Greek_rough Greek_grave
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Ι" breve rough grave
+						keysToSend := "Ι" Greek_breve Greek_rough Greek_grave
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					keysToSend := "Ι" rough circumflex
+					keysToSend := "Ι" Greek_rough Greek_circumflex
 					numKeysToSend := 3
 				}
 			}
-			else if (breathing = "diaeresis")
+			else if (Greek_breathing = "diaeresis")
 			{
-				keysToSend := "Ι" diaeresis
+				keysToSend := "Ι" Greek_diaeresis
 				numKeysToSend := 2
 			}
 		}
 		
-		else if (vowel = "o")
+		else if (Greek_vowel = "o")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
 					keysToSend := "Ο"
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					keysToSend := "Ο" acute
+					keysToSend := "Ο" Greek_acute
 					numKeysToSend := 2
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					keysToSend := "Ο" grave
+					keysToSend := "Ο" Greek_grave
 					numKeysToSend := 2
 				}
 			}
-			else if (breathing = "smooth")
+			else if (Greek_breathing = "smooth")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					keysToSend := "Ο" smooth
+					keysToSend := "Ο" Greek_smooth
 					numKeysToSend := 2
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					keysToSend := "Ο" smooth acute
+					keysToSend := "Ο" Greek_smooth Greek_acute
 					numKeysToSend := 3
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					keysToSend := "Ο" smooth grave
+					keysToSend := "Ο" Greek_smooth Greek_grave
 					numKeysToSend := 3
 				}
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					keysToSend := "Ο" rough
+					keysToSend := "Ο" Greek_rough
 					numKeysToSend := 2
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					keysToSend := "Ο" rough acute
+					keysToSend := "Ο" Greek_rough Greek_acute
 					numKeysToSend := 3
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					keysToSend := "Ο" rough grave
+					keysToSend := "Ο" Greek_rough Greek_grave
 					numKeysToSend := 3
 				}
 			}
 		}
 		
-		else if (vowel = "u")
+		else if (Greek_vowel = "u")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Υ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Υ" macron
+						keysToSend := "Υ" Greek_macron
 						numKeysToSend := 2
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Υ" breve
+						keysToSend := "Υ" Greek_breve
 						numKeysToSend := 2
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Υ" acute
+						keysToSend := "Υ" Greek_acute
 						numKeysToSend := 2
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Υ" macron acute
+						keysToSend := "Υ" Greek_macron Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Υ" breve acute
+						keysToSend := "Υ" Greek_breve Greek_acute
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Υ" grave
+						keysToSend := "Υ" Greek_grave
 						numKeysToSend := 2
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Υ" macron grave
+						keysToSend := "Υ" Greek_macron Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Υ" breve grave
+						keysToSend := "Υ" Greek_breve Greek_grave
 						numKeysToSend := 3
 					}
 				}
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Υ" rough
+						keysToSend := "Υ" Greek_rough
 						numKeysToSend := 2
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Υ" macron rough
+						keysToSend := "Υ" Greek_macron Greek_rough
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Υ" breve rough
+						keysToSend := "Υ" Greek_breve Greek_rough
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Υ" rough acute
+						keysToSend := "Υ" Greek_rough Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Υ" macron rough acute
+						keysToSend := "Υ" Greek_macron Greek_rough Greek_acute
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Υ" breve rough acute
+						keysToSend := "Υ" Greek_breve Greek_rough Greek_acute
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Υ" rough grave
+						keysToSend := "Υ" Greek_rough Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "Υ" macron rough grave
+						keysToSend := "Υ" Greek_macron Greek_rough Greek_grave
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "Υ" breve rough grave
+						keysToSend := "Υ" Greek_breve Greek_rough Greek_grave
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					keysToSend := "Υ" rough circumflex
+					keysToSend := "Υ" Greek_rough Greek_circumflex
 					numKeysToSend := 3
 				}
 			}
-			else if (breathing = "diaeresis")
+			else if (Greek_breathing = "diaeresis")
 			{
-				keysToSend := "Υ" diaeresis
+				keysToSend := "Υ" Greek_diaeresis
 				numKeysToSend := 2
 			}
 		}
 		
-		else if (vowel = "w")
+		else if (Greek_vowel = "w")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "Ω"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "Ω" iotaSub
+						keysToSend := "Ω" Greek_iotaSub
 						numKeysToSend := 2
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					keysToSend := "Ω" acute
+					keysToSend := "Ω" Greek_acute
 					numKeysToSend := 2
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					keysToSend := "Ω" grave
+					keysToSend := "Ω" Greek_grave
 					numKeysToSend := 2
 				}
 			}
-			else if (breathing = "smooth")
+			else if (Greek_breathing = "smooth")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-					keysToSend := "Ω" smooth
+					keysToSend := "Ω" Greek_smooth
 					numKeysToSend := 2
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "Ω" smooth iotaSub
+						keysToSend := "Ω" Greek_smooth Greek_iotaSub
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Ω" smooth acute
+						keysToSend := "Ω" Greek_smooth Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "Ω" smooth acute iotaSub
+						keysToSend := "Ω" Greek_smooth Greek_acute Greek_iotaSub
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Ω" smooth grave
+						keysToSend := "Ω" Greek_smooth Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "Ω" smooth grave iotaSub
+						keysToSend := "Ω" Greek_smooth Greek_grave Greek_iotaSub
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Ω" smooth circumflex
+						keysToSend := "Ω" Greek_smooth Greek_circumflex
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "Ω" smooth circumflex iotaSub
+						keysToSend := "Ω" Greek_smooth Greek_circumflex Greek_iotaSub
 						numKeysToSend := 4
 					}
 				}
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Ω" rough
+						keysToSend := "Ω" Greek_rough
 						numKeysToSend := 2
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "Ω" rough iotaSub
+						keysToSend := "Ω" Greek_rough Greek_iotaSub
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Ω" rough acute
+						keysToSend := "Ω" Greek_rough Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "Ω" rough acute iotaSub
+						keysToSend := "Ω" Greek_rough Greek_acute Greek_iotaSub
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Ω" rough grave
+						keysToSend := "Ω" Greek_rough Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "Ω" rough grave iotaSub
+						keysToSend := "Ω" Greek_rough Greek_grave Greek_iotaSub
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "Ω" rough circumflex
+						keysToSend := "Ω" Greek_rough Greek_circumflex
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "Ω" rough circumflex iotaSub
+						keysToSend := "Ω" Greek_rough Greek_circumflex Greek_iotaSub
 						numKeysToSend := 4
 					}
 				}
 			}
 		}
 		
-		else if (vowel = "r")
+		else if (Greek_vowel = "r")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
 				keysToSend := "Ρ"
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				keysToSend := "Ρ" rough
+				keysToSend := "Ρ" Greek_rough
 				numKeysToSend := 2
 			}
 		}
 	}
 	
 	else {
-		if (vowel = "a")
+		if (Greek_vowel = "a")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "α"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "α" iotaSub
+						keysToSend := "α" Greek_iotaSub
 						numKeysToSend := 2
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "α" macron
+						keysToSend := "α" Greek_macron
 						numKeysToSend := 2
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "α" breve
+						keysToSend := "α" Greek_breve
 						numKeysToSend := 2
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "α" acute
+						keysToSend := "α" Greek_acute
 						numKeysToSend := 2
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "α" acute iotaSub
+						keysToSend := "α" Greek_acute Greek_iotaSub
 						numKeysToSend := 3
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "α" macron acute
+						keysToSend := "α" Greek_macron Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "α" breve acute
+						keysToSend := "α" Greek_breve Greek_acute
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "α" grave
+						keysToSend := "α" Greek_grave
 						numKeysToSend := 2
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "α" grave iotaSub
+						keysToSend := "α" Greek_grave Greek_iotaSub
 						numKeysToSend := 3
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "α" macron grave
+						keysToSend := "α" Greek_macron Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "α" breve grave
+						keysToSend := "α" Greek_breve Greek_grave
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "α" circumflex
+						keysToSend := "α" Greek_circumflex
 						numKeysToSend := 2
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "α" circumflex iotaSub
+						keysToSend := "α" Greek_circumflex Greek_iotaSub
 						numKeysToSend := 3
 					}
 				}
 			}
-			else if (breathing = "smooth")
+			else if (Greek_breathing = "smooth")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "α" smooth
+						keysToSend := "α" Greek_smooth
 						numKeysToSend := 2
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "α" smooth iotaSub
+						keysToSend := "α" Greek_smooth Greek_iotaSub
 						numKeysToSend := 3
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "α" macron smooth
+						keysToSend := "α" Greek_macron Greek_smooth
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "α" breve smooth
+						keysToSend := "α" Greek_breve Greek_smooth
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "α" smooth acute
+						keysToSend := "α" Greek_smooth Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "α" smooth acute iotaSub
+						keysToSend := "α" Greek_smooth Greek_acute Greek_iotaSub
 						numKeysToSend := 4
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "α" macron smooth acute
+						keysToSend := "α" Greek_macron Greek_smooth Greek_acute
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "α" breve smooth acute
+						keysToSend := "α" Greek_breve Greek_smooth Greek_acute
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "α" smooth grave
+						keysToSend := "α" Greek_smooth Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "α" smooth grave iotaSub
+						keysToSend := "α" Greek_smooth Greek_grave Greek_iotaSub
 						numKeysToSend := 4
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "α" macron smooth grave
+						keysToSend := "α" Greek_macron Greek_smooth Greek_grave
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "α" breve smooth grave
+						keysToSend := "α" Greek_breve Greek_smooth Greek_grave
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "α" smooth circumflex
+						keysToSend := "α" Greek_smooth Greek_circumflex
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "α" smooth circumflex iotaSub
+						keysToSend := "α" Greek_smooth Greek_circumflex Greek_iotaSub
 						numKeysToSend := 4
 					}
 				}
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "α" rough
+						keysToSend := "α" Greek_rough
 						numKeysToSend := 2
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "α" rough iotaSub
+						keysToSend := "α" Greek_rough Greek_iotaSub
 						numKeysToSend := 3
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "α" macron rough
+						keysToSend := "α" Greek_macron Greek_rough
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "α" breve rough
+						keysToSend := "α" Greek_breve Greek_rough
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "α" rough acute
+						keysToSend := "α" Greek_rough Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "α" rough acute iotaSub
+						keysToSend := "α" Greek_rough Greek_acute Greek_iotaSub
 						numKeysToSend := 4
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "α" macron rough acute
+						keysToSend := "α" Greek_macron Greek_rough Greek_acute
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "α" breve rough acute
+						keysToSend := "α" Greek_breve Greek_rough Greek_acute
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "α" rough grave
+						keysToSend := "α" Greek_rough Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "α" rough grave iotaSub
+						keysToSend := "α" Greek_rough Greek_grave Greek_iotaSub
 						numKeysToSend := 4
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "α" macron rough grave
+						keysToSend := "α" Greek_macron Greek_rough Greek_grave
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "α" breve rough grave
+						keysToSend := "α" Greek_breve Greek_rough Greek_grave
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "α" rough circumflex
+						keysToSend := "α" Greek_rough Greek_circumflex
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "α" rough circumflex iotaSub
+						keysToSend := "α" Greek_rough Greek_circumflex Greek_iotaSub
 						numKeysToSend := 4
 					}
 				}
 			}
 		}
 			
-		else if (vowel = "e")
+		else if (Greek_vowel = "e")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
 					keysToSend := "ε"
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					keysToSend := "ε" acute
+					keysToSend := "ε" Greek_acute
 					numKeysToSend := 2
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					keysToSend := "ε" grave
+					keysToSend := "ε" Greek_grave
 					numKeysToSend := 2
 				}
 			}
-			else if (breathing = "smooth")
+			else if (Greek_breathing = "smooth")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					keysToSend := "ε" smooth
+					keysToSend := "ε" Greek_smooth
 					numKeysToSend := 2
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					keysToSend := "ε" smooth acute
+					keysToSend := "ε" Greek_smooth Greek_acute
 					numKeysToSend := 3
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					keysToSend := "ε" smooth grave
+					keysToSend := "ε" Greek_smooth Greek_grave
 					numKeysToSend := 3
 				}
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					keysToSend := "ε" rough
+					keysToSend := "ε" Greek_rough
 					numKeysToSend := 2
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					keysToSend := "ε" rough acute
+					keysToSend := "ε" Greek_rough Greek_acute
 					numKeysToSend := 3
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					keysToSend := "ε" rough grave
+					keysToSend := "ε" Greek_rough Greek_grave
 					numKeysToSend := 3
 				}
 			}
 		}
 		
-		else if (vowel = "h")
+		else if (Greek_vowel = "h")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "η"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "η" iotaSub
+						keysToSend := "η" Greek_iotaSub
 						numKeysToSend := 2
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "η" acute
+						keysToSend := "η" Greek_acute
 						numKeysToSend := 2
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "η" acute iotaSub
+						keysToSend := "η" Greek_acute Greek_iotaSub
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "η" grave
+						keysToSend := "η" Greek_grave
 						numKeysToSend := 2
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "η" grave iotaSub
+						keysToSend := "η" Greek_grave Greek_iotaSub
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "η" circumflex
+						keysToSend := "η" Greek_circumflex
 						numKeysToSend := 2
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "η" circumflex iotaSub
+						keysToSend := "η" Greek_circumflex Greek_iotaSub
 						numKeysToSend := 3
 					}
 				}
 			}
-			else if (breathing = "smooth")
+			else if (Greek_breathing = "smooth")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "η" smooth
+						keysToSend := "η" Greek_smooth
 						numKeysToSend := 2
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "η" smooth iotaSub
+						keysToSend := "η" Greek_smooth Greek_iotaSub
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "η" smooth acute
+						keysToSend := "η" Greek_smooth Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "η" smooth acute iotaSub
+						keysToSend := "η" Greek_smooth Greek_acute Greek_iotaSub
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "η" smooth grave
+						keysToSend := "η" Greek_smooth Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "η" smooth grave iotaSub
+						keysToSend := "η" Greek_smooth Greek_grave Greek_iotaSub
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "η" smooth circumflex
+						keysToSend := "η" Greek_smooth Greek_circumflex
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "η" smooth circumflex iotaSub
+						keysToSend := "η" Greek_smooth Greek_circumflex Greek_iotaSub
 						numKeysToSend := 4
 					}
 				}
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "η" rough
+						keysToSend := "η" Greek_rough
 						numKeysToSend := 2
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "η" rough iotaSub
+						keysToSend := "η" Greek_rough Greek_iotaSub
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "η" rough acute
+						keysToSend := "η" Greek_rough Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "η" rough acute iotaSub
+						keysToSend := "η" Greek_rough Greek_acute Greek_iotaSub
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "η" rough grave
+						keysToSend := "η" Greek_rough Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "η" rough grave iotaSub
+						keysToSend := "η" Greek_rough Greek_grave Greek_iotaSub
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "η" rough circumflex
+						keysToSend := "η" Greek_rough Greek_circumflex
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "η" rough circumflex iotaSub
+						keysToSend := "η" Greek_rough Greek_circumflex Greek_iotaSub
 						numKeysToSend := 4
 					}
 				}
 			}
 		}
 		
-		else if (vowel = "i")
+		else if (Greek_vowel = "i")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ι"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "ι" macron
+						keysToSend := "ι" Greek_macron
 						numKeysToSend := 2
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "ι" breve
+						keysToSend := "ι" Greek_breve
 						numKeysToSend := 2
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "ι" acute
+						keysToSend := "ι" Greek_acute
 						numKeysToSend := 2
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "ι" macron acute
+						keysToSend := "ι" Greek_macron Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "ι" breve acute
+						keysToSend := "ι" Greek_breve Greek_acute
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "ι" grave
+						keysToSend := "ι" Greek_grave
 						numKeysToSend := 2
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "ι" macron grave
+						keysToSend := "ι" Greek_macron Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "ι" breve grave
+						keysToSend := "ι" Greek_breve Greek_grave
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-						keysToSend := "ι" circumflex
+						keysToSend := "ι" Greek_circumflex
 						numKeysToSend := 2
 				}
 			}
-			else if (breathing = "smooth")
+			else if (Greek_breathing = "smooth")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "ι" smooth
+						keysToSend := "ι" Greek_smooth
 						numKeysToSend := 2
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "ι" macron smooth
+						keysToSend := "ι" Greek_macron Greek_smooth
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "ι" breve smooth
+						keysToSend := "ι" Greek_breve Greek_smooth
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "ι" smooth acute
+						keysToSend := "ι" Greek_smooth Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "ι" macron smooth acute
+						keysToSend := "ι" Greek_macron Greek_smooth Greek_acute
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "ι" breve smooth acute
+						keysToSend := "ι" Greek_breve Greek_smooth Greek_acute
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "ι" smooth grave
+						keysToSend := "ι" Greek_smooth Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "ι" macron smooth grave
+						keysToSend := "ι" Greek_macron Greek_smooth Greek_grave
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "ι" breve smooth grave
+						keysToSend := "ι" Greek_breve Greek_smooth Greek_grave
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					keysToSend := "ι" smooth circumflex
+					keysToSend := "ι" Greek_smooth Greek_circumflex
 					numKeysToSend := 3
 				}
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "ι" rough
+						keysToSend := "ι" Greek_rough
 						numKeysToSend := 2
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "ι" macron rough
+						keysToSend := "ι" Greek_macron Greek_rough
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "ι" breve rough
+						keysToSend := "ι" Greek_breve Greek_rough
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "ι" rough acute
+						keysToSend := "ι" Greek_rough Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "ι" macron rough acute
+						keysToSend := "ι" Greek_macron Greek_rough Greek_acute
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "ι" breve rough acute
+						keysToSend := "ι" Greek_breve Greek_rough Greek_acute
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "ι" rough grave
+						keysToSend := "ι" Greek_rough Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "ι" macron rough grave
+						keysToSend := "ι" Greek_macron Greek_rough Greek_grave
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "ι" breve rough grave
+						keysToSend := "ι" Greek_breve Greek_rough Greek_grave
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					keysToSend := "ι" rough circumflex
+					keysToSend := "ι" Greek_rough Greek_circumflex
 					numKeysToSend := 3
 				}
 			}
-			else if (breathing = "diaeresis")
+			else if (Greek_breathing = "diaeresis")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					keysToSend := "ι" diaeresis
+					keysToSend := "ι" Greek_diaeresis
 					numKeysToSend := 2
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					keysToSend := "ι" diaeresis acute
+					keysToSend := "ι" Greek_diaeresis Greek_acute
 					numKeysToSend := 3
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					keysToSend := "ι" diaeresis grave
+					keysToSend := "ι" Greek_diaeresis Greek_grave
 					numKeysToSend := 3
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					keysToSend := "ι" diaeresis circumflex
+					keysToSend := "ι" Greek_diaeresis Greek_circumflex
 					numKeysToSend := 3
 				}
 			}
 		}
 			
-		else if (vowel = "o")
+		else if (Greek_vowel = "o")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
 					keysToSend := "ο"
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					keysToSend := "ο" acute
+					keysToSend := "ο" Greek_acute
 					numKeysToSend := 2
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					keysToSend := "ο" grave
+					keysToSend := "ο" Greek_grave
 					numKeysToSend := 2
 				}
 			}
-			else if (breathing = "smooth")
+			else if (Greek_breathing = "smooth")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					keysToSend := "ο" smooth
+					keysToSend := "ο" Greek_smooth
 					numKeysToSend := 2
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					keysToSend := "ο" smooth acute
+					keysToSend := "ο" Greek_smooth Greek_acute
 					numKeysToSend := 3
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					keysToSend := "ο" smooth grave
+					keysToSend := "ο" Greek_smooth Greek_grave
 					numKeysToSend := 3
 				}
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					keysToSend := "ο" rough
+					keysToSend := "ο" Greek_rough
 					numKeysToSend := 2
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					keysToSend := "ο" rough acute
+					keysToSend := "ο" Greek_rough Greek_acute
 					numKeysToSend := 3
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					keysToSend := "ο" rough grave
+					keysToSend := "ο" Greek_rough Greek_grave
 					numKeysToSend := 3
 				}
 			}
 		}
 		
-		else if (vowel = "u")
+		else if (Greek_vowel = "u")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "υ"
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "υ" macron
+						keysToSend := "υ" Greek_macron
 						numKeysToSend := 2
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "υ" breve
+						keysToSend := "υ" Greek_breve
 						numKeysToSend := 2
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "υ" acute
+						keysToSend := "υ" Greek_acute
 						numKeysToSend := 2
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "υ" macron acute
+						keysToSend := "υ" Greek_macron Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "υ" breve acute
+						keysToSend := "υ" Greek_breve Greek_acute
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "υ" grave
+						keysToSend := "υ" Greek_grave
 						numKeysToSend := 2
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "υ" macron grave
+						keysToSend := "υ" Greek_macron Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "υ" breve grave
+						keysToSend := "υ" Greek_breve Greek_grave
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					keysToSend := "υ" circumflex
+					keysToSend := "υ" Greek_circumflex
 					numKeysToSend := 2
 				}
 			}
-			else if (breathing = "smooth")
+			else if (Greek_breathing = "smooth")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "υ" smooth
+						keysToSend := "υ" Greek_smooth
 						numKeysToSend := 2
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "υ" macron smooth
+						keysToSend := "υ" Greek_macron Greek_smooth
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "υ" breve smooth
+						keysToSend := "υ" Greek_breve Greek_smooth
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "υ" smooth acute
+						keysToSend := "υ" Greek_smooth Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "υ" macron smooth acute
+						keysToSend := "υ" Greek_macron Greek_smooth Greek_acute
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "υ" breve smooth acute
+						keysToSend := "υ" Greek_breve Greek_smooth Greek_acute
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "υ" smooth grave
+						keysToSend := "υ" Greek_smooth Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "υ" macron smooth grave
+						keysToSend := "υ" Greek_macron Greek_smooth Greek_grave
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "υ" breve smooth grave
+						keysToSend := "υ" Greek_breve Greek_smooth Greek_grave
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					keysToSend := "υ" smooth circumflex
+					keysToSend := "υ" Greek_smooth Greek_circumflex
 					numKeysToSend := 3
 				}
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "υ" rough
+						keysToSend := "υ" Greek_rough
 						numKeysToSend := 2
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "υ" macron rough
+						keysToSend := "υ" Greek_macron Greek_rough
 						numKeysToSend := 3
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "υ" breve rough
+						keysToSend := "υ" Greek_breve Greek_rough
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "υ" rough acute
+						keysToSend := "υ" Greek_rough Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "υ" macron rough acute
+						keysToSend := "υ" Greek_macron Greek_rough Greek_acute
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "υ" breve rough acute
+						keysToSend := "υ" Greek_breve Greek_rough Greek_acute
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "υ" rough grave
+						keysToSend := "υ" Greek_rough Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "macron")
+					else if (Greek_quantity = "macron")
 					{
-						keysToSend := "υ" macron rough grave
+						keysToSend := "υ" Greek_macron Greek_rough Greek_grave
 						numKeysToSend := 4
 					}
-					else if (quantity = "breve")
+					else if (Greek_quantity = "breve")
 					{
-						keysToSend := "υ" breve rough grave
+						keysToSend := "υ" Greek_breve Greek_rough Greek_grave
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					keysToSend := "υ" rough circumflex
+					keysToSend := "υ" Greek_rough Greek_circumflex
 					numKeysToSend := 3
 				}
 			}
-			else if (breathing = "diaeresis")
+			else if (Greek_breathing = "diaeresis")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					keysToSend := "υ" diaeresis
+					keysToSend := "υ" Greek_diaeresis
 					numKeysToSend := 2
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					keysToSend := "υ" diaeresis acute
+					keysToSend := "υ" Greek_diaeresis Greek_acute
 					numKeysToSend := 3
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					keysToSend := "υ" diaeresis grave
+					keysToSend := "υ" Greek_diaeresis Greek_grave
 					numKeysToSend := 3
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					keysToSend := "υ" diaeresis circumflex
+					keysToSend := "υ" Greek_diaeresis Greek_circumflex
 					numKeysToSend := 3
 				}
 			}
 		}
 		
-		else if (vowel = "w")
+		else if (Greek_vowel = "w")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
 						keysToSend := "ω"
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "ω" iotaSub
+						keysToSend := "ω" Greek_iotaSub
 						numKeysToSend := 2
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "ω" acute
+						keysToSend := "ω" Greek_acute
 						numKeysToSend := 2
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "ω" acute iotaSub
+						keysToSend := "ω" Greek_acute Greek_iotaSub
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "ω" grave
+						keysToSend := "ω" Greek_grave
 						numKeysToSend := 2
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "ω" grave iotaSub
+						keysToSend := "ω" Greek_grave Greek_iotaSub
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "ω" circumflex
+						keysToSend := "ω" Greek_circumflex
 						numKeysToSend := 2
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "ω" circumflex iotaSub
+						keysToSend := "ω" Greek_circumflex Greek_iotaSub
 						numKeysToSend := 3
 					}
 				}
 			}
-			else if (breathing = "smooth")
+			else if (Greek_breathing = "smooth")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "ω" smooth
+						keysToSend := "ω" Greek_smooth
 						numKeysToSend := 2
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "ω" smooth iotaSub
+						keysToSend := "ω" Greek_smooth Greek_iotaSub
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "ω" smooth acute
+						keysToSend := "ω" Greek_smooth Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "ω" smooth acute iotaSub
+						keysToSend := "ω" Greek_smooth Greek_acute Greek_iotaSub
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "ω" smooth grave
+						keysToSend := "ω" Greek_smooth Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "ω" smooth grave iotaSub
+						keysToSend := "ω" Greek_smooth Greek_grave Greek_iotaSub
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "ω" smooth circumflex
+						keysToSend := "ω" Greek_smooth Greek_circumflex
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "ω" smooth circumflex iotaSub
+						keysToSend := "ω" Greek_smooth Greek_circumflex Greek_iotaSub
 						numKeysToSend := 4
 					}
 				}
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				if (accent = "")
+				if (Greek_accent = "")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "ω" rough
+						keysToSend := "ω" Greek_rough
 						numKeysToSend := 2
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "ω" rough iotaSub
+						keysToSend := "ω" Greek_rough Greek_iotaSub
 						numKeysToSend := 3
 					}
 				}
-				else if (accent = "acute")
+				else if (Greek_accent = "acute")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "ω" rough acute
+						keysToSend := "ω" Greek_rough Greek_acute
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "ω" rough acute iotaSub
+						keysToSend := "ω" Greek_rough Greek_acute Greek_iotaSub
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "grave")
+				else if (Greek_accent = "grave")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "ω" rough grave
+						keysToSend := "ω" Greek_rough Greek_grave
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "ω" rough grave iotaSub
+						keysToSend := "ω" Greek_rough Greek_grave Greek_iotaSub
 						numKeysToSend := 4
 					}
 				}
-				else if (accent = "circumflex")
+				else if (Greek_accent = "circumflex")
 				{
-					if (quantity = "")
+					if (Greek_quantity = "")
 					{
-						keysToSend := "ω" rough circumflex
+						keysToSend := "ω" Greek_rough Greek_circumflex
 						numKeysToSend := 3
 					}
-					else if (quantity = "iota")
+					else if (Greek_quantity = "iota")
 					{
-						keysToSend := "ω" rough circumflex iotaSub
+						keysToSend := "ω" Greek_rough Greek_circumflex Greek_iotaSub
 						numKeysToSend := 4
 					}
 				}
 			}
 		}
 		
-		else if (vowel = "r")
+		else if (Greek_vowel = "r")
 		{
-			if (breathing = "")
+			if (Greek_breathing = "")
 			{
 				keysToSend := "ρ"
 			}
-			else if (breathing = "smooth")
+			else if (Greek_breathing = "smooth")
 			{
-				keysToSend := "ρ" smooth
+				keysToSend := "ρ" Greek_smooth
 				numKeysToSend := 2
 			}
-			else if (breathing = "rough")
+			else if (Greek_breathing = "rough")
 			{
-				keysToSend := "ρ" rough
+				keysToSend := "ρ" Greek_rough
 				numKeysToSend := 2
 			}
 		}
@@ -3996,41 +3996,27 @@ Greek_decomposed() {
 }
 
 
-resetDiacritics() 
+Greek_resetDiacritics() 
 {
-	breathing := ""
-	accent := ""
-	quantity := ""
+	Greek_breathing := ""
+	Greek_accent := ""
+	Greek_quantity := ""
 	return
 }
 
 
-resetVowel() 
+Greek_resetVowel() 
 {
-	capital := false
-	vowel := ""
-	breathing := ""
-	accent := ""
-	quantity := ""
+	Greek_capital := false
+	Greek_vowel := ""
+	Greek_breathing := ""
+	Greek_accent := ""
+	Greek_quantity := ""
 	return
 }
 
 
-deleteLastFullCharacter()
-{
-	timeOfLastHotkey := A_TickCount - A_TimeSincePriorHotkey
-	if((timeOfLastHotKey - lastDiacriticKey) < 50)
-	{
-		SendInput {Backspace %numKeysToBackspace%}
-	}
-		else
-	{
-		SendInput {Backspace}
-	}
-	return
-}
-
-HandleFinalSigma() {
+Greek_handleFinalSigma() {
 	if(A_PriorHotkey = "*s")
 	{
 		SendInput {Backspace}ς

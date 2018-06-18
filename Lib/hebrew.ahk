@@ -1,0 +1,362 @@
+﻿Hebrew_Esc(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_F1(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_F2(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_F3(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_F4(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_F5(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_F6(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_F7(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_F8(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_F9(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_F10(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_F11(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_F12(key)
+{
+	dual.comboKey(key)
+	return
+}
+
+
+Hebrew_backtick(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_1(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_2(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_3(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_4(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_5(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_6(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_7(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_8(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_9(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_0(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_hyphen(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_equals(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_Backspace(key)
+{
+	dual.comboKey(key)
+	return
+}
+
+
+Hebrew_Tab(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_q(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_w(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_e(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_r(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_t(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_y(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_u(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_i(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_o(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_p(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_openBracket(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_closeBracket(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_backslash(key)
+{
+	dual.comboKey(key)
+	return
+}
+
+
+Hebrew_CapsLock(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_a(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_s(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_d(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_f(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_g(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_h(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_j(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_k(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_l(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_semicolon(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_apostrophe(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_Enter(key)
+{
+	dual.comboKey(key)
+	return
+}
+
+
+Hebrew_z(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_x(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_c(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_v(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_b(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_n(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_m(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_comma(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_period(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_slash(key)
+{
+	dual.comboKey(key)
+	return
+}
+
+
+Hebrew_Space(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_AppsKey(key)
+{
+	dual.comboKey(key)
+	return
+}
+
+
+Hebrew_Left(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_Down(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_Up(key)
+{
+	dual.comboKey(key)
+	return
+}
+Hebrew_Right(key)
+{
+	dual.comboKey(key)
+	return
+}

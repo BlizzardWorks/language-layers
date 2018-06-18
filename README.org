@@ -14,7 +14,7 @@ Depending on time considerations, this project may have shifting goals and prior
 
 1. [[https://autohotkey.com/download/][Download AutoHotkey]] from it's site, and install it.
 2. [[https://github.com/StevenTammen/unicode-language-layers/archive/master.zip][Download this project as a .ZIP archive]], and then unzip it into a convenient location.
-3. Double click on the file called =greek.ahk= to execute the remapping script. The script can be closed from the system tray when you no longer wish to type Greek. (A more elegant combined English/Greek implementation is in the pipeline -- soon there will be a single script executed that lets you toggle back and forth between multiple languages).
+3. Double click on the file called =remap.ahk= to execute the remapping script. Without any user configuration (i.e., by default), the script starts out with English as the active language, and CapsLock as a toggle key for Greek. Simply press CapsLock when you want to type Greek, and CapsLock again when you are done typing Greek.
 
 * Contribution guidelines
 
