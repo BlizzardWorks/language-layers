@@ -54,26 +54,15 @@
 
 ** Fonts
 
+{Todo: [fn:1]}
+
 *** An overview of existing options (for Greek and Hebrew)
 
 - SBL Greek and Hebrew
 - Gentium Plus and Ezra SIL
 - Cardo
 - New Athena Unicode
-
-*** A discussion of ideals and targets for font design
-
-** Word Processing
-
-*** Reasons why something other than Word might be desirable
-
-*** Example: Emacs' Org mode to PDF using XeLaTeX
-
-- Support for RTL languages and automatic display
-- Polyglossia
-- Automatic font switches
-
-*** Yudit?
+- Google Noto Font. Research.
 
 * Section 3: The Unicode Language Layers project
 
@@ -145,15 +134,13 @@
 
 *** The underdot
 
-*** Metrical marks
-
 ** Punctuation; language-specific symbols
+
+{Todo: [fn:2]}
 
 *** Question marks and semicolons
 
 *** A discussion of "hybrid" punctuation, and accessing normal punctuation when desired
-
-*** Numerals, drachma symbol
 
 * Section 5: Hebrew as an example
 
@@ -205,7 +192,7 @@
 
 *** Shekel symbol
 
-* Section 6: Efficient typing practice for other languages
+* Section 6: Efficient typing practice for non-native languages
 
 ** Introduction to efficient typing
 
@@ -229,16 +216,9 @@
 
 - Similar process. Handling semantic boundaries in regexes? How to automate morphological analysis without obvious delimiters like spaces for words?
 
-*** Abbreviations
-
-- More of a personal thing. Can algorithmically generate in theory. (Outside scope of this project).
-- Probably good to look at the 10 or 15 most common words and see if anything jumps out at you
-- Creating regex hotstrings in this particular AHK implementation
-
 *** Area-specific practice texts
 
-- Downloading from free/uncopyrighted sources. Perseus, Project Gutenberg.
-- Automate with script? Probably also outside scope of project.
+- Downloading from free/uncopyrighted sources. Perseus, Project Gutenberg.[fn:3]
 
 ** Typing practice
 
@@ -269,6 +249,48 @@
 
 - Tests
 
+** Examples of typing-related pedagogical aids for Greek
+
+*** Learning the accentuation system
+
+- Practicing the typing of accents while learning about the rule of contonation, morae, and recessive accents.
+
+*** Common irregular verbs
+
+-	Practicing the typing of certain very common irregular verbs (like /eimi/, e.g.) while simultaneously learning their paradigms.
+
+*** Practicing reading/speaking Greek; "reading by typing"
+
+-	Practicing typing in general by pulling in Greek texts from Perseus as typing training material. Students could be encouraged to also read the texts out loud as they type them. (Not necessarily understanding the Greek, but getting to see how it sounds and flows).
+
+* Section 8: Concluding remarks
+
+** Specific implementation benefits
+
+*** Who should make the switch to this system? Is this project really worthwhile?
+
+*** The low opportunity cost for the next generation
+
+** Moving forward with more languages
+
+*** Current project: focus on Greek with Hebrew as a foil
+
+*** Possibility to expand much further
+
+** Suggestions for further research
+
+*** Corpus generation
+
+*** Morphological analysis
+
+*** Graphical frontends for customization
+
+*** System APIs for keystream manipulations /across platforms/
+
+*** AI autograders for language exercises
+
+* Section 9: Appendix
+
 ** Integrating general electronic/online resources into classes
 
 ***  Language input as a pain point
@@ -290,20 +312,39 @@ Dangers of over-reliance, but great benefits all the same. Arbitrary searches (t
 
 More polarizing whether or not they are useful, but making them easier to construct is definitely a good thing. Spaced repetition studying, Anki.
 
-** Examples of typing-related pedagogical aids for Greek
-
-*** Learning the accentuation system
-
-- Practicing the typing of accents while learning about the rule of contonation, morae, and recessive accents.
-
-*** Common irregular verbs
-
--	Practicing the typing of certain very common irregular verbs (like /eimi/, e.g.) while simultaneously learning their paradigms.
-
-*** Practicing reading/speaking Greek; "reading by typing"
-
--	Practicing typing in general by pulling in Greek texts from Perseus as typing training material. Students could be encouraged to also read the texts out loud as they type them. (Not necessarily understanding the Greek, but getting to see how it sounds and flows).
-
-*** Autograded sentences
+**** Autograded sentences
 
 -	Practicing typing in general by providing form-fields to enter sentence translations. Depending on the difficulty of implementation, it might be possible to create an autograder for practice sentences in Athenaze, for example. If care was taken to follow vocabulary acquisition (so as to limit the lexicon input for the program and make it deterministic), it would be easy for professors to design supplemental/optional practice exercises that the students could complete with instant feedback and no extra work for the professor.
+
+** Word Processing
+
+*** Reasons why something other than Word might be desirable
+
+- Automatic font use rather than manual switching
+
+*** Example: Emacs' Org mode to PDF using XeLaTeX
+
+- Support for RTL languages and automatic display
+- Polyglossia
+- Automatic font switches
+
+*** Yudit?
+
+{Todo: [fn:4]}
+
+** Abbreviations
+
+- More of a personal thing. Can algorithmically generate in theory. (Outside scope of this project).
+- Probably good to look at the 10 or 15 most common words and see if anything jumps out at you
+- Creating regex hotstrings in this particular AHK implementation
+
+* Footnotes
+
+[fn:1] Ideal font design + discussion
+
+[fn:2] Metrical marks, special numerals, drachma symbol
+
+[fn:3] Automate with script? Probably also outside scope of project.
+
+[fn:4] Need to research more.
+

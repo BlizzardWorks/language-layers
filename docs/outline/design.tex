@@ -1,4 +1,4 @@
-% Created 2018-06-16 Sat 21:38
+% Created 2018-06-24 Sun 20:23
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage{graphicx}
@@ -37,104 +37,86 @@
 
 
 \section{Section 1: Why?}
-\label{sec:org26dbdb8}
+\label{sec:org3fe19d9}
 
 \subsection{Why this project?}
-\label{sec:org063d07c}
+\label{sec:org36c0080}
 
 \subsubsection{The lack of open source, \emph{customizable} software}
-\label{sec:org3d108d3}
+\label{sec:org400311f}
 
 \subsubsection{The lack of software that works for nonstandard keyboard layouts}
-\label{sec:orgb2ee701}
+\label{sec:org0e7d2ce}
 
 \subsubsection{The lack of software that bundles multiple language layouts together}
-\label{sec:org0261d48}
+\label{sec:orgf053a54}
 
 \subsection{Why this paper?}
-\label{sec:org4903d9c}
+\label{sec:orgef9d508}
 
 \subsubsection{Justifying design choices}
-\label{sec:org631a49c}
+\label{sec:orgecc0b37}
 
 \subsubsection{Creating a starting point for people that may have different opinions than myself}
-\label{sec:org2d16784}
+\label{sec:org12fe263}
 
 \section{Section 2: Nuts and bolts}
-\label{sec:org6283516}
+\label{sec:org7f81865}
 
 \subsection{Keyboard layouts}
-\label{sec:org4d8f93e}
+\label{sec:org502921b}
 
 \subsubsection{Letters}
-\label{sec:org9f23cb6}
+\label{sec:org76d58be}
 
 \subsubsection{Context-specific/alternate letter forms}
-\label{sec:orgcc0e61d}
+\label{sec:org42e8324}
 
 \subsubsection{Mandatory markup: vowel points, diacritics, etc.}
-\label{sec:org23c0e3b}
+\label{sec:orgfa7df35}
 
 \subsubsection{Additional markup: metrical marks, cantillation marks, etc.}
-\label{sec:orgd4c12f4}
+\label{sec:orgbad77d5}
 
 \subsubsection{Punctuation; language-specific symbols}
-\label{sec:org5492e43}
+\label{sec:orgde03eb4}
 
 \subsection{Unicode}
-\label{sec:org4919ce7}
+\label{sec:org33da086}
 
 \subsubsection{History, scope, and purpose; peculiarities}
-\label{sec:org0df9043}
+\label{sec:orga9cc9da}
 
 \subsubsection{Precomposed and decomposed Unicode}
-\label{sec:org2105857}
+\label{sec:org14f5524}
 
 \subsubsection{Combining multiple diacritics}
-\label{sec:org4e659ff}
+\label{sec:org33bac2f}
 
 \subsection{Fonts}
-\label{sec:orga1c3bbb}
+\label{sec:org1c529a8}
+
+\{Todo: \footnote{Ideal font design + discussion}\}
 
 \subsubsection{An overview of existing options (for Greek and Hebrew)}
-\label{sec:org2a7d56f}
+\label{sec:org268693a}
 
 \begin{itemize}
 \item SBL Greek and Hebrew
 \item Gentium Plus and Ezra SIL
 \item Cardo
 \item New Athena Unicode
+\item Google Noto Font. Research.
 \end{itemize}
-
-\subsubsection{A discussion of ideals and targets for font design}
-\label{sec:org5e7b14b}
-
-\subsection{Word Processing}
-\label{sec:org180305a}
-
-\subsubsection{Reasons why something other than Word might be desirable}
-\label{sec:org3ff0e56}
-
-\subsubsection{Example: Emacs' Org mode to PDF using XeLaTeX}
-\label{sec:org051f7a3}
-
-\begin{itemize}
-\item Support for RTL languages and automatic display
-\item Polyglossia
-\item Automatic font switches
-\end{itemize}
-
-\subsubsection{Yudit?}
-\label{sec:orgc86d90b}
 
 \section{Section 3: The Unicode Language Layers project}
-\label{sec:orgc1a8de6}
+\label{sec:org921f646}
 
 \subsection{Sane defaults combined with ease of use}
-\label{sec:org5bd2588}
+\label{sec:org1446aef}
 
 \subsection{Customizability as a first order priority}
-\label{sec:org96a8feb}
+\label{sec:org27fa8df}
 
 \begin{itemize}
 \item Thorough API
@@ -143,7 +125,7 @@
 \end{itemize}
 
 \subsection{Minimal interference with normal computer use}
-\label{sec:org6678ca0}
+\label{sec:org3d52549}
 
 \begin{itemize}
 \item Quick and easy on and off
@@ -152,10 +134,10 @@
 \end{itemize}
 
 \subsection{Consistency across multiple languages}
-\label{sec:org897ba5d}
+\label{sec:org08afcbd}
 
 \subsubsection{For end users}
-\label{sec:org3a52445}
+\label{sec:org9a99d16}
 
 \begin{itemize}
 \item Base markup for Latin, German, French, Italian, Spanish. Leader-prefixed diacritics.
@@ -163,7 +145,7 @@
 \end{itemize}
 
 \subsubsection{For designers}
-\label{sec:org9db374d}
+\label{sec:orgd10cf76}
 
 \begin{itemize}
 \item Consistent handling of precomposed and decomposed Unicode
@@ -172,37 +154,37 @@
 \end{itemize}
 
 \section{Section 4: Greek as an example}
-\label{sec:org65bd6b6}
+\label{sec:org275f2f7}
 
 \subsection{Letters}
-\label{sec:org8d1a81d}
+\label{sec:org6f2f9a2}
 
 \subsubsection{The relationship between memorability and speed}
-\label{sec:org2d07b0a}
+\label{sec:orgd7b1fb7}
 
 \subsubsection{Native-language layouts in muscle memory}
-\label{sec:orgfb633dc}
+\label{sec:orgeadaa82}
 
 \subsubsection{Issues in constructing associations}
-\label{sec:org8d7872e}
+\label{sec:org2958ac6}
 
 \subsubsection{A Greek-English keymap}
-\label{sec:org15f05ce}
+\label{sec:org073f05d}
 
 \subsection{Context-specific/alternate letter forms}
-\label{sec:org3453677}
+\label{sec:org7d21ba4}
 
 \subsubsection{Final sigma}
-\label{sec:orga8e360f}
+\label{sec:org4969c7b}
 
 \subsubsection{Lunate sigma}
-\label{sec:org2329d19}
+\label{sec:orgee08a2e}
 
 \subsection{Mandatory markup}
-\label{sec:orgd265787}
+\label{sec:orga37f9c9}
 
 \subsubsection{Breathings}
-\label{sec:org655b176}
+\label{sec:org330c2a9}
 
 \begin{itemize}
 \item smooth, rough
@@ -210,207 +192,193 @@
 \end{itemize}
 
 \subsubsection{Accents}
-\label{sec:org77b4809}
+\label{sec:org6ec787c}
 
 \begin{itemize}
 \item acute, grave, circumflex
 \end{itemize}
 
 \subsubsection{Iota subscripts}
-\label{sec:org3912889}
+\label{sec:org792c01b}
 
 \subsubsection{Diaeresis}
-\label{sec:orgfe45653}
+\label{sec:org6a343cc}
 
 \subsubsection{The koronis}
-\label{sec:org6d7880b}
+\label{sec:org3d1f845}
 
 \subsection{Additional markup}
-\label{sec:orgcbaae6a}
+\label{sec:orgc8cb3c3}
 
 \subsubsection{Vowel quantity: macrons and breves}
-\label{sec:org328380f}
+\label{sec:orgc2e1a69}
 
 \subsubsection{The underdot}
-\label{sec:org35bb5f9}
-
-\subsubsection{Metrical marks}
-\label{sec:orgee22b91}
+\label{sec:org6b989e5}
 
 \subsection{Punctuation; language-specific symbols}
-\label{sec:orgc32cb93}
+\label{sec:orgf2bb527}
+
+\{Todo: \footnote{Metrical marks, special numerals, drachma symbol}\}
 
 \subsubsection{Question marks and semicolons}
-\label{sec:orgdb48952}
+\label{sec:orgdc12cf7}
 
 \subsubsection{A discussion of "hybrid" punctuation, and accessing normal punctuation when desired}
-\label{sec:orgfaa4454}
-
-\subsubsection{Numerals, drachma symbol}
-\label{sec:orgcdd362a}
+\label{sec:org29b271f}
 
 \section{Section 5: Hebrew as an example}
-\label{sec:orgf9f85b9}
+\label{sec:orgef0489b}
 
 \subsection{Letters}
-\label{sec:org0a8f2aa}
+\label{sec:orgd8f8d33}
 
 \subsubsection{Handling cases of identical letter sounds}
-\label{sec:orga3311b1}
+\label{sec:org80f8228}
 
 \subsubsection{A Hebrew-English keymap}
-\label{sec:org31b92d4}
+\label{sec:orgebd34e8}
 
 \subsection{Context-specific/alternate letter forms}
-\label{sec:org21ddced}
+\label{sec:org3925f4f}
 
 \subsubsection{Word final letters: the sofit forms}
-\label{sec:orge270111}
+\label{sec:org3d93f83}
 
 \subsubsection{The Begadkephat letters}
-\label{sec:orgbab83df}
+\label{sec:org31ed2bc}
 
 \subsubsection{Shin and Sin}
-\label{sec:orged75125}
+\label{sec:org81aa206}
 
 \subsection{Mandatory markup}
-\label{sec:org9e14eee}
+\label{sec:orgf1cf36f}
 
 \subsubsection{A note about opinionated design decisions}
-\label{sec:org03c9bdc}
+\label{sec:org8f5e2d1}
 
 \begin{itemize}
 \item "Case study" -- the \emph{matres lectionis} letters. Automatically including vav and yod when they are vowel indicators.
 \end{itemize}
 
 \subsubsection{Basic vowel points}
-\label{sec:org97cffb6}
+\label{sec:org79f3b60}
 
 \subsubsection{Shva and reduced vowels}
-\label{sec:org6bc318a}
+\label{sec:orgca5249c}
 
 \subsubsection{The dagesh}
-\label{sec:org9121e12}
+\label{sec:org2783876}
 
 \subsection{Additional markup}
-\label{sec:orgda0915c}
+\label{sec:orgbd8b41b}
 
 \subsubsection{The meteg}
-\label{sec:orgfe72f12}
+\label{sec:orgcf96d56}
 
 \subsubsection{Cantillation marks}
-\label{sec:orgf8b0d0f}
+\label{sec:org17092c9}
 
 \subsection{Punctuation; language-specific symbols}
-\label{sec:orgfd2a5c2}
+\label{sec:org0942448}
 
 \subsubsection{A discussion of languages that use "mostly normal" punctuation (from the English point of view)}
-\label{sec:orgd8d5adb}
+\label{sec:orgfcebb2f}
 
 \subsubsection{The geresh}
-\label{sec:orgaa31b40}
+\label{sec:orgbaaedb3}
 
 \subsubsection{The gershayim (lit. "double geresh" -- this word is plural)}
-\label{sec:org72de120}
+\label{sec:orgcf56833}
 
 \subsubsection{Colon and \emph{sof pasuq}}
-\label{sec:org14f7e7d}
+\label{sec:orgda46652}
 
 \subsubsection{Vertical bar and \emph{paseq}}
-\label{sec:orga73dae5}
+\label{sec:org2af560b}
 
 \subsubsection{Hyphen and \emph{maqaf}}
-\label{sec:orgc9105dc}
+\label{sec:org70e3768}
 
 \subsubsection{Shekel symbol}
-\label{sec:orgc4ccc9f}
+\label{sec:orgadf37c5}
 
-\section{Section 6: Efficient typing practice for other languages}
-\label{sec:orga1e2d3d}
+\section{Section 6: Efficient typing practice for non-native languages}
+\label{sec:orgc2c05e3}
 
 \subsection{Introduction to efficient typing}
-\label{sec:orgefbe503}
+\label{sec:org7cd4206}
 
 \subsubsection{Practicing based on word frequency}
-\label{sec:orgb36c87a}
+\label{sec:org3de6fb8}
 
 \subsubsection{Practicing based on N-gram frequency; affixes}
-\label{sec:org5af9904}
+\label{sec:orgd8dc58c}
 
 \begin{itemize}
 \item (Derivational) Morphemes rather than words as a training focus
 \end{itemize}
 
 \subsubsection{Abbreviating very frequent words and phrases}
-\label{sec:org1859006}
+\label{sec:orge0973d7}
 
 \subsubsection{Practicing the sorts of texts you are going to type}
-\label{sec:orgb00b3d9}
+\label{sec:org1331404}
 
 \subsection{Creating necessary resources}
-\label{sec:orga8c7d8b}
+\label{sec:org7626177}
 
 \subsubsection{Word frequency tables}
-\label{sec:org67d96a3}
+\label{sec:orgb684da5}
 
 \begin{itemize}
 \item Perseus, TLG, handling overlapping forms
 \end{itemize}
 
 \subsubsection{N-gram frequency tables}
-\label{sec:orgdb37d50}
+\label{sec:org1454d68}
 
 \begin{itemize}
 \item Similar process. Handling semantic boundaries in regexes? How to automate morphological analysis without obvious delimiters like spaces for words?
 \end{itemize}
 
-\subsubsection{Abbreviations}
-\label{sec:org4f793e8}
-
-\begin{itemize}
-\item More of a personal thing. Can algorithmically generate in theory. (Outside scope of this project).
-\item Probably good to look at the 10 or 15 most common words and see if anything jumps out at you
-\item Creating regex hotstrings in this particular AHK implementation
-\end{itemize}
-
 \subsubsection{Area-specific practice texts}
-\label{sec:org39df615}
+\label{sec:org78ecc97}
 
 \begin{itemize}
-\item Downloading from free/uncopyrighted sources. Perseus, Project Gutenberg.
-\item Automate with script? Probably also outside scope of project.
+\item Downloading from free/uncopyrighted sources. Perseus, Project Gutenberg.\footnote{Automate with script? Probably also outside scope of project.}
 \end{itemize}
 
 \subsection{Typing practice}
-\label{sec:org79b91bf}
+\label{sec:orge3476e4}
 
 \subsubsection{Amphetype}
-\label{sec:org27bf40e}
+\label{sec:orgdd065fc}
 
 \subsubsection{Lesson generation from frequency tables and practice texts}
-\label{sec:org49ea722}
+\label{sec:orgcd012ac}
 
 \subsection{Crossover benefits}
-\label{sec:org9184146}
+\label{sec:org334c850}
 
 \subsubsection{Vocabulary lists by frequency for specific domains}
-\label{sec:org7e01d20}
+\label{sec:org2703083}
 
 \subsubsection{Morphological analysis and generative vocabulary}
-\label{sec:org59f2867}
+\label{sec:org3ea6c02}
 
 \begin{itemize}
 \item Prefixes, suffixes, and roots. Developing an eye for picking up meanings automatically, simply by knowing what different parts of the word mean in general.
 \end{itemize}
 
 \section{Section 7: Pedagogical applications}
-\label{sec:orgac4f4ce}
+\label{sec:org491f932}
 
 \subsection{Orthography for digital natives}
-\label{sec:org889e080}
+\label{sec:org8a87b8f}
 
 \subsubsection{Standardization of letterforms}
-\label{sec:orgd195001}
+\label{sec:orgb8eee50}
 
 \begin{itemize}
 \item Reducing the learning load in the first few weeks of Hebrew: block scripts and cursive scripts.
@@ -418,36 +386,102 @@
 \end{itemize}
 
 \subsubsection{Typing speed and writing speed}
-\label{sec:org46c5a16}
+\label{sec:orgfd28fe9}
 
 \subsubsection{But the permanence of handwriting}
-\label{sec:org1274767}
+\label{sec:org4d5cd8c}
 
 \begin{itemize}
 \item Tests
 \end{itemize}
 
+\subsection{Examples of typing-related pedagogical aids for Greek}
+\label{sec:org47c3d02}
+
+\subsubsection{Learning the accentuation system}
+\label{sec:org3174b9d}
+
+\begin{itemize}
+\item Practicing the typing of accents while learning about the rule of contonation, morae, and recessive accents.
+\end{itemize}
+
+\subsubsection{Common irregular verbs}
+\label{sec:org167c8f3}
+
+\begin{itemize}
+\item Practicing the typing of certain very common irregular verbs (like \emph{eimi}, e.g.) while simultaneously learning their paradigms.
+\end{itemize}
+
+\subsubsection{Practicing reading/speaking Greek; "reading by typing"}
+\label{sec:orgb74334a}
+
+\begin{itemize}
+\item Practicing typing in general by pulling in Greek texts from Perseus as typing training material. Students could be encouraged to also read the texts out loud as they type them. (Not necessarily understanding the Greek, but getting to see how it sounds and flows).
+\end{itemize}
+
+\section{Section 8: Concluding remarks}
+\label{sec:org4f356c9}
+
+\subsection{Specific implementation benefits}
+\label{sec:orgcb6e0d5}
+
+\subsubsection{Who should make the switch to this system? Is this project really worthwhile?}
+\label{sec:org6e8c6e7}
+
+\subsubsection{The low opportunity cost for the next generation}
+\label{sec:org4bad7ba}
+
+\subsection{Moving forward with more languages}
+\label{sec:orgde41867}
+
+\subsubsection{Current project: focus on Greek with Hebrew as a foil}
+\label{sec:org790094f}
+
+\subsubsection{Possibility to expand much further}
+\label{sec:org6cb538e}
+
+\subsection{Suggestions for further research}
+\label{sec:org0a4b705}
+
+\subsubsection{Corpus generation}
+\label{sec:org6917104}
+
+\subsubsection{Morphological analysis}
+\label{sec:orgab9400a}
+
+\subsubsection{Graphical frontends for customization}
+\label{sec:org55891dd}
+
+\subsubsection{System APIs for keystream manipulations \emph{across platforms}}
+\label{sec:orge4f1bd0}
+
+\subsubsection{AI autograders for language exercises}
+\label{sec:orgc2ca1da}
+
+\section{Section 9: Appendix}
+\label{sec:org5e15f88}
+
 \subsection{Integrating general electronic/online resources into classes}
-\label{sec:org15dd161}
+\label{sec:orgdc6c428}
 
 \subsubsection{Language input as a pain point}
-\label{sec:org572cd1d}
+\label{sec:org2027239}
 
 \begin{itemize}
 \item A lack of good keyboard input is a significant damper to the use of electronic/online resources.
 \end{itemize}
 
 \subsubsection{The value of electronic/online resources}
-\label{sec:orgf6aff5c}
+\label{sec:orgeffda47}
 
 \begin{enumerate}
 \item Elecronic lexica and morphology parsers
-\label{sec:orgc7c34a9}
+\label{sec:orgbd6750f}
 
 Dangers of over-reliance, but great benefits all the same. Arbitrary searches (those that require the ability to type native text) can be necessary when using paper sources rather than cross-linked sources like those on Perseus.
 
 \item Searches
-\label{sec:org3bbb1fd}
+\label{sec:org5a57112}
 
 \begin{itemize}
 \item Fuzzy search (i.e., lemma search), finding passages and references, searching on word usage or specific form.
@@ -455,39 +489,48 @@ Dangers of over-reliance, but great benefits all the same. Arbitrary searches (t
 \end{itemize}
 
 \item Electronic flashcards
-\label{sec:org8a823d9}
+\label{sec:org69a59ff}
 
 More polarizing whether or not they are useful, but making them easier to construct is definitely a good thing. Spaced repetition studying, Anki.
-\end{enumerate}
 
-\subsection{Examples of typing-related pedagogical aids for Greek}
-\label{sec:orgcc18527}
-
-\subsubsection{Learning the accentuation system}
-\label{sec:org56ac311}
-
-\begin{itemize}
-\item Practicing the typing of accents while learning about the rule of contonation, morae, and recessive accents.
-\end{itemize}
-
-\subsubsection{Common irregular verbs}
-\label{sec:org00afb6d}
-
-\begin{itemize}
-\item Practicing the typing of certain very common irregular verbs (like \emph{eimi}, e.g.) while simultaneously learning their paradigms.
-\end{itemize}
-
-\subsubsection{Practicing reading/speaking Greek; "reading by typing"}
-\label{sec:org9e78627}
-
-\begin{itemize}
-\item Practicing typing in general by pulling in Greek texts from Perseus as typing training material. Students could be encouraged to also read the texts out loud as they type them. (Not necessarily understanding the Greek, but getting to see how it sounds and flows).
-\end{itemize}
-
-\subsubsection{Autograded sentences}
-\label{sec:org4d32a1d}
+\item Autograded sentences
+\label{sec:orgefbcf06}
 
 \begin{itemize}
 \item Practicing typing in general by providing form-fields to enter sentence translations. Depending on the difficulty of implementation, it might be possible to create an autograder for practice sentences in Athenaze, for example. If care was taken to follow vocabulary acquisition (so as to limit the lexicon input for the program and make it deterministic), it would be easy for professors to design supplemental/optional practice exercises that the students could complete with instant feedback and no extra work for the professor.
+\end{itemize}
+\end{enumerate}
+
+\subsection{Word Processing}
+\label{sec:org19de905}
+
+\subsubsection{Reasons why something other than Word might be desirable}
+\label{sec:org5c96b63}
+
+\begin{itemize}
+\item Automatic font use rather than manual switching
+\end{itemize}
+
+\subsubsection{Example: Emacs' Org mode to PDF using XeLaTeX}
+\label{sec:orgfe5868c}
+
+\begin{itemize}
+\item Support for RTL languages and automatic display
+\item Polyglossia
+\item Automatic font switches
+\end{itemize}
+
+\subsubsection{Yudit?}
+\label{sec:org922c9c5}
+
+\{Todo: \footnote{Need to research more.}\}
+
+\subsection{Abbreviations}
+\label{sec:org64b37c5}
+
+\begin{itemize}
+\item More of a personal thing. Can algorithmically generate in theory. (Outside scope of this project).
+\item Probably good to look at the 10 or 15 most common words and see if anything jumps out at you
+\item Creating regex hotstrings in this particular AHK implementation
 \end{itemize}
 \end{document}

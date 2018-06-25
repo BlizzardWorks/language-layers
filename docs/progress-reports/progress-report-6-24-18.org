@@ -1,0 +1,23 @@
+#+LaTeX_HEADER: \usepackage{fontspec}
+#+LaTeX_HEADER: \setmainfont[BoldFont={Gentium Basic Bold}, ItalicFont={Gentium Basic Italic}]{Gentium Plus}
+
+#+LaTeX_HEADER: \usepackage{polyglossia}
+#+LaTeX_HEADER: \setmainlanguage{english}
+#+LaTeX_HEADER: \setotherlanguage{hebrew}
+#+LaTeX_HEADER: \newfontfamily\hebrewfont{SBL Hebrew}
+
+** Summary of progress that has been made
+
+This week has been incredibly busy for me for a variety of reasons. My programming summer class really picked up (we got to C/C++ pointers and system calls and have our first test tomorrow), and I had responsibilities related to my living situation that I had to attend to. Not that these are particularly good justifications for not getting sufficient progress made, but here we are.
+
+I restructured the outline according to much of what we talked about, and then copied it over to the draft folder and started hammering away. This first pass at the draft I'm probably going to forgo putting in all the references and formatting everything nicely. There are still many Todos, and lots to be written. Just getting things down on paper is the first priority.
+
+I also got footnotes working. Which took a little bit longer than I thought it might.
+
+** Summary of short term goals
+
+I want to get a full draft of the paper down in the next two weeks since I have my first presentation practice on the 19th of July. It doesn't have to be beautiful, but it needs to be mostly thought through.
+
+In the next week, I'd like to implement proper modifier behavior regardless of language layer and the leader-prefixed accents (in English mode) and punctuation (in a language mode) that we've talked about. After these, the program should be ready for basic beta testing.
+
+I'd also like to finish everything up to and including basic reasoning for the Hebrew layer in the paper. That's a little more than halfway. Since my class should back off a bit after this test, hopefully I'll have more time in the coming week to make some good progress.
