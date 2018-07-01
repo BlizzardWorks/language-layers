@@ -1,0 +1,27 @@
+#+LaTeX_HEADER: \usepackage{fontspec}
+#+LaTeX_HEADER: \setmainfont[BoldFont={Gentium Basic Bold}, ItalicFont={Gentium Basic Italic}]{Gentium Plus}
+
+#+LaTeX_HEADER: \usepackage{polyglossia}
+#+LaTeX_HEADER: \setmainlanguage{english}
+#+LaTeX_HEADER: \setotherlanguage{hebrew}
+#+LaTeX_HEADER: \newfontfamily\hebrewfont{SBL Hebrew}
+
+** Summary of progress that has been made
+
+The last couple of weeks have been incredibly busy for me for a variety of reasons. My programming summer class really picked up (we got to C/C++ pointers and system calls and had our first test), and I had responsibilities related to my living situation that I had to attend to.
+
+I restructured the outline according to much of what we talked about, and then copied it over to the draft folder and started hammering away. This first pass at the draft I'm probably going to forgo putting in all the references and formatting everything nicely. There are still many Todos, and lots to be written. Just getting things down on paper is the first priority. At this point I am partway through the second section, with part of the fourth (relating to the Greek layer) also completed. I'm trying to keep track of where I'll need to elaborate more as I go. I had hoped to finish through section 3 this week and spend time fixing all of the stuff in the Greek section from our previous conversations (as documented in the issues), but the coding I was doing kept expanding in size. I also got footnotes working, for what it is worth. This took a little bit longer than I thought it might.
+
+I had a rose-colored glasses view of how easy it would be to integrate the modifiers; all of that is done now, however. Modifiers now work seamlessly when in Greek mode, just as English. All of the modifier combinations can be customized by changing the layers (from the submodule I added). In the long term, prefix behavior for modifiers will also be supported, but I opted to keep the hold behavior as the default since it is what normal computer users expect.
+
+Bug after bug came up when I was implementing this behavior. I spent most of Saturday and Sunday bashing my head against small, implementation-specific details that I had not anticipated beforehand. I had hoped to also get the language-prefix key behavior coded this weekend, but I have like 300 pages of reading for my class by tomorrow, so it's not going to happen.
+
+** Summary of short term goals
+
+I want to get a full draft of the paper down in the next couple weeks since I have my first presentation practice on the 19th of July. It doesn't have to be beautiful, but it needs to be mostly thought through.
+
+In the next week, I'd like to implement the leader-prefixed accents (in English mode) and punctuation (in a language mode) that we've talked about. After this (and some through testing), the program should be ready for basic beta testing.
+
+I'd also like to finish everything up to and including basic reasoning for the Hebrew layer in the paper. That's a little more than halfway.
+
+While I was working on the nitty-gritty details of the modifiers, I thought of a way to handle keys apart from the Dual library that might simplify the code. But it would require a lot of refactoring, and I'm hesitant to start from the ground up again given where we are in the time-frame. We can talk more about this tomorrow.
