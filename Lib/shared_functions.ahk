@@ -28,7 +28,22 @@ layerIndependentBackspace() {
 deleteLastFullCharacter()
 {
 	timeOfLastHotkey := A_TickCount - A_TimeSincePriorHotkey
-	if((timeOfLastHotKey - lastKeySequence) < 50)
+	
+	lastKey := Dual.cleanKey(A_PriorHotkey)
+	shiftInterfering := (lastKey = "LShift") or (lastKey = "RShift")
+	
+	lastKeyDiacritic := false
+	keysWithDiacritics := ["/", ";", "[", "]", "\", "="]
+	for k, v in keysWithDiacritics
+	{
+		if(v == lastRealKeyDown)
+		{
+			lastKeyDiacritic := true
+			break
+		}
+	}
+	
+	if(((timeOfLastHotKey - lastKeySequence) < 50) or (shiftInterfering and lastKeyDiacritic))
 	{
 		SendInput {Backspace %numKeysToBackspace%}
 	}

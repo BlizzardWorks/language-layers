@@ -4020,11 +4020,11 @@ Greek_handleFinalSigma() {
 
 	lastKey := A_PriorHotkey
 
-	if((lastKey = "*Lshift") or (lastKey = "*Lshift Up"))
+	if((lastKey = "*LShift") or (lastKey = "*LShift Up"))
 	{
 		lastKey := lastRealKeyDown
 	}
-	else if((lastKey = "*Rshift") or (lastKey = "*Rshift Up"))
+	else if((lastKey = "*RShift") or (lastKey = "*RShift Up"))
 	{
 		lastKey := lastRealKeyDown
 	}
