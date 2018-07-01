@@ -22,14 +22,40 @@ dual := new Dual
 ;-------------------------------------------------
 
 #Include <shared_functions>
-#Include <greek_functions>
 
 
-; Import language layers
+; Import layers
 ;-------------------------------------------------
 
-#Include <greek>
-#Include <hebrew>
+#Include <layers/english/shiftModifier>
+
+#Include <layers/greek/greek>
+#Include <layers/greek/greek_shiftModifier>
+#Include <layers/greek/greek_functions>
+
+#Include <layers/hebrew/hebrew>
+
+#Include <ahk-keyboard-utilities/modifiers/modifiers>
+#Include <ahk-keyboard-utilities/modifiers/Alt_QWERTY>
+#Include <ahk-keyboard-utilities/modifiers/AltShift_QWERTY>
+#Include <ahk-keyboard-utilities/modifiers/AltShiftWin_QWERTY>
+#Include <ahk-keyboard-utilities/modifiers/AltWin_QWERTY>
+#Include <ahk-keyboard-utilities/modifiers/Ctrl_QWERTY>
+#Include <ahk-keyboard-utilities/modifiers/CtrlAlt_QWERTY>
+#Include <ahk-keyboard-utilities/modifiers/CtrlAltShift_QWERTY>
+#Include <ahk-keyboard-utilities/modifiers/CtrlAltShiftWin_QWERTY>
+#Include <ahk-keyboard-utilities/modifiers/CtrlAltWin_QWERTY>
+#Include <ahk-keyboard-utilities/modifiers/CtrlShift_QWERTY>
+#Include <ahk-keyboard-utilities/modifiers/CtrlShiftWin_QWERTY>
+#Include <ahk-keyboard-utilities/modifiers/CtrlWin_QWERTY>
+#Include <ahk-keyboard-utilities/modifiers/ShiftWin_QWERTY>
+#Include <ahk-keyboard-utilities/modifiers/Win_QWERTY>
+
+
+; Create Key Aliases
+;-------------------------------------------------
+
+global shiftModifier := "VK1A"
 
 
 ; Set up shared variables
@@ -39,6 +65,9 @@ dual := new Dual
 ; rather than a single diacritic
 global lastKeySequence := A_TickCount
 global numKeysToBackspace := 1
+
+; Track keypresses before layers are activated to use in place of A_PriorHotkey (which returns the layer key, not the actual prior key)
+global lastRealKeyDown := ""
 
 
 ; Define user variables (can be customized)
@@ -57,177 +86,103 @@ global unicodeSendType := "decomposed"
 ;-------------------------------------------------
 
 *Esc::
-	if(activeLanguage = "Hebrew")
+	if(modifiers("Esc", "Esc"))
 	{
-		Hebrew_Esc(A_ThisHotkey)
 		return
 	}
-	else if(activeLanguage = "Greek")
-	{
-		Greek_Esc(A_ThisHotkey)
-		return
-	}
-	dual.comboKey(A_ThisHotkey)
+	layerIndependent("Esc")
 	return
 *F1::
-	if(activeLanguage = "Hebrew")
+	if(modifiers("F1", "F1"))
 	{
-		Hebrew_F1(A_ThisHotkey)
 		return
 	}
-	else if(activeLanguage = "Greek")
-	{
-		Greek_F1(A_ThisHotkey)
-		return
-	}
-	dual.comboKey(A_ThisHotkey)
+	layerIndependent("F1")
 	return
 *F2::
-	if(activeLanguage = "Hebrew")
+	if(modifiers("F2", "F2"))
 	{
-		Hebrew_F2(A_ThisHotkey)
 		return
 	}
-	else if(activeLanguage = "Greek")
-	{
-		Greek_F2(A_ThisHotkey)
-		return
-	}
-	dual.comboKey(A_ThisHotkey)
+	layerIndependent("F2")
 	return
 *F3::
-	if(activeLanguage = "Hebrew")
+	if(modifiers("F3", "F3"))
 	{
-		Hebrew_F3(A_ThisHotkey)
 		return
 	}
-	else if(activeLanguage = "Greek")
-	{
-		Greek_F3(A_ThisHotkey)
-		return
-	}
-	dual.comboKey(A_ThisHotkey)
+	layerIndependent("F3")
 	return
 *F4::
-	if(activeLanguage = "Hebrew")
+	if(modifiers("F4", "F4"))
 	{
-		Hebrew_F4(A_ThisHotkey)
 		return
 	}
-	else if(activeLanguage = "Greek")
-	{
-		Greek_F4(A_ThisHotkey)
-		return
-	}
-	dual.comboKey(A_ThisHotkey)
+	layerIndependent("F4")
 	return
 *F5::
-	if(activeLanguage = "Hebrew")
+	if(modifiers("F5", "F5"))
 	{
-		Hebrew_F5(A_ThisHotkey)
 		return
 	}
-	else if(activeLanguage = "Greek")
-	{
-		Greek_F5(A_ThisHotkey)
-		return
-	}
-	dual.comboKey(A_ThisHotkey)
+	layerIndependent("F5")
 	return
 *F6::
-	if(activeLanguage = "Hebrew")
+	if(modifiers("F6", "F6"))
 	{
-		Hebrew_F6(A_ThisHotkey)
 		return
 	}
-	else if(activeLanguage = "Greek")
-	{
-		Greek_F6(A_ThisHotkey)
-		return
-	}
-	dual.comboKey(A_ThisHotkey)
+	layerIndependent("F6")
 	return
 *F7::
-	if(activeLanguage = "Hebrew")
+	if(modifiers("F7", "F7"))
 	{
-		Hebrew_F7(A_ThisHotkey)
 		return
 	}
-	else if(activeLanguage = "Greek")
-	{
-		Greek_F7(A_ThisHotkey)
-		return
-	}
-	dual.comboKey(A_ThisHotkey)
+	layerIndependent("F7")
 	return
 *F8::
-	if(activeLanguage = "Hebrew")
+	if(modifiers("F8", "F8"))
 	{
-		Hebrew_F8(A_ThisHotkey)
 		return
 	}
-	else if(activeLanguage = "Greek")
-	{
-		Greek_F8(A_ThisHotkey)
-		return
-	}
-	dual.comboKey(A_ThisHotkey)
+	layerIndependent("F8")
 	return
 *F9::
-	if(activeLanguage = "Hebrew")
+	if(modifiers("F9", "F9"))
 	{
-		Hebrew_F9(A_ThisHotkey)
 		return
 	}
-	else if(activeLanguage = "Greek")
-	{
-		Greek_F9(A_ThisHotkey)
-		return
-	}
-	dual.comboKey(A_ThisHotkey)
+	layerIndependent("F9")
 	return
 *F10::
-	if(activeLanguage = "Hebrew")
+	if(modifiers("F10", "F10"))
 	{
-		Hebrew_F10(A_ThisHotkey)
 		return
 	}
-	else if(activeLanguage = "Greek")
-	{
-		Greek_F10(A_ThisHotkey)
-		return
-	}
-	dual.comboKey(A_ThisHotkey)
+	layerIndependent("F10")
 	return
 *F11::
-	if(activeLanguage = "Hebrew")
+	if(modifiers("F11", "F11"))
 	{
-		Hebrew_F11(A_ThisHotkey)
 		return
 	}
-	else if(activeLanguage = "Greek")
-	{
-		Greek_F11(A_ThisHotkey)
-		return
-	}
-	dual.comboKey(A_ThisHotkey)
+	layerIndependent("F11")
 	return
 *F12::
-	if(activeLanguage = "Hebrew")
+	if(modifiers("F12", "F12"))
 	{
-		Hebrew_F12(A_ThisHotkey)
 		return
 	}
-	else if(activeLanguage = "Greek")
-	{
-		Greek_F12(A_ThisHotkey)
-		return
-	}
-	dual.comboKey(A_ThisHotkey)
+	layerIndependent("F12")
 	return
 
 	
 *`::
+	if(modifiers("backtick", "`"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_backtick(A_ThisHotkey)
@@ -238,9 +193,14 @@ global unicodeSendType := "decomposed"
 		Greek_backtick(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_backtick()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *1::
+	if(modifiers("1", "1"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_1(A_ThisHotkey)
@@ -251,9 +211,14 @@ global unicodeSendType := "decomposed"
 		Greek_1(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_1()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *2::
+	if(modifiers("2", "2"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_2(A_ThisHotkey)
@@ -264,9 +229,14 @@ global unicodeSendType := "decomposed"
 		Greek_2(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_2()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *3::
+	if(modifiers("3", "3"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_3(A_ThisHotkey)
@@ -277,9 +247,14 @@ global unicodeSendType := "decomposed"
 		Greek_3(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_3()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *4::
+	if(modifiers("4", "4"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_4(A_ThisHotkey)
@@ -290,9 +265,14 @@ global unicodeSendType := "decomposed"
 		Greek_4(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_4()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *5::
+	if(modifiers("5", "5"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_5(A_ThisHotkey)
@@ -303,9 +283,14 @@ global unicodeSendType := "decomposed"
 		Greek_5(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_5()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *6::
+	if(modifiers("6", "6"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_6(A_ThisHotkey)
@@ -316,9 +301,14 @@ global unicodeSendType := "decomposed"
 		Greek_6(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_6()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *7::
+	if(modifiers("7", "7"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_7(A_ThisHotkey)
@@ -329,9 +319,14 @@ global unicodeSendType := "decomposed"
 		Greek_7(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_7()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *8::
+	if(modifiers("8", "8"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_8(A_ThisHotkey)
@@ -342,9 +337,14 @@ global unicodeSendType := "decomposed"
 		Greek_8(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_8()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *9::
+	if(modifiers("9", "9"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_9(A_ThisHotkey)
@@ -355,9 +355,14 @@ global unicodeSendType := "decomposed"
 		Greek_9(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_9()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *0::
+	if(modifiers("0", "0"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_0(A_ThisHotkey)
@@ -368,9 +373,14 @@ global unicodeSendType := "decomposed"
 		Greek_0(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_0()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *-::
+	if(modifiers("hyphen", "-"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_hyphen(A_ThisHotkey)
@@ -381,9 +391,14 @@ global unicodeSendType := "decomposed"
 		Greek_hyphen(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_hyphen()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *=::
+	if(modifiers("equals", "="))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_equals(A_ThisHotkey)
@@ -394,9 +409,14 @@ global unicodeSendType := "decomposed"
 		Greek_equals(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_equals()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *Backspace::
+	if(modifiers("Backspace", "Backspace"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_Backspace(A_ThisHotkey)
@@ -407,11 +427,15 @@ global unicodeSendType := "decomposed"
 		Greek_Backspace(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	layerIndependentBackspace()
 	return
 
 	
 *Tab::
+	if(modifiers("Tab", "Tab"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_Tab(A_ThisHotkey)
@@ -422,9 +446,13 @@ global unicodeSendType := "decomposed"
 		Greek_Tab(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	layerIndependent("Tab")
 	return
 *q::
+	if(modifiers("q", "q"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_q(A_ThisHotkey)
@@ -435,9 +463,14 @@ global unicodeSendType := "decomposed"
 		Greek_q(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_q()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *w::
+	if(modifiers("w", "w"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_w(A_ThisHotkey)
@@ -448,9 +481,14 @@ global unicodeSendType := "decomposed"
 		Greek_w(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_w()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *e::
+	if(modifiers("e", "e"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_e(A_ThisHotkey)
@@ -461,9 +499,14 @@ global unicodeSendType := "decomposed"
 		Greek_e(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_e()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *r::
+	if(modifiers("r", "r"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_r(A_ThisHotkey)
@@ -474,9 +517,14 @@ global unicodeSendType := "decomposed"
 		Greek_r(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_r()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *t::
+	if(modifiers("t", "t"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_t(A_ThisHotkey)
@@ -487,9 +535,14 @@ global unicodeSendType := "decomposed"
 		Greek_t(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_t()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *y::
+	if(modifiers("y", "y"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_y(A_ThisHotkey)
@@ -500,9 +553,14 @@ global unicodeSendType := "decomposed"
 		Greek_y(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_y()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *u::
+	if(modifiers("u", "u"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_u(A_ThisHotkey)
@@ -513,9 +571,14 @@ global unicodeSendType := "decomposed"
 		Greek_u(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_u()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *i::
+	if(modifiers("i", "i"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_i(A_ThisHotkey)
@@ -526,9 +589,14 @@ global unicodeSendType := "decomposed"
 		Greek_i(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_i()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *o::
+	if(modifiers("o", "o"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_o(A_ThisHotkey)
@@ -539,9 +607,14 @@ global unicodeSendType := "decomposed"
 		Greek_o(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_o()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *p::
+	if(modifiers("p", "p"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_p(A_ThisHotkey)
@@ -552,9 +625,14 @@ global unicodeSendType := "decomposed"
 		Greek_p(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_p()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *[::
+	if(modifiers("openBracket", "["))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_openBracket(A_ThisHotkey)
@@ -565,9 +643,14 @@ global unicodeSendType := "decomposed"
 		Greek_openBracket(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_openBracket()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *]::
+	if(modifiers("closeBracket", "]"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_closeBracket(A_ThisHotkey)
@@ -578,9 +661,14 @@ global unicodeSendType := "decomposed"
 		Greek_closeBracket(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_closeBracket()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *\::
+	if(modifiers("backslash", "\"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_backslash(A_ThisHotkey)
@@ -591,7 +679,8 @@ global unicodeSendType := "decomposed"
 		Greek_backslash(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_backslash()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 
 	
@@ -606,6 +695,10 @@ global unicodeSendType := "decomposed"
 	}
 	return
 *a::
+	if(modifiers("a", "a"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_a(A_ThisHotkey)
@@ -616,9 +709,14 @@ global unicodeSendType := "decomposed"
 		Greek_a(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_a()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *s::
+	if(modifiers("s", "s"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_s(A_ThisHotkey)
@@ -629,9 +727,14 @@ global unicodeSendType := "decomposed"
 		Greek_s(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_s()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *d::
+	if(modifiers("d", "d"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_d(A_ThisHotkey)
@@ -642,9 +745,14 @@ global unicodeSendType := "decomposed"
 		Greek_d(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_d()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *f::
+	if(modifiers("f", "f"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_f(A_ThisHotkey)
@@ -655,9 +763,14 @@ global unicodeSendType := "decomposed"
 		Greek_f(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_f()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *g::
+	if(modifiers("g", "g"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_g(A_ThisHotkey)
@@ -668,9 +781,14 @@ global unicodeSendType := "decomposed"
 		Greek_g(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_g()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *h::
+	if(modifiers("h", "h"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_h(A_ThisHotkey)
@@ -681,9 +799,14 @@ global unicodeSendType := "decomposed"
 		Greek_h(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_h()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *j::
+	if(modifiers("j", "j"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_j(A_ThisHotkey)
@@ -694,9 +817,14 @@ global unicodeSendType := "decomposed"
 		Greek_j(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_j()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *k::
+	if(modifiers("k", "k"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_k(A_ThisHotkey)
@@ -707,9 +835,14 @@ global unicodeSendType := "decomposed"
 		Greek_k(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_k()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *l::
+	if(modifiers("l", "l"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_l(A_ThisHotkey)
@@ -720,9 +853,14 @@ global unicodeSendType := "decomposed"
 		Greek_l(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_l()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *`;::
+	if(modifiers("semicolon", ";"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_semicolon(A_ThisHotkey)
@@ -733,9 +871,14 @@ global unicodeSendType := "decomposed"
 		Greek_semicolon(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_semicolon()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *'::
+	if(modifiers("apostrophe", "'"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_apostrophe(A_ThisHotkey)
@@ -746,9 +889,14 @@ global unicodeSendType := "decomposed"
 		Greek_apostrophe(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_apostrophe()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *Enter::
+	if(modifiers("Enter", "Enter"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_Enter(A_ThisHotkey)
@@ -759,15 +907,28 @@ global unicodeSendType := "decomposed"
 		Greek_Enter(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	layerIndependent("Enter")
 	return
 
 	
 *LShift::
+	lastKey := A_PriorHotkey
+	if(lastKey != "*Lshift" and lastKey != "*Lshift Up")
+	{
+		lastRealKeyDown := Dual.cleanKey(lastKey)
+	}
+	shiftDownNoUp := true
+	dual.combine(shiftModifier, shiftModifier, {delay: 0, timeout: 0, doublePress: -1, specificDelays: false})
+	return
 *LShift Up::
-	dual.modifier()
+	shiftDownNoUp := false
+	dual.combine(shiftModifier, shiftModifier, {delay: 0, timeout: 0, doublePress: -1, specificDelays: false})
 	return
 *z::
+	if(modifiers("z", "z"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_z(A_ThisHotkey)
@@ -778,9 +939,14 @@ global unicodeSendType := "decomposed"
 		Greek_z(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_z()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *x::
+	if(modifiers("x", "x"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_x(A_ThisHotkey)
@@ -791,9 +957,14 @@ global unicodeSendType := "decomposed"
 		Greek_x(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_x()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *c::
+	if(modifiers("c", "c"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_c(A_ThisHotkey)
@@ -804,9 +975,14 @@ global unicodeSendType := "decomposed"
 		Greek_c(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_c()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *v::
+	if(modifiers("v", "v"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_v(A_ThisHotkey)
@@ -817,9 +993,14 @@ global unicodeSendType := "decomposed"
 		Greek_v(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_v()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *b::
+	if(modifiers("b", "b"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_b(A_ThisHotkey)
@@ -830,9 +1011,14 @@ global unicodeSendType := "decomposed"
 		Greek_b(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_b()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *n::
+	if(modifiers("n", "n"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_n(A_ThisHotkey)
@@ -843,9 +1029,14 @@ global unicodeSendType := "decomposed"
 		Greek_n(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_n()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *m::
+	if(modifiers("m", "m"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_m(A_ThisHotkey)
@@ -856,9 +1047,14 @@ global unicodeSendType := "decomposed"
 		Greek_m(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_m()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *,::
+	if(modifiers("comma", ","))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_comma(A_ThisHotkey)
@@ -869,9 +1065,14 @@ global unicodeSendType := "decomposed"
 		Greek_comma(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_comma()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *.::
+	if(modifiers("period", "."))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_period(A_ThisHotkey)
@@ -882,9 +1083,14 @@ global unicodeSendType := "decomposed"
 		Greek_period(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_period()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 */::
+	if(modifiers("slash", "/"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_slash(A_ThisHotkey)
@@ -898,24 +1104,43 @@ global unicodeSendType := "decomposed"
 	dual.comboKey(A_ThisHotkey)
 	return
 *RShift::
+	lastKey := A_PriorHotkey
+	if(lastKey != "*Rshift" and lastKey != "*Rshift Up")
+	{
+		lastRealKeyDown := Dual.cleanKey(lastKey)
+	}
+	shiftDownNoUp := true
+	dual.combine(shiftModifier, shiftModifier, {delay: 0, timeout: 0, doublePress: -1, specificDelays: false})
+	return
 *RShift Up::
-	dual.modifier()
+	shiftDownNoUp := false
+	dual.combine(shiftModifier, shiftModifier, {delay: 0, timeout: 0, doublePress: -1, specificDelays: false})
 	return
 
 	
 *LCtrl::
+	ctrlDownNoUp := true
+	return
 *LCtrl Up::
-	dual.modifier()
+	ctrlDownNoUp := false
 	return
 *LWin::
+	winDownNoUp := true
+	return
 *LWin Up::
-	dual.modifier()
+	winDownNoUp := false
 	return
 *LAlt::
+	altDownNoUp := true
+	return
 *LAlt Up::
-	dual.modifier()
+	altDownNoUp := false
 	return
 *Space::
+	if(modifiers("Space", "Space"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_Space(A_ThisHotkey)
@@ -926,17 +1151,25 @@ global unicodeSendType := "decomposed"
 		Greek_Space(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	layerIndependent("Space")
 	return
 *RAlt::
+	altDownNoUp := true
+	return
 *RAlt Up::
-	dual.modifier()
+	altDownNoUp := false
 	return
 *RWin::
+	winDownNoUp := true
+	return
 *RWin Up::
-	dual.modifier()
+	winDownNoUp := false
 	return
 *AppsKey::
+	if(modifiers("AppsKey", "AppsKey"))
+	{
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_AppsKey(A_ThisHotkey)
@@ -947,63 +1180,42 @@ global unicodeSendType := "decomposed"
 		Greek_AppsKey(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_AppsKey()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *RCtrl::
+	ctrlDownNoUp := true
+	return
 *RCtrl Up::
-	dual.modifier()
+	ctrlDownNoUp := false
 	return
 
 	
 *Left::
-	if(activeLanguage = "Hebrew")
+	if(modifiers("Left", "Left"))
 	{
-		Hebrew_Left(A_ThisHotkey)
 		return
 	}
-	else if(activeLanguage = "Greek")
-	{
-		Greek_Left(A_ThisHotkey)
-		return
-	}
-	dual.comboKey(A_ThisHotkey)
+	layerIndependent("Left")
 	return
 *Down::
-	if(activeLanguage = "Hebrew")
+	if(modifiers("Down", "Down"))
 	{
-		Hebrew_Down(A_ThisHotkey)
 		return
 	}
-	else if(activeLanguage = "Greek")
-	{
-		Greek_Down(A_ThisHotkey)
-		return
-	}
-	dual.comboKey(A_ThisHotkey)
+	layerIndependent("Down")
 	return
 *Up::
-	if(activeLanguage = "Hebrew")
+	if(modifiers("Up", "Up"))
 	{
-		Hebrew_Up(A_ThisHotkey)
 		return
 	}
-	else if(activeLanguage = "Greek")
-	{
-		Greek_Up(A_ThisHotkey)
-		return
-	}
-	dual.comboKey(A_ThisHotkey)
+	layerIndependent("Up")
 	return
 *Right::
-	if(activeLanguage = "Hebrew")
+	if(modifiers("Right", "Right"))
 	{
-		Hebrew_Right(A_ThisHotkey)
 		return
 	}
-	else if(activeLanguage = "Greek")
-	{
-		Greek_Right(A_ThisHotkey)
-		return
-	}
-	dual.comboKey(A_ThisHotkey)
+	layerIndependent("Right")
 	return

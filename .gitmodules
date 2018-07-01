@@ -1,3 +1,6 @@
 [submodule "Lib/dual"]
 	path = Lib/dual
 	url = https://github.com/lydell/dual.git
+[submodule "Lib/ahk-keyboard-utilities"]
+	path = Lib/ahk-keyboard-utilities
+	url = https://github.com/StevenTammen/ahk-keyboard-utilities.git

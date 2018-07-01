@@ -4017,7 +4017,23 @@ Greek_resetVowel()
 
 
 Greek_handleFinalSigma() {
-	if(A_PriorHotkey = "*s")
+
+	lastKey := A_PriorHotkey
+
+	if((lastKey = "*Lshift") or (lastKey = "*Lshift Up"))
+	{
+		lastKey := lastRealKeyDown
+	}
+	else if((lastKey = "*Rshift") or (lastKey = "*Rshift Up"))
+	{
+		lastKey := lastRealKeyDown
+	}
+	else
+	{
+		lastKey := Dual.cleanKey(lastKey)
+	}
+
+	if(lastKey = "s")
 	{
 		SendInput {Backspace}ς
 	}

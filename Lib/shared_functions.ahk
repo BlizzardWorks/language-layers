@@ -1,5 +1,27 @@
-﻿getShiftState() {
-  return (GetKeyState("RShift") or GetKeyState("LShift"))
+﻿layerIndependent(key) {
+	if(shiftDownNoUp)
+	{
+		SendInput +{%key%}
+		return
+	}
+	else
+	{
+		dual.comboKey(key)
+		return
+	}
+}
+
+layerIndependentBackspace() {
+	if(shiftDownNoUp)
+	{
+		SendInput +{Backspace}
+		return
+	}
+	else
+	{
+		deleteLastFullCharacter()
+		return
+	}
 }
 
 
