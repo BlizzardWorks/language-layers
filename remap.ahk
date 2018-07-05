@@ -921,6 +921,11 @@ global unicodeSendType := "decomposed"
 	dual.combine(shiftModifier, shiftModifier, {delay: 0, timeout: 0, doublePress: -1, specificDelays: false})
 	return
 *LShift Up::
+	lastKey := A_PriorHotkey
+	if(lastKey != "*Lshift" and lastKey != "*Lshift Up")
+	{
+		lastRealKeyDown := Dual.cleanKey(lastKey)
+	}
 	shiftDownNoUp := false
 	dual.combine(shiftModifier, shiftModifier, {delay: 0, timeout: 0, doublePress: -1, specificDelays: false})
 	return
@@ -1113,6 +1118,11 @@ global unicodeSendType := "decomposed"
 	dual.combine(shiftModifier, shiftModifier, {delay: 0, timeout: 0, doublePress: -1, specificDelays: false})
 	return
 *RShift Up::
+	lastKey := A_PriorHotkey
+	if(lastKey != "*Rshift" and lastKey != "*Rshift Up")
+	{
+		lastRealKeyDown := Dual.cleanKey(lastKey)
+	}
 	shiftDownNoUp := false
 	dual.combine(shiftModifier, shiftModifier, {delay: 0, timeout: 0, doublePress: -1, specificDelays: false})
 	return
