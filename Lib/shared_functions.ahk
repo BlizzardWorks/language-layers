@@ -33,7 +33,9 @@ deleteLastFullCharacter()
 	shiftInterfering := (lastKey = "LShift") or (lastKey = "RShift")
 	
 	lastKeyDiacritic := false
-	keysWithDiacritics := ["/", ";", "[", "]", "\", "="]
+	
+	; Respectively: acute, diaeresis, rough, smooth, grave, underdot, circumflex
+	keysWithDiacritics := ["/", ";", "[", "]", "\", "8", "="]
 	for k, v in keysWithDiacritics
 	{
 		if(v == lastRealKeyDown)

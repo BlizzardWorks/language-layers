@@ -14,6 +14,7 @@ global Greek_circumflex := "{U+0342}" 	; combining greek perispomeni circumflex,
 global Greek_iotaSub := "{U+0345}" 		; combining greek ypogegrammeni iota subscript
 
 global Greek_middleDot := "{U+00B7}"	; Greek colon or high dot (Latin middle dot)
+global Greek_underDot := "{U+0323}"		; Combining underdot
 
 
 ; Set up variables
@@ -26,6 +27,7 @@ global Greek_vowel := ""			; "" a e h i o u w
 global Greek_breathing := ""		; "" smooth rough
 global Greek_accent := ""			; "" acute grave circumflex
 global Greek_quantity := ""			; "" iota macron breve
+global Greek_dot := false			; false true
 
 
 ; Keep track of previous diacritic state so that if an invalid diacritic sequence
@@ -171,7 +173,39 @@ Greek_7(key)
 }
 Greek_8(key)
 {
-	shiftModifier_keys := Greek_shiftModifier_8()
+	if (shiftDownNoUp)
+	{
+		if(Greek_dot)
+		{
+			Greek_dot := false
+			if (Greek_vowel = "")
+			{
+				; if the underdotted key is a consonant, the combining diacritic will
+				; be the last character in the key history. 
+				SendInput {Backspace}
+			}
+			else
+			{
+				Greek_addDiacritic()
+			}
+
+		}
+		else
+		{
+			Greek_dot := true
+			if (Greek_vowel = "")
+			{
+				SendInput %Greek_underDot%
+				lastKeySequence := A_TickCount
+				; just a consonant and the underdot for full backspace
+				numKeysToBackspace := 2
+			}
+			else {
+				Greek_addDiacritic()
+			}
+		}
+		return
+	}
 	dual.comboKey(key, {(shiftModifier): shiftModifier_keys})
 	return
 }

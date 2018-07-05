@@ -107,7 +107,7 @@ Greek_shiftModifier_7()
 }
 Greek_shiftModifier_8()
 {
-	shiftModifier_keys := ["*"]
+	shiftModifier_keys := [""]
 	return shiftModifier_keys
 }
 Greek_shiftModifier_9()

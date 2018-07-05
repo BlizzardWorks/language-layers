@@ -1899,6 +1899,12 @@ Greek_precomposed() {
 		}
 	}
 	
+	if(Greek_dot)
+	{
+		keysToSend := keysToSend Greek_underDot
+		numKeysToSend := numKeysToSend + 1
+	}
+	
 	return [keysToSend, numKeysToSend]
 }
 
@@ -3992,6 +3998,12 @@ Greek_decomposed() {
 		}
 	}
 	
+	if(Greek_dot)
+	{
+		keysToSend := keysToSend Greek_underDot
+		numKeysToSend := numKeysToSend + 1
+	}
+	
 	return [keysToSend, numKeysToSend]
 }
 
@@ -4001,6 +4013,7 @@ Greek_resetDiacritics()
 	Greek_breathing := ""
 	Greek_accent := ""
 	Greek_quantity := ""
+	Greek_dot := false
 	return
 }
 
@@ -4012,6 +4025,7 @@ Greek_resetVowel()
 	Greek_breathing := ""
 	Greek_accent := ""
 	Greek_quantity := ""
+	Greek_dot := false
 	return
 }
 
