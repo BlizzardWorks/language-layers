@@ -73,7 +73,7 @@ global lastRealKeyDown := ""
 ; Define user variables (can be customized)
 ;-------------------------------------------------
 
-; Set which language the script starts in
+; Set which language the script starts in.
 ; Give the variable the value of "English", "Greek", or "Hebrew"
 activeLanguage := "English"
 

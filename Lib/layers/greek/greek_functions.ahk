@@ -4032,6 +4032,11 @@ Greek_resetVowel()
 
 Greek_handleFinalSigma() {
 
+	if(useLunateSigma)
+	{
+		return
+	}
+
 	lastKey := A_PriorHotkey
 
 	if((lastKey = "*LShift") or (lastKey = "*LShift Up"))

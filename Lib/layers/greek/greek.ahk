@@ -3,6 +3,9 @@
 
 ; Declarations							; Unicode descriptions
 ;---------------------------------------;-------------------
+global Greek_lunate	:= "{U+03F2}"		; Greek lunate sigma
+global Greek_lunateUpper := "{U+03F9}"	; Greek uppercase lunate sigma 
+
 global Greek_grave := "{U+0300}" 		; combining grave Greek_accent varia
 global Greek_acute := "{U+0301}" 		; combining acute Greek_accent tonos, oxia
 global Greek_macron := "{U+0304}" 		; combining macron
@@ -33,6 +36,14 @@ global Greek_dot := false			; false true
 ; Keep track of previous diacritic state so that if an invalid diacritic sequence
 ; is entered, the state can be rolled back
 global Greek_priorState := [Greek_breathing, Greek_accent, Greek_quantity]
+
+
+; Define user variables (can be customized)
+;-------------------------------------------------
+
+; Choose whether to use normal Greek sigma or lunate sigma.
+; Give the variable the value of either "true" or "false"
+global useLunateSigma := false
 
 
 ; Create remapping layer
@@ -466,6 +477,18 @@ Greek_s(key)
 {
 	Greek_resetVowel()
 	shiftModifier_keys := Greek_shiftModifier_s()
+	if(useLunateSigma)
+	{
+		if(shiftDownNoUp)
+		{
+			SendInput %Greek_lunateUpper%
+		}
+		else
+		{
+			SendInput %Greek_lunate%
+		}
+		return
+	}
 	dual.comboKey("σ", {(shiftModifier): shiftModifier_keys})
 	return
 }
