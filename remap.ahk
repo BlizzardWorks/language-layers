@@ -70,16 +70,18 @@ global numKeysToBackspace := 1
 global lastRealKeyDown := ""
 
 
-; Define user variables (can be customized)
+; Define user variables (can be customized in config.ini)
 ;-------------------------------------------------
 
 ; Set which language the script starts in.
 ; Give the variable the value of "English", "Greek", or "Hebrew"
-activeLanguage := "English"
+activeLanguage := ""
+IniRead, activeLanguage, config.ini, General, activeLanguage
 
 ; Choose whether Unicode gets sent precomposed or decomposed.
 ; Give the variable the value of either "precomposed" or "decomposed"
-global unicodeSendType := "decomposed"
+global unicodeSendType := ""
+IniRead, unicodeSendType, config.ini, General, unicodeSendType
 
 
 ; Create remapping layer
