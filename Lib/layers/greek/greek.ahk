@@ -124,6 +124,11 @@ Greek_backtick(key)
 }
 Greek_1(key)
 {
+	; Exclamation point should trigger final sigma
+	if (shiftDownNoUp)
+	{
+		Greek_handleFinalSigma()
+	}
 	shiftModifier_keys := Greek_shiftModifier_1()
 	dual.comboKey(key, {(shiftModifier): shiftModifier_keys})
 	return
