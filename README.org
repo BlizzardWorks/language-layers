@@ -8,27 +8,131 @@ A research paper detailing the design process will be a priority of this project
 
 * Scope and project goals
 
-Depending on time considerations, this project may have shifting goals and priorities. The top priority will be getting functional homophonic layouts with full diacritical support. Other things, such as frequency-driven practice corpuses for typing programs, a GUI configurator, OS X and *nix support, and packaged installers are possibilities after the primary layouts are stable.
+At this point in the process (07/06/18), we are far enough along that I can nail down more concretely what likely will and will not materialize:
 
-* Installation and use (note: this project is currently Windows-only)
+- There will not be any support for *Nix in the near future.
+- There will not be any support for GUI configuration in the near future. Settings may be changed in the config file (located [[https://github.com/StevenTammen/unicode-language-layers/blob/master/config.ini][here]] in the repository).
+- A Hebrew implementation will happen, but it will not be as thorough or complete as the now completed Greek, due to time constraints.
+- While a discussion of vocabulary frequency/corpus generation, morphological analysis, and pedagogy/applications will be factor into the second half of the paper, there likely will not be any actual code targeting these areas.
 
-1. [[https://autohotkey.com/download/][Download AutoHotkey]] from it's site, and install it.
-2. [[https://github.com/StevenTammen/unicode-language-layers/archive/master.zip][Download this project as a .ZIP archive]], and then unzip it into a convenient location.
-3. Double click on the file called =remap.ahk= to execute the remapping script. Without any user configuration (i.e., by default), the script starts out with English as the active language, and CapsLock as a toggle key for Greek. Simply press CapsLock when you want to type Greek, and CapsLock again when you are done typing Greek.
+After this summer I will continue to work on this project, but cannot make any promises. I do have people I can tap for help with Farsi and Russian, in the longer term.
+
+* Installation Instructions
+
+1. Install AutoHotkey. The download page for this software is [[https://autohotkey.com/download/][here]]; I recommend clicking on the big blue button that says "Download AutoHotkey Installer," and following the instructions in the setup program.
+2. Download the latest version of this project from the [[https://www.steventammen.com/projects/unicode-language-layers/][project page on my website]]. Right click on the downloaded file and select "Extract all." It does not matter where you unzip the files to, as long as AutoHotkey is installed.
+3. Double click on the file called "remap.ahk" to launch the program. By default, the program starts out in English mode, sending precomposed Unicode where possible. You can exit the program by right clicking the AutoHotkey icon for the script in the [[https://www.computerhope.com/jargon/n/notiarea.htm][system tray]] and selecting "Exit."
+
+(If you are comfortable with Git you can also install this project from the command line with the command =git clone --recursive https://github.com/StevenTammen/unicode-language-layers.git=).
+
+* Usage instructions
+
+** Switching to Greek mode
+
+When in English mode, to toggle on the Greek mode, press CapsLock and then the letter g. The mnemonic is "language key (CapsLock) plus g for Greek turns on the Greek mode."
+
+** Switching back to English mode
+
+When in Greek mode, to get back to English mode, press CapsLock and then the letter e. The mnemonic is "language key (CapsLock) plus e for English turns on the English mode."
+
+** Getting familiar with letter correspondences
+
+The default letter correspondences are listed in the table below. Some notable letters that frequently vary across layouts are upsilon, chi, and theta. For this layout:
+
+- Upsilon is on U not Y
+- Chi is on C not X
+- Theta is on J
+
+| Greek letter | English match |   | Greek Letter | English Match |
+|              |               |   |              |               |
+|--------------+---------------+---+--------------+---------------|
+| Α α          | A a           |   | Ν ν          | N n           |
+| Β β          | B b           |   | Ξ ξ          | X x           |
+| Γ γ          | G g           |   | Ο ο          | O o           |
+| Δ δ          | D d           |   | Π π          | P p           |
+| Ε ε          | E e           |   | Ρ ρ          | R r           |
+| Ζ ζ          | Z z           |   | Σ σ          | S s           |
+| Η η          | H h           |   | Τ τ          | T t           |
+| Θ θ          | J  j          |   | Υ υ          | U u           |
+| Ι ι          | I i           |   | Φ φ          | F f           |
+| Κ κ          | K k           |   | Χ χ          | C c           |
+| Λ λ          | L l           |   | Ψ ψ          | Y y           |
+| Μ μ          | M m           |   | Ω ω          | W w           |
+                                  
+
+** Typing diacritics and punctuation  in Greek mode
+
+To type diacritics in Greek mode, type a vowel, and then press the key corresponding the desired diacritic, as outlined in the table below. To remove a diacritic without deleting the character itself, simply press the diacritic key again. To remove a full character (a vowel and all its diacritics), press Backspace.
+
+| Grouping   | Diacritic      | Corresponding Key |
+|------------+----------------+-------------------|
+| Breathings | Rough          | [                 |
+|            | Smooth         | ]                 |
+| Accents    | Acute          | /                 |
+|            | Grave          | \                 |
+|            | Circumflex     | =                 |
+|            | Diaeresis      | :                 |
+| Quantity   | Iota Subscript | \vert             |
+|            | Macron         | {                 |
+|            | Breve          | }                 |
+| Other      | Underdot       | *                 |
+
+Greek mode also overrides the behavior of ; and ? to produce the Greek equivalents of · and ;, respectively. 
+
+| Punctuation         | Corresponding Key |
+|---------------------+-------------------|
+| Middle Dot          | ;                 |
+| Greek Question Mark | ?                 |
+
+
+** Accessing punctuation that is used by the Greek layer
+
+The current Greek layer intercepts opening and closing brackets (to use for rough and and smooth breathing, respectively) and the colon (to use for diaeresis), among other things. What happens if you want to type brackets and a colon?
+
+The layout provides support for this by prefixing these keys with the language leader (CapsLock). To get a colon in Greek mode (rather than adding a diaresis to the last key), for example, press CapsLock then enter a colon.
+
+This leader key prefixing is similar to how language characters are entered in English mode (see below), but the semantics are flipped. In English mode the language leader turns the next key into a diacritic/language-specific character, while in Greek mode (and for other languages in the future) the language leader turns off the layer behavior for the next key so that it is entered literally.
+
+** Typing diacritics and language-specific characters in English mode
+
+When you are in English mode, diacritics for French, German, etc. work in exactly the same manner: pressing the key corresponding to a diacritic adds the diacritic if it is not already present, or removes it if it is; Backspace removes a full character. However, you have to prefix the key corresponding to a diacritic with CapsLock to override the key's normal behavior. As can be seen from the table below, by default the diacritics for the Latin alphabet mirror the key choices for Greek, so that you only have to remember one set of correspondences.
+
+| Grouping  | Diacritic           | Corresponding Key |
+|------------+---------------------+-------------------|
+| Accents    | Acute               | /                 |
+|            | Grave               | \                 |
+|            | Circumflex          | =                 |
+|            | Diaeresis           | :                 |
+| Quantity   | Macron              | {                 |
+|            | Breve               | }                 |
+
+Out of the box, English mode also supports language-specific characters for some of the more common Latin-script languages. These are also accessed by prefixing keys with the language leader. Note that through the diacritics alone some other Latin-script languages, such as Italian, are supported: they just don't have "extras" that have to be accounted for.
+
+| Language | Character | Entry Sequence |
+|----------+-----------+----------------|
+| French   | ç         | {CapsLock}c    |
+|          | Ç         | {CapsLock}C    |
+|          | œ         | {CapsLock}o    |
+|          | Œ         | {CapsLock}O    |
+|          | æ         | {CapsLock}a    |
+|          | Æ         | {CapsLock}A    |
+| German   | ß         | {CapsLock}s    |
+|          | ẞ         | {CapsLock}S    |
+| Spanish  | ñ         | {CapsLock}n    |
+|          | Ñ         | {CapsLock}N    |
+|          | ¿         | {CapsLock}?    |
+|          | ¡         | {CapsLock}!    |
+
 
 * Contribution guidelines
 
-I would very much like for this project to be a group effort from the collection of people that regularly need to type in languages with specialized alphabets. Due to my academic interests, I will initially be focusing on ancient Greek and Hebrew, but I am attempting to design a generalized framework abstracted out of any one particular language, and discuss design variables in such a way that layers for additional Unicode languages (such as Russian, Arabic, etc.) may be added even if they do not share exactly the same features (such as breathing marks or vowel points).
+It would be ideal if this project became a group effort from the collection of people that regularly need to type in languages with specialized alphabets. Due to my academic interests, I will initially be focusing on ancient Greek and Hebrew, but I am attempting to design a generalized framework abstracted out of any one particular language, and discuss design variables in such a way that layers for additional Unicode languages (such as Russian, Arabic, etc.) may be added even if they do not share exactly the same features (such as breathing marks or vowel points).
 
 People of all levels of technical knowledge are welcome and encouraged to open issues/bug-reports, create feature requests, and make suggestions. For the more technically inclined that would like to contribute to development directly:
 
 1. [[https://autohotkey.com/download/][Download AutoHotkey]] from it's site, and install it.
-2. Install a capable text-editor with Unicode support. [[https://notepad-plus-plus.org/][Notepad++]] is a good option, provided you ensure that you save Autohotkey files in the UTF8-BOM encoding. (You /must/ do this for Unicode to be supported directly in the code).
+2. Install a capable text-editor with Unicode support. [[https://notepad-plus-plus.org/][Notepad++]] is a simple option (for people that don't want to deal with the likes of Vim and Emacs), provided you ensure that you save Autohotkey files in the UTF8-BOM encoding. (You /must/ do this for Unicode to be supported directly in the code).
 3. Clone the repository and its dependencies: =git clone --recursive https://github.com/StevenTammen/unicode-language-layers.git=.
 4. =cd= into the project and start looking through the files and [[https://waffle.io/StevenTammen/unicode-language-layers][open issues]] to see where you can contribute.
 
-The project is still pretty alpha (meaning inline comments are fairly minimal and there is no stable API), but I am nearing the point where I will start to finalize things and provide better documentation. Eventually there will be a full API and examples regarding language specific implementation concerns.
-
-Also be warned that I may continue to force push freely for the next couple weeks.
-
-
+The project is still fairly young (meaning inline comments are fairly minimal and there is no stable API), but after my research responsibilities cease I will start to finalize things and provide better documentation. Eventually there will be a full API and examples regarding language specific implementation concerns.
