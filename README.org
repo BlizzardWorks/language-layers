@@ -78,7 +78,7 @@ The default Greek letter correspondences are listed in the table below. Some not
 
 ** Typing diacritics and punctuation in Greek mode
 
-To type diacritics in Greek mode, type a vowel, and then press the key corresponding the desired diacritic, as outlined in the table below. To remove a diacritic without deleting the character itself, simply press the diacritic key again. To remove a full character (a vowel and all its diacritics), press Backspace.
+To type diacritics in Greek mode, type a vowel (or consonant), and then press the key corresponding the desired diacritic, as outlined in the table below. To remove a diacritic without deleting the character itself, simply press the diacritic key again. To remove a full character (a vowel and all its diacritics), press Backspace.
 
 | Grouping   | Diacritic      | Corresponding Key |
 |------------+----------------+-------------------|
@@ -174,7 +174,7 @@ It would be ideal if this project became a group effort from the collection of p
 
 People of all levels of technical knowledge are welcome and encouraged to open issues/bug-reports, create feature requests, and make suggestions. For the more technically inclined that would like to contribute to development directly:
 
-1. [[https://autohotkey.com/download/][Download AutoHotkey]] from it's site, and install it.
+1. [[https://autohotkey.com/download/][Download AutoHotkey]] from its site, and install it.
 2. Install a capable text-editor with Unicode support. [[https://notepad-plus-plus.org/][Notepad++]] is a simple option (for people that don't want to deal with the likes of Vim and Emacs), provided you ensure that you save Autohotkey files in the UTF8-BOM encoding. (You /must/ do this for Unicode to be supported directly in the code).
 3. Clone the repository and its dependencies: =git clone --recursive https://github.com/StevenTammen/unicode-language-layers.git=.
 4. =cd= into the project and start looking through the files and [[https://waffle.io/StevenTammen/unicode-language-layers][open issues]] to see where you can contribute.
