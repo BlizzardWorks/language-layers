@@ -93,7 +93,7 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 ;-------------------------------------------------
 
 *Esc::
-	if(modifiers("Esc", "Esc"))
+	if(modifiers("Esc", "{Esc}"))
 	{
 		return
 	}
@@ -106,7 +106,7 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	layerIndependent("Esc")
 	return
 *F1::
-	if(modifiers("F1", "F1"))
+	if(modifiers("F1", "{F1}"))
 	{
 		return
 	}
@@ -118,7 +118,7 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	layerIndependent("F1")
 	return
 *F2::
-	if(modifiers("F2", "F2"))
+	if(modifiers("F2", "{F2}"))
 	{
 		return
 	}
@@ -130,7 +130,7 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	layerIndependent("F2")
 	return
 *F3::
-	if(modifiers("F3", "F3"))
+	if(modifiers("F3", "{F3}"))
 	{
 		return
 	}
@@ -142,7 +142,7 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	layerIndependent("F3")
 	return
 *F4::
-	if(modifiers("F4", "F4"))
+	if(modifiers("F4", "{F4}"))
 	{
 		return
 	}
@@ -154,7 +154,7 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	layerIndependent("F4")
 	return
 *F5::
-	if(modifiers("F5", "F5"))
+	if(modifiers("F5", "{F5}"))
 	{
 		return
 	}
@@ -166,7 +166,7 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	layerIndependent("F5")
 	return
 *F6::
-	if(modifiers("F6", "F6"))
+	if(modifiers("F6", "{F6}"))
 	{
 		return
 	}
@@ -178,7 +178,7 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	layerIndependent("F6")
 	return
 *F7::
-	if(modifiers("F7", "F7"))
+	if(modifiers("F7", "{F7}"))
 	{
 		return
 	}
@@ -190,7 +190,7 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	layerIndependent("F7")
 	return
 *F8::
-	if(modifiers("F8", "F8"))
+	if(modifiers("F8", "{F8}"))
 	{
 		return
 	}
@@ -202,7 +202,7 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	layerIndependent("F8")
 	return
 *F9::
-	if(modifiers("F9", "F9"))
+	if(modifiers("F9", "{F9}"))
 	{
 		return
 	}
@@ -214,7 +214,7 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	layerIndependent("F9")
 	return
 *F10::
-	if(modifiers("F10", "F10"))
+	if(modifiers("F10", "{F10}"))
 	{
 		return
 	}
@@ -226,7 +226,7 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	layerIndependent("F10")
 	return
 *F11::
-	if(modifiers("F11", "F11"))
+	if(modifiers("F11", "{F11}"))
 	{
 		return
 	}
@@ -238,7 +238,7 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	layerIndependent("F11")
 	return
 *F12::
-	if(modifiers("F12", "F12"))
+	if(modifiers("F12", "{F12}"))
 	{
 		return
 	}
@@ -551,7 +551,7 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *Backspace::
-	if(modifiers("Backspace", "Backspace"))
+	if(modifiers("Backspace", "{Backspace}"))
 	{
 		return
 	}
@@ -576,7 +576,7 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 
 	
 *Tab::
-	if(modifiers("Tab", "Tab"))
+	if(modifiers("Tab", "{Tab}"))
 	{
 		return
 	}
@@ -1192,7 +1192,7 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *Enter::
-	if(modifiers("Enter", "Enter"))
+	if(modifiers("Enter", "{Enter}"))
 	{
 		return
 	}
@@ -1509,7 +1509,7 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	altDownNoUp := false
 	return
 *Space::
-	if(modifiers("Space", "Space"))
+	if(modifiers("Space", "{Space}"))
 	{
 		return
 	}
@@ -1543,7 +1543,7 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	winDownNoUp := false
 	return
 *AppsKey::
-	if(modifiers("AppsKey", "AppsKey"))
+	if(modifiers("AppsKey", "{AppsKey}"))
 	{
 		return
 	}
@@ -1574,7 +1574,7 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 
 	
 *Left::
-	if(modifiers("Left", "Left"))
+	if(modifiers("Left", "{Left}"))
 	{
 		return
 	}
@@ -1586,7 +1586,7 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	layerIndependent("Left")
 	return
 *Down::
-	if(modifiers("Down", "Down"))
+	if(modifiers("Down", "{Down}"))
 	{
 		return
 	}
@@ -1598,7 +1598,7 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	layerIndependent("Down")
 	return
 *Up::
-	if(modifiers("Up", "Up"))
+	if(modifiers("Up", "{Up}"))
 	{
 		return
 	}
@@ -1610,7 +1610,7 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	layerIndependent("Up")
 	return
 *Right::
-	if(modifiers("Right", "Right"))
+	if(modifiers("Right", "{Right}"))
 	{
 		return
 	}
