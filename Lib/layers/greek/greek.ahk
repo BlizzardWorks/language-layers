@@ -42,7 +42,6 @@ global Greek_priorState := [Greek_breathing, Greek_accent, Greek_quantity]
 ;-------------------------------------------------
 
 ; Choose whether to use normal Greek sigma or lunate sigma.
-; Give the variable the value of either "1" (true) or "0" (false)
 global useLunateSigma := 0
 IniRead, useLunateSigma, config.ini, Greek, useLunateSigma
 

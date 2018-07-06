@@ -13,7 +13,7 @@ At this point in the process (07/06/18), we are far enough along that I can nail
 - There will not be any support for *Nix in the near future.
 - There will not be any support for GUI configuration in the near future. Settings may be changed in the config file (located [[https://github.com/StevenTammen/unicode-language-layers/blob/master/config.ini][here]] in the repository).
 - A Hebrew implementation will happen, but it will not be as thorough or complete as the now completed Greek, due to time constraints.
-- While a discussion of vocabulary frequency/corpus generation, morphological analysis, and pedagogy/applications will be factor into the second half of the paper, there likely will not be any actual code targeting these areas.
+- While a discussion of vocabulary frequency/corpus generation, morphological analysis, and pedagogy/applications will factor into the second half of the paper, there likely will not be any actual code targeting these areas.
 
 After this summer I will continue to work on this project, but cannot make any promises. I do have people I can tap for help with Farsi and Russian, in the longer term.
 
@@ -35,9 +35,25 @@ When in English mode, to toggle on the Greek mode, press CapsLock and then the l
 
 When in Greek mode, to get back to English mode, press CapsLock and then the letter e. The mnemonic is "language key (CapsLock) plus e for English turns on the English mode."
 
+** Using CapsLock as CapsLock
+
+This layout uses CapsLock as a leader key for language behavior. Most people do not use CapsLock very often, but it is in a very favorable position (compared to a function key, say), which makes it ideal for quickly switching back and forth between languages and adding diacritics.
+
+However, some people may still wish to use CapsLock as CapsLock. Epigraphers, for example, may want to digitize inscriptions that are all uppercase. For this reason, locking behavior is supported across alphabets.
+
+To use CapsLock in the traditional sense, simply press CapsLock twice instead of once. This will lock down the shift layer for whatever language you are currently typing in. Just as with normal CapsLock, you unlock the layer by pressing the CapsLock key after you are done typing with the layer locked.
+
+This may sound complicated, but it becomes second nature very quickly. To access language leader behavior (switching between languages, as above, or making use of some of the more advanced features below), press CapsLock once. To lock shift down, press CapsLock twice.
+
+** Dealing with accidental CapsLock presses
+
+If you accidentally or unintentionally press CapsLock, or press it but then change your mind and decide that you do not want to switch languages or access any of the other functionality of the language leader, you can "eat" the keypress by pressing any key that does not have any mapped behavior on the language leader layer. (Any key not mentioned in the sections below is likely unmapped.)
+
+For convenience, it probably easiest to press Space. This will not enter a Space, but simply get you back to the layout's normal behavior, as if you had never pressed CapsLock to begin with.
+
 ** Getting familiar with letter correspondences
 
-The default letter correspondences are listed in the table below. Some notable letters that frequently vary across layouts are upsilon, chi, and theta. For this layout:
+The default Greek letter correspondences are listed in the table below. Some notable letters that frequently vary across layouts are upsilon, chi, and theta. For this layout:
 
 - Upsilon is on U not Y
 - Chi is on C not X
@@ -60,7 +76,7 @@ The default letter correspondences are listed in the table below. Some notable l
 | Μ μ          | M m           |   | Ω ω          | W w           |
                                   
 
-** Typing diacritics and punctuation  in Greek mode
+** Typing diacritics and punctuation in Greek mode
 
 To type diacritics in Greek mode, type a vowel, and then press the key corresponding the desired diacritic, as outlined in the table below. To remove a diacritic without deleting the character itself, simply press the diacritic key again. To remove a full character (a vowel and all its diacritics), press Backspace.
 
@@ -85,7 +101,7 @@ Greek mode also overrides the behavior of ; and ? to produce the Greek equivalen
 | Greek Question Mark | ?                 |
 
 
-** Accessing punctuation that is used by the Greek layer
+** Accessing punctuation that is used in Greek mode
 
 The current Greek layer intercepts opening and closing brackets (to use for rough and and smooth breathing, respectively) and the colon (to use for diaeresis), among other things. What happens if you want to type brackets and a colon?
 
@@ -123,6 +139,34 @@ Out of the box, English mode also supports language-specific characters for some
 |          | ¿         | {CapsLock}?    |
 |          | ¡         | {CapsLock}!    |
 
+
+* Customization Instructions
+
+At the time of writing, there are three different customization options that can be changed in the configuration file. Each is explained below, with all the possible values listed. The properties are broken out into sections depending on if they deal with a specific language mode or not.
+
+For changes in these options to take effect, you will need to exit out of the script and restart it.
+
+** General
+
+*** activeLanguage
+
+Possible values: =English=, =Greek=
+
+The activeLanguage property specifies which language mode the script starts in. The default is English. To start the script in Greek mode, change the line ~activeLanguage=English~ to ~activeLanguage=Greek~. Recall that you can change between modes with the language leader key (={CapsLock}g= switches to Greek, and ={CapsLock}e= switches to English), so this option is just a convenience.
+
+*** unicodeSendType
+
+Possible values: =precomposed=, =decomposed=
+
+The unicodeSendType property specifies whether precomposed Unicode characters are sent when possible, or whether to always send combining characters. The default is to send Unicode precomposed, since it has wider font support, and has marginal performance advantages. To use decomposed Unicode instead, change the line ~unicodeSendType=precomposed~ to ~unicodeSendType=decomposed~.
+
+** Greek
+
+*** useLunateSigma
+
+Possible values: =0=, =1=
+
+The useLunateSigma property specifies whether or not the script should use lunate sigma in place of normal sigma. The default is 0, for false. To use lunate sigma, change the line ~useLunateSigma=0~ to ~useLunateSigma=1~. Using lunate sigma will also disable final sigma behavior.
 
 * Contribution guidelines
 

@@ -81,12 +81,10 @@ global lastRealKeyDown := ""
 ;-------------------------------------------------
 
 ; Set which language the script starts in.
-; Give the variable the value of "English", "Greek", or "Hebrew"
 global activeLanguage := ""
 IniRead, activeLanguage, config.ini, General, activeLanguage
 
 ; Choose whether Unicode gets sent precomposed or decomposed.
-; Give the variable the value of either "precomposed" or "decomposed"
 global unicodeSendType := ""
 IniRead, unicodeSendType, config.ini, General, unicodeSendType
 
@@ -920,7 +918,7 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	{
 		lastRealKeyDown := lastKey
 	}
-	dual.comboKey(languageLeaderDn, {(languageLeader): languageLeaderUp})
+	dual.comboKey(languageLeaderDn, {(shiftModifier): shiftModifierUp, (languageLeader): [languageLeaderUp, shiftModifierDn]})
 	return
 *CapsLock Up::
 	lastKey := Dual.cleanKey(A_PriorHotkey)
