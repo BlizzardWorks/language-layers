@@ -269,7 +269,7 @@ Greek_equals(key)
 Greek_Backspace(key)
 {
 	Greek_resetVowel()
-	layerIndependentBackspace()
+	layerIndependentBackspace("Greek")
 	return
 }
 

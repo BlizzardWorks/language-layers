@@ -28,6 +28,7 @@ dual := new Dual
 ;-------------------------------------------------
 
 #Include <layers/english/shiftModifier>
+#Include <layers/languageLeader>
 
 #Include <layers/greek/greek>
 #Include <layers/greek/greek_shiftModifier>
@@ -56,6 +57,12 @@ dual := new Dual
 ;-------------------------------------------------
 
 global shiftModifier := "VK1A"
+global shiftModifierDn := "VK1A Down"
+global shiftModifierUp := "VK1A Up"
+
+global languageLeader := "VK3A"
+global languageLeaderDn := "VK3A Down"
+global languageLeaderUp := "VK3A Up"
 
 
 ; Set up shared variables
@@ -75,7 +82,7 @@ global lastRealKeyDown := ""
 
 ; Set which language the script starts in.
 ; Give the variable the value of "English", "Greek", or "Hebrew"
-activeLanguage := ""
+global activeLanguage := ""
 IniRead, activeLanguage, config.ini, General, activeLanguage
 
 ; Choose whether Unicode gets sent precomposed or decomposed.
@@ -92,11 +99,22 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	{
 		return
 	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_Esc()
+		return
+	}
+	SendInput {%shiftModifierUp%}{%languageLeaderUp%}
 	layerIndependent("Esc")
 	return
 *F1::
 	if(modifiers("F1", "F1"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_F1()
 		return
 	}
 	layerIndependent("F1")
@@ -106,11 +124,21 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	{
 		return
 	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_F2()
+		return
+	}
 	layerIndependent("F2")
 	return
 *F3::
 	if(modifiers("F3", "F3"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_F3()
 		return
 	}
 	layerIndependent("F3")
@@ -120,11 +148,21 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	{
 		return
 	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_F4()
+		return
+	}
 	layerIndependent("F4")
 	return
 *F5::
 	if(modifiers("F5", "F5"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_F5()
 		return
 	}
 	layerIndependent("F5")
@@ -134,11 +172,21 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	{
 		return
 	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_F6()
+		return
+	}
 	layerIndependent("F6")
 	return
 *F7::
 	if(modifiers("F7", "F7"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_F7()
 		return
 	}
 	layerIndependent("F7")
@@ -148,11 +196,21 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	{
 		return
 	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_F8()
+		return
+	}
 	layerIndependent("F8")
 	return
 *F9::
 	if(modifiers("F9", "F9"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_F9()
 		return
 	}
 	layerIndependent("F9")
@@ -162,11 +220,21 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	{
 		return
 	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_F10()
+		return
+	}
 	layerIndependent("F10")
 	return
 *F11::
 	if(modifiers("F11", "F11"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_F11()
 		return
 	}
 	layerIndependent("F11")
@@ -176,6 +244,11 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	{
 		return
 	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_F12()
+		return
+	}
 	layerIndependent("F12")
 	return
 
@@ -183,6 +256,11 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 *`::
 	if(modifiers("backtick", "`"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_backtick()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -203,6 +281,11 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	{
 		return
 	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_1()
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_1(A_ThisHotkey)
@@ -219,6 +302,11 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 *2::
 	if(modifiers("2", "2"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_2()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -239,6 +327,11 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	{
 		return
 	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_3()
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_3(A_ThisHotkey)
@@ -255,6 +348,11 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 *4::
 	if(modifiers("4", "4"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_4()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -275,6 +373,11 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	{
 		return
 	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_5()
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_5(A_ThisHotkey)
@@ -291,6 +394,11 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 *6::
 	if(modifiers("6", "6"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_6()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -311,6 +419,11 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	{
 		return
 	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_7()
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_7(A_ThisHotkey)
@@ -327,6 +440,11 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 *8::
 	if(modifiers("8", "8"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_8()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -347,6 +465,11 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	{
 		return
 	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_9()
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_9(A_ThisHotkey)
@@ -363,6 +486,11 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 *0::
 	if(modifiers("0", "0"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_0()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -383,6 +511,11 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	{
 		return
 	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_hyphen()
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_hyphen(A_ThisHotkey)
@@ -399,6 +532,11 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 *=::
 	if(modifiers("equals", "="))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_equals()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -419,6 +557,11 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	{
 		return
 	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_Backspace()
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_Backspace(A_ThisHotkey)
@@ -429,13 +572,19 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 		Greek_Backspace(A_ThisHotkey)
 		return
 	}
-	layerIndependentBackspace()
+	Latin_resetVowel() 
+	layerIndependentBackspace("Latin")
 	return
 
 	
 *Tab::
 	if(modifiers("Tab", "Tab"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_Tab()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -455,6 +604,11 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	{
 		return
 	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_q()
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_q(A_ThisHotkey)
@@ -465,12 +619,18 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 		Greek_q(A_ThisHotkey)
 		return
 	}
+	Latin_resetVowel() 
 	shiftModifier_keys := shiftModifier_q()
 	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *w::
 	if(modifiers("w", "w"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_w()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -483,12 +643,18 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 		Greek_w(A_ThisHotkey)
 		return
 	}
+	Latin_resetVowel() 
 	shiftModifier_keys := shiftModifier_w()
 	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *e::
 	if(modifiers("e", "e"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_e()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -501,12 +667,19 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 		Greek_e(A_ThisHotkey)
 		return
 	}
+	Latin_vowel := "e"
+	Latin_resetDiacritics()
 	shiftModifier_keys := shiftModifier_e()
 	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *r::
 	if(modifiers("r", "r"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_r()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -519,12 +692,18 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 		Greek_r(A_ThisHotkey)
 		return
 	}
+	Latin_resetVowel() 
 	shiftModifier_keys := shiftModifier_r()
 	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *t::
 	if(modifiers("t", "t"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_t()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -537,12 +716,18 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 		Greek_t(A_ThisHotkey)
 		return
 	}
+	Latin_resetVowel() 
 	shiftModifier_keys := shiftModifier_t()
 	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *y::
 	if(modifiers("y", "y"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_y()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -555,12 +740,18 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 		Greek_y(A_ThisHotkey)
 		return
 	}
+	Latin_resetVowel() 
 	shiftModifier_keys := shiftModifier_y()
 	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *u::
 	if(modifiers("u", "u"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_u()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -573,12 +764,19 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 		Greek_u(A_ThisHotkey)
 		return
 	}
+	Latin_vowel := "u"
+	Latin_resetDiacritics()
 	shiftModifier_keys := shiftModifier_u()
 	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *i::
 	if(modifiers("i", "i"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_i()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -591,12 +789,19 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 		Greek_i(A_ThisHotkey)
 		return
 	}
+	Latin_vowel := "i"
+	Latin_resetDiacritics()
 	shiftModifier_keys := shiftModifier_i()
 	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *o::
 	if(modifiers("o", "o"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_o()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -609,12 +814,19 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 		Greek_o(A_ThisHotkey)
 		return
 	}
+	Latin_vowel := "o"
+	Latin_resetDiacritics()
 	shiftModifier_keys := shiftModifier_o()
 	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *p::
 	if(modifiers("p", "p"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_p()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -627,12 +839,18 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 		Greek_p(A_ThisHotkey)
 		return
 	}
+	Latin_resetVowel() 
 	shiftModifier_keys := shiftModifier_p()
 	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *[::
 	if(modifiers("openBracket", "["))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_openBracket()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -653,6 +871,11 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	{
 		return
 	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_closeBracket()
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_closeBracket(A_ThisHotkey)
@@ -671,6 +894,11 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	{
 		return
 	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_backslash()
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_backslash(A_ThisHotkey)
@@ -687,18 +915,29 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 
 	
 *CapsLock::
-	if(activeLanguage = "English")
+	lastKey := Dual.cleanKey(A_PriorHotkey)
+	if(!isLayerKey(lastKey))
 	{
-		activeLanguage := "Greek"
+		lastRealKeyDown := lastKey
 	}
-	else if(activeLanguage = "Greek")
+	dual.comboKey(languageLeaderDn, {(languageLeader): languageLeaderUp})
+	return
+*CapsLock Up::
+	lastKey := Dual.cleanKey(A_PriorHotkey)
+	if(!isLayerKey(lastKey))
 	{
-		activeLanguage := "English"
+		lastRealKeyDown := lastKey
 	}
 	return
+	
 *a::
 	if(modifiers("a", "a"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_a()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -711,12 +950,19 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 		Greek_a(A_ThisHotkey)
 		return
 	}
+	Latin_vowel := "a"
+	Latin_resetDiacritics()
 	shiftModifier_keys := shiftModifier_a()
 	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *s::
 	if(modifiers("s", "s"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_s()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -729,12 +975,18 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 		Greek_s(A_ThisHotkey)
 		return
 	}
+	Latin_resetVowel() 
 	shiftModifier_keys := shiftModifier_s()
 	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *d::
 	if(modifiers("d", "d"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_d()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -747,12 +999,18 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 		Greek_d(A_ThisHotkey)
 		return
 	}
+	Latin_resetVowel() 
 	shiftModifier_keys := shiftModifier_d()
 	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *f::
 	if(modifiers("f", "f"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_f()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -765,12 +1023,18 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 		Greek_f(A_ThisHotkey)
 		return
 	}
+	Latin_resetVowel() 
 	shiftModifier_keys := shiftModifier_f()
 	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *g::
 	if(modifiers("g", "g"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_g()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -783,12 +1047,18 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 		Greek_g(A_ThisHotkey)
 		return
 	}
+	Latin_resetVowel() 
 	shiftModifier_keys := shiftModifier_g()
 	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *h::
 	if(modifiers("h", "h"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_h()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -801,12 +1071,18 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 		Greek_h(A_ThisHotkey)
 		return
 	}
+	Latin_resetVowel() 
 	shiftModifier_keys := shiftModifier_h()
 	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *j::
 	if(modifiers("j", "j"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_j()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -819,12 +1095,18 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 		Greek_j(A_ThisHotkey)
 		return
 	}
+	Latin_resetVowel() 
 	shiftModifier_keys := shiftModifier_j()
 	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *k::
 	if(modifiers("k", "k"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_k()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -837,12 +1119,18 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 		Greek_k(A_ThisHotkey)
 		return
 	}
+	Latin_resetVowel() 
 	shiftModifier_keys := shiftModifier_k()
 	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *l::
 	if(modifiers("l", "l"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_l()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -855,12 +1143,18 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 		Greek_l(A_ThisHotkey)
 		return
 	}
+	Latin_resetVowel() 
 	shiftModifier_keys := shiftModifier_l()
 	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *`;::
 	if(modifiers("semicolon", ";"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_semicolon()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -881,6 +1175,11 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	{
 		return
 	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_apostrophe()
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_apostrophe(A_ThisHotkey)
@@ -899,6 +1198,11 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	{
 		return
 	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_Enter()
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_Enter(A_ThisHotkey)
@@ -914,19 +1218,19 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 
 	
 *LShift::
-	lastKey := A_PriorHotkey
-	if(lastKey != "*Lshift" and lastKey != "*Lshift Up")
+	lastKey := Dual.cleanKey(A_PriorHotkey)
+	if(!isLayerKey(lastKey))
 	{
-		lastRealKeyDown := Dual.cleanKey(lastKey)
+		lastRealKeyDown := lastKey
 	}
 	shiftDownNoUp := true
 	dual.combine(shiftModifier, shiftModifier, {delay: 0, timeout: 0, doublePress: -1, specificDelays: false})
 	return
 *LShift Up::
-	lastKey := A_PriorHotkey
-	if(lastKey != "*Lshift" and lastKey != "*Lshift Up")
+	lastKey := Dual.cleanKey(A_PriorHotkey)
+	if(!isLayerKey(lastKey))
 	{
-		lastRealKeyDown := Dual.cleanKey(lastKey)
+		lastRealKeyDown := lastKey
 	}
 	shiftDownNoUp := false
 	dual.combine(shiftModifier, shiftModifier, {delay: 0, timeout: 0, doublePress: -1, specificDelays: false})
@@ -934,6 +1238,11 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 *z::
 	if(modifiers("z", "z"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_z()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -946,12 +1255,18 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 		Greek_z(A_ThisHotkey)
 		return
 	}
+	Latin_resetVowel() 
 	shiftModifier_keys := shiftModifier_z()
 	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *x::
 	if(modifiers("x", "x"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_x()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -964,12 +1279,18 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 		Greek_x(A_ThisHotkey)
 		return
 	}
+	Latin_resetVowel() 
 	shiftModifier_keys := shiftModifier_x()
 	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *c::
 	if(modifiers("c", "c"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_c()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -982,12 +1303,18 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 		Greek_c(A_ThisHotkey)
 		return
 	}
+	Latin_resetVowel() 
 	shiftModifier_keys := shiftModifier_c()
 	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *v::
 	if(modifiers("v", "v"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_v()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -1000,12 +1327,18 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 		Greek_v(A_ThisHotkey)
 		return
 	}
+	Latin_resetVowel() 
 	shiftModifier_keys := shiftModifier_v()
 	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *b::
 	if(modifiers("b", "b"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_b()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -1018,12 +1351,18 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 		Greek_b(A_ThisHotkey)
 		return
 	}
+	Latin_resetVowel() 
 	shiftModifier_keys := shiftModifier_b()
 	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *n::
 	if(modifiers("n", "n"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_n()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -1036,12 +1375,18 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 		Greek_n(A_ThisHotkey)
 		return
 	}
+	Latin_resetVowel() 
 	shiftModifier_keys := shiftModifier_n()
 	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *m::
 	if(modifiers("m", "m"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_m()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -1054,12 +1399,18 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 		Greek_m(A_ThisHotkey)
 		return
 	}
+	Latin_resetVowel() 
 	shiftModifier_keys := shiftModifier_m()
 	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *,::
 	if(modifiers("comma", ","))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_comma()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -1080,6 +1431,11 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	{
 		return
 	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_period()
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_period(A_ThisHotkey)
@@ -1098,6 +1454,11 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	{
 		return
 	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_slash()
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_slash(A_ThisHotkey)
@@ -1108,22 +1469,23 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 		Greek_slash(A_ThisHotkey)
 		return
 	}
-	dual.comboKey(A_ThisHotkey)
+	shiftModifier_keys := shiftModifier_slash()
+	dual.comboKey(A_ThisHotkey, {(shiftModifier): shiftModifier_keys})
 	return
 *RShift::
-	lastKey := A_PriorHotkey
-	if(lastKey != "*Rshift" and lastKey != "*Rshift Up")
+	lastKey := Dual.cleanKey(A_PriorHotkey)
+	if(!isLayerKey(lastKey))
 	{
-		lastRealKeyDown := Dual.cleanKey(lastKey)
+		lastRealKeyDown := lastKey
 	}
 	shiftDownNoUp := true
 	dual.combine(shiftModifier, shiftModifier, {delay: 0, timeout: 0, doublePress: -1, specificDelays: false})
 	return
 *RShift Up::
-	lastKey := A_PriorHotkey
-	if(lastKey != "*Rshift" and lastKey != "*Rshift Up")
+	lastKey := Dual.cleanKey(A_PriorHotkey)
+	if(!isLayerKey(lastKey))
 	{
-		lastRealKeyDown := Dual.cleanKey(lastKey)
+		lastRealKeyDown := lastKey
 	}
 	shiftDownNoUp := false
 	dual.combine(shiftModifier, shiftModifier, {delay: 0, timeout: 0, doublePress: -1, specificDelays: false})
@@ -1151,6 +1513,11 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 *Space::
 	if(modifiers("Space", "Space"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_Space()
 		return
 	}
 	if(activeLanguage = "Hebrew")
@@ -1182,6 +1549,11 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	{
 		return
 	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_AppsKey()
+		return
+	}
 	if(activeLanguage = "Hebrew")
 	{
 		Hebrew_AppsKey(A_ThisHotkey)
@@ -1208,11 +1580,21 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	{
 		return
 	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_Left()
+		return
+	}
 	layerIndependent("Left")
 	return
 *Down::
 	if(modifiers("Down", "Down"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_Down()
 		return
 	}
 	layerIndependent("Down")
@@ -1222,11 +1604,21 @@ IniRead, unicodeSendType, config.ini, General, unicodeSendType
 	{
 		return
 	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_Up()
+		return
+	}
 	layerIndependent("Up")
 	return
 *Right::
 	if(modifiers("Right", "Right"))
 	{
+		return
+	}
+	if(GetKeyState(languageLeader))
+	{
+		languageLeader_Right()
 		return
 	}
 	layerIndependent("Right")
