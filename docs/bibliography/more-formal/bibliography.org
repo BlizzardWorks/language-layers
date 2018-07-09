@@ -1,0 +1,147 @@
+#+TITLE: More Formal Bibliography
+#+SUBTITLE:
+#+AUTHOR: Steven Tammen
+#+DATE: July 8, 2018
+#+OPTIONS: toc:2
+
+
+#+LaTeX_HEADER: \usepackage{fontspec}
+#+LaTeX_HEADER: \setmainfont[BoldFont={Gentium Basic Bold}, ItalicFont={Gentium Basic Italic}]{Gentium Plus}
+
+#+LaTeX_HEADER: \usepackage{polyglossia}
+#+LaTeX_HEADER: \setmainlanguage{english}
+#+LaTeX_HEADER: \setotherlanguage{hebrew}
+#+LaTeX_HEADER: \newfontfamily\hebrewfont{SBL Hebrew}
+
+** Layout of this page
+
+In my passes through JSTOR and Google scholar I turned up more than I had initially expected. However, many things are more tangential; they may discuss topics of interest to this work, while either not spending a great deal of time on them or mentioning them only in passing.
+
+I have not completely read all the papers behind these links, but based on what reading I have done, I have tried to annotate the links to aid others and myself in the future in picking out the more useful pieces from the less useful.
+
+Note that I did not include the UGA proxy links for JSTOR pages that UGA has access too. UGA people reading this: you can copy the numeric identifier for the article to use in UGA-specific JSTOR links (as applicable). For example:
+
+- [[https://www.jstor.org/stable/29785130]] (normal URL)
+- [[https://www-jstor-org.proxy-remote.galib.uga.edu/stable/29785130]] (UGA URL)
+  
+** Typing mechanics
+
+*** [[https://onlinelibrary.wiley.com/doi/pdf/10.1207/s15516709cog0601_1][Simulating a Skilled Typist: A Study of Skilled Cognitive-Motor Performance]]
+  
+- An old (1982) but seemingly thorough analysis of typing mechanics. Might be helpful in determining the importance of weighing certain metrics of keyboard design and justifying placement of letters and diacritics.
+
+*** [[https://userinterfaces.aalto.fi/136Mkeystrokes/resources/chi-18-analysis.pdf][Observations on Typing from 136 Million Keystrokes]]
+
+- A cutting edge research study covering similar topics. Valuable for similar reasons as above, and also for its large list of references.
+- Will probably be used as the main source for references to these things.
+
+*** [[http://delivery.acm.org/10.1145/2860000/2858233/p4262-feit.pdf?ip=71.12.145.131&id=2858233&acc=OA&key=4D4702B0C3E38B35%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35%2EBA9FD68CFF7EBD7B&__acm__=1531110151_c810200d84c7d418a4ab994f974c2bce][How We Type: Movement Strategies and Performance in Everyday Typing]]
+
+- Shares two authors with the above.
+- Motion capturing and analysis. Interesting in that it focuses on people not trained in the traditional 10-keys system.
+- Seems to arrive at similar conclusions to studies that focus on that population though: preparing upcoming keystrokes while typing current ones and low travel distance ("global hand motion") are both said to be predictors of high performance.
+
+** Skill acquisition in typing
+
+*** [[https://www.researchgate.net/publication/304362539_Pushing_Typists_Back_on_the_Learning_Curve_Memory_Chunking_in_the_Hierarchical_Control_of_Skilled_Typewriting][Pushing Typists Back on the Learning Curve: Memory Chunking in the Hierarchical Control of Skilled Typewriting]]
+
+- The role of memory chunks in typing and in learning skilled typing in particular
+
+*** [[https://www.jstor.org/stable/41063973][The Effects of Prior Computer Usage on Teaching Beginning Typing Technique]]
+
+- How prior experience shapes the learning of touch typing. Does not discuss foreign languages at all, but principles should transfer.
+
+** Keyboard layout/software program design
+
+*** [[https://pdfs.semanticscholar.org/1bf8/74dcaa7f21c2cc3c6c5e526b61a9ee352bba.pdf][TOWARD OPTIMAL ARABIC KEYBOARD LAYOUT USING GENETIC ALGORITHM]]
+
+- Creating an optimized Arabic keyboard layout with genetic algorithms
+- Not directly applicable since this project is optimizing primarily based on mnemonic value, but addresses related things.
+- By undergraduates. Contains some errors in grammar, etc.
+
+*** [[https://www.tandfonline.com/doi/abs/10.1080/10447318.2013.777827][Chinese Keyboard Layout Design Based on Polyphone Disambiguation and a Genetic Algorithm]]
+
+- Looks like it covers similar things, but perhaps more rigorously, and with a different language.
+- The five factors are similar to those I've identified and used in my own weighted evaluations. Of course they probably did it better and more scientifically.
+- Paywalls
+
+*** [[https://link.springer.com/article/10.1007%2FBF02686608][Skilled typing performance and keyboard design]]
+
+- Older (1986). Referenced in a couple of the above papers.
+
+*** [[https://researchweb.iiit.ac.in/~sowmya_vb/msthesis.pdf][TEXT INPUT METHODS FOR INDIAN LANGUAGES]]
+
+- Perhaps *the* most relevant work I've come across so far. Deals with keyboard layout design for Indian languages, with Telugu as the test case.
+- Not peer reviewed inasmuch as it is a Master's Thesis, and contains some errors. But has much of value as well.
+
+*** [[https://www.jstor.org/stable/23063782][Arabic on the Macintosh: Overview and Review]]
+
+- Old. But contains a couple of good paragraphs regarding how typing "really works" on the backend.
+
+*** [[https://www.academia.edu/6098604/A_Dynamic_Text_Input_scheme_for_phonetic_scripts_like_Devanagari][A Dynamic Text Input scheme for phonetic scripts like Devanagari]]
+
+- Interesting discussion relating to entry systems for the complex Devanagari script.
+- Not super relevant to the current focus of this project inasmuch as Devanagari is significantly harder to implement than languages with a fewer number of primitives (that can be more or less cleanly mapped onto the English alphabet for memorability).
+
+*** [[https://ieeexplore.ieee.org/document/7033301/][Implementation of Unicode Complaint Odia Keyboard and Its Evaluation Using Cognitive Model]]
+
+- Looks really relevant. Haven't found a way to read it yet since UGA doesn't have access through Shibboleth or OpenAthens.
+
+** Multilingual processing, Unicode
+
+*** [[https://www.jstor.org/stable/23535305][DESIGN CONSIDERATIONS IN THE USE OF HEBREW AND OTHER NON-ROMAN SCRIPTS ON IBM-COMPATIBLE COMPUTERS]]
+
+- Before Unicode and modern computers
+- Interesting for its historical perspective
+- (No UGA JSTOR access)
+
+***  [[https://www.jstor.org/stable/29785130][REPORT ON THE ARABIC LANGUAGE IN COMPUTERS SYMPOSIUM]]
+
+- Another historical perspective. Interesting writeup of an ISO meeting about standardizing Arabic.
+
+*** [[http://ucbclassics.dreamhosters.com/djm/unicodeTalk/BeforeAndAfterUnicode.pdf][Before and After Unicode: Working with Polytonic Greek]]
+
+- Very informative article on Greek handling specifically
+- From a 2008 APA Unicode Presentation
+
+*** [[http://www.opoudjis.net/unicode/unicode.html][Greek Unicode Issues]]
+
+- Contains a wealth of information regarding Greek and Unicode
+- By one of the people associated with TLG
+- Opinionated
+
+** Pedagogy
+
+*** [[https://www.jstor.org/stable/24147886][Eliminating the Keyboard: A New Method for Exotic L2 Answer Entry, Feedback, and Revision]]
+
+- Interesting perspectives concerning the design of programs to aid in the acquisition of other languages.
+- Computer-aided language learning (CALL) and question/answer/feedback/revision (QAFR)
+- I disagree with the idea that on-screen "drag and drop" and soft keyboards are at all a replacement for hard keyboards.
+- This paper is supportive of the idea that better input methods are needed for non-native languages to make input less of a hurdle in CALL.
+
+*** [[https://www.jstor.org/stable/25612275][Computer-Assisted Language Learning Authoring Issues]]
+
+- A very good overview of things related to CALL
+- Talks in some senses about how things "should be," while addressing the constraints and limitations that obtain in reality.
+
+*** [[https://www.jstor.org/stable/24149791][Web-based CALL for Arabic: Constraints and Challenges]]
+
+- Deals with some of the challenges with CALL and Unicode languages. Very parallel to the pedagogy aspect of this project.
+- Some of the constraints are solved/different on our more modern hardware
+
+
+*** [[https://www.jstor.org/stable/24149794][newSLATE: Building a Web-based Infrastructure for Learning Non-Roman Script Languages]]
+
+- A second non-Roman alphabet CALL paper.
+- Also very relevant, perhaps even more so than the above paper that is talking about Arabic only. Should be a strong source in this section.
+
+** Morphological analysis and natural language processing
+
+*** [[http://www.europe.naverlabs.com/content/download/18525/133335/file/finite-state.pdf][Finite-State Morphological Analysis and Generation of Arabic at Xerox Research: Status and Plans in 2001]]
+
+- Technical discussion of morphological analysis of Arabic. A bit old.
+
+*** [[http://www.diva-portal.org/smash/record.jsf?pid=diva2%3A581398&dswid=-2265][A Basic Language Resource Kit for Persian]]
+
+- A bit beyond the scope of this project, but parallel in "endgame." NLP is essential for tokenization and tagging of language materials.
+- Has an associated [[http://www.diva-portal.org/smash/get/diva2:581398/FULLTEXT02.pdf][academic paper]] (also accessible from the link above on the right side of the page).
