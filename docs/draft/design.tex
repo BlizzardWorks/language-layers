@@ -1,4 +1,4 @@
-% Created 2018-07-11 Wed 21:23
+% Created 2018-07-13 Fri 00:11
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage{graphicx}
@@ -39,10 +39,10 @@
 
 
 \section{Section 1: What is this project? Why this project? Why this paper?}
-\label{sec:orga50f9da}
+\label{sec:org2f85b31}
 
 \subsection{What is this project?}
-\label{sec:org505e389}
+\label{sec:org61bb0ea}
 
 While this project has many different goals and subgoals (and continues to add more as additional matters of convenience and usability come up), the essential aim is to create easy-to-use keyboard layouts for \emph{non-native} languages. What exactly does this mean?
 
@@ -50,19 +50,19 @@ Typists for a particular language can usually be classified rather easily into n
 
 In theory, keyboard layouts for native languages should be designed according to certain keyboard design metrics that make typing more efficient. Nowadays, optimization is accomplished through computer programs that change letters in a configuration until additional changes do not improve the layout any more. Such an approach is known as a \emph{genetic algorithm}. Examples of this approach may be seen for Chinese in Liao and Choe (2013) and for Arabic in Malas, Taifour, and Abandah (2008).\footnote{People interested in this process are encouraged to visit \url{http://www.adnw.de}. This site contains much background on the history of keyboard layout optimization, and a well-documented C++ optimizer program. The main focus of this site is German layouts, but there is a fair bit of discussion for English layouts as well.}
 
-Layouts designed in this manner perform better with respect to typing metrics such as low finger travel distance (which helps reduce unnecessary movement away from the home row) and high hand alternation (which helps prevent many characters from getting typed contiguously by one hand while the other sits idle). However, since different languages have different phonetic patterns and orthographies, so-called "optimal" layouts for different native languages will place even phonetically and orthographically identical letters in very different places.
+Layouts designed in this manner perform better with respect to typing metrics such as low finger travel distance (which helps reduce unnecessary movement away from the home row) and high hand alternation (which helps prevent many characters from getting typed contiguously by one hand while the other sits idle). However, since different languages have different frequently used phonetic patterns/letter combinations, so-called "optimal" layouts for different native languages will place even phonetically and orthographically identical letters in very different places.
 
 The question of whether or not it is better for bilingual and trilingual individuals to try and learn one keyboard layout that is a compromise between their multiple languages or separate keyboard layouts for each language is a fascinating one, but it is ultimately separate from the matters this project concerns itself with. This project is instead focused on situations of language imbalance -- given that there is a dominant keyboard layout (presumably for one's native language(s)), what is the best way to type non-native languages?
 
 \subsection{Why this project?}
-\label{sec:org0e3ac61}
+\label{sec:org3b66fd0}
 
 Multilingual text input for non-native languages is a solved problem. By this I mean that at the time of writing, it is possible with various existing software options to enter text both in a primary language and in multiple alternate scripts (e.g., Greek, Hebrew, Cyrillic, Arabic, Devanagari) with relative ease.
 
 So why bother working on another project addressing these things? It's a fair question.
 
 \subsubsection{To combat the lack of open source, \emph{customizable} software}
-\label{sec:orgb788a59}
+\label{sec:org5e7c610}
 
 This section will use the present state of Greek text input as an example to illustrate how customizable software is currently lacking. Similar situations and observations hold for other languages that I have knowledge of, but will not be discussed for brevity's sake.\footnote{Discussion of options from research in Hebrew. Maybe put in Appendix somewhere?} \\
 
@@ -85,7 +85,7 @@ Of course, open source software has some other benefits as well. Open source sof
 If I were forced to pick "just one" reason why this project existed, it would be this: to create a customizable and open source framework for text entry of non-native languages.
 
 \subsubsection{To combat the lack of software that bundles multiple language layouts together}
-\label{sec:org00f1ff3}
+\label{sec:org7db06fb}
 
 This software is being developed in close association with Classicists, and the initial project scope is, in many ways, targeted at solving the problems of Greek scholars in this field. However, I am trying to create a framework that may be comfortably extended to other languages and alphabets as needed.
 
@@ -96,7 +96,7 @@ Additionally, much secondary scholarship in these fields is in German, French, a
 While it is more a future goal than a priority of "round one" of this project, bringing multiple language layouts together in the same program is one of the central motivations behind creating another project dealing with these things. Starting from scratch rather than adding on to an existing program ensures that there will be seamless interoperability in the future, and that standards and design guidelines may be established.
 
 \subsubsection{To combat the lack of software that adds functionality without removing any}
-\label{sec:org0e72e4d}
+\label{sec:orgcd8b633}
 
 Using keyboard shortcuts can be a frustrating experience when you have to type in another language. If there is no intelligent handling of modifier keys, people typing in a non-native language might miss such shortcuts as Ctrl-C (copy), Ctrl-X (cut), Ctrl-V (paste), Ctrl-Z (undo), and Ctrl-S (save). The situation is especially bad for those who use Vim, Emacs, or other text editors that make use of the keyboard (rather than a GUI) for functionality, and for people who use keyboard-driven window managers, browsers, application launchers, window switchers, and so on.
 
@@ -105,17 +105,17 @@ It can also be frustrating to "lose access" to some English keys (typically punc
 Things like these are not the most obvious design factors when one thinks of typing in non-native languages, but it has been my experience that these are actually almost as important as the layout design itself. The devil truly is in the details.
 
 \subsubsection{To combat the lack of software that works for nonstandard keyboard layouts}
-\label{sec:orgc194776}
+\label{sec:orgf1b45a2}
 
 Another reason for the creation of this project in particular is the fact that currently available homophonic layouts (at least those that function at the system level) do not work for "nonstandard" keyboard layouts -- they all assume a QWERTY base mapping.
 
 People typing on Dvorak, Colemak, QWERTZ, BÉPO, and so forth may wish to have the benefits of homophonic letter layouts in their non-native languages while retaining their native base mapping. Portability is a high priority of this project, and all of the functionality in any language can be implemented on whatever base layout is desired, with full customization as an option.
 
 \subsection{Why this paper?}
-\label{sec:orgab234af}
+\label{sec:orgb9df7a2}
 
 \subsubsection{Justifying design choices}
-\label{sec:org67e4eb6}
+\label{sec:org2737a23}
 
 This paper is intended to fill the void between low level implementation details (Should arrays or strings be used to send keys? Global variables or classes?) and the end result of fully functioning keyboard layouts.
 
@@ -124,7 +124,7 @@ I personally find it extremely frustrating when design decisions have no specifi
 The idea is to have something to point to when someone asks, "but why?" Rather than saying "just because" or trying to come up with rationalizations \emph{ex post facto}, attempting to rigorously justify everything from the get-go should lead to a project wherein there are not an abundance of arbitrary program characteristics. At least in theory.
 
 \subsubsection{Creating a starting point for people that may have different opinions than myself}
-\label{sec:org0a4fbf4}
+\label{sec:orgd0346b2}
 
 With all this being said, this paper is certainly not attempting to close discussion on these topics or be the last word on design factors. At the time of writing, I have worked with Greek for approximately two years, and any sort of serious coding for about as long. I am sure one could easily find people more qualified than myself for virtually any aspect of this project, and also for all of them put together.
 
@@ -133,17 +133,17 @@ Instead, the idea is start a conversation about these things in a more formal ma
 \{Todo: maybe mention survey and results here?\}
 
 \section{Section 2: Nuts and bolts}
-\label{sec:org729aa77}
+\label{sec:orgbe4c75c}
 
 Before getting into this project in particular, it is proper to briefly examine the nuts and bolts that make multilingual text input a possibility on modern operating systems. Much more could be written about any of the things here, but the present section will seek only to provide a sufficient amount of background to give readers an appreciation for the complexity at play behind the scenes.
 
 \subsection{Keyboard layouts}
-\label{sec:org3c6e7cc}
+\label{sec:orgeb24c97}
 
-To be able to type in a language that is not the default for your physical keyboard and system layout (e.g., a QWERTY ANSI keyboard used for American English), a different keyboard layout is necessary. In essence, a keyboard layout translates presses of physical keys into characters or key events (like Enter or Tab).\footnote{To be more precise, keyboards send hexadecimal scancodes that are interpreted by the operating system kernel. Depending on permissions, different programs can inject themselves into the input system, and intercept keypresses before they get sent to other programs. This is what allows a remapping program to change the behavior of sent keys: the scancodes sent by the physical keyboard are the same, but they are intercepted and replaced with virtual key codes that encode different behavior.} I find it helpful to split up keyboard layouts for languages into smaller semantic groupings to make them easier to think about, especially for people that must implement them in software.
+To be able to type in a language that is not the default for your physical keyboard and system layout (e.g., a QWERTY ANSI keyboard used for American English), a different keyboard layout is necessary. In essence, a keyboard layout translates presses of physical keys into characters or key events (like Enter or Tab).\footnote{To be more precise, keyboards send signals that are interpreted by the operating system. Depending on permissions, different programs can inject themselves into the input system, and intercept keypresses before they get sent to other programs. This is what allows a remapping program to change the behavior of sent keys: the signals sent by the physical keyboard are the same, but they are intercepted and replaced with so-called "virtual keys" that lead to different behavior.} I find it helpful to split up keyboard layouts for languages into smaller semantic groupings to make them easier to think about, especially for people that must implement them in software.
 
 \subsubsection{Letters}
-\label{sec:org07b3468}
+\label{sec:orga945f34}
 
 For languages with alphabets (\{Todo: footnote: as opposed to syllabaries or Abjads\}), keyboard layouts must provide a means for typing all of the letters. English has 26 letters, but other languages often have more or less.
 
@@ -152,7 +152,7 @@ Letters may be further subdivided into vowels and consonants. Vowels are typical
 Many languages have uppercase and lowercase letterforms, but not all languages do. Hebrew, for example, does not have any casing distinctions. In general, implementing uppercase forms involves keeping track of shift state, but not too much extra work other than that.
 
 \subsubsection{Context-specific/alternate letter forms}
-\label{sec:org51490e1}
+\label{sec:org350850f}
 
 Some languages have letters that change their form based upon their position in words. For example, word-final sigma in Greek changes forms, and many letters in Hebrew and Arabic also exhibit this behavior.
 
@@ -163,23 +163,23 @@ In addition to final forms, some languages have alternate forms of letters. In H
 For simplicity in programming, I recommend structuring development around \emph{program features} (for example, the ability add a dagesh to things\ldots{} alternate form or no) rather than \emph{language features} (for example, working on developing the capacity to support all possible sounds in a language, including aspirated forms and those that optionally change their phonetic value). This allows the designer of a keyboard layout to focus on one thing at a time, rather than trying to organize development around language features that may not cleanly map onto structured commits. As long as pains are taken not to forget any essential language features, this approach is easier on the programmers while accomplishing the same goals.
 
 \subsubsection{Mandatory markup: accents, vowel points, etc.}
-\label{sec:orge1d5328}
+\label{sec:org042d519}
 
 Most languages have some system of diacritical marks that are considered mandatory, diacritical marks that are essentially "part of the language." For example, Spanish and Italian have accents, Hebrew has vowel points, and Greek has accents, breathing marks, and the iota subscript.
 
-These mandatory diacritical marks must be present for language text to be considered correct, and are typically fairly common. For this reason, they require more thought in placement, since an inconvenient location or entry method can render text entry for the entire language unpleasant.
+These mandatory diacritical marks must be present for language text to be considered correct, and are often used frequently. For this reason, they require more thought in placement, since an inconvenient location or entry method can render text entry for the entire language unpleasant.
 
 \subsubsection{Additional markup: vowel quantity, cantillation marks, etc.}
-\label{sec:org892de33}
+\label{sec:orgbea513a}
 
 Some languages have another set of markup symbols used in specific circumstances or by specific groups of people. Good examples of symbols in this category are diacritics that indicate vowel quantity: the macron and breve are not "required" in Latin-script languages, but commonly show up in dictionaries and grammar books to help with pronunciation.
 
-There are also other domain-specific symbols, depending on the language. Hebrew scholars working with the Masoretic text in any capacity will inevitably have to deal with the cantillation marks (the \texthebrew{טעמי המקרא}, \emph{ta'amei ha-mikra}), used in ritual chanting of the \emph{Tanakh}. Greek and Latin scholars may wish to use metrical symbols to mark dactyls, spondees, and caesurae when scanning ancient epics in dactylic hexameter. Etc.
+There are also other domain-specific symbols, depending on the language. Hebrew scholars working with the Masoretic text in any capacity will inevitably have to deal with the cantillation marks (the \texthebrew{טעמי המקרא}, \emph{ta'amei ha-mikra}), used in ritual chanting of the Tanakh. Greek and Latin scholars may wish to use metrical symbols to mark dactyls, spondees, and caesurae when scanning ancient epics in dactylic hexameter. Etc.
 
 Implementation of these additional markup symbols is in some sense optional, inasmuch as they are used only by certain groups of people. However, it is best to think of them as features that should be included eventually for robustness, even if they do not make it into the first implementation.
 
 \subsubsection{Punctuation; language-specific symbols}
-\label{sec:org6200877}
+\label{sec:orgb32b7f2}
 
 While the dominance of English as a computer language has served to standardize international punctuation to a certain extent, some languages still have specific punctuation that is used in lieu of, say, the question mark. Greek, for example, uses a semicolon to indicate questions, and a dot in the middle of the line to indicate a break in thought (i.e., to indicate a semicolon).
 
@@ -187,49 +187,51 @@ The situation is somewhat complex in that "casual typing" of many languages has 
 
 Numerals are another interesting case. Arabic numerals (0-9) are very much the international standard nowadays, but many languages used to use different numerical systems with different character sets (sometimes some subset of the alphabet, as with Hebrew), which may have special numerical symbols.
 
-Finally, in modern contexts, most foreign currencies have special symbols. It is convenient to be able to access these without complicated and abstruse key sequences.
+Finally, in modern contexts, most foreign currencies have special symbols. It is convenient to be able to access these without complicated and abstruse key sequences or combinations.
 
 \subsection{Unicode}
-\label{sec:orga7bd195}
+\label{sec:org7352e93}
 
 \subsubsection{History}
-\label{sec:orga014bd2}
+\label{sec:org4dffd5e}
 
 Handling languages with non-Latin alphabets has long been a topic of conversation among people working with computer input systems. Due to historical reasons, computers have developed very much around English and the ASCII character set, with other alphabets being second class citizens.
 
-As computers developed and people moved away from typewriters (which had significant physical limitations that made representing many complex scripts difficult), efforts were undertaken to standardize language input and robustly handle foreign alphabets, even their mixing with English. For example, Knisbacher et al. (1989) discuss Hebrew input on early PCs, Selden (1981) summarizes a early effort to standardize how Arabic was handled on computers, and Mastronarde (2008) summarizes historical Greek options in the first five pages of his excellent presentation on Greek and Unicode.
+As computers developed and people moved away from typewriters (which had significant physical limitations that made representing many complex scripts difficult), efforts were undertaken to standardize language input and robustly handle foreign alphabets, even their mixing with English. For example, Knisbacher et al. (1989) discuss Hebrew input on early PCs, and Selden (1981) summarizes an early effort to standardize how Arabic was handled on computers.
+
+However, early systems suffered from problems that made them somewhat less than optimal: many systems made it impossible to mix English and a foreign text, foreign text typed in one system often was not portable to other systems, etc. Mastronarde (2008) discusses such problems in the first few pages of his discussion of pre-Unicode options for Greek input.
 
 As memory and storage sizes have increased, it has become acceptable to use multiple bytes for the storage of text characters, and thus much easier to handle all of the characters necessary for multiple complex alphabets. Unicode attempts to solve the challenges of dealing with multiple languages by defining values that map to characters across different numeric ranges. In this way, Unicode allows for multiple languages to be typed without conflict, since the characters are all being represented by different numbers in memory.
 
 \subsubsection{Scope and purpose; peculiarities}
-\label{sec:org27acc40}
+\label{sec:orgc9a58d4}
 
 Unicode is theoretically laid out in terms of "blocks" for different language sections. Unfortunately, due to various considerations (politics, lack of foresight, an initial project scope that did not encompass historical/uncommon characters), it is not uncommon for characters of the same language to be spread out across several numerical ranges. The initial Greek block, for example is sufficient for monotonic Greek accentuation, but leaves a lot to be desired in terms of polytonic Greek. The Greek extended block helps in the area of polytonic Greek, but still leaves many uncommon or regional characters without official support.
 
-Unicode seeks, in some sense, to be the "kitchen-sink" solution. When you type Unicode text in a document with encoding such as UTF-8, you have the capability of using all of the 1-million-plus characters together (a decidedly good thing). However, the nature of its all-encompassing haphazard growth has made it somewhat more difficult to understand from a language-centric perspective (as in you are using two of the hundreds of possible languages, and have no need for the rest), and has caused the full encoding to include some puzzling, kludgy behavior.
+Unicode seeks, in some sense, to be the "kitchen-sink" solution. When you type Unicode text in a document with encoding such as UTF-8, you have the capability of using all of the 1-million-plus characters together (a decidedly good thing). However, the nature of its all-encompassing haphazard growth has made it somewhat more difficult to understand from a language-centric perspective (e.g., you are using two or three of the hundreds of possible languages, and have no need for the rest), and has caused the full encoding to include some puzzling, kludgy behavior.
 
 A good resource discussing such Unicode peculiarities from the Greek side of things is Nick Nicholas' page on Greek and Unicode: \url{http://www.opoudjis.net/unicode/unicode.html}. Many Unicode choices that seem strange at first glance may still seem strange at second glance too, but typically there are reasons for why things are the way they are (even if they are unsatisfying and historical).
 
 \subsubsection{Precomposed and decomposed Unicode}
-\label{sec:orgb122ec7}
+\label{sec:org5a257fe}
 
-As time has passed, the Unicode consortium has gotten more and more reserved about adding additional precomposed characters. After all, so the reasoning goes, combining diacritical marks are already supported in the Unicode specification. Why should Unicode have to support "redundant" precomposed characters if you can just enter the same character as a sequence with combining character(s)?
+As time has passed, the Unicode consortium has gotten more and more reserved about adding additional precomposed characters. After all, so the reasoning goes, combining diacritical marks are already supported in the Unicode specification. Why should Unicode have to support "redundant" precomposed characters if you can just enter the same character as a sequence with combining characters?
 
 The logic is fine so far as it goes, but the problem is that the Unicode text encoding is only half of the picture: without fonts that properly support decomposed sequences, decomposed Unicode is not really an option. There have historically been many problems with fonts improperly displaying combining characters. For example:
 
 \begin{itemize}
-\item The combining characters might be horizontally off center compared to the letter
+\item The combining characters might be horizontally off-center compared to the letter
 \item The vertical spacing between the letter and the diacritic might be too little or too much
 \item Multiple combining characters might overlap with each other, or not stack properly
 \item Etc.
 \end{itemize}
 
-Because different base characters have different physical characteristics (some are taller, or wider, or have ascenders and descenders to deal with, e.g.) there is no cookie-cutter solution for physically placing combining characters. Rather, it must be done for each letter individually.
+Because different base characters have different physical characteristics (e.g., some are taller or wider or have ascenders and descenders to deal with) there is no cookie-cutter solution for physically placing combining characters. Rather, it must be done for each letter individually.
 
 As will be discussed below, there are actually modern fonts that handle decomposed Unicode well. However, there are still plenty of fonts that do not, especially when you start combining multiple diacritics, or using any uncommon diacritics.
 
 \subsubsection{Combining multiple diacritics}
-\label{sec:org8f98ce4}
+\label{sec:org7b25b19}
 
 An additional wrinkle in decomposed Unicode with multiple combining characters is the entry sequence. What happens if you type all the permutations of three different diacritics -- do they all display the same?
 
@@ -240,35 +242,140 @@ By default, the diacritics or other combining characters are positioned from the
 starting from the base character and stacking downward.
 \end{quote}
 
+Because some languages violate the expected behavior due to historical reasons, it is usually safest to check how a particular language typically handles the entry order of combining characters. An example of such a resource for Greek comes from the Greek and Unicode site linked above: \url{http://www.opoudjis.net/unicode/unicode\_ordering.html}.
+
 \subsection{Fonts}
-\label{sec:org41a0656}
+\label{sec:org900c0a9}
 
 \subsubsection{Supporting decomposed Unicode}
-\label{sec:org8a8cc11}
+\label{sec:org35ab3d4}
+
+In recent years, font support for decomposed Unicode has improved significantly. In particular, support for so-called "smart fonts" (such as OpenType fonts) has improved to the point where most users will not have to concern themselves about whether or not their fonts play nice with decomposed Unicode so long as they are using popular mainstream fonts (Lucida Grande, Palatino Linotype) or common academic fonts for their language(s).\footnote{See \url{https://gervatoshav.blogspot.com/2015/07/greek-fonts-free-productivity-apps-and.html} and \url{http://www.russellcottrell.com/greek/fonts.asp} for good discussions of Greek options, and \url{https://jcuenod.github.io/bibletech/2017/07/27/unicode-hebrew-fonts/} for a good discussion of Hebrew options. Domain specific fonts (such as the SBL fonts) will not support as wide a range of characters -- the IPA blocks, for example -- as more general fonts that have broad coverage (such as Cardo).} Mastronarde (2008), on pages 26-28, includes a good discussion of how fonts behave with smart features vs. how they behave without smart features, and has a helpful chart illustrating why smart features are to be desired. Of course, this is somewhat an application problem as well, since if an application does not support OTF fonts, for example, it will not support decomposed Unicode either (or at least is likely to not display it cleanly). Fortunately, most modern text processing applications support smart fonts just fine, and so this is more of an academic concern than a practical concern.
+
+With all this having been said, even smart fonts can fail to handle some of the less common combinations. Macrons prove problematic in many otherwise excellent Greek fonts, for example, since there are not precomposed forms for combinations like macron + acute accent, and since decomposed macron + accent forms do not always display nicely. The path to fixing such problems is not always clear (since it might require the coordination of font designers, input system developers, and the developers of word-processing software), but usually there is a way.\footnote{A good example of font changes that can be undertaken to solve such problems can be seen in a series of blog posts by James Tauber, starting with this post: \url{https://jktauber.com/2016/01/28/polytonic-greek-unicode-is-still-not-perfect/}}
 
 \subsubsection{Private Use Areas}
-\label{sec:org300da1b}
+\label{sec:org2bb32ee}
 
-\begin{itemize}
-\item New Athena Unicode
-\end{itemize}
+One very straightforward way of handling edge cases is to create special precomposed characters for them so that combining character stacking never even comes into the picture. Unicode supports the use of so-called "private use areas" (PUAs)-- ranges of Unicode codepoints (E000 - F8FF and planes 15 and 16) that are purposely left undefined by Unicode to allow for organizations/other groups to create non-standard character definitions. A good FAQ on the characters defined in these ranges ("private use characters") can be found on the Unicode website: \url{https://www.unicode.org/faq/private\_use.html}.
+
+The technical details section of the GreekKeys site (\url{http://apagreekkeys.org/technicalDetails.html}) discusses the use of PUAs for special Greek characters by a collection of Unicode fonts including GreekKeys's New Athena Unicode, Juan-José Marcos' Alphabetum, David Perry's Cardo, and others. The page also includes a link to  Juan-José Marcos' proposal for the agreement: \url{http://apagreekkeys.org/pdfs/PUA\_coordination\_usage.pdf}. This pseudo-standard allows for many characters Unicode does not directly support to be typed by Greek scholars who wish to use them. New Athena Unicode also supports some additional characters in the PUAs (as mentioned in the above link) that the other fonts may not.
+
+If you are willing to only view and publish documents with fonts that follow such "gentlemen's agreements" for PUA characters, you may find solutions like this to be extremely useful. However, using PUA points is not at all portable, since if someone were to open your document with a font that did not define the PUA code points (or perhaps even worse, defined them with entirely different characters), your text would not display correctly.
 
 \subsubsection{Using the same font for native languages and non-native languages}
-\label{sec:org747ea27}
+\label{sec:org8d69fe0}
+
+One final thing to note about fonts is their interaction with publishing systems. Depending on your particular application choices (e.g., Microsoft Word, \LaTeX{}, InDesign), it may or may not be possible to have custom font faces on a per-language basis. That is, without any additional work on your part, can you have text in, e.g., Greek, show up on screen and print in an entirely different font than the English text?
+
+An argument in favor of certain workflows is the customization options they give you. For example, I currently write in Emacs' Org mode, and export to PDF via \LaTeX{}. I can tell Emacs to use different fonts depending on the character set (to have my preferred fonts on screen when I am writing in foreign scripts), and tell \LaTeX{} to use entirely different fonts for different languages when publishing, all without having to manually change fonts every time I switch a language.
+
+However, for most people, setting up something like the above is a big headache. It is easy, however, to use a Unicode font that supports multiple character sets, including, for example, the Latin character block and the Greek blocks. Writing in a font like Cardo, New Athena Unicode, Gentium Plus, SBL BibLit, etc. lets you write both English and Greek without having to change fonts, and works this way no matter what application you use the font in, as long as said application supports Unicode. The broader support a particular font has, the more different languages you can type in that font without having to worry about font switching.
 
 \section{Section 3: The Unicode Language Layers project}
-\label{sec:orga340198}
+\label{sec:orgb515006}
+
+Thus far we have examined exactly what this project is interested in at a high level (Section 1), and the sorts of details that must be dealt with when working with multilingual input on computers (Section 2). This section will seek to present a brief summary of this project's main goals and features.
 
 \subsection{Sane defaults combined with ease of use}
-\label{sec:org9d4c351}
+\label{sec:orgb37a147}
+
+A popular sentiment in the programming community is the notion of having software that "just works." Equally prevalent is the notion that software should follow the "principle of least astonishment."\footnote{Interested parties may learn about what these phrases might possibly mean at \url{http://wiki.c2.com/?ItJustWorks} and \url{http://wiki.c2.com/?PrincipleOfLeastAstonishment}.} The former refers to the idea that software should be \emph{easy} (for normal humans) to download, install, run, update, and what have you. If grandma needs to open bash and pipe a man page through grep to find out how to resize a window, software does not just work. The latter refers to the idea that software should behave according to how (normal humans) would expect it to behave. Software that has a button with an X on it that opens a new window is not following the principle of least astonishment.
+
+These desirable traits are bandied about quite a bit, but, it seems to me, less common in software than one might think. This project seeks to both "just work" and be predictable as much as possible, given the limitations on my time and present programming capabilities.
+
+\subsubsection{Installing and running the program}
+\label{sec:org49fb3cd}
+
+Aside from installing a language dependency (AutoHotkey), which is unfortunately unavoidable, installing and running this project is very straightforward. You download the zip file containing the program, unzip it, and double click on the remapping program to run it.
+
+Assuming you are using QWERTY, you do \emph{not} have to change anything about your current keyboard, operating system keyboard layout, word processing software, and so on. If you are not using QWERTY, see §3.2, below.
+
+In the future, I have plans to offer an installer that allows for the creation of a desktop icon and start menu shortcut, as well as the option of starting the program upon system startup (so that it never needs to be run manually). This is a bit beyond me at present, however.
+
+\subsubsection{Intuitive switching between languages}
+\label{sec:org676f94a}
+
+Depending on what sort of software you use for typing in other languages, you may need to go into the system tray to switch languages, or select between possible layout options with a shortcut like Win + Space (the Windows key plus Space). Key sequences are desirable when switching between languages since they don't force you to reach for a mouse and open some different window.
+
+In particular, it is useful to be able to switch to specific languages with key sequences, rather than toggling between multiple options. If you need to type in more than two scripts, having a single keyboard shortcut may force you to press a sequence multiple times to select the language you really want (cf. the normal behavior of Alt + Tab). It is more efficient (and arguably easier to remember) to have separate hotkeys for changing to desired languages individually (a hotkey to start typing in English, a hotkey to start typing in Greek, a hotkey to start typing in Hebrew, etc.). It is even better if these individual sequences use mnemonics for memorability (this is the approach taken by this project).
+
+\subsubsection{Letter placements that make sense}
+\label{sec:orgdd51dd3}
+
+Since this project is targeting the typing of non-native languages (see §1.1), letter placements should be intuitive for typists that are not typing in a language frequently or for a long time. \\
+
+\noindent \textbf{Typing performance and keyboard layout considerations} \\
+
+Studies of typing have identified some trends in terms of keystroke efficiency and general typing performance. For example, Dhakal \emph{et al.} (2018), in a study of 168,000 volunteer typists, found that inter-key intervals (IKIs) -- the time intervals between subsequent key presses, a good predictor of overall typing speed -- were lower for bigrams (two-letter sequences) that alternated hands (i.e., had one letter typed by one hand, and a following letter typed by the other hand) than for bigrams typed on only one hand. Feit \emph{et al.} (2016), in their overview of previous studies of typing, summarize well established phenomena and their corresponding measures based on prior studies of professional touch typists; the finding reported above has been noted multiple times in prior studies. Additionally, it has been observed that repeated key presses have lower IKIs than same-hand key presses, which in turn have lower IKIs than keypresses that require the same finger to press two different keys in succession.
+
+Dhakal \emph{et. al} (2018) also found that fast typists make/need to correct fewer mistakes than slower typists, that faster typists use more fingers on average, and that faster typists have high "rollover percentages" -- a measurement of how many keystrokes begin with other keys already being pressed down from a previous keystroke. Feit \emph{et al.} (2016) observed a similar phenomenon in that they came to the conclusion that the preparation of keystrokes leads to lower average IKIs. They also noted that a lower standard deviation in global hand position (i.e., lower overall hand movement from some "home position") similarly leads to lower average IKIs, and that a consistent key mapping of finger-to-key ("low entropy") has a similar effect.
+
+Pulling these observations together, one arrives at something like the following:
 
 \begin{itemize}
-\item Letters, diacritics, etc. At least have "some reason" for placements of everything
-\item Defaults should match up to the "normal user" and what they would find best
+\item Bigrams involving hand alternation are faster (in terms of low IKIs) than repeated keypresses (i.e., a bigram with only one unique key pressed twice by the same finger), which in turn are faster than (non-same-finger) same-hand bigrams, which in turn are faster than (non-repeated) same-finger bigrams.
+\item The ability to "prepare" following keypresses positively associates with typing speed (low IKIs), which helps explain why fast typists have high rollover percentages: lining up future keystrokes makes it easier for fast typists to have multiple keys down at the same time.
+\item Low overall hand movement positively associates with typing speed (low IKIs). This is likely mediated through low-movement typists being better able to line up future keypresses.
+\item The number of fingers used to type positively associates with typing speed (words per minute: WPM).
+\item A low error rate positively associates with typing speed (WPM).
+\item A consistent mapping of finger-to-key ("low entropy") positively associates with typing speed (low IKIs).
 \end{itemize}
 
+Mapping these observations onto keyboard layout design is not exactly 1:1. The above studies had populations of almost entirely QWERTY typists. QWERTY heavily loads the left hand, and does not actually favor a neutral hand position on the home row since very frequent letters such as e, t, r, o, i, n, etc. are not actually on the home row. (This would have the net effect of actually \emph{penalizing} people that learned a 10-finger touch typing system that teaches slavish hand positioning on the home row). Moreover, the second study did not have any typists above 79 words per minute, which is below the \emph{average} 80+ WPM typing rates of earlier studies that focused on trained, professional touch typists (on typewriters, no less, which disallow rollover by mechanical design). For these reasons, I do not agree with the conclusion of this study that touch-typists (defined as people able to type without looking at the keyboard to find keys) and non-touch-typists have similar typing speeds on a philosophical level: perhaps for the suboptimal QWERTY layout for typists of slow to average speeds, but not in general, and almost certainly not for typists on right tail of the distribution, with speeds exceeding 120 WPM. In other words, while I do think that the study is valuable in that it shows that most average typists won't benefit from a structured system, I do not think it says anything about the usefulness of the structured system as one approaches higher speeds, particularly on more intentionally designed keyboard layouts.\footnote{Full disclosure: I type on an algorithmically generated custom layout (with heavy automation built in: autospacing of punctuation, autopairing of parentheses etc., autocapitalization, and so forth), and have spent a great deal of time over the years thinking about these things. See \url{https://github.com/StevenTammen/hieam}.}
+
+Additionally, it is somewhat difficult to map things like "low error rate" onto keyboard layouts. Perhaps some keys are more easy to confuse than others, and some sequences of keypresses are harder on a physiological level, but these things are difficult to measure, and may vary widely by individual.
+
+With all this being said, present data does support prioritizing bigram hand alternation, prioritizing low overall hand motion, and minimizing the amount of consecutive non-repeat keypresses involving the same-finger. \\
+
+\noindent \textbf{The design of non-native keyboard layouts} \\
+
+Given the above discussion, one might wonder if it is worth designing keyboard layouts for non-native language that try to minimize IKIs and maximize WPM by their very design. Once in muscle-memory, they would certainly allow for higher theoretical speeds.
+
+However, the exceedingly great complexity of the cognitive processes behind typing -- see Rumelhart \emph{et al.} (1982), e.g., for a specific proposed model-- makes it difficult to pin down performance causalities, particularly with respect to mental models of keyboard layouts. For example: what effect do semantic groupings of characters have?
+
+As a general rule of thumb, so-called "fully optimized" layouts (which tend to have high hand alternation, low overall hand movement, and low same-finger) will have relatively poor inherent memorability in terms of semantic groups. If you let a genetic algorithm design an optimized layout for you, it will not keep all the letters in a block or numbers in a row, but mix everything together according to frequency considerations. We humans are very pattern-oriented creatures, and having no apparent structure to characters will inevitably make a keyboard layout more difficult to remember, to some degree. Furthermore, it would seem likely that keyboard layouts that are easier to remember will be easier to get up to speed with, especially if you don't practice with them very much.
+
+The issue in all this is that there is no research I am aware of that explicitly covers these things. For this reason, I cannot say definitely how much easier semantically-grouped keyboard layouts for non-native languages are to learn than fully-optimized keyboard layouts for these same languages, or how much faster people may train them to, say, 35 WPM. The data for this simply does not exist. However, this paper is operating on the assumption that these considerations are non-negligible for most people in most circumstances. The hypothesis coming from such an assumption is this: since people typing non-native languages will not be typing them with great frequency and magnitude, it is more rational to focus on memorability over raw optimization considerations, since layouts that are easier to remember will be faster to learn, and the benefits of "brute forcing" an optimized layout (as one might do for one's native language) will never be realized in typical use cases. \\
+
+\noindent \textbf{Native-language layouts in muscle memory} \\
+
+The above discussion focused on the interplay of memorability, layout optimality (as measured by hand alternation, overall hand movement, same-finger, etc.), and ease of acquisition in the abstract. However, assuming users of this project can already type on a keyboard layout in their own language (in whatever regard: touch typing, hunting and pecking, etc.), we do not need to start from ground-zero.
+
+The general idea is that for the circumstances under which mospeople type non-native languages it is \emph{always} better to associate a keyboard layout for a non-native language with a keyboard layout for a native language already in muscle memory. Associating a new layout with the old layout lets typists reuse neural pathways that are already in place rather than forming new ones from scratch.
+
+What do I mean by this? Let's take the Greek letter alpha. Most people, Classicists or no, know that alpha corresponds in phonetic value to the English letter A. Alpha also happens to look like the letter A in both its lowercase and uppercase forms. So, rather than putting alpha on some random key, why not simply place it on the same key as the letter A in English? \\
+
+\noindent \textbf{Issues in constructing associations} \\
+
+If we accept the premise that it is best to form correspondences between non-native languages and keyboard layouts already in use (for English or otherwise), then it follows that we need some formalized system for doing so.
+
+Layouts derived from phonetic matching are typically called "homophonic layouts." While homophonic layouts are excellent when correspondences exist, there are some letters in languages that have no clear English equivalent. Theta in Greek, for example, corresponds to the phoneme in English that is represented by the digraph "th." These must be dealt with separately.
+
+There are also some cases when a language has two letters for the same phoneme. In Hebrew, for example, the consonant vet (bet without a dagesh) is equivalent to the consonant vav -- they both make "the V sound." So which one should occupy the V key?
+
+The associations (henceforth keymaps, short for "key mappings") in §4.1 and §5.1 below attempt to solve such issues in a systematic way. Following the hypothesis presented above (namely, that memorability is a more important concern in these circumstances than raw optimality), priority is given to phonetic correspondences, then visual correspondences, then transcription correspondences, then, finally, to raw optimality.
+
+The ordering of priority above is not based on any hard data (as no such data exists, to my knowledge), but based on my own experiences in learning Greek and Hebrew keyboard layouts, the principle of least astonishment, and logical consistency:
+
+\begin{enumerate}
+\item Following the principle of least astonishment, if "most" keys are being placed by phonetic correspondence, it makes sense to use phonetic correspondence as the primary determiner of non-native character position, wherever possible.
+\item Following this, visual correspondences are used since they do not depend on any particular system (unlike transcription correspondences, which may only "work" for some transcription schemes), and also have greater "astonishment factor" for alternate keymaps than transcription correspondences (particularly in the case of Greek, which shares many graphemes with English in lowercase and especially uppercase forms). For example, eta in Greek is almost universally put on the letter H in keyboard layouts, since capital eta \emph{is} the grapheme H.
+\item Transcription correspondences come next, in that they are a better mnemonic than nothing. Transcription correspondences work best for letter-based transcription (i.e., transcription that does not involve the used of special diacritics), especially that involving only single graphemes. A good example of this is using Q for quf on Hebrew keyboard layouts: the English letter Q most certainly does not take on the phonetic value [k], but since quf is very commonly transliterated as Q, it is easy to associate the letter Q with quf.
+\item Finally, raw optimality is used when none of the mnemonics work. The letter theta in Greek, for example, has no phonetic \emph{letter} equivalent in English (even though we use the phoneme \emph{θ} all the time), has no letter look-alikes, and is commonly transliterated as th or tʰ, which doesn't help create any good associations (since tau makes the most sense for the English letter T). So theta is placed on a key that performs best with respect to the goals of high hand alternation, low overall hand movement, and low same-finger.
+\end{enumerate}
+
+\subsubsection{Diacritic placements that make sense}
+\label{sec:org6749514}
+
+Since diacritics don't have phonetic value or any transcription equivalencies most of the time, finding memorable places for them relies much more on visual correspondences and raw optimality. The visual correspondences here are a little less obvious as well (e.g., : yields a diaeresis as apposed to a yields α).
+
+This is one of the key areas that this project distinguishes itself from others. Many (but not all) keyboard layouts for languages like Greek and Hebrew use either dead-keys or complicated chords (Ctrl + Alt/Option + something) to enter diacritics, which is far harder to remember than a single key equivalence, particularly a key equivalence with visual correspondence. Single keys (even those that require shift to enter) are also much faster to type in general.
+
+As with letters, visual correspondences are prioritized above raw optimality, following the same hypothesis that memorability is of greater concern for the keyboard layouts of non-native languages than theoretical measures of efficiency.
+
 \subsection{Customizability as a first order priority}
-\label{sec:orgec2e0cf}
+\label{sec:orgf37a9ba}
 
 \begin{itemize}
 \item Thorough API
@@ -277,7 +384,7 @@ starting from the base character and stacking downward.
 \end{itemize}
 
 \subsection{Minimal interference with normal computer use}
-\label{sec:org5cf3b89}
+\label{sec:orgb27dc69}
 
 \begin{itemize}
 \item Quick and easy on and off
@@ -286,10 +393,10 @@ starting from the base character and stacking downward.
 \end{itemize}
 
 \subsection{Consistency across multiple languages}
-\label{sec:org1463b49}
+\label{sec:org9ba8e6e}
 
 \subsubsection{For end users}
-\label{sec:orgc525e5d}
+\label{sec:org31fa87b}
 
 \begin{itemize}
 \item Base markup for Latin, German, French, Italian, Spanish. Leader-prefixed diacritics.
@@ -297,7 +404,7 @@ starting from the base character and stacking downward.
 \end{itemize}
 
 \subsubsection{For designers}
-\label{sec:org424bcac}
+\label{sec:org7399818}
 
 \begin{itemize}
 \item Consistent handling of precomposed and decomposed Unicode
@@ -306,46 +413,13 @@ starting from the base character and stacking downward.
 \end{itemize}
 
 \section{Section 4: Greek as an example}
-\label{sec:orge23a9f4}
+\label{sec:org67e82c9}
 
 \subsection{Letters}
-\label{sec:orgd003279}
-
-\subsubsection{The relationship between memorability and speed}
-\label{sec:org7ef682b}
-
-Touch typing is a skill acquired over time through practice. Given that most individuals typing ancient languages in scholarly pursuits (e.g., Classicists, Ancient Near East scholars) will not need to enter large amounts of text in ancient languages, and will not need to do it with great frequency, it is worth considering the time-cost associated with learning keyboard layouts for ancient languages.
-
-Keyboard layout design is a complicated process with many optimization variables. Today, layouts may be judged using algorithms like \{Todo\}, which track many metrics that are likely associated with performance. I say likely, because there has not been formal scholarship on the subject done in such a way that we may be sure about such things. Part of the problem involves the difficulty in doing research: you cannot blind research about keyboard layouts (people must know the layout they are typing on), you cannot have a realistic control group (everyone who has used computers already has varying levels of experience typing on keyboards -- even people who hunt and peck have cognitive maps of their layout), and many things that one might want to measure -- most notably comfort and repetitive stress -- are difficult to get good, objective measurements for.
-
-With all this said, there are some things that are not controversial. Having more commonly typed characters on the home row leads to less hand movement and theoretically faster speeds. Avoiding having the same finger type multiple keys in a row (cf. QWERTY's "minimum") enables the typist to "line up" fingers when typing, so that multiple keys may be in the process of being pressed at once.\footnote{While I don't know of a formal source for numbers, many expensive keyboards market themselves as being better for fast typists due to allowing for so-called "n-key rollover" (NKRO), which lets many keys be pressed simultaneously, as opposed to the 6-key rollover of most USB keyboards.} Having work split between the hands is more balanced than having it all concentrated on one hand (cf. QWERTY's "stewardesses").
-
-As a general rule of thumb, so-called "fully optimized" layouts will have relatively poor memorability. If you let a genetic algorithm design an optimized layout for you, it will not keep all the letters in a block or numbers in a row, but mix everything together according to frequency considerations. We humans are very pattern-oriented creatures, and having no apparent structure to characters will make a keyboard layout more difficult to remember, to some degree. Furthermore, it is obvious that keyboards that are easier to remember will be easier to get up to speed with.
-
-The issue in all this is that due to a lack of research, I cannot say definitely how much easier semantically-grouped keyboard layouts are to learn, or how much faster people may train them to, say, 35 WPM. The data for this simply does not exist. However, this paper is operating on the safe assumption that these considerations are non-negligible for most people in most circumstances. The hypothesis coming from this is this: since people typing ancient languages will not be typing them with great magnitude and frequency, it is more rational to focus on memorability over raw optimization considerations, since layouts that are easier to remember will be faster to learn, and the benefits of "brute forcing" an optimized layout (as one might do for one's native language) will never be realized in typical use cases.
-
-\subsubsection{Native-language layouts in muscle memory}
-\label{sec:org0109ff2}
-
-The above discussion focused on the interplay of memorability, layout optimality (as measured by finger travel distance, same finger, etc.), and ease of acquisition in the abstract. However, assuming users of this project can already type on a keyboard layout in their own language (in whatever regard: touch typing, hunting and pecking, etc.), we do not need to start from ground-zero.
-
-The general idea is that for the circumstances under which most scholars type ancient languages it is \emph{always} better to associate a keyboard layout for an ancient language with a keyboard layout for a native language already in muscle memory. Associating a new layout with the old layout lets typists reuse neural pathways that are already in place rather than forming new ones from scratch.
-
-What do I mean by this? Let's take the Greek letter alpha. Most people, Classicists or no, know that alpha corresponds in phonetic value to the English letter A. Alpha also happens to look like the letter A in both its lowercase and uppercase forms. So, rather than putting alpha on some random key, why not simply place it on the same key as the letter A in English?
-
-\subsubsection{Issues in constructing associations}
-\label{sec:orgd6a0cb1}
-
-If we accept the premise that it is best to form correspondences between ancient languages and keyboard layouts already in use (for English or otherwise), then it follows that we need some formalized system for doing so.
-
-Layouts derived from phonetic matching are typically called "homophonic layouts." While homophonic layouts are excellent when correspondences exist, there are some letters in languages that have no clear English equivalent. Theta in Greek, for example, corresponds to the phoneme in English that is represented by the digraph "th." These must be dealt with separately.
-
-There are also some cases when a language has two letters for the same phoneme. In Hebrew, for example, the consonant Vet (Bet without a dagesh) is equivalent to the consonant Vav -- they both make "the V sound." So which one should occupy the V key?
-
-The associations (henceforth keymaps, short for "key mappings") below attempt to solve such issues in a systematic way. Following the hypothesis presented above (namely, that memorability is a more important concern in these circumstances than raw optimality), priority is given to phonetic correspondences, then visual correspondences, then transcription correspondences, then, finally, to raw optimality. \{Todo: why?\}
+\label{sec:orgbcde056}
 
 \subsubsection{A Greek-English keymap}
-\label{sec:orga77f57c}
+\label{sec:orgf437890}
 
 \noindent \textbf{Foreword \{Todo: footnote this/put in appendix\}} \\
 
@@ -440,19 +514,19 @@ Digamma dropping explains the -ευς declension and the development of certain 
 Koppa can be also be useful in explaining language development, as can the third and last early Greek letter: San (allophonic with Sigma). \{Todo: explain how to generate San\}
 
 \subsection{Context-specific/alternate letter forms}
-\label{sec:org54a1dbc}
+\label{sec:org5a94332}
 
 \subsubsection{Final sigma}
-\label{sec:orgbdebd9a}
+\label{sec:orgea969f1}
 
 \subsubsection{Lunate sigma}
-\label{sec:orgfc91719}
+\label{sec:org2bf0e2f}
 
 \subsection{Mandatory markup}
-\label{sec:org6cae0ac}
+\label{sec:org9814acc}
 
 \subsubsection{Breathings}
-\label{sec:org09087f2}
+\label{sec:orgc4b27f2}
 `
 \begin{itemize}
 \item smooth, rough
@@ -460,193 +534,193 @@ Koppa can be also be useful in explaining language development, as can the third
 \end{itemize}
 
 \subsubsection{Accents}
-\label{sec:orgc9a4695}
+\label{sec:orgbc6bce2}
 
 \begin{itemize}
 \item acute, grave, circumflex
 \end{itemize}
 
 \subsubsection{Iota subscripts}
-\label{sec:org4e8544a}
+\label{sec:orgd87e673}
 
 \subsubsection{Diaeresis}
-\label{sec:org8639d33}
+\label{sec:orgcf76552}
 
 \subsubsection{The koronis}
-\label{sec:org781d536}
+\label{sec:org63c8b4c}
 
 \subsection{Additional markup}
-\label{sec:org0e27654}
+\label{sec:org2d9e4cc}
 
 \subsubsection{Vowel quantity: macrons and breves}
-\label{sec:org2b6ed1c}
+\label{sec:orge630e42}
 
 \subsubsection{The underdot}
-\label{sec:org579df0b}
+\label{sec:orge7ea1a4}
 
 \subsection{Punctuation; language-specific symbols}
-\label{sec:org9a43c7d}
+\label{sec:org34d2a8d}
 
 \subsubsection{Question marks and semicolons}
-\label{sec:org600b79b}
+\label{sec:org15a648d}
 
 \subsubsection{A discussion of "hybrid" punctuation, and accessing normal punctuation when desired}
-\label{sec:org6998645}
+\label{sec:org23eb32e}
 
 \{Todo: \footnote{Metrical marks, special numerals, drachma symbol}\}
 
 \section{Section 5: Hebrew as an example}
-\label{sec:org2a717e9}
+\label{sec:org9aa0de8}
 
 \subsection{Letters}
-\label{sec:orgc8f0329}
+\label{sec:orgec074cb}
 
 \subsubsection{Handling cases of identical letter sounds}
-\label{sec:org928f8f3}
+\label{sec:org9749e31}
 
 \subsubsection{A Hebrew-English keymap}
-\label{sec:orgb47d0a6}
+\label{sec:org9c44e67}
 
 \subsection{Context-specific/alternate letter forms}
-\label{sec:org1a33adc}
+\label{sec:orgf6a8f3a}
 
 \subsubsection{Word final letters: the sofit forms}
-\label{sec:org625a8c7}
+\label{sec:org192c089}
 
 \subsubsection{The Begadkephat letters}
-\label{sec:org45a0dad}
+\label{sec:org727da27}
 
 \subsubsection{Shin and Sin}
-\label{sec:org8c909f3}
+\label{sec:orgcda071c}
 
 \subsection{Mandatory markup}
-\label{sec:org531d4e0}
+\label{sec:orgf3c653e}
 
 \subsubsection{A note about opinionated design decisions}
-\label{sec:orge5e57de}
+\label{sec:orgae38dc4}
 
 \begin{itemize}
 \item "Case study" -- the \emph{matres lectionis} letters. Automatically including vav and yod when they are vowel indicators.
 \end{itemize}
 
 \subsubsection{Basic vowel points}
-\label{sec:org8af52fe}
+\label{sec:org10e27bb}
 
 \subsubsection{Shva and reduced vowels}
-\label{sec:org2c339a9}
+\label{sec:orgf531ef1}
 
 \subsubsection{The dagesh}
-\label{sec:orgeb9ca66}
+\label{sec:org721eeb1}
 
 \subsection{Additional markup}
-\label{sec:orgfe58915}
+\label{sec:org04850f5}
 
 \subsubsection{The meteg}
-\label{sec:org476e289}
+\label{sec:org6d10fe8}
 
 \subsubsection{Cantillation marks}
-\label{sec:orgbcf9176}
+\label{sec:org3de1e33}
 
 \subsection{Punctuation; language-specific symbols}
-\label{sec:org7b7815f}
+\label{sec:orga10fe7a}
 
 \subsubsection{A discussion of languages that use "mostly normal" punctuation (from the English point of view)}
-\label{sec:orge85e584}
+\label{sec:orgb61e54b}
 
 \subsubsection{The geresh}
-\label{sec:orgc6a73c7}
+\label{sec:orge0bd250}
 
 \subsubsection{The gershayim (lit. "double geresh" -- this word is plural)}
-\label{sec:org493aae7}
+\label{sec:org95c4f8c}
 
 \subsubsection{Colon and \emph{sof pasuq}}
-\label{sec:org08800da}
+\label{sec:orga617381}
 
 \subsubsection{Vertical bar and \emph{paseq}}
-\label{sec:org6da60c5}
+\label{sec:org0816df1}
 
 \subsubsection{Hyphen and \emph{maqaf}}
-\label{sec:orgba0bd06}
+\label{sec:org3b22dd5}
 
 \subsubsection{Shekel symbol}
-\label{sec:org3349da1}
+\label{sec:orga247dfe}
 
 \section{Section 6: Efficient typing practice for non-native languages}
-\label{sec:orgafdd71e}
+\label{sec:org000f848}
 
 \subsection{Introduction to efficient typing}
-\label{sec:orgb5a30fc}
+\label{sec:org9934075}
 
 \subsubsection{Practicing based on word frequency}
-\label{sec:org5bdc286}
+\label{sec:org05de88b}
 
 \subsubsection{Practicing based on N-gram frequency; affixes}
-\label{sec:org8d024d1}
+\label{sec:org2d6f5e7}
 
 \begin{itemize}
 \item (Derivational) Morphemes rather than words as a training focus
 \end{itemize}
 
 \subsubsection{Abbreviating very frequent words and phrases}
-\label{sec:orgf5a72b1}
+\label{sec:org1369820}
 
 \subsubsection{Practicing the sorts of texts you are going to type}
-\label{sec:orgf7fec9f}
+\label{sec:orgeb85469}
 
 \subsection{Creating necessary resources}
-\label{sec:org321525e}
+\label{sec:org51ca603}
 
 \subsubsection{Word frequency tables}
-\label{sec:orgde0f139}
+\label{sec:org6310d1a}
 
 \begin{itemize}
 \item Perseus, TLG, handling overlapping forms
 \end{itemize}
 
 \subsubsection{N-gram frequency tables}
-\label{sec:orgf0f810e}
+\label{sec:org733a026}
 
 \begin{itemize}
 \item Similar process. Handling semantic boundaries in regexes? How to automate morphological analysis without obvious delimiters like spaces for words?
 \end{itemize}
 
 \subsubsection{Area-specific practice texts}
-\label{sec:orgbef315a}
+\label{sec:org432c907}
 
 \begin{itemize}
 \item Downloading from free/uncopyrighted sources. Perseus, Project Gutenberg.\footnote{Automate with script? Probably also outside scope of project.}
 \end{itemize}
 
 \subsection{Typing practice}
-\label{sec:orgcd3c139}
+\label{sec:org826dca8}
 
 \subsubsection{Amphetype}
-\label{sec:org6c9c974}
+\label{sec:org4725d46}
 
 \subsubsection{Lesson generation from frequency tables and practice texts}
-\label{sec:orgdee9cb1}
+\label{sec:org0c48eb2}
 
 \subsection{Crossover benefits}
-\label{sec:orgec5d3b2}
+\label{sec:org0bed4ac}
 
 \subsubsection{Vocabulary lists by frequency for specific domains}
-\label{sec:orga71c8ac}
+\label{sec:org48dc35c}
 
 \subsubsection{Morphological analysis and generative vocabulary}
-\label{sec:orge395e52}
+\label{sec:orgcf6da76}
 
 \begin{itemize}
 \item Prefixes, suffixes, and roots. Developing an eye for picking up meanings automatically, simply by knowing what different parts of the word mean in general.
 \end{itemize}
 
 \section{Section 7: Pedagogical applications}
-\label{sec:org490b3d0}
+\label{sec:org07ad6fa}
 
 \subsection{Orthography for digital natives}
-\label{sec:orgad68237}
+\label{sec:orga6a410c}
 
 \subsubsection{Standardization of letterforms}
-\label{sec:org8cda459}
+\label{sec:orgdbc78af}
 
 \begin{itemize}
 \item Reducing the learning load in the first few weeks of Hebrew: block scripts and cursive scripts.
@@ -654,93 +728,93 @@ Koppa can be also be useful in explaining language development, as can the third
 \end{itemize}
 
 \subsubsection{Typing speed and writing speed}
-\label{sec:orgad54c73}
+\label{sec:org1697c40}
 
 \subsubsection{But the permanence of handwriting}
-\label{sec:org2023f6d}
+\label{sec:org54541e5}
 
 \begin{itemize}
 \item Tests
 \end{itemize}
 
 \subsection{Examples of typing-related pedagogical aids for Greek}
-\label{sec:orgd18cc97}
+\label{sec:org7de17b4}
 
 \subsubsection{Learning the accentuation system}
-\label{sec:org44d7518}
+\label{sec:org518c79d}
 
 \begin{itemize}
 \item Practicing the typing of accents while learning about the rule of contonation, morae, and recessive accents.
 \end{itemize}
 
 \subsubsection{Common irregular verbs}
-\label{sec:orga865128}
+\label{sec:org7ad1cbd}
 
 \begin{itemize}
 \item Practicing the typing of certain very common irregular verbs (like \emph{eimi}, e.g.) while simultaneously learning their paradigms.
 \end{itemize}
 
 \subsubsection{Practicing reading/speaking Greek; "reading by typing"}
-\label{sec:orgf10a741}
+\label{sec:org6ce225e}
 
 \begin{itemize}
 \item Practicing typing in general by pulling in Greek texts from Perseus as typing training material. Students could be encouraged to also read the texts out loud as they type them. (Not necessarily understanding the Greek, but getting to see how it sounds and flows).
 \end{itemize}
 
 \section{Section 8: Concluding remarks}
-\label{sec:org501ac82}
+\label{sec:org5b39812}
 
 \subsection{Specific implementation benefits}
-\label{sec:org1c0259e}
+\label{sec:org7a96311}
 
 \subsubsection{Who should make the switch to this system? Is this project really worthwhile?}
-\label{sec:orga52f52f}
+\label{sec:org2724fb2}
 
 \subsubsection{The low opportunity cost for the next generation}
-\label{sec:orgd39cc39}
+\label{sec:orgfa049c8}
 
 \subsection{Moving forward with more languages}
-\label{sec:org16491e8}
+\label{sec:orgd14e84e}
 
 \subsubsection{Current project: focus on Greek with Hebrew as a foil}
-\label{sec:orgb54ac31}
+\label{sec:orgaa207d3}
 
 \subsubsection{Possibility to expand much further}
-\label{sec:org1686170}
+\label{sec:orgdcd002c}
 
 \subsection{Suggestions for further research}
-\label{sec:orgcf65b5f}
+\label{sec:org7f80a60}
 
 \subsubsection{Corpus generation}
-\label{sec:org4fa4a51}
+\label{sec:org53e0c2c}
 
 \subsubsection{Morphological analysis}
-\label{sec:org431516a}
+\label{sec:org1dfe176}
 
 \subsubsection{Graphical frontends for customization}
-\label{sec:orgec255c8}
+\label{sec:org8c1d64e}
 
 \subsubsection{System APIs for keystream manipulations \emph{across platforms}}
-\label{sec:org41e369a}
+\label{sec:org3fa5e7b}
 
 \subsubsection{AI autograders for language exercises}
-\label{sec:orgc65a19a}
+\label{sec:orgccf2baa}
 
 \section{Section 9: Appendix}
-\label{sec:org76c1a1f}
+\label{sec:org951582c}
 
 \subsection{Integrating general electronic/online resources into classes}
-\label{sec:org8dc4510}
+\label{sec:orge6351fd}
 
 \subsubsection{Language input as a pain point}
-\label{sec:org5be01c8}
+\label{sec:org7c964e5}
 
 \begin{itemize}
 \item A lack of good keyboard input is a significant damper to the use of electronic/online resources.
 \end{itemize}
 
 \subsubsection{The value of electronic/online resources}
-\label{sec:orgaa521dd}
+\label{sec:org446a640}
 
 \noindent \textbf{Elecronic lexica and morphology parsers} \\
 
@@ -764,10 +838,10 @@ More polarizing whether or not they are useful, but making them easier to constr
 \end{itemize}
 
 \subsection{Word Processing}
-\label{sec:org6726276}
+\label{sec:org01c20a0}
 
 \subsubsection{Font testing: Gentium Plus + SBL Hebrew}
-\label{sec:orga958bb0}
+\label{sec:org8a108b8}
 
 Here is some inline Hebrew from the beginning of Genesis 1 \texthebrew{‏בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ׃ ‎2‏ וְהָאָ֗רֶץ הָיְתָ֥ה תֹ֨הוּ֙ וָבֹ֔הוּ וְחֹ֖שֶׁךְ עַל־פְּנֵ֣י תְה֑וֹם וְר֣וּחַ אֱלֹהִ֔ים מְרַחֶ֖פֶת עַל־פְּנֵ֥י הַמָּֽיִם׃ ‎3‏ וַיֹּ֥אמֶר אֱלֹהִ֖ים יְהִ֣י א֑וֹר וַֽיְהִי־אֽוֹר׃ ‎4‏ וַיַּ֧רְא אֱלֹהִ֛ים אֶת־הָא֖וֹר כִּי־ט֑וֹב וַיַּבְדֵּ֣ל אֱלֹהִ֔ים בֵּ֥ין הָא֖וֹר וּבֵ֥ין הַחֹֽשֶׁךְ׃} with English around it. And now a block:
 
@@ -784,14 +858,14 @@ And here is some inline Greek from the \emph{Iliad} μῆνιν ἄειδε θε
 \end{quote}
 
 \subsubsection{Reasons why something other than Word might be desirable}
-\label{sec:org57d28ca}
+\label{sec:org6b1d37e}
 
 \begin{itemize}
 \item Automatic font use rather than manual switching
 \end{itemize}
 
 \subsubsection{Example: Emacs' Org mode to PDF using XeLaTeX}
-\label{sec:org41f664d}
+\label{sec:org9f28cfa}
 
 \begin{itemize}
 \item Support for RTL languages and automatic display
@@ -800,12 +874,12 @@ And here is some inline Greek from the \emph{Iliad} μῆνιν ἄειδε θε
 \end{itemize}
 
 \subsubsection{Yudit?}
-\label{sec:orga479ed7}
+\label{sec:org0497442}
 
 \{Todo: \footnote{Need to research more.}\}
 
 \subsection{Abbreviations}
-\label{sec:orge721369}
+\label{sec:orgcb19b82}
 
 \begin{itemize}
 \item More of a personal thing. Can algorithmically generate in theory. (Outside scope of this project).
@@ -814,7 +888,7 @@ And here is some inline Greek from the \emph{Iliad} μῆνιν ἄειδε θε
 \end{itemize}
 
 \section{Works Cited}
-\label{sec:org5c1de34}
+\label{sec:orgdc2cee1}
 
 Chen Liao \& Pilsung Choe (2013) Chinese Keyboard Layout Design Based on Polyphone Disambiguation and a Genetic Algorithm, International Journal of Human–Computer Interaction, 29:6, 391-403, DOI: 10.1080/10447318.2013.777827 \\
 
@@ -825,4 +899,10 @@ Knisbacher, Jeffry M., and \texthebrew{הכתב העברי}, "DESIGN CONSIDERATI
 Deemer, Selden. "REPORT ON THE ARABIC LANGUAGE IN COMPUTERS SYMPOSIUM." MELA Notes, no. 23 (1981): 11-13. \url{http://www.jstor.org/stable/29785130}. \\
 
 Mastronarde, Donald. "Before and After Unicode: Working with Polytonic Greek." Montreal APA Unicode Presentation, 2008.
+
+Dhakal, V., Feit, A., Kristensson, P.O. and Oulasvirta, A. 2018. 'Observations on typing from 136 million keystrokes.' In Proceedings of the 36th ACM Conference on Human Factors in Computing Systems (CHI 2018). ACM Press.
+
+Feit, Anna \& Weir, Daryl \& Oulasvirta, Antti. (2016). How We Type: Movement Strategies and Performance in Everyday Typing. 4262-4273. 10.1145/2858036.2858233. 
+
+E. Rumelhart, David \& Norman, Donald. (1982). Simulating a Skilled Typist: A Study of Skilled Cognitive-Motor Performance. Cognitive Science. 6. 1-36. 10.1016/S0364-0213(82)80004-9. 
 \end{document}
