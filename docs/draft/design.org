@@ -12,6 +12,8 @@
 #+LaTeX_HEADER: \setotherlanguage{hebrew}
 #+LaTeX_HEADER: \newfontfamily\hebrewfont{SBL Hebrew}
 
+#+LATEX_HEADER: \usepackage[margin=0.8in]{geometry}
+
 
 * Section 1: What is this project? Why this project? Why this paper?
 
@@ -490,7 +492,7 @@ To recap, the language leader key (CapsLock) now has four different usages:
 
 At first glance, all these uses appear to be inconsistent, and in one sense, they are. The language leader key does not just do one thing. However, as mentioned in the earlier discussion of Occam's Razor and the balance between simplicity and features (see §3.3.3), program logic must be viewed as a gestalt, not only in terms of its fragmented pieces. In this sense, the language leader key very cleanly adds a lot of functionality to keyboard use, while keeping it all consistently abstracted under a single key that semantically represents "behavior that deals with non-native languages." Further, usage within each category (1-4) is consistent and non-overlapping (at least with the present languages and functionality supported).
 
-This means that through the use of a single key, one can relatively easily type in, at the time of writing, English, German, French, Spanish, Italian, Latin, Greek, and Hebrew, and, moreover, have consistent mechanisms for switching between them and accessing diacritics/punctuation across them. So while there is inconsistency inasmuch as the CapsLock key does 4 different things, there is also consistency inasmuch as all language behavior flows through the CapsLock key, and works the same across languages.
+This means that through the use of a single key, one can relatively easily type in, at the time of writing, English, German, French, Spanish, Italian, Latin, and Greek, and, moreover, have consistent mechanisms for switching between them and accessing diacritics/punctuation across them. So while there is inconsistency inasmuch as the CapsLock key does 4 different things, there is also consistency inasmuch as all language behavior flows through the CapsLock key, and works the same across languages.
 
 *** For designers
 
@@ -598,14 +600,45 @@ Digamma dropping explains the -ευς declension and the development of certain 
 
 *** Final sigma
 
+This project has chosen to handle final sigma automatically since it is deterministic. Markers of word boundaries (with the exceptions of the hyphen for writing prefixes like προσ- and the apostrophe for indicating elision) automatically trigger final sigma when they pressed immediately following a sigma.
+
+Of note is that this holds true for "nonstandard" punctuation as well, (for example, the exclamation mark), and holds true when using punctuation that has been entered by means of a language leader key prefix (such as an English colon, which is typically used to enter diaeresis in Greek  mode). Furthermore, whitespace word boundaries (e.g., Tab, Enter) also trigger final sigma.
+
 *** Lunate sigma
+
+People needing to type lunate sigma for epigraphical or papyrological work may set the variable =useLunateSigma= to 1 (true) in the configuration file. After restarting the program (to load the new configuration file settings), sigma will be entered as Ϲ (when uppercase) and ϲ (when lowercase). Final sigma behavior is also disabled for the duration that lunate sigma is being used.
+
+In the future, this setting will be configurable dynamically so that it is easier to toggle on and off on the fly (e.g., if entering text from an inscription that uses lunate sigma, and then providing a more conventional transcription of it).
 
 ** Mandatory markup
 
+*** Establishing available keys
+
+Greek has a variety of diacritics that are an essential part of the language. According to our plan of putting these diacritics on punctuation keys, it is necessary to figure out which punctuation keys are "free" when typing in ancient Greek. It would be possible, of course, to use "already taken" punctuation keys for diacritics, but that would require very frequent use of the language leader key to access the actual punctuation. For this reason, I have opted to only consider punctuation keys that are not themselves typically used in Greek.
+
+[[./images/base.png]]
+
+This is the ANSI 104 key layout with the function keys and right side of the keyboard (arrow keys, number pad, etc.) removed to save space. This physical layout is very common in the English-speaking world, and will be the one used in all discussions of key placement from here forward.
+
+[[./images/unused-no-shift.png]]
+
+This image highlights unused punctuation keys that do not require shift. Numbers are ignored so that they may typed regularly if wished (and to stay consistent across languages). Note that the semicolon is ignored here as well, for the moment, since it is "used" as the Greek question mark. We'll return to it later. The apostrophe and hyphen both have uses (as a marker of elision and as an affix marker, respectively), so they have been excluded as well.
+
+The two keys on the number row have been highlighted in a paler color, to indicate their relatively less favorable position. Keys on the number row require a great deal of hand movement to access, which makes them slower to type (see section §3.1.3).
+
+[[./images/unused-shift.png]]
+
+Finally, this image highlights the unused punctuation that do require shift. These keys are strictly inferior to those that do not (i.e., those from the above picture) since they require a whole additional keypress. Parentheses have been excluded since they are commonly used when writing ancient Greek (even if they do not show up in ancient sources), and the exclamation mark has also been excluded since it is not uncommonly used with imperatives.
+
+Keys that have unused punctuation in both their unshifted and shifted states are shown in green, while those that only have unused punctuation in their shifted state are shown in blue. The shading distinction has been kept: the paler keys on the number row still indicate a relatively less favorable position. All of these keys are options that we can use for our diacritics here, and other things like punctuation below.
+
 *** Breathings
-`
-- smooth, rough
-- vowels and rho
+
+Ancient Greek makes use of smooth breathing and rough breathing, and the diacritics in Greek look very similar to each other, except for a reversal of direction. Breathings are incredibly common in Greek, and thus it would be best if they did not end up on punctuation keys requiring shift or punctuation keys on the number row.
+
+Visually, square brackets look similar to the breathings (not as similar as parentheses, but we can't use those), and since they do not require shift, they are easier to access than the other matched pair of characters we could use: < and >. Therefore, the breathings for this keyboard layout are placed on the square brackets: rough breathing on [, and smooth breathing ], as would be expected visually.
+
+Along with vowels, the breathings may be put on rho.
 
 *** Accents
 
@@ -631,57 +664,7 @@ Digamma dropping explains the -ευς declension and the development of certain 
 
 {Todo: [fn:17]}
 
-* Section 5: Hebrew as an example
-
-** Letters
-
-*** Handling cases of identical letter sounds
-
-*** A Hebrew-English keymap 
-
-** Context-specific/alternate letter forms
-
-*** Word final letters: the sofit forms
-
-*** The Begadkephat letters
-
-*** Shin and Sin
-
-** Mandatory markup
-
-*** A note about opinionated design decisions
-
-- "Case study" -- the /matres lectionis/ letters. Automatically including vav and yod when they are vowel indicators.
-
-*** Basic vowel points
-
-*** Shva and reduced vowels
-
-*** The dagesh
-
-** Additional markup
-
-*** The meteg
-
-*** Cantillation marks
-
-** Punctuation; language-specific symbols
-
-*** A discussion of languages that use "mostly normal" punctuation (from the English point of view)
-
-*** The geresh
-
-*** The gershayim (lit. "double geresh" -- this word is plural)
-
-*** Colon and /sof pasuq/
-
-*** Vertical bar and /paseq/
-
-*** Hyphen and /maqaf/
-
-*** Shekel symbol
-
-* Section 6: Efficient typing practice for non-native languages
+* Section 5: Efficient typing practice for non-native languages
 
 ** Introduction to efficient typing
 
@@ -723,7 +706,7 @@ Digamma dropping explains the -ευς declension and the development of certain 
 
 - Prefixes, suffixes, and roots. Developing an eye for picking up meanings automatically, simply by knowing what different parts of the word mean in general.
 
-* Section 7: Pedagogical applications
+* Section 6: Pedagogical applications
 
 ** Orthography for digital natives
 
@@ -752,7 +735,7 @@ Digamma dropping explains the -ευς declension and the development of certain 
 
 -	Practicing typing in general by pulling in Greek texts from Perseus as typing training material. Students could be encouraged to also read the texts out loud as they type them. (Not necessarily understanding the Greek, but getting to see how it sounds and flows).
 
-* Section 8: Concluding remarks
+* Section 7: Concluding remarks
 
 ** Specific implementation benefits
 
@@ -778,70 +761,7 @@ Digamma dropping explains the -ευς declension and the development of certain 
 
 *** AI autograders for language exercises
 
-* Section 9: Appendix
 
-** Integrating general electronic/online resources into classes
-
-***  Language input as a pain point
-
-- A lack of good keyboard input is a significant damper to the use of electronic/online resources.
-
-*** The value of electronic/online resources
-
-\noindent *Elecronic lexica and morphology parsers* \\
-
-Dangers of over-reliance, but great benefits all the same. Arbitrary searches (those that require the ability to type native text) can be necessary when using paper sources rather than cross-linked sources like those on Perseus. \\
-
-\noindent *Searches* \\
-
-- Fuzzy search (i.e., lemma search), finding passages and references, searching on word usage or specific form.
-- Searching typed notes, if people type class notes \\
-
-\noindent *Electronic flashcards* \\
-
-More polarizing whether or not they are useful, but making them easier to construct is definitely a good thing. Spaced repetition studying, Anki. \\
-
-\noindent *Autograded sentences* \\
-
--	Practicing typing in general by providing form-fields to enter sentence translations. Depending on the difficulty of implementation, it might be possible to create an autograder for practice sentences in Athenaze, for example. If care was taken to follow vocabulary acquisition (so as to limit the lexicon input for the program and make it deterministic), it would be easy for professors to design supplemental/optional practice exercises that the students could complete with instant feedback and no extra work for the professor.
-
-** Word Processing
-
-*** Font testing: Gentium Plus + SBL Hebrew
-
-Here is some inline Hebrew from the beginning of Genesis 1 \texthebrew{‏בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ׃ ‎2‏ וְהָאָ֗רֶץ הָיְתָ֥ה תֹ֨הוּ֙ וָבֹ֔הוּ וְחֹ֖שֶׁךְ עַל־פְּנֵ֣י תְה֑וֹם וְר֣וּחַ אֱלֹהִ֔ים מְרַחֶ֖פֶת עַל־פְּנֵ֥י הַמָּֽיִם׃ ‎3‏ וַיֹּ֥אמֶר אֱלֹהִ֖ים יְהִ֣י א֑וֹר וַֽיְהִי־אֽוֹר׃ ‎4‏ וַיַּ֧רְא אֱלֹהִ֛ים אֶת־הָא֖וֹר כִּי־ט֑וֹב וַיַּבְדֵּ֣ל אֱלֹהִ֔ים בֵּ֥ין הָא֖וֹר וּבֵ֥ין הַחֹֽשֶׁךְ׃} with English around it. And now a block:
-
-#+BEGIN_QUOTE
-\begin{hebrew}
-‏‏בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ׃ ‎2‏ וְהָאָ֗רֶץ הָיְתָ֥ה תֹ֨הוּ֙ וָבֹ֔הוּ וְחֹ֖שֶׁךְ עַל־פְּנֵ֣י תְה֑וֹם וְר֣וּחַ אֱלֹהִ֔ים מְרַחֶ֖פֶת עַל־פְּנֵ֥י הַמָּֽיִם׃ ‎3‏ וַיֹּ֥אמֶר אֱלֹהִ֖ים יְהִ֣י א֑וֹר וַֽיְהִי־אֽוֹר׃ ‎4‏ וַיַּ֧רְא אֱלֹהִ֛ים אֶת־הָא֖וֹר כִּי־ט֑וֹב וַיַּבְדֵּ֣ל אֱלֹהִ֔ים בֵּ֥ין הָא֖וֹר וּבֵ֥ין הַחֹֽשֶׁךְ׃
-\end{hebrew}
-#+END_QUOTE
-
-And here is some inline Greek from the /Iliad/ μῆνιν ἄειδε θεὰ Πηληϊάδεω Ἀχιλῆος with English around it. And now a longer chunk:
-
-#+BEGIN_QUOTE
-μῆνιν ἄειδε θεὰ Πηληϊάδεω Ἀχιλῆος οὐλομένην, ἣ μυρί᾽ Ἀχαιοῖς ἄλγε᾽ ἔθηκε, πολλὰς δ᾽ ἰφθίμους ψυχὰς Ἄϊδι προΐαψεν ἡρώων, αὐτοὺς δὲ ἑλώρια τεῦχε κύνεσσιν οἰωνοῖσί τε πᾶσι, Διὸς δ᾽ ἐτελείετο βουλή, ἐξ οὗ δὴ τὰ πρῶτα διαστήτην ἐρίσαντε Ἀτρεΐδης τε ἄναξ ἀνδρῶν καὶ δῖος Ἀχιλλεύς. τίς τ᾽ ἄρ σφωε θεῶν ἔριδι ξυνέηκε μάχεσθαι;
-#+END_QUOTE
-
-*** Reasons why something other than Word might be desirable
-
-- Automatic font use rather than manual switching
-
-*** Example: Emacs' Org mode to PDF using XeLaTeX
-
-- Support for RTL languages and automatic display
-- Polyglossia
-- Automatic font switches
-
-*** Yudit?
-
-{Todo: [fn:19]}
-
-** Abbreviations
-
-- More of a personal thing. Can algorithmically generate in theory. (Outside scope of this project).
-- Probably good to look at the 10 or 15 most common words and see if anything jumps out at you
-- Creating regex hotstrings in this particular AHK implementation.
 
 * Works Cited
 
@@ -900,10 +820,4 @@ Verbrugghe, Gerald P. "Transliteration or Transcription of Greek." The Classical
 [fn:17] Metrical marks, special numerals, drachma symbol
 
 [fn:18] Automate with script? Probably also outside scope of project.
-
-[fn:19] Need to research more.
-
-[fn:21] Ideal font design + discussion
-
-[fn:20] While I don't know of a formal source for numbers, many expensive keyboards market themselves as being better for fast typists due to allowing for so-called "n-key rollover" (NKRO), which lets many keys be pressed simultaneously, as opposed to the 6-key rollover of most USB keyboards.
 

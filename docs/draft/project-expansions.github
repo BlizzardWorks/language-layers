@@ -1,0 +1,115 @@
+* Section 5: Hebrew as an example
+
+** Letters
+
+*** Handling cases of identical letter sounds
+
+*** A Hebrew-English keymap 
+
+** Context-specific/alternate letter forms
+
+*** Word final letters: the sofit forms
+
+*** The Begadkephat letters
+
+*** Shin and Sin
+
+** Mandatory markup
+
+*** A note about opinionated design decisions
+
+- "Case study" -- the /matres lectionis/ letters. Automatically including vav and yod when they are vowel indicators.
+
+*** Basic vowel points
+
+*** Shva and reduced vowels
+
+*** The dagesh
+
+** Additional markup
+
+*** The meteg
+
+*** Cantillation marks
+
+** Punctuation; language-specific symbols
+
+*** A discussion of languages that use "mostly normal" punctuation (from the English point of view)
+
+*** The geresh
+
+*** The gershayim (lit. "double geresh" -- this word is plural)
+
+*** Colon and /sof pasuq/
+
+*** Vertical bar and /paseq/
+
+*** Hyphen and /maqaf/
+
+*** Shekel symbol
+
+
+
+* Later work
+** Integrating general electronic/online resources into classes
+
+***  Language input as a pain point
+
+- A lack of good keyboard input is a significant damper to the use of electronic/online resources.
+
+*** The value of electronic/online resources
+
+\noindent *Elecronic lexica and morphology parsers* \\
+
+Dangers of over-reliance, but great benefits all the same. Arbitrary searches (those that require the ability to type native text) can be necessary when using paper sources rather than cross-linked sources like those on Perseus. \\
+
+\noindent *Searches* \\
+
+- Fuzzy search (i.e., lemma search), finding passages and references, searching on word usage or specific form.
+- Searching typed notes, if people type class notes \\
+
+\noindent *Electronic flashcards* \\
+
+More polarizing whether or not they are useful, but making them easier to construct is definitely a good thing. Spaced repetition studying, Anki. \\
+
+\noindent *Autograded sentences* \\
+
+-	Practicing typing in general by providing form-fields to enter sentence translations. Depending on the difficulty of implementation, it might be possible to create an autograder for practice sentences in Athenaze, for example. If care was taken to follow vocabulary acquisition (so as to limit the lexicon input for the program and make it deterministic), it would be easy for professors to design supplemental/optional practice exercises that the students could complete with instant feedback and no extra work for the professor.
+
+** Word Processing
+
+*** Font testing: Gentium Plus + SBL Hebrew
+
+Here is some inline Hebrew from the beginning of Genesis 1 \texthebrew{‏בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ׃ ‎2‏ וְהָאָ֗רֶץ הָיְתָ֥ה תֹ֨הוּ֙ וָבֹ֔הוּ וְחֹ֖שֶׁךְ עַל־פְּנֵ֣י תְה֑וֹם וְר֣וּחַ אֱלֹהִ֔ים מְרַחֶ֖פֶת עַל־פְּנֵ֥י הַמָּֽיִם׃ ‎3‏ וַיֹּ֥אמֶר אֱלֹהִ֖ים יְהִ֣י א֑וֹר וַֽיְהִי־אֽוֹר׃ ‎4‏ וַיַּ֧רְא אֱלֹהִ֛ים אֶת־הָא֖וֹר כִּי־ט֑וֹב וַיַּבְדֵּ֣ל אֱלֹהִ֔ים בֵּ֥ין הָא֖וֹר וּבֵ֥ין הַחֹֽשֶׁךְ׃} with English around it. And now a block:
+
+#+BEGIN_QUOTE
+\begin{hebrew}
+‏‏בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ׃ ‎2‏ וְהָאָ֗רֶץ הָיְתָ֥ה תֹ֨הוּ֙ וָבֹ֔הוּ וְחֹ֖שֶׁךְ עַל־פְּנֵ֣י תְה֑וֹם וְר֣וּחַ אֱלֹהִ֔ים מְרַחֶ֖פֶת עַל־פְּנֵ֥י הַמָּֽיִם׃ ‎3‏ וַיֹּ֥אמֶר אֱלֹהִ֖ים יְהִ֣י א֑וֹר וַֽיְהִי־אֽוֹר׃ ‎4‏ וַיַּ֧רְא אֱלֹהִ֛ים אֶת־הָא֖וֹר כִּי־ט֑וֹב וַיַּבְדֵּ֣ל אֱלֹהִ֔ים בֵּ֥ין הָא֖וֹר וּבֵ֥ין הַחֹֽשֶׁךְ׃
+\end{hebrew}
+#+END_QUOTE
+
+And here is some inline Greek from the /Iliad/ μῆνιν ἄειδε θεὰ Πηληϊάδεω Ἀχιλῆος with English around it. And now a longer chunk:
+
+#+BEGIN_QUOTE
+μῆνιν ἄειδε θεὰ Πηληϊάδεω Ἀχιλῆος οὐλομένην, ἣ μυρί᾽ Ἀχαιοῖς ἄλγε᾽ ἔθηκε, πολλὰς δ᾽ ἰφθίμους ψυχὰς Ἄϊδι προΐαψεν ἡρώων, αὐτοὺς δὲ ἑλώρια τεῦχε κύνεσσιν οἰωνοῖσί τε πᾶσι, Διὸς δ᾽ ἐτελείετο βουλή, ἐξ οὗ δὴ τὰ πρῶτα διαστήτην ἐρίσαντε Ἀτρεΐδης τε ἄναξ ἀνδρῶν καὶ δῖος Ἀχιλλεύς. τίς τ᾽ ἄρ σφωε θεῶν ἔριδι ξυνέηκε μάχεσθαι;
+#+END_QUOTE
+
+*** Reasons why something other than Word might be desirable
+
+- Automatic font use rather than manual switching
+
+*** Example: Emacs' Org mode to PDF using XeLaTeX
+
+- Support for RTL languages and automatic display
+- Polyglossia
+- Automatic font switches
+
+*** Yudit?
+
+{Todo: [fn:19]}
+
+** Abbreviations
+
+- More of a personal thing. Can algorithmically generate in theory. (Outside scope of this project).
+- Probably good to look at the 10 or 15 most common words and see if anything jumps out at you
+- Creating regex hotstrings in this particular AHK implementation.
