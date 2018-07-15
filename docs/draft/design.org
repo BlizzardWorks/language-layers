@@ -668,39 +668,114 @@ Along with vowels, the breathings may be put on rho.
 
 ** Introduction to efficient typing
 
+Basic idea: we type some key sequences far more often than other key sequences. If there is a way to greatly increase our speed of these key sequences, we should hypothetically be able to greatly increase overall typing speed. Not all practice is equal. Practice of extremely common words/n-grams is strictly superior. Using Greek as primary example.
+
+Familiar/frequent words are spelled faster.
+
+- http://journals.sagepub.com/doi/full/10.1080/17470218.2013.868915
+
+Skill enhancement via memory chunking
+
+- https://www.researchgate.net/publication/304362539_Pushing_Typists_Back_on_the_Learning_Curve_Memory_Chunking_in_the_Hierarchical_Control_of_Skilled_Typewriting
+
+- outer loop (words), and several inner loops (letter or keystrokes)
+- "Chunking of letters in words depends on the knowledge of the words; typists have to process letters in unfamiliar nonwords as separate chunks, which pushes typists back on the learning curve by preventing them from utilizing their typing skill (Yamaguchi & Logan, 2014a, 2014b)."
+- This is the main point of this entire section: development of chunks
+
 *** Practicing based on word frequency
+
+English heavily dominant in computational/statistical linguistics. Good sources for English:
+
+- http://www.norvig.com/mayzner.html]]
+- http://norvig.com/ngrams/]]
+- https://www.wordfrequency.info/free.asp?s=y]]
+- https://github.com/first20hours/google-10000-english]]
+
+Discussion etc.
+
+How word frequency works in general: Zipf's law
+
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4176592/]]
+
+Complicated, but generalizes to all languages. Greek in fact is even more centralized in terms of its vocabulary distribution: a smaller number of lemmas make up a greater amount of total text. "Core vocabulary."
+
+- http://dcc.dickinson.edu/vocab/core-vocabulary]]
+- https://camws.org/cpl/cplonline/files/Majorcplonline.pdf]]
 
 *** Practicing based on N-gram frequency; affixes
 
-- (Derivational) Morphemes rather than words as a training focus
+Basic idea: (derivational) morphemes rather than words as a training focus.
 
-*** Abbreviating very frequent words and phrases
+Greek is highly inflected. Endings are an easy place to start. Substantives, verbs alike.
+
+Prepositions different from prefixes in some respects.
+
+- https://books.google.com/books?id=q6wVDAAAQBAJ&pg=PA120#v=onepage&q&f=false]]
+
+But overlapping ideas. Practicing prepositions helps when they are prefixes and when they are standalone morphemes.
+
+Need good lists of prefixes? Smyth has 
+
+- http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.04.0007%3Apart%3D3%3Achapter%3D24%3Asection%3D59%3Asubsection%3D63]]
+
+and 
+
+- http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.04.0007%3Apart%3D3%3Achapter%3D24%3Asection%3D59%3Asubsection%3D64]]
+
+but other sources would be good too. Dr. Wolkow -- do you know of any?
+
+Also suffixes. Smyth has
+
+- http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.04.0007%3Asmythp%3D833]]
+
+
+Finally, talk about roots. Need good sources for this too. ??
 
 *** Practicing the sorts of texts you are going to type
+
+Plato scholars type Plato, etc. Word choice, context-specific vocabulary. Same reasons as above: frequency effects.
 
 ** Creating necessary resources
 
 *** Word frequency tables
 
-- Perseus, TLG, handling overlapping forms
+- short term (this paper): make frequency table in a text file to use with Amphetype based on sources
+- long term: Perseus, TLG, handling overlapping forms, etc. More of the methodology type stuff from DCC page. Only mention, don't discuss in depth.
 
 *** N-gram frequency tables
 
-- Similar process. Handling semantic boundaries in regexes? How to automate morphological analysis without obvious delimiters like spaces for words?
+- Make practice files based on common declensions and conjugations
+- prepositions (which are commonly used as prefixes), inseparable prefixes (cf. Smyth section above)
+
+- Again mention more rigorous ways to do this in future. Data driven, statistical. But don't elaborate much.
 
 *** Area-specific practice texts
 
-- Downloading from free/uncopyrighted sources. Perseus, Project Gutenberg.[fn:18]
+- Downloading from free/uncopyrighted sources. Perseus.
+- Hiccup of precomposed/decomposed. Perseus texts are precomposed, so can be used for typing practice when in precomposed mode.
+- Removing numbers, footnotes. Regexes. Temporary. Use web scraping or Perseus API eventually. Here just minimal working example for proof opf concept.
 
 ** Typing practice
 
 *** Amphetype
 
+Screenshots. Typing sources directly. Disable all sources then enable one by one.
+
+Challenges of Unicode not matching text when precomposed. Not that important, but error metrics will be thrown off.
+
+Future ideal: make texts convertible between forms at the press of the button, and practice in decomposed so that error statistics are correct.
+
 *** Lesson generation from frequency tables and practice texts
+
+Paste in/load, generate.
+
+link to Java script [[https://github.com/StevenTammen/amphetype-texts/blob/master/src/FrequencyLists.java][in separate repository]] for English example. Future: get Greek frequencies and do something similar. Explain idea behind it: want words repeated according to their relative frequencies. In typing practice corpora. If you have a corpus consisting of 3 words (word1 = 60%, word2 = 30%, word3 = 10%), then for every 10 words you type, you would want about 6 word1's, 3 word2's, and 1 word3.
 
 ** Crossover benefits
 
 *** Vocabulary lists by frequency for specific domains
+
+Past core vocabulary, domain specific vocabulary can be useful
 
 *** Morphological analysis and generative vocabulary
 
@@ -708,28 +783,50 @@ Along with vowels, the breathings may be put on rho.
 
 * Section 6: Pedagogical applications
 
-** Orthography for digital natives
+** The link between typing and learning
 
-*** Standardization of letterforms
+*** Efficient use of time
 
-- Reducing the learning load in the first few weeks of Hebrew: block scripts and cursive scripts.
-- Possible in handwritten as well (just only writing in block)
+Basic frequency exposure effect for words. If you have to learn forms, anyway, you might as well double dip by learning how to type them at the same time.
 
-*** Typing speed and writing speed
+*** Structured learning
 
-*** But the permanence of handwriting
+Avoid vague goals and uncategorized objectives. E.g. "learn vocabulary specific to Plato's later dialogues." By using a program that automatically structures learning by grouping it into typing lessons, you can automatically set effective goals for yourself by breaking things into byte-sized chunks. Takes the faulty human element out of it. Psychology related to "taking the first step gets you half of the way there."
 
-- Tests
+Downside is that someone has to create the lessons the first time.
+
+*** The context effect
+
+Let's say a student sees a form in the 1st aorist for a non-regular (i.e., non-contract) verb without predictable conjugation patterns across principle parts, and has to look it up. Then they see a different form of the same verb, but don't recognize it, and have to look it up again. One of the most frustrating aspects of being a Greek student is that you can see the same lemma in different contexts (particularly for verbs), and feel like you are not learning anything since you cannot recognize it consistently.
+
+This isn't strictly unique to typing practice, but setting up typing lessons around specific lemmas will force you to learn the forms of a verb.
+
+*** Interfacing to computer programs
+
+While it is perfectly possible for professors to use CALL software to generate printable worksheets etc. for their students, any student-driven learning will have to go through computers.
+
+The dynamic possibilities are what is of interest. Having a student enter a word that they want to practice, and generating practice forms relating to that, e.g.
 
 ** Examples of typing-related pedagogical aids for Greek
+
+*** Learning standard declensions and conjugations
+
+- 1st, 2nd, 3rd declension nouns. All three genders.
+- Adjectives
+- Participles
+- Verbs (omega verbs, contract verbs, mi-verbs, etc.)
+
+This would be one of the biggest pedagogical applications: learn how to type all the basic language structures as you learn the forms for them. Typing them forces you to see them, and gives you the structured practice.
+
+*** Learning common patterns
+
+Some things have to be brute forced. Irregular verbs, relative pronouns, definite articles, indefinite/interrogative pronouns, etc.
+
+Similar principles for these
 
 *** Learning the accentuation system
 
 - Practicing the typing of accents while learning about the rule of contonation, morae, and recessive accents.
-
-*** Common irregular verbs
-
--	Practicing the typing of certain very common irregular verbs (like /eimi/, e.g.) while simultaneously learning their paradigms.
 
 *** Practicing reading/speaking Greek; "reading by typing"
 
@@ -818,6 +915,4 @@ Verbrugghe, Gerald P. "Transliteration or Transcription of Greek." The Classical
 [fn:15] For convenience, even those punctuation keys that don't "need" to be prefixed will still work with the prefix.
 
 [fn:17] Metrical marks, special numerals, drachma symbol
-
-[fn:18] Automate with script? Probably also outside scope of project.
 

@@ -49,6 +49,25 @@
 *** Shekel symbol
 
 
+* Typing efficiency
+
+*** Abbreviating very frequent words and phrases
+
+** Creating necessary resources
+
+*** Word frequency tables
+
+- Perseus, TLG, handling overlapping forms
+
+*** N-gram frequency tables
+
+- Similar process. Handling semantic boundaries in regexes? How to automate morphological analysis without obvious delimiters like spaces for words?
+
+*** Area-specific practice texts
+
+- Downloading from free/uncopyrighted sources. Perseus, Project Gutenberg.[fn:18]
+
+
 
 * Later work
 ** Integrating general electronic/online resources into classes
@@ -113,3 +132,19 @@ And here is some inline Greek from the /Iliad/ μῆνιν ἄειδε θεὰ �
 - More of a personal thing. Can algorithmically generate in theory. (Outside scope of this project).
 - Probably good to look at the 10 or 15 most common words and see if anything jumps out at you
 - Creating regex hotstrings in this particular AHK implementation.
+
+* Pedagogy
+
+** Orthography for digital natives
+
+*** Standardization of letterforms
+
+- Reducing the learning load in the first few weeks of Hebrew: block scripts and cursive scripts.
+- Possible in handwritten as well (just only writing in block)
+
+*** Typing speed and writing speed
+
+*** But the permanence of handwriting
+
+- Tests
+- Handwritten forms and memory (??). Footnote as possible reason for continuing handwriting.
