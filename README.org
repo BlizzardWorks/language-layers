@@ -87,11 +87,11 @@ To type diacritics in Greek mode, type a vowel (or consonant), and then press th
 | Accents    | Acute          | /                 |
 |            | Grave          | \                 |
 |            | Circumflex     | =                 |
-|            | Diaeresis      | :                 |
 | Quantity   | Iota Subscript | \vert             |
 |            | Macron         | {                 |
 |            | Breve          | }                 |
-| Other      | Underdot       | *                 |
+| Other      | Diaeresis      | :                 |
+|            | Underdot       | *                 |
 
 Greek mode also overrides the behavior of ; and ? to produce the Greek equivalents of · and ;, respectively. 
 
@@ -113,14 +113,14 @@ This leader key prefixing is similar to how language characters are entered in E
 
 When you are in English mode, diacritics for French, German, etc. work in exactly the same manner: pressing the key corresponding to a diacritic adds the diacritic if it is not already present, or removes it if it is; Backspace removes a full character. However, you have to prefix the key corresponding to a diacritic with CapsLock to override the key's normal behavior. As can be seen from the table below, by default the diacritics for the Latin alphabet mirror the key choices for Greek, so that you only have to remember one set of correspondences.
 
-| Grouping  | Diacritic           | Corresponding Key |
-|------------+---------------------+-------------------|
-| Accents    | Acute               | /                 |
-|            | Grave               | \                 |
-|            | Circumflex          | =                 |
-|            | Diaeresis           | :                 |
-| Quantity   | Macron              | {                 |
-|            | Breve               | }                 |
+| Grouping | Diacritic  | Entry Sequence |
+|----------+------------+----------------|
+| Accents  | Acute      | {CapsLock}/    |
+|          | Grave      | {CapsLock}\    |
+|          | Circumflex | {CapsLock}=    |
+| Quantity | Macron     | {CapsLock}{    |
+|          | Breve      | {CapsLock}}    |
+| Other    | Diaeresis  | {CapsLock}:    |
 
 Out of the box, English mode also supports language-specific characters for some of the more common Latin-script languages. These are also accessed by prefixing keys with the language leader. Note that through the diacritics alone some other Latin-script languages, such as Italian, are supported: they just don't have "extras" that have to be accounted for.
 
