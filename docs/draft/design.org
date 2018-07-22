@@ -632,211 +632,165 @@ Finally, this image highlights the unused punctuation that do require shift. The
 
 Keys that have unused punctuation in both their unshifted and shifted states are shown in green, while those that only have unused punctuation in their shifted state are shown in blue. The shading distinction has been kept: the paler keys on the number row still indicate a relatively less favorable position. All of these keys are options that we can use for our diacritics here, and other things like punctuation below.
 
-*** Breathings
+*** Placing keys
 
-Ancient Greek makes use of smooth breathing and rough breathing, and the diacritics in Greek look very similar to each other, except for a reversal of direction. Breathings are incredibly common in Greek, and thus it would be best if they did not end up on punctuation keys requiring shift or punctuation keys on the number row.
+Before turning to visual correspondences, it is worth considering direct semantic matches. Greek does not use the English question mark, but it does have a question indicator (the Greek question mark, which looks like a semicolon); similarly, Greek does not use the English semicolon, but it does have a way of indicating a soft break (the Greek middle dot). It would be very confusing to use different keys for the same meaning, so the Greek equivalents are placed where their English counterparts are. Note that this /is/ somewhat confusing in that the semicolon visually represents the Greek question mark, but is mapped to Greek middle dot since that is the semantic equivalent to the English semicolon.
 
-Visually, square brackets look similar to the breathings (not as similar as parentheses, but we can't use those), and since they do not require shift, they are easier to access than the other matched pair of characters we could use: < and >. Therefore, the breathings for this keyboard layout are placed on the square brackets: rough breathing on [, and smooth breathing ], as would be expected visually.
+| Punctuation         | Semantic match |
+|---------------------+----------------|
+| Greek Question Mark | ?              |
+| Middle Dot          | ;              |
 
-Along with vowels, the breathings may be put on rho.
+Most of the rest of the diacritic keys can be placed using visual correspondences:
 
-*** Accents
+| Grouping   | Symbol         | Visual Match |
+|------------+----------------+--------------|
+| Breathings | Rough          | [            |
+|            | Smooth         | ]            |
+| Accents    | Acute          | /            |
+|            | Grave          | \            |
+|            | Circumflex     | =            |
+| Quantity   | Iota Subscript | \vert        |
+|            | Macron         |              |
+|            | Breve          |              |
+| Other      | Diaeresis      | :            |
+|            | Underdot       | *            |
 
-- acute, grave, circumflex
+This leaves us with the macron and breve to place. Since these things are related, it would be nice to place them on a pair of keys. That leaves us with either { and }, or with < and >. While all of these keys require shift to access, the former are much more similar to the macron and breve in shape, and are thus used in this layout.
 
-*** Iota subscripts
+Note that the chosen keys not only match visually, but also make sense with regards to raw optimality. The most common Greek diacritics (including the breathings and the accents) are all accessible with a single key press without needing to use shift.
 
-*** Diaeresis
+* Section 5: Efficient Typing Practice and Greek Pedagogy
 
-*** The koronis
+** Repetition in typing
 
-** Additional markup
+Within any given language, some words (or parts of words: prefixes, suffixes, etc.) occur with much greater frequency than others. Over time, these words will be typed far more often than words which do not form as essential a part of the language's vocabulary. It follows that if one can learn how to type these words rapidly, their disproportionate occurrence within the language's corpus will lead to significant increases in overall typing proficiency (as measured by speed).
 
-*** Vowel quantity: macrons and breves
+Chua and Liow (2014) note that "word frequency effects have been found in spelling-to-dictation with skilled adults such that participants are quicker to initiate spelling of high-frequency words than that of low-frequency words upon hearing the target stimuli." Bannard and Matthew (2008) note a similar effect for phrases: among their sample size of children, phrase combinations were repeated more rapidly when they formed part of some frequent grouping of words. It seems that language aspects of human cognition are conditioned by frequency considerations.[fn:16]
 
-*** The underdot
+This observation is in line with a conception of typing as a form of hierarchical control. Yamaguchi and Logan (2016) articulate a view of typing in which the translation of language into hand movements is governed by the development of "chunks." In the process of hierarchical control, something in an "outer-loop" of processing is mapped onto several "inner-loop" units (e.g., letters or keystrokes), thus chunking inner-loop units into an outer-loop unit. Learning how to efficiently type, then, is essentially the development of such chunks -- getting to the point where one input unit (e.g., a word) may be translated into a series of motor movements as a whole, without perceptual energy expended to match letters or even keystrokes individually.
 
-** Punctuation; language-specific symbols
+Repetition underlies the development of memory chunks. In the study above, the mechanisms for the formation of memory chunks were studied by varying concurrent memory load; repetition was simply assumed to be necessary in all experimental groups. The question then is what ought to be repeated so as to form memory chunks? Based on our working hypothesis, frequent words make the most logical choice.
 
-*** Question marks and semicolons
+** Repetition in learning
 
-*** A discussion of "hybrid" punctuation, and accessing normal punctuation when desired
+In some senses, multiple aspects of language learning involve the building of chunks as well -- in the case of speaking, moving from awareness of distinct phonemes (e.g. letters) to distinct patterns of phonemes (words, phrases), and in the case of reading, moving from awareness of distinct graphemes to distinct patterns of graphemes.[fn:17] However, unlike writing, which does not necessarily involve the construction of meaning (e.g., people can easily type words and patterns they are unfamiliar with), language learning as a whole revolves around not mechanical movements or patterns without specific meaning, but semantic connections. Reading and understanding ancient Greek is a step above being familiar with how the letters are arranged.
 
-{Todo: [fn:17]}
+With this being said, repetition is by no means useless in language learning. Ghazi-Saidi and Ansaldo (2017) discuss some of the effects that verbal repetition of non-native words has on the brain at the physical level. In their study, repetition induced neuroplasticity/network integration and led to improvement in behavioral responses both for people whose native language was similar to the non-native language being learned (Spanish and French), and for people whose native language was not similar to the language being learned (Persian and French).[fn:18] This result is in line with prior studies of repetition and vocabulary acquisition.
 
-* Section 5: Efficient typing practice for non-native languages
+Repetition in general learning is also well attested to; in particular, so-called "spaced repetition" with delays between exposure has been linked to positive outcomes. Dunlosky /et al./ (2013) rank "distributed practice" as one of the best learning strategies, and Kang (2016) makes a case for spaced repetition with regards to America's lagging academic performance. While language learning is certainly not the same as the declarative knowledge of history or the methodological knowledge of science, the benefits of spaced repetition are sure to present in some regard.
 
-** Introduction to efficient typing
+Here too it makes sense to focus on frequent words. Major (2008) argues strongly for the study of frequent words in the acquisition of a "core vocabulary" for Greek. After all, on an intuitive level, which word would better help you understand Greek: the one used three times every line, or the one used once every 20 pages?
 
-Basic idea: we type some key sequences far more often than other key sequences. If there is a way to greatly increase our speed of these key sequences, we should hypothetically be able to greatly increase overall typing speed. Not all practice is equal. Practice of extremely common words/n-grams is strictly superior. Using Greek as primary example.
+** Typing, language learning, and frequent words
 
-Familiar/frequent words are spelled faster.
+Given that both typing and language learning benefit from repetition, and in particular, repetition that focuses on frequent words, it makes sense to combine them where possible. The exact specifics differ somewhat (e.g., typing skill acquisition, as mediated by hierarchical control chunks, differs from the meaning-dominated learning of language in general), but they both benefit from a similar sort of time expenditure, and combining them therefore allows for an efficient use of time. Why learn how to type Greek separately from learning Greek itself, when you can do both at the same time?
 
-- http://journals.sagepub.com/doi/full/10.1080/17470218.2013.868915
+Given that both typing and language learning benefit from focusing on frequent words, it follows that whatever exercises combine the two should also focus on frequent words. However, to do this, one must first have a basis for judging the frequency of words. Thankfully, this is something that is already fairly well documented. Nation's /Learning Vocabulary in Another Language/ (2001) provides a good introduction to the concept of high-frequency words and their uses in Section 1, "High-frequency words." 
 
-Skill enhancement via memory chunking
+Languages generally follow something known as Zipf's law, which gives an approximate model for word frequency distributions. Piantadosi (2014) provides an excellent overview of the phenomenon, and discusses some of the inherent complexities (such as frequency being implicitly tied to semantics -- personal pronouns are universally common, e.g.). The basic idea is that the frequency with which a word occurs in a corpus (as a percentage of total use) is roughly proportional to the inverse of its rank, leading to a strongly right-tailed distribution. Or, to put in more plain English, the higher rank words in a corpus are used significantly more than lower rank words, with the top few words getting used more than all the words after them combined.
 
-- https://www.researchgate.net/publication/304362539_Pushing_Typists_Back_on_the_Learning_Curve_Memory_Chunking_in_the_Hierarchical_Control_of_Skilled_Typewriting
+This may be seen very clearly in the distribution of English words, summarized nicely at http://www.norvig.com/mayzner.html. Computational/statistical processing of languages is something still dominated very much by English speakers, and for this reason, English as a language has better tools in this area than many other languages. However, ancient Greek and Latin are a bit of an exception to the rule inasmuch as Perseus and TLG have made it possible for rigorous analysis across large corpora; getting good (digitized) textual samples is much of the difficulty in analyzing word usage, and this is an area that ancient Greek does not actually struggle with.
 
-- outer loop (words), and several inner loops (letter or keystrokes)
-- "Chunking of letters in words depends on the knowledge of the words; typists have to process letters in unfamiliar nonwords as separate chunks, which pushes typists back on the learning curve by preventing them from utilizing their typing skill (Yamaguchi & Logan, 2014a, 2014b)."
-- This is the main point of this entire section: development of chunks
+However, the generation of a Greek word frequency list is not as straightforward as meets the eye: words that share forms may require manual disambiguation, some words that occur very frequently in one specific work or a cluster of works are not used commonly or at all in other Greek, etc. Major (2008) undertook the effort (50% and 80% lists), and then Christopher Francese /et al./ of Dickinson College worked to create another thorough list. The list, available from the Dickinson College Commentaries site, is at http://dcc.dickinson.edu/greek-core-list, and a description of the purpose and generation is at http://dcc.dickinson.edu/vocab/core-vocabulary. This is an excellent starting place for getting initial words to focus on when learning and typing.
 
-*** Practicing based on word frequency
+** Some specific examples
 
-English heavily dominant in computational/statistical linguistics. Good sources for English:
-
-- http://www.norvig.com/mayzner.html
-- http://norvig.com/ngrams/
-- https://www.wordfrequency.info/free.asp?s=y
-- https://github.com/first20hours/google-10000-english
-
-Discussion etc. Establishment that in languages, some words are definitely used more frequently than others.
-
-How word frequency works in general: Zipf's law
-
-- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4176592/
-
-Complicated, but generalizes to all languages. Greek in fact is even more centralized in terms of its vocabulary distribution: a smaller number of lemmas make up a greater amount of total text. "Core vocabulary."
-
-- http://dcc.dickinson.edu/vocab/core-vocabulary
-- https://camws.org/cpl/cplonline/files/Majorcplonline.pdf
-
-*** Practicing based on N-gram frequency; affixes
-
-Basic idea: (derivational) morphemes rather than words as a training focus.
-
-Greek is highly inflected. Endings are an easy place to start. Substantives, verbs alike.
-
-Also:
-
-- prefixes/prepositions
-- common roots
-- suffixes
-
-
-Prepositions different from prefixes in some respects.
-
-- https://books.google.com/books?id=q6wVDAAAQBAJ&pg=PA120#v=onepage&q&f=false
-
-But overlapping ideas. Practicing prepositions helps when they are prefixes /and/ when they are standalone morphemes.
-
-{Todo: sources on prefixes, roots, suffixes. Smyth, possibly intro texts with tables? At least find something that gives basic tables that can be practiced.}
-
-
-*** Practicing the sorts of texts you are going to type
-
-Plato scholars type Plato, etc. Word choice, context-specific vocabulary. Same reasons as above: frequency effects. You'll type what you know faster.
-
-
-** Options for practicing efficient typing
-
-Very brief discussion of setting up Amphetype for Greek practice. Include several screenshots.
-
-Check decomposed/precomposed status of Major's vocab lists, DCC's vocab list, and whatever prefix/root/suffix sources come across/use. Just enough for proof of concept/starting people off. Shouldn't be any more than a page in paper.
-
-
-* Section 6: Pedagogical applications
-
-** The link between typing and learning
-
-*** Efficient use of time
-
-Basic frequency exposure effect for words. If you have to learn forms anyway, you might as well double dip by learning how to type them at the same time.
-
-As will be discussed more below, in areas that efficient typing and Greek pedagogy overlap, they can be combined to improve in both areas simultaneously. But we don't need to force connections when they don't make sense. E.g., typing does not significantly help you learn metrical scanning. No need to oversell: show the clear positives without using comparatives and superlatives. "These connections overlap nicely and allow for an efficient use of time -- statement of fact." Let people draw their own conclusions.
-
-*** Pre-made structured learning
-
-Avoid vague goals and uncategorized objectives. E.g. "learn vocabulary specific to Plato's later dialogues." By using a program that automatically structures learning by grouping it into typing lessons, you can automatically set effective goals for yourself by breaking things into byte-sized chunks. Takes the faulty human element out of it. 
-
-Psychology related to "taking the first step gets you half of the way there." Removal of barriers related to making study materials. Example of benefits of premade lessons:
-
-Let's say a student sees a form in the 1st aorist for a non-regular (i.e., non-contract) verb without predictable conjugation patterns across principle parts, and has to look it up. Then they see a different form of the same verb, but don't recognize it, and have to look it up again. One of the most frustrating aspects of being a Greek student is that you can see the same lemma in different contexts (particularly for verbs), and feel like you are not learning anything since you cannot recognize it consistently. Having to make this yourself takes time, is boring, and may discourage good studying.
-
-These things aren't strictly unique to typing practice, but combining typing and pedagogy does "work" with these benefits. Reference discussion's we have had about typing + pedagogy not needing to be /the/ end-all-be-all solution to be /an/ effective solution. See above.
-
-** Areas where typing efficiency and pedagogy line up nicely
-
-*** Learning the alphabet; practicing reading/speaking Greek; "reading by typing"
-
-- Familiarity with alphabet and sounds is a big hurdle the first few weeks. Hard to remember vocabulary before fully comfortable with alphabet. (Research of possible? Definitely true for me for both Greek and Hebrew, and others I've talked to).
-- Learn how to type letters while learning about their sounds, etc. Creating form (orthography), sound (phonetics), and motor (typing finger position) associations.
--	Practicing typing in general by pulling in Greek texts from Perseus as typing training material. Students could be encouraged to also read the texts out loud as they type them. (Not necessarily understanding the Greek, but getting to see how it sounds and flows).
+Now that the general reasoning has been laid out, it will be helpful to examine several examples of combining typing and Greek language learning. Going through the word frequency list without additional structure is certainly a possibility, but it will be of benefit for beginning students to focus on those words that line up with what they are currently learning. 
 
 *** Learning standard declensions and conjugations
 
-- 1st, 2nd, 3rd declension nouns. All three genders.
-- Adjectives
-- Participles
-- Verbs (omega verbs, contract verbs, mi-verbs, etc.)
+Beginning students of Greek have many paradigms to keep track of. For example, by the end of chapter four of /Athenaze Book I/, students are expected to know the basic forms for omega verbs and epsilon contract verbs (including the present infinitives and imperatives), and 1st and 2nd declension nouns of the regular type (i.e., the masculine/neuter 2nd declension, and the four variations of the feminine 1st declension). Following chapters add alpha contract verbs, the middle voice, 3rd declension nouns, participles, aorist and future forms... etc.
 
-This would be one of the biggest pedagogical applications: learn how to type all the basic language structures as you learn the forms for them. Typing them forces you to see them, and gives you the structured practice.
+Without working on the forms bit by bit, it is quite an informational deluge. However, it is easy to practice forms of a specific type to cement the paradigms: usually introductory texts provide a reasonable sampling of vocabulary relating to the focus of each chapter (e.g., chapter 4 of /Athenaze Book I/, mentioned above, focuses on 1st declension forms, so includes words like κρήνη, /spring/, and ὑδρία, /water jar/, etc.), and the DCC vocabulary list enables filtering by part of speech (e.g., 1st declension nouns).
 
-*** Learning other common paradigms
+Applying the typing + learning paradigm argued for above, students can simply practice typing 1st declension forms when they are learning the vocabulary. In so doing, the patterns common to these forms (e.g.,-ης, -ῃ, -ην, -ῶν, -αις, -ας) will be repeated, and typing "chunks" can form, with the idea that eventually students will be able to think "dative plural" and type "αις" automatically.
 
-Some things have to be brute forced. Irregular verbs, relative pronouns, definite articles, indefinite/interrogative pronouns, etc.
+*** Learning common paradigms and irregular forms
 
-Similar principles for these.
+Aside from nouns and verbs that are declined and conjugated according to the regular patterns, Greek (like most languages) has forms that you simply have to learn: the definite article, εἰμί (the verb of being), the personal, relative, and indefinite/interrogative pronouns, and so forth.
 
-*** Learning the accentuation system
+Just like typing 1st declension nouns when learning the first declension, typing these paradigms when learning them enables "double dipping" -- using the same activity to practice typing and learn Greek at the same time. As before, nothing special is being done (/per se/): while learning, you simply practice typing the forms, and benefit in both areas.
 
-- Practicing the typing of accents while learning about the rule of contonation, morae, and recessive accents.
+*** Learning the accentuation system and contraction rules
 
-*** Morphological analysis and generative vocabulary
+Accents are typically introduced early on in the learning process (/Athenaze Book I/, e.g., places them in chapter two), and are a form of text entry markedly different than that which English speakers are used to (since English itself has no diacritics). Rules for contraction (particularly those relating to epsilon contract verbs) are also usually introduced early.
 
-- Prefixes, suffixes, and roots. Developing an eye for picking up meanings automatically, simply by knowing what different parts of the word mean in general.
+Practicing the rule of contonation, the concept of /morae/, and recessive accents by typing accents in the right place is a good way to combine typing Greek (the accents, especially) and learning Greek. It is also useful to practice typing contracted forms when they are being learned. Again, all that is required is that one types what one is learning.
 
-*** Vocabulary lists by frequency for specific domains
+** Qualifications regarding typing and language learning via repetition
 
-Past core vocabulary, domain specific vocabulary can be useful
+The above discussion was in no way meant to be comprehensive. One could easily come up with other categories of words to structure a combined typing/learning approach around. Prepositions, for example, are frequent words, but also commonly occur as prefixes, and lend themselves well to studying them as a group.
 
-*** Practicing typing specific groups of texts
+This paper does not address the relative merit of repetition in language learning (as compared to inferential learning, say), nor does it attempt to define what "good repetition" (e.g., mindful, engaged, context-sensitive) and "bad repetition" (e.g., mindless, mechanical, rote) are. A good comparison of vocabulary acquisition techniques may be found in Gu /et al./ (1996). Context is definitely important in learning vocabulary. This paper also does not address whether or not combining typing with learning is better than (or worse than) studying without a typing component. For example: does associating hand movements with words through typing increase recall by involving more of the senses? Or does it impose a higher cognitive load that makes it harder to encode information into long-term memory?
 
-Like vocabulary but more general. Frequent clusters/combinations of words, and "feel" for authors.
+Finally, this section is by its very nature focused on pedagogy, making it less relevant for those who are already experienced in Greek. Experienced Greek students and scholars may not be learning much Greek as they practice typing it, but it still benefits them to type common words (as opposed less common words) for practice, for the same reasons adduced above.
 
-** How different levels of Greek knowledge changes the relationship
+* Section 6: Concluding Remarks
 
-*** Beginning students getting more inherent benefit
+** Who should make the switch to this system? Is this project really worthwhile?
 
-- Beginning students who need to learn forms etc. have more inherent overlap between typing efficiency and pedagogy. Getting the 1st declension noun endings into typing muscle memory for experienced Greek scholars has less inherent benefit than the same exercise for people new to Greek, because the latter both learn the endings and become mechanically adept at entering them, while the former are only gaining the net benefit of becoming mechanically adept at entering them.
-- Does not mean that experienced Greek scholars should not practice by endings (frequency considerations etc. from above -- still fastest way to improve speed and whatnot), but simply that they do not get the same degree of overlapping benefits as people newer to Greek.
-- Never hurts to review endings however
+People who are already accustomed to typing on a particular Greek layout, having been doing it for many years, are probably best suited to sticking with what is comfortable and familiar. There is no guarantee that the time spent learning the new layout and its system of handling diacritics will ever pay for itself in more efficient entry over time.
 
-*** Pedagogy benefits that do not fade as much with experience
+However, people less wedded to a particular system may find benefit in at least trying this project's layout to see if it would be an easy transition. Particularly for those using layouts that have unintuitive diacritics and no support for keyboard shortcuts, this layout might provide solutions to otherwise unadressed usability concerns.
 
-Last three areas of overlap have longer term applicability:
+People new to typing Greek do not have any considerations of opportunity cost, and should thus choose the most efficient layout that fits their personal tastes.
 
-- generative vocabulary always helpful
-- domain-specific vocabulary
-- typing specific texts: exposure as important, context, etc.
+** Moving forward with more languages and options
 
-* Section 7: Concluding remarks
+This project current supports English, common Latin-script languages, and Greek. In the future, additional languages such as Hebrew, Russian, and Arabic could be added to make the project relevant to a wider group of people. There are many other areas of possible research:
 
-** Specific implementation benefits
+- Creating and documenting programs to create frequency tables for words
+- Creating and documenting programs for morphological analysis based on common N-grams (prefixes and suffixes, e.g.)
+- Creating and documenting programs to automatically download and format practice texts from places like Project Gutenberg, Perseus, etc. to use with typing programs
+- Creating and documenting programs to more directly aid in computer-assisted language learning (CALL) related to typing
+- Etc.
 
-*** Who should make the switch to this system? Is this project really worthwhile?
+* Survey analysis
 
-*** The low opportunity cost for the next generation
+** Years studied
 
-** Moving forward with more languages
+[[./images/years-studied.PNG]]
 
-*** Current project: focus on Greek with Hebrew as a foil
+** Satisfaction
 
-*** Possibility to expand much further
+[[./images/satisfaction.PNG]]
 
-** Suggestions for further research
+** Homophonic layouts
 
-*** Corpus generation
+[[./images/homophonic.PNG]]
 
-*** Morphological analysis
+** Entry Methods
 
-*** Graphical frontends for customization
+[[./images/entry-methods.PNG]]
 
-*** System APIs for keystream manipulations /across platforms/
+** Usage distribution of entry methods
 
-*** AI autograders for language exercises
+[[./images/entry-method-usage-distribution.PNG]]
 
+** Typing frequency
+
+[[./images/typing-frequency.PNG]]
+
+** Typing Quantity
+
+[[./images/typing-quantity.PNG]]
+
+** Diacritic entry preferences
+
+[[./images/diacritic-entry-preferences.PNG]]
+
+** Diacritic entry order: writing
+
+[[./images/diacritic-entry-order-writing.PNG]]
+
+** Diacritic entry order: typing
+
+[[./images/diacritic-entry-order-typing.PNG]]
+
+** Ranking of possible features
+
+[[./images/ranking-of-possible-features.PNG]]
 
 
 * Works Cited
@@ -859,7 +813,28 @@ E. Rumelhart, David & Norman, Donald. (1982). Simulating a Skilled Typist: A Stu
 
 Allen, W. Sidney. 1999. Vox Graeca: a guide to the pronunciation of classical Greek. Cambridge [Cambridgeshire]: Cambridge University Press. \\
 
-Verbrugghe, Gerald P. "Transliteration or Transcription of Greek." The Classical World 92, no. 6 (1999): 499-511. doi:10.2307/4352343.
+Verbrugghe, Gerald P. "Transliteration or Transcription of Greek." The Classical World 92, no. 6 (1999): 499-511. doi:10.2307/4352343. \\
+
+Shi Min Chua and Susan J. Rickard Liow. "The Locus of Word Frequency Effects in Skilled Spelling-to-Dictation."
+Quarterly Journal of Experimental Psychology. Vol 67, Issue 9, pp. 1720 - 1741. First Published September 1, 2014. \\
+
+Bannard, Colin & Matthews, Danielle. (2008). Stored Word Sequences in Language Learning The Effect of Familiarity on Children's Repetition of Four-Word Combinations. Psychological science. 19. 241-8. 10.1111/j.1467-9280.2008.02075.x. \\
+
+Yamaguchi, Motonori & D Logan, Gordon. (2016). Pushing Typists Back on the Learning Curve: Memory Chunking in the Hierarchical Control of Skilled Typewriting. Journal of experimental psychology. Learning, memory, and cognition. 42. 10.1037/xlm0000288. \\
+
+Ghazi-Saidi L and Ansaldo AI (2017) Second Language Word Learning through Repetition and Imitation: Functional Networks as a Function of Learning Phase and Language Distance. Front. Hum. Neurosci. 11:463. doi: 10.3389/fnhum.2017.00463 \\
+
+Dunlosky, J., Rawson, K. A., Marsh, E. J., Nathan, M. J., & Willingham, D. T. (2013). Improving students’ learning with effective learning techniques: Promising directions from cognitive and educational psychology. Psychological Science in the Public Interest, 14, 4-58 \\
+
+Sean HK Kang. 2016. Spaced Repetition Promotes Efficient and Effective Learning: Policy Implications for Instruction. Policy Insights from the Behavioral and Brain Sciences, Vol. 3, 1 (2016), 12--19. \\
+
+Major, Wilfred E. "It’s Not the Size, It’s the Frequency: The Value of Using a Core Vocabulary in Beginning and Intermediate Greek." Winter 2008. \\
+
+Nation, I. (2001). Learning Vocabulary in Another Language (Cambridge Applied Linguistics). Cambridge: Cambridge University Press. doi:10.1017/CBO9781139524759
+
+Piantadosi, Steven T. “Zipf’s Word Frequency Law in Natural Language: A Critical Review and Future Directions.” Psychonomic bulletin & review 21.5 (2014): 1112–1130. \\
+
+Gu, Peter & Keith Johnson, Robert. (1996). Vocabulary Learning Strategies and Language Learning Outcomes. Language Learning. 46. 643 - 679. 10.1111/j.1467-1770.1996.tb01355.x. \\
 
 * Footnotes
 
@@ -893,5 +868,9 @@ Verbrugghe, Gerald P. "Transliteration or Transcription of Greek." The Classical
 
 [fn:15] For convenience, even those punctuation keys that don't "need" to be prefixed will still work with the prefix.
 
-[fn:17] Metrical marks, special numerals, drachma symbol
+[fn:16] Many more related studies may be found in the discussions and bibliographies of both of the cited sources.
+
+[fn:17] An excellent (if informal) introduction to the cognitive processing present during reading is https://www.mrc-cbu.cam.ac.uk/people/matt.davis/cmabridge/
+
+[fn:18] Another interesting observation of the study is that more distant languages require a higher cognitive load to achieve the same effects. This isn't exactly surprising, but it does help explain the difficulty many students have with more "foreign" languages (e.g., those with completely new alphabets and sentence structure) -- even aside from less obvious cognates and shared vocabulary, the languages simply require more from the learner inherently.
 
