@@ -248,3 +248,171 @@ Last three areas of overlap have longer term applicability:
 - generative vocabulary always helpful
 - domain-specific vocabulary
 - typing specific texts: exposure as important, context, etc.
+
+** benefits of open source
+
+Of course, open source software has some other benefits as well. Open source software is free and relatively more stable than close sourced software. There is never a guarantee of long-term stability with programs that do not publish their source code, since if the projects stop getting maintained (a company goes out of business, e.g., or the primary developer dies suddenly), nobody else can pick them up and keep the code running smoothly on new hardware and/or operating system environments. This is actually a somewhat greater concern for projects of this sort: since programs dealing with keyboard layouts must depend on system calls to interface with keyboards, they are necessarily less insulated from the operating system environment than many other kinds of programs. In other words, if an operating system changes one of its low-level libraries for handling streams of keys, it will likely break a program dealing with keyboard layouts, while a browser or music player might still work just fine.
+
+
+** Why this paper?
+
+*** Justifying design choices
+
+This paper is intended to fill the void between low level implementation details (should arrays or strings be used to send keys? Global variables or classes?) and the end result of fully functioning keyboard layouts.
+
+I personally find it extremely frustrating when design decisions have no specific thought process behind them. For this reason I am attempting to document things in such a way that I would be satisfied as a user of this software, if I were not the one designing it in the first place. The placement of letter keys, the choice of particular punctuation keys for diacritics, the mechanism for switching languages, the process of entering "normal" punctuation when on a non-native layer; these are the sorts of design decisions that this paper sets out to explain.
+
+The idea is to have something to point to when someone asks, "but why?" Rather than saying "just because" or trying to come up with rationalizations /ex post facto/, attempting to rigorously justify everything from the get-go should lead to a project wherein there are not an abundance of arbitrary program characteristics. At least in theory.
+
+*** Creating a starting point for people that may have different opinions than myself
+
+With all this being said, this paper is certainly not attempting to close discussion on these topics or be the last word on design factors. At the time of writing, I have worked with Greek for approximately two years, and any sort of serious coding for about as long. I am sure one could easily find people more qualified than myself for virtually any aspect of this project, and also for all of them put together.
+
+Instead, the idea is start a conversation about these things in a more formal manner. I am certain that Classicists, for example, are opinionated about how they wish to type Greek, and things that drive them crazy about current options that let them type Greek. If this paper can present one rationale that can be critiqued and examined, and the code behind this project is designed in such a way that it is sufficiently flexible, it should be possible in the future for this project to come to encompass multiple points of view, and circle in on an increasingly sophisticated understanding of the design variables in play.
+
+{Todo: maybe mention survey and results here?}
+
+
+
+** Multilingual keyboard layout design
+
+*** Letters
+
+For languages with alphabets (as opposed to syllabaries or abjads), keyboard layouts must provide a means for typing all of the letters. English has 26 letters, but other languages often have more or less.
+
+Letters may be further subdivided into vowels and consonants. Vowels are typically the more interesting variety inasmuch as most markup (such as accents) revolves around vowels, and therefore they typically require more work to integrate into the layout. For example, Greek vowels may take accents, breathings, iota subscripts, and so forth, while Greek consonants (with the exception of rho) take none of these things. This means that designers do not need to keep track of consonants as closely as vowels, generally speaking.
+
+Many languages have uppercase and lowercase letterforms, but not all languages do. Hebrew, for example, does not have any casing distinctions. In general, implementing uppercase forms involves keeping track of shift state, but not too much extra work other than that.
+
+*** Context-specific/alternate letter forms
+
+Some languages have letters that change their form based upon their position in words. For example, word-final sigma in Greek changes forms, and many letters in Hebrew and Arabic also exhibit this behavior.
+
+Semantically, the letter is still the same, and should not therefore be thought of as a new or different entity. However, implementing positional letterforms does require some extra work, particularly in terms of identifying word boundaries. One approach to handling final forms is replacing the base form with the final form when and only when a key signifying a word boundary (such as Space or .,?!) is pressed immediately following a letter with final form behavior.
+
+In addition to final forms, some languages have alternate forms of letters. In Hebrew, for example, some of the so-called Begadkephat letters (tav, dalet, gimel) have alternate forms for when they are aspirated, while others (bet, khaf) fully change their phonetic value through an alternate form. The line here can be a bit blurred between these alternate forms (which use a mark called a /dagesh/) and letters with diacritics. The dagesh can be used with other Hebrew consonants to double phonetic value, for example, which could be considered a separate use. But the same mark is used.
+
+For simplicity in programming, I recommend structuring development around /program features/ (for example, the ability add a dagesh to things... alternate form or no) rather than /language features/ (for example, working on developing the capacity to support all possible sounds in a language, including aspirated forms and those that optionally change their phonetic value). This allows the designer of a keyboard layout to focus on one thing at a time, rather than trying to organize development around language features that may not cleanly map onto structured commits. As long as pains are taken not to forget any essential language features, this approach is easier on the programmers while accomplishing the same goals.
+
+*** Mandatory markup: accents, vowel points, etc.
+
+Most languages have some system of diacritical marks that are considered mandatory, diacritical marks that are essentially "part of the language." For example, Spanish and Italian have accents, Hebrew has vowel points, and Greek has accents, breathing marks, and the iota subscript.
+
+These mandatory diacritical marks must be present for language text to be considered correct, and are often used frequently. For this reason, they require more thought in placement, since an inconvenient location or entry method can render text entry for the entire language unpleasant.
+
+*** Additional markup: vowel quantity, cantillation marks, etc.
+
+Some languages have another set of markup symbols used in specific circumstances or by specific groups of people. Good examples of symbols in this category are diacritics that indicate vowel quantity: the macron and breve are not "required" in Latin-script languages, but commonly show up in dictionaries and grammar books to help with pronunciation.
+
+There are also other domain-specific symbols, depending on the language. Hebrew scholars working with the Masoretic text in any capacity will inevitably have to deal with the cantillation marks (the \texthebrew{טעמי המקרא}, /ta'amei ha-mikra/), used in ritual chanting of the Tanakh. Greek and Latin scholars may wish to use metrical symbols to mark dactyls, spondees, and caesurae when scanning ancient epics in dactylic hexameter. Etc.
+
+Implementation of these additional markup symbols is in some sense optional, inasmuch as they are used only by certain groups of people. However, it is best to think of them as features that should be included eventually for robustness, even if they do not make it into the first implementation.
+
+*** Punctuation; language-specific symbols
+
+While the dominance of English as a computer language has served to standardize international punctuation to a certain extent, some languages still have specific punctuation that is used in lieu of, say, the question mark. Greek, for example, uses a semicolon to indicate questions, and a dot in the middle of the line to indicate a break in thought (i.e., to indicate a semicolon).
+
+The situation is somewhat complex in that "casual typing" of many languages has led to a situation in which punctuation systems are mixed. It is not uncommon to see Greek imperatives followed by exclamation points in introductory texts, for example, even though this has no precedent in ancient sources.
+
+Numerals are another interesting case. Arabic numerals (0-9) are very much the international standard nowadays, but many languages used to use different numerical systems with different character sets (sometimes some subset of the alphabet, as with Hebrew), which may have special numerical symbols.
+
+Finally, in modern contexts, most foreign currencies have special symbols. It is convenient to be able to access these without complicated and abstruse key sequences or combinations.
+
+** Unicode
+
+*** History
+
+Handling languages with non-Latin alphabets has long been a topic of conversation among people working with computer input systems. Due to historical reasons, computers have developed very much around English and the ASCII character set, with other alphabets being second class citizens.
+
+As computers developed and people moved away from typewriters (which had significant physical limitations that made representing many complex scripts difficult), efforts were undertaken to standardize language input and robustly handle foreign alphabets, even their mixing with English. For example, Knisbacher et al. (1989) discuss Hebrew input on early PCs, and Selden (1981) summarizes an early effort to standardize how Arabic was handled on computers.
+
+However, early systems suffered from problems that made them somewhat less than optimal: many systems made it impossible to mix English and a foreign text, foreign text typed in one system often was not portable to other systems, etc. Mastronarde (2008) discusses such problems in the first few pages of his discussion of pre-Unicode options for Greek input.
+
+As memory and storage sizes have increased, it has become acceptable to use multiple bytes for the storage of text characters, and thus much easier to handle all of the characters necessary for multiple complex alphabets. Unicode attempts to solve the challenges of dealing with multiple languages by defining values that map to characters across different numeric ranges. In this way, Unicode allows for multiple languages to be typed without conflict, since the characters are all being represented by different numbers in memory.
+
+*** Scope and purpose; peculiarities
+
+Unicode is theoretically laid out in terms of "blocks" for different language sections. Unfortunately, due to various considerations (politics, lack of foresight, an initial project scope that did not encompass historical/uncommon characters), it is not uncommon for characters of the same language to be spread out across several numerical ranges. The initial Greek block, for example is sufficient for monotonic Greek accentuation, but leaves a lot to be desired in terms of polytonic Greek. The Greek extended block helps in the area of polytonic Greek, but still leaves many uncommon or regional characters without official support.
+
+Unicode seeks, in some sense, to be the "kitchen-sink" solution. When you type Unicode text in a document with encoding such as UTF-8, you have the capability of using all of the 1-million-plus characters together (a decidedly good thing). However, the nature of its all-encompassing haphazard growth has made it somewhat more difficult to understand from a language-centric perspective (e.g., you are using two or three of the hundreds of possible languages, and have no need for the rest), and has caused the full encoding to include some puzzling, kludgy behavior.
+
+A good resource discussing such Unicode peculiarities from the Greek side of things is Nick Nicholas' page on Greek and Unicode: [[http://www.opoudjis.net/unicode/unicode.html]]. Many Unicode choices that seem strange at first glance may still seem strange at second glance too, but typically there are reasons for why things are the way they are (even if they are unsatisfying and historical).
+
+
+** Fonts
+
+*** Using the same font for native languages and non-native languages
+
+One final thing to note about fonts is their interaction with publishing systems. Depending on your particular application choices (e.g., Microsoft Word, LaTeX, InDesign), it may or may not be possible to have custom font faces on a per-language basis. That is, without any additional work on your part, can you have text in, e.g., Greek, show up on screen and print in an entirely different font than the English text?
+
+An argument in favor of certain workflows is the customization options they give you. For example, I currently write in Emacs' Org mode, and export to PDF via LaTeX. I can tell Emacs to use different fonts depending on the character set (to have my preferred fonts on screen when I am writing in foreign scripts), and tell LaTeX to use entirely different fonts for different languages when publishing, all without having to manually change fonts every time I switch a language.
+
+However, for most people, setting up something like the above is a big headache. It is easy, however, to use a Unicode font that supports multiple character sets, including, for example, the Latin character block and the Greek blocks. Writing in a font like Cardo, New Athena Unicode, Gentium Plus, SBL BibLit, etc. lets you write both English and Greek without having to change fonts, and works this way no matter what application you use the font in, as long as said application supports Unicode. The broader support a particular font has, the more different languages you can type in that font without having to worry about font switching.
+
+*** Private Use Areas
+
+One very straightforward way of handling edge cases is to create special precomposed characters for them so that combining character stacking never even comes into the picture. Unicode supports the use of so-called "private use areas" (PUAs)-- ranges of Unicode codepoints (E000 - F8FF and planes 15 and 16) that are purposely left undefined by Unicode to allow for organizations/other groups to create non-standard character definitions.[fn:8]
+
+The technical details section of the GreekKeys site ([[http://apagreekkeys.org/technicalDetails.html]]) discusses the use of PUAs for special Greek characters by a collection of Unicode fonts including GreekKeys's New Athena Unicode, Juan-José Marcos' Alphabetum, David Perry's Cardo, and others. The page also includes a link to  Juan-José Marcos' proposal for the agreement: [[http://apagreekkeys.org/pdfs/PUA_coordination_usage.pdf]]. This pseudo-standard allows for many characters Unicode does not directly support to be typed by Greek scholars who wish to use them. New Athena Unicode also supports some additional characters in the PUAs (as mentioned in the above link) that the other fonts may not.
+
+For people willing to only view and publish documents with fonts that follow such "gentlemen's agreements" for PUA characters, solutions like this may be extremely useful. However, using PUA points is not at all portable, since if someone were to open a document that used PUA code points with a font that did not define the PUA code points (or perhaps even worse, defined them with entirely different characters), the text would not display correctly.
+
+** sane defaults, customization
+
+*** Installing and running the program
+
+Aside from installing a language dependency (AutoHotkey), which is unfortunately unavoidable, installing and running this project is very straightforward. You download the zip file containing the program, unzip it, and double click on the remapping program to run it.
+
+Assuming you are using QWERTY, you do /not/ have to change anything about your current keyboard, operating system keyboard layout, word processing software, and so on. If you are not using QWERTY, see §3.2, below.
+
+You do not need to touch any system configuration like Control Panel, and the program is portable (as long as you have AutoHotkey, which can also be installed portably -- see the zip file on [[https://www.autohotkey.com/download/]])
+
+* Unicode language layers project
+
+*** Intuitive backspacing behavior
+
+When typing normal text, the Backspace key deletes the last character; this is what people expect it to do. However, unless handled by software, when combining characters are used in decomposed Unicode, Backspace will only delete the last diacritic. Not only is this surprising for people who have never had to deal with it before, but it also makes backspacing full vowels inconvenient.
+
+This project enables the use of Backspace as one would use it normally:. Removing individual diacritics (see the section immediately preceding this) is still possible, but is accomplished by pressing the diacritic key for the already-present diacritic that you wish to remove.
+
+*** Quiet error checking and handling
+
+This project attempts to catch and handle errors as they happen. If when adding a diacritic you would enter an illegal diacritic combination (in Greek, epsilon or omicron + circumflex, e.g.), the program simply acts as if you had never pressed the offending diacritic key: the state of the program is reset to be exactly as it was before the new key was pressed. Depending on the diacritics in question, the program will also automatically overwrite mutually exclusive diacritics (e.g., a macron and a circumflex for Greek vowels -- a circumflex indicates a vowel is long, making a macron unnecessary), so that there is a never a circumstance in which you add both to a letter, then get surprised when you remove one only to find the other present even though it wasn't showing before. This makes the diacritics fully "what you see is what you get" (WYSIWYG): you will never have to face a situation in which there are diacritics associated with a letter (through the program state) that are not currently showing.
+
+Additionally, if you try and enter an illegal key sequence with the language leader key (e.g., in the present implementation, something like CapsLock + Space), the program will simply exit the language leader state and act as if nothing happened.
+
+The benefit of doing these things is that it minimizes the amount of extra work you have to do if you realize you've done something wrong, and prevents unexpected behavior. If such handling was not present, you might, for example:
+
+- Try to add a diaeresis to an iota with rough breathing, only to have it come back and act strangely later. Since the diaeresis is never word initial in Greek (being used to indicate that a successive vowel is pronounced separately rather than as a diphthong), and rough breathing is always word initial, this combination is not valid. But if it were not handled appropriately, it would be possible to either enter it as if it were valid (bad), or show only the rough breathing or diaeresis but not both, even though both would be present in the program logic, and would show if the other were removed (also bad). The only way to avoid "surprising" behavior is to simply "eat" the keypress of a diacritic if it would lead to an invalid combination.
+- Accidentally type CapsLock + r (currently undefined), intending instead to type CapsLock + e (switch to English mode). If you typed a g after this (thinking you were in English mode), and no error-handling had been done, you would instead switch to Greek mode since you would have never left the language leader state, and CapsLock + g switches to Greek mode.
+- Etc.
+
+This sort of thing admittedly isn't perfect (what if you realized you pressed CapsLock + r instead of CapsLock + e /before/ you typed something else? Now due to the error handling you have to press CapsLock again before you can press e to switch to English), but it does seek to minimize the amount of "surprising" behavior that occurs, in line with the principle of least astonishment.
+
+*** Areas that need work
+
+This project is still very young, and I am still inexperienced as a programmer, objectively speaking. Moreover, the time constraints on this project have forced a focus on "central features" over less essential but more user-targeted features. Thus, while I hope it is clear from the above discussion that time has been spent trying to design a program that has a good default configuration and is easy to use,
+there are still many areas where this project falls short of what it could be. I have collected a list of the most important features (in no particular order) that would improve the project with regards to default behavior and ease of use. It is hard to say how many of these will ever be implemented, but on a philosophical level, they would make the project better in these areas.
+
+1. A more effortless installation and updating process. This might include offering an installer that packages AutoHotkey directly with the project code, and automatically extracts everything. The installer could also allow for the creation of a desktop icon and start menu shortcut, give the option of starting the program upon system startup (so that it would never need to be run manually), and automatically check for program updates.
+2. More zero-setup default layer choices. For example, supporting Dvorak, Colemak, QWERTZ, AZERTY, and BÉPO out of the box.
+3. Supporting the PUA Greek codepoints (see §2.3.2) for things like precomposed macrons with accents, epsilons and omicrons with circumflexes, and so forth. This would give wider default Greek support for more usage edge cases.
+4. On the fly customization of settings with control sequences (hotstrings). For example setting the Unicode send type with a key sequence like =\precomposed{Enter}= or =\decomposed{Enter}= instead of having to update it through a config file or menu.
+5. On-screen keyboard graphics for the currently active keyboard layout and layer. For an example of what this might look like, see the [[http://pkl.sourceforge.net/][Portable Keyboard Layout]] project.[fn:10] If not this, it would be helpful to at least have some visual indicator of what language you are currently in.
+6. GUI customization of program options (as opposed to editing the config file by hand, which some users may find intimidating).
+7. GUI customization of keyboard layouts/language layers, as opposed to having to deal with the code directly for changing things.
+8. If possible to implement in a program-agnostic way (i.e., separate from some specific text-editor or word-processing application), supporting diacritic and backspacing behavior regardless of location in a text field. Currently you cannot move to a previously typed letter and add diacritics to it, for example.[fn:11] If not possible, at least supporting a backspacing buffer to maintain intelligent backspacing for longer intervals than single characters, which is all that is currently supported.
+
+
+
+
+* Works cited
+
+Knisbacher, Jeffry M., and \texthebrew{הכתב העברי}, "DESIGN CONSIDERATIONS IN THE USE OF HEBREW AND OTHER NON-ROMAN SCRIPTS ON IBM-COMPATIBLE COMPUTERS." Proceedings of the World Congress of Jewish Studies (1989): 61-68. http://www.jstor.org/stable/23535305. \\
+
+Deemer, Selden. "REPORT ON THE ARABIC LANGUAGE IN COMPUTERS SYMPOSIUM." MELA Notes, no. 23 (1981): 11-13. http://www.jstor.org/stable/29785130. \\
+
+
+* Footnotes
+
+[fn:8] A good FAQ on the characters defined in these ranges ("private use characters") can be found on the Unicode website: [[https://www.unicode.org/faq/private_use.html]].
