@@ -41,6 +41,11 @@ Note that I did not include the UGA proxy links for JSTOR pages that UGA has acc
 - Motion capturing and analysis. Interesting in that it focuses on people not trained in the traditional 10-keys system.
 - Seems to arrive at similar conclusions to studies that focus on that population though: preparing upcoming keystrokes while typing current ones and low travel distance ("global hand motion") are both said to be predictors of high performance.
 
+*** [[http://www.psy.vanderbilt.edu/courses/psy216/KEYBOARD.HTM][Keyboarding]]
+
+- More informal source
+- Technical notes on keyboarding from some psychology class. Not very detailed (it's in outline form), but a good starting place nonetheless.
+
 ** Skill acquisition in typing
 
 *** [[https://www.researchgate.net/publication/304362539_Pushing_Typists_Back_on_the_Learning_Curve_Memory_Chunking_in_the_Hierarchical_Control_of_Skilled_Typewriting][Pushing Typists Back on the Learning Curve: Memory Chunking in the Hierarchical Control of Skilled Typewriting]]
@@ -110,7 +115,17 @@ Note that I did not include the UGA proxy links for JSTOR pages that UGA has acc
 - By one of the people associated with TLG
 - Opinionated
 
+*** [[http://www.epea.gr/content/content/files/unicode.pdf][Word Processing In Classical Languages]]
+
+- Detailed discussion of Latin, Greek, and Germanic with Unicode, Microsoft Word, etc.
+- Long
+
 ** Pedagogy
+
+*** [[http://tcl.camws.org/sites/default/files/TCL_I_i_67-108_Clark_0.pdf][The 80% Rule: Greek Vocabulary in Popular Textbooks]]
+
+- Discussion of core vocabulary as a pedagogical tool.
+- Analyzes vocabulary that popular introductory textbooks use.
 
 *** [[https://www.jstor.org/stable/24147886][Eliminating the Keyboard: A New Method for Exotic L2 Answer Entry, Feedback, and Revision]]
 
