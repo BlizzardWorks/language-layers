@@ -1,24 +1,17 @@
 * About this project
 
-This project will seek to create efficient, stable, and easy-to-modify keyboard layouts for Polytonic Greek and vowel-pointed Hebrew. This endeavor is being sponsored by the University of Georgia's Center for Undergraduate Research Opportunities (CURO) through a summer fellowship. (Thanks CURO!).
+Over Summer 2018, the Center for Undergraduate Research Opportunities (CURO) at the University of Georgia sponsored my research into creating an efficient, stable, and easy-to-modify keyboard layout for Polytonic Greek. Thanks CURO!
 
-A research paper detailing the design process will be a priority of this project in addition to software that creates the layouts themselves.
+A fairly extensive write-up of design decisions and justifications was part of this initial summer run, accessible [[https://www.steventammen.com/writings/better-unicode-text-entry-for-ancient-greek.pdf][on my website as as a PDF]]. People interested in the development of the paper over time may also check out the Org files in the [[https://github.com/BlizzardWorks/language-layers/tree/master/docs][docs/ directory]], since the entire writing process was version-controlled. This document also contains some discussion of typing as a cognitive process relating to language, and its (possible) relationship to language learning.
 
-* Scope and project goals
+After Greek and Latin-script functionality was completed over the summer, this project has been mostly frozen. As a triple major (Computer Science, Greek, Classics), I have been too busy to realize other project goals, such as extending the idea to other alphabets (the shortlist is Hebrew, Russian, and Farsi), enabling GUI configuration of layouts (partially completed in [[https://devpost.com/software/keyboard-fu][a hackathon entry]] Spring 2019, [[https://github.com/BlizzardWorks/keys][with work ongoing]]), supporting non-standard physical keyboards, like the [[https://kinesis-ergo.com/shop/advantage2-lfq/][Kinesis Advantage Ergonomic Keyboard]], and supporting Linux and macOS by finding some stable alternatives to AutoHotkey for these platforms.
 
-At this point in the process (07/06/18), we are far enough along that I can nail down more concretely what likely will and will not materialize:
-
-- There will not be any support for *Nix in the near future.
-- There will not be any support for GUI configuration in the near future. Settings may be changed in the config file (located [[https://github.com/StevenTammen/unicode-language-layers/blob/master/config.ini][here]] in the repository).
-- A Hebrew implementation will happen, but it will not be as thorough or complete as the now completed Greek, due to time constraints.
-- While a discussion of vocabulary frequency/corpus generation, morphological analysis, and pedagogy/applications will factor into the second half of the paper, there likely will not be any actual code targeting these areas.
-
-After this summer I will continue to work on this project, but cannot make any promises. I do have people I can tap for help with Farsi and Russian, in the longer term.
+Some of these other goals may be realized eventually, particularly after I graduate and have more free time.
 
 * Installation Instructions
 
 1. Install AutoHotkey. The download page for this software is [[https://autohotkey.com/download/][here]]; I recommend clicking on the big blue button that says "Download AutoHotkey Installer," and following the instructions in the setup program.
-2. Download the latest version of this project from the [[https://www.steventammen.com/projects/unicode-language-layers/][project page on my website]]. Right click on the downloaded file and select "Extract all." It does not matter where you unzip the files to, as long as AutoHotkey is installed.
+2. Download the latest version of this project from the [[https://www.steventammen.com/projects/language-layers/][project page on my website]]. Right click on the downloaded file and select "Extract all." It does not matter where you unzip the files to, as long as AutoHotkey is installed.
 3. Double click on the file called "remap.ahk" to launch the program. By default, the program starts out in English mode, sending precomposed Unicode where possible. You can exit the program by right clicking the AutoHotkey icon for the script in the [[https://www.computerhope.com/jargon/n/notiarea.htm][system tray]] and selecting "Exit."
 
 (If you are comfortable with Git you can also install this project from the command line with the command =git clone --recursive https://github.com/StevenTammen/unicode-language-layers.git=).
